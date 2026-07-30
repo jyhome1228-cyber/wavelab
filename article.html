@@ -3,52 +3,162 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="디자인, 기획, 개발, 브랜딩, 비즈니스와 커리어에 바로 적용할 수 있는 WAVELAB Article">
-  <meta name="theme-color" content="#19191b">
+  <meta name="description" content="디자인, 기획, 개발, 브랜딩과 비즈니스를 연결하는 WAVELAB 아티클">
+  <meta name="theme-color" content="#1b1b1d">
   <title>아티클 — WAVELAB</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="article.css">
 </head>
-<body class="dark-page article-list-page">
+<body>
   <a class="skip-link" href="#main">본문 바로가기</a>
-  <header data-site-header></header>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mark" href="index.html" aria-label="WAVELAB 홈">✦</a>
+
+      <nav class="desktop-nav" aria-label="주요 메뉴">
+        <a href="magazine.html">매거진</a>
+        <a class="is-active" href="article.html" aria-current="page">아티클</a>
+        <a href="study.html">스터디</a>
+        <a href="about.html">소개</a>
+        <a href="#" data-more>더 보기 <span>▾</span></a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open>검색</button>
+        <span class="bag-icon" aria-hidden="true"></span>
+        <a class="login-link" href="#">로그인</a>
+        <a class="plus-link" href="#">Plus</a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-label="메뉴 열기" data-menu-button>
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" aria-label="모바일 메뉴" data-mobile-menu>
+      <a href="magazine.html">매거진</a>
+      <a class="is-active" href="article.html">아티클</a>
+      <a href="study.html">스터디</a>
+      <a href="about.html">소개</a>
+      <button type="button" data-search-open>검색</button>
+    </nav>
+  </header>
 
   <main id="main">
-    <section class="article-list-hero article-page-shell" aria-labelledby="article-page-title">
-      <div class="article-title-mark" aria-hidden="true">
-        <svg viewBox="0 0 42 48" role="img">
-          <path d="M21 2v13M14 20l7-5 7 5-3 16h-8l-3-16Z"/>
-          <path d="M14 38h14M11 43h20M21 15v10"/>
-          <circle cx="21" cy="27" r="2.5"/>
-        </svg>
+    <section class="article-hero" aria-labelledby="page-title">
+      <svg class="title-icon" viewBox="0 0 48 56" aria-hidden="true">
+        <path d="M24 3v15M16 24l8-6 8 6-4 19h-8l-4-19Z"/>
+        <path d="M16 46h16M12 52h24M24 18v13"/>
+        <circle cx="24" cy="34" r="3"/>
+      </svg>
+      <h1 id="page-title">아티클</h1>
+    </section>
+
+    <section class="filter-wrap" aria-label="아티클 카테고리">
+      <div class="filter-list">
+        <button class="is-active" type="button" data-filter="ALL">전체</button>
+        <button type="button" data-filter="DESIGN">디자인</button>
+        <button type="button" data-filter="PLANNING">기획</button>
+        <button type="button" data-filter="DEVELOPMENT">개발</button>
+        <button type="button" data-filter="BRANDING">브랜딩</button>
+        <button type="button" data-filter="BUSINESS">비즈니스</button>
+        <button type="button" data-filter="CAREER">커리어</button>
       </div>
-      <h1 id="article-page-title">아티클</h1>
     </section>
 
-    <section class="content-toolbar article-page-shell" aria-label="아티클 필터">
-      <div class="filter-list" data-filter-list></div>
+    <section class="article-grid" aria-label="아티클 목록" data-article-grid>
+      <a class="article-card" href="article-detail.html" data-category="DESIGN">
+        <div class="article-thumb thumb-01">
+          <span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="orbit orbit-c"></span>
+          <small>A DESIGN SYSTEM</small><strong>Product Design Core</strong>
+        </div>
+        <h2>프로덕트 디자인의 핵심 구조</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="TECHNOLOGY DEVELOPMENT">
+        <div class="article-thumb thumb-02">
+          <span class="compass-star"></span><span class="gear gear-a"></span><span class="gear gear-b"></span>
+          <small>AI DESIGN SYSTEM</small><strong>Architecture</strong>
+        </div>
+        <h2>AI 디자인 시스템 아키텍처</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="TECHNOLOGY DESIGN">
+        <div class="article-thumb thumb-03">
+          <span class="animal animal-a"></span><span class="animal animal-b"></span><span class="animal animal-c"></span><span class="animal animal-d"></span>
+          <small>AI DESIGN SYSTEM</small><strong>Artwork Generator</strong>
+        </div>
+        <h2>AI 아트워크 제너레이터, 일관성 지키면서 토큰 줄이기</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="TECHNOLOGY BUSINESS">
+        <div class="article-thumb thumb-04"><strong>Age of<br>AI Product<br>Builder</strong></div>
+        <h2>AI 프로덕트 빌더의 시대</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="PLANNING TECHNOLOGY">
+        <div class="article-thumb thumb-05"><span class="prompt-pill">무엇이든 물어보세요 <i>●</i></span></div>
+        <h2>프롬프트 인풋</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="DESIGN TECHNOLOGY">
+        <div class="article-thumb thumb-06"><strong>AI-Augmented<br>Product<br>Design</strong></div>
+        <h2>AI가 프로덕트 디자인에 진짜 기여할까?</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="DESIGN TECHNOLOGY">
+        <div class="article-thumb thumb-07"><span class="atom-icon"><i></i><i></i><i></i><b>✦</b></span></div>
+        <h2>AI를 AI로 디자인하기</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="DESIGN PLANNING">
+        <div class="article-thumb thumb-08"><span class="search-icon"></span></div>
+        <h2>검색 UX 디자인</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="DESIGN">
+        <div class="article-thumb thumb-09"><strong>Aesthetic<br>Philosophy<br>of Design</strong></div>
+        <h2>지금 가장 필요한 디자인 미학 세우기</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="CAREER">
+        <div class="article-thumb thumb-10"><strong>The Edge<br>Beyond<br>Knowledge</strong></div>
+        <h2>지식의 경계 너머의 뾰족한 지식</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="TECHNOLOGY">
+        <div class="article-thumb thumb-11"><strong>AI’s<br>Blind Spots</strong></div>
+        <h2>모든 것을 하는 제너럴 AI가 못 하는 것</h2>
+      </a>
+
+      <a class="article-card" href="article-detail.html" data-category="BUSINESS TECHNOLOGY">
+        <div class="article-thumb thumb-12"><strong>Product<br>Backendization</strong></div>
+        <h2>AI에게 기능만 제공하는 프로덕트들</h2>
+      </a>
     </section>
 
-    <section class="article-page-shell article-index-section">
-      <div class="card-grid card-grid-four" data-article-grid></div>
-      <p class="empty-message" data-empty-message hidden>선택한 카테고리의 아티클을 준비하고 있습니다.</p>
+    <p class="empty-state" data-empty hidden>선택한 카테고리의 아티클을 준비하고 있습니다.</p>
 
-      <nav class="article-pagination" aria-label="아티클 페이지">
-        <button type="button" aria-current="page">1</button>
-        <button type="button">2</button>
-        <button type="button">3</button>
-        <span>···</span>
-        <button type="button">8</button>
-        <button type="button" aria-label="다음 페이지">다음</button>
-      </nav>
-    </section>
+    <nav class="pagination" aria-label="페이지 이동">
+      <button class="is-current" type="button">1</button>
+      <button type="button">2</button>
+      <button type="button">3</button>
+      <span>···</span>
+      <button type="button">8</button>
+      <button class="next-page" type="button">다음</button>
+    </nav>
   </main>
 
-  <footer data-site-footer></footer>
   <button class="floating-chat" type="button" aria-label="문의하기"><span></span></button>
-  <div class="search-panel" data-search-panel aria-hidden="true"></div>
-  <script src="script.js"></script>
+
+  <div class="search-layer" data-search-layer aria-hidden="true">
+    <div class="search-box">
+      <div class="search-head"><strong>WAVELAB SEARCH</strong><button type="button" data-search-close>닫기 ×</button></div>
+      <label><span class="sr-only">검색어</span><input type="search" placeholder="아티클 검색" data-search-input autocomplete="off"></label>
+      <div class="search-results" data-search-results><p>검색어를 입력해 주세요.</p></div>
+    </div>
+  </div>
+
   <script src="article-page.js"></script>
 </body>
 </html>
