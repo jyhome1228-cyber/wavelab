@@ -1,107 +1,142 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="디자인과 브랜드의 흐름을 기록하는 WAVELAB." />
-  <meta name="theme-color" content="#245bff" />
-
-  <title>WAVELAB</title>
-
-  <link rel="canonical" href="https://wavelab.my/" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="WAVELAB" />
-  <meta property="og:title" content="WAVELAB" />
-  <meta property="og:description" content="디자인과 브랜드의 흐름을 기록하는 WAVELAB." />
-  <meta property="og:url" content="https://wavelab.my/" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="디자인, 기획, 개발, 브랜딩과 비즈니스를 연결해 직접 결과물을 만드는 사람들을 위한 실무형 학습 플랫폼 WAVELAB">
+  <meta name="theme-color" content="#245bff">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WAVELAB">
+  <meta property="og:title" content="WAVELAB — Learn. Connect. Make.">
+  <meta property="og:description" content="경계를 넘어 배우고, 직접 만드는 사람들.">
+  <title>WAVELAB — Learn. Connect. Make.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">본문 바로가기</a>
-
-  <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="웨이블랩 홈">WAVELAB</a>
-
-    <nav class="desktop-nav" aria-label="주요 메뉴">
-      <a href="#journal">JOURNAL</a>
-      <a href="#archive">ARCHIVE</a>
-      <a href="#about">ABOUT</a>
-    </nav>
-
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
-      <span></span>
-      <span></span>
-      <span class="sr-only">메뉴 열기</span>
-    </button>
-
-    <nav class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" data-mobile-menu>
-      <a href="#journal">JOURNAL</a>
-      <a href="#archive">ARCHIVE</a>
-      <a href="#about">ABOUT</a>
-    </nav>
-  </header>
+  <header data-site-header></header>
 
   <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-meta">
-        <span>INDEPENDENT DESIGN MEDIA</span>
-        <span>WAVELAB.MY</span>
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-kicker reveal">
+        <span>01 / LEARNING PLATFORM</span>
+        <span>DESIGN · TECH · BUSINESS</span>
       </div>
-
-      <div class="hero-copy">
-        <p class="eyebrow">WAVELAB / 웨이블랩</p>
-        <h1>Ideas move<br />like <em>waves.</em></h1>
-        <p class="hero-description">웨이블랩의 상세 콘텐츠와 카테고리는 기획 확정 후 이 구조 위에 확장합니다.</p>
-      </div>
-
-      <div class="wave-stage" aria-hidden="true">
-        <div class="wave wave-a"></div>
-        <div class="wave wave-b"></div>
-        <div class="wave wave-c"></div>
-        <span>W</span>
-      </div>
-    </section>
-
-    <section class="placeholder-section" id="journal">
-      <div class="section-label">01 / JOURNAL</div>
-      <div class="section-copy">
-        <h2>Editorial structure<br />ready to build.</h2>
-        <p>아티클, 뉴스, 인터뷰 등 최종 기획에 맞춰 카드 구조와 상세 페이지를 구성할 예정입니다.</p>
-      </div>
-      <div class="placeholder-grid">
-        <article><span>01</span><strong>FEATURED STORY</strong><small>CONTENT PLACEHOLDER</small></article>
-        <article><span>02</span><strong>LATEST ARTICLE</strong><small>CONTENT PLACEHOLDER</small></article>
-        <article><span>03</span><strong>EDITOR'S PICK</strong><small>CONTENT PLACEHOLDER</small></article>
-        <article><span>04</span><strong>WEEKLY NOTE</strong><small>CONTENT PLACEHOLDER</small></article>
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">LEARN ACROSS BOUNDARIES</p>
+          <h1 id="hero-title">Learn.<br>Connect.<br><em>Make.</em></h1>
+          <p class="hero-description">디자인, 기획, 개발, 브랜딩과 비즈니스를 함께 배우며 자신만의 경쟁력을 만들어가는 사람들을 위한 실무형 학습 플랫폼입니다.</p>
+          <a class="text-link" href="about.html">WAVELAB 알아보기 <span>↗</span></a>
+        </div>
+        <a class="hero-feature reveal" href="magazine.html" aria-label="매거진 올라운더의 시대 보기">
+          <div class="visual visual-wave visual-hero">
+            <span class="visual-label">WAVELAB MAGAZINE 01</span>
+            <strong>THE AGE OF<br>THE ALL-ROUNDER</strong>
+            <i></i>
+          </div>
+          <div class="feature-meta">
+            <div><span>FEATURED MAGAZINE</span><h2>올라운더의 시대</h2></div>
+            <p>하나의 직무를 넘어 프로젝트 전체를 이해하고, 아이디어를 실제 결과물로 만드는 사람들의 새로운 일하는 방식을 탐구합니다.</p>
+          </div>
+        </a>
       </div>
     </section>
 
-    <section class="blue-section" id="archive">
-      <p>02 / ARCHIVE</p>
-      <h2>A flexible system<br />for future content.</h2>
-      <div class="archive-lines">
-        <span>BRANDING</span>
-        <span>PRODUCT</span>
-        <span>GRAPHIC</span>
-        <span>CULTURE</span>
+    <section class="ticker" aria-label="웨이블랩 학습 분야">
+      <div class="ticker-track">
+        <span>DESIGN</span><i>✦</i><span>PLANNING</span><i>✦</i><span>DEVELOPMENT</span><i>✦</i><span>BRANDING</span><i>✦</i><span>BUSINESS</span><i>✦</i><span>CAREER</span><i>✦</i>
+        <span>DESIGN</span><i>✦</i><span>PLANNING</span><i>✦</i><span>DEVELOPMENT</span><i>✦</i><span>BRANDING</span><i>✦</i><span>BUSINESS</span><i>✦</i><span>CAREER</span><i>✦</i>
       </div>
     </section>
 
-    <section class="about-section" id="about">
-      <p>03 / ABOUT</p>
-      <h2>WAVELAB은 디자인과 브랜드의 움직임을 관찰하고 기록하는 새로운 미디어를 준비합니다.</h2>
-      <small>세부 소개 문구는 최종 기획 후 교체합니다.</small>
+    <section class="section shell" aria-labelledby="latest-title">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">02 / LATEST ARTICLES</p><h2 id="latest-title">배운 것을 바로<br>써먹을 수 있도록.</h2></div>
+        <a class="text-link" href="article.html">모든 아티클 <span>↗</span></a>
+      </div>
+      <div class="card-grid card-grid-four" data-article-grid data-limit="8"></div>
+    </section>
+
+    <section class="section section-blue" aria-labelledby="fields-title">
+      <div class="shell">
+        <div class="section-head section-head-light reveal">
+          <div><p class="eyebrow">03 / EXPLORE BY FIELD</p><h2 id="fields-title">하나의 분야에서 시작해<br>더 넓은 가능성으로.</h2></div>
+          <p>자신의 중심 분야를 기반으로 다른 분야의 언어와 과정을 이해하고, 아이디어를 실제 프로젝트로 연결합니다.</p>
+        </div>
+        <div class="field-list reveal" data-field-list></div>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="study-title">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">04 / FEATURED STUDY</p><h2 id="study-title">Learn by making.</h2></div>
+        <p>강의를 듣는 데서 끝나지 않고, 과제를 수행하며 실제로 보여줄 수 있는 결과물을 완성합니다.</p>
+      </div>
+      <div class="study-feature reveal">
+        <a class="study-visual visual visual-grid" href="study.html">
+          <span class="visual-label">8 WEEKS · BEGINNER</span>
+          <strong>BUILD YOUR<br>FIRST BRAND</strong>
+          <div class="grid-orbit"><i></i><i></i><i></i><i></i></div>
+        </a>
+        <div class="study-copy">
+          <p class="eyebrow">BRANDING · DESIGN · WEB</p>
+          <h3>나만의 브랜드를<br>처음부터 직접 만듭니다.</h3>
+          <p>브랜드 콘셉트와 이름을 정리하고, 시각 아이덴티티와 콘텐츠, 소개 웹페이지까지 하나의 프로젝트로 완성합니다.</p>
+          <dl>
+            <div><dt>LEVEL</dt><dd>BEGINNER</dd></div>
+            <div><dt>DURATION</dt><dd>8 WEEKS</dd></div>
+            <div><dt>RESULT</dt><dd>BRAND SYSTEM + WEBSITE</dd></div>
+          </dl>
+          <a class="button button-dark" href="study.html">스터디 살펴보기 <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" aria-labelledby="method-title">
+      <div class="shell">
+        <div class="section-head section-head-light reveal">
+          <div><p class="eyebrow">05 / LEARNING METHOD</p><h2 id="method-title">From discovery<br>to growth.</h2></div>
+          <p>새로운 가능성을 발견하고, 필요한 기술을 배우고, 직접 만들며, 완성한 결과물을 커리어와 사업으로 연결합니다.</p>
+        </div>
+        <ol class="method-list reveal">
+          <li><span>01</span><div><b>DISCOVER</b><p>새로운 분야와 가능성을 발견합니다.</p></div></li>
+          <li><span>02</span><div><b>LEARN</b><p>필요한 개념과 기술을 체계적으로 학습합니다.</p></div></li>
+          <li><span>03</span><div><b>CONNECT</b><p>디자인, 기획, 개발과 비즈니스의 관계를 이해합니다.</p></div></li>
+          <li><span>04</span><div><b>MAKE</b><p>배운 내용을 활용해 직접 결과물을 제작합니다.</p></div></li>
+          <li><span>05</span><div><b>GROW</b><p>프로젝트를 포트폴리오, 취업과 창업으로 연결합니다.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="manifesto shell reveal" aria-labelledby="manifesto-title">
+      <p class="eyebrow">06 / WAVELAB MANIFESTO</p>
+      <h2 id="manifesto-title">올라운더는 모든 것을 완벽하게 잘하는 사람이 아닙니다.</h2>
+      <div class="manifesto-copy">
+        <p>자신의 중심 분야를 가지고 있으면서도 다른 분야의 언어와 과정을 이해하고, 다양한 사람과 협업할 수 있는 사람입니다.</p>
+        <p>아이디어를 생각하는 데서 멈추지 않고 기획하고 디자인하며 실제 결과물로 만들어낼 수 있는 사람입니다.</p>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="shell newsletter-grid reveal">
+        <div><p class="eyebrow">WAVELAB LETTER</p><h2 id="newsletter-title">Keep riding<br>the wave.</h2></div>
+        <div>
+          <p>새로운 디자인, 기술과 비즈니스의 흐름을 정리해 보내드립니다.</p>
+          <form class="newsletter-form" data-newsletter-form novalidate>
+            <label class="sr-only" for="newsletter-email">이메일 주소</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="EMAIL ADDRESS" required>
+            <button type="submit">SUBSCRIBE ↗</button>
+          </form>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="wordmark" href="#top">WAVELAB</a>
-    <p>DESIGN · BRAND · CULTURE</p>
-    <p>© <span data-year></span> WAVELAB.</p>
-  </footer>
-
+  <footer data-site-footer></footer>
+  <div class="search-panel" data-search-panel aria-hidden="true"></div>
   <script src="script.js"></script>
 </body>
 </html>
