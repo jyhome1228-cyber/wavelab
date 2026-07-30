@@ -4,33 +4,51 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="디자인, 기획, 개발, 브랜딩, 비즈니스와 커리어에 바로 적용할 수 있는 WAVELAB Article">
-  <meta name="theme-color" content="#245bff">
-  <title>Article — WAVELAB</title>
+  <meta name="theme-color" content="#19191b">
+  <title>아티클 — WAVELAB</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="article.css">
 </head>
-<body>
+<body class="dark-page article-list-page">
   <a class="skip-link" href="#main">본문 바로가기</a>
   <header data-site-header></header>
+
   <main id="main">
-    <section class="page-hero shell">
-      <p class="eyebrow reveal">WAVELAB / ARTICLE</p>
-      <h1 class="reveal">Practical ideas<br>for real projects.</h1>
-      <div class="page-intro reveal"><p>기초 개념부터 프로젝트 사례, 도구 활용법, 커리어와 창업에 필요한 지식까지 짧고 명확하게 전달합니다.</p></div>
+    <section class="article-list-hero article-page-shell" aria-labelledby="article-page-title">
+      <div class="article-title-mark" aria-hidden="true">
+        <svg viewBox="0 0 42 48" role="img">
+          <path d="M21 2v13M14 20l7-5 7 5-3 16h-8l-3-16Z"/>
+          <path d="M14 38h14M11 43h20M21 15v10"/>
+          <circle cx="21" cy="27" r="2.5"/>
+        </svg>
+      </div>
+      <h1 id="article-page-title">아티클</h1>
     </section>
 
-    <section class="content-toolbar shell reveal" aria-label="아티클 필터">
+    <section class="content-toolbar article-page-shell" aria-label="아티클 필터">
       <div class="filter-list" data-filter-list></div>
-      <button class="sort-label" type="button">LATEST ↓</button>
     </section>
 
-    <section class="section shell article-index-section">
+    <section class="article-page-shell article-index-section">
       <div class="card-grid card-grid-four" data-article-grid></div>
       <p class="empty-message" data-empty-message hidden>선택한 카테고리의 아티클을 준비하고 있습니다.</p>
+
+      <nav class="article-pagination" aria-label="아티클 페이지">
+        <button type="button" aria-current="page">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <span>···</span>
+        <button type="button">8</button>
+        <button type="button" aria-label="다음 페이지">다음</button>
+      </nav>
     </section>
   </main>
+
   <footer data-site-footer></footer>
+  <button class="floating-chat" type="button" aria-label="문의하기"><span></span></button>
   <div class="search-panel" data-search-panel aria-hidden="true"></div>
   <script src="script.js"></script>
+  <script src="article-page.js"></script>
 </body>
 </html>
