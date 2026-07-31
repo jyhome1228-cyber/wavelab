@@ -1,4 +1,3 @@
-if(location.protocol==='http:'&&location.hostname==='wavelab.my'){location.replace(`https://${location.host}${location.pathname}${location.search}${location.hash}`)}
 function ensureHeadTag(selector,create){if(document.head.querySelector(selector))return;document.head.appendChild(create())}
 ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.rel='icon';e.type='image/svg+xml';e.href='favicon.svg';return e});
 ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link');e.rel='manifest';e.href='site.webmanifest';return e});
