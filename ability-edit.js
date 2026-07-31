@@ -6,12 +6,25 @@ const form=document.querySelector('[data-ability-form]');
 const loading=document.querySelector('[data-ability-loading]');
 const notice=document.querySelector('[data-ability-notice]');
 const preview=document.querySelector('[data-ability-preview]');
+const photoInput=document.querySelector('[data-ability-photo-input]');
+const photoImage=document.querySelector('[data-ability-photo-image]');
+const photoPlaceholder=document.querySelector('[data-ability-photo-placeholder]');
+const photoRemove=document.querySelector('[data-ability-photo-remove]');
+const publicUrlInput=document.querySelector('[data-ability-public-url]');
+const copyUrlButton=document.querySelector('[data-copy-ability-url]');
 let user=null;
+let photoData='';
 
 const splitLines=value=>String(value||'').split('\n').map(v=>v.trim()).filter(Boolean);
 const splitSkills=value=>String(value||'').split(',').map(v=>v.trim()).filter(Boolean);
 const joinLines=value=>Array.isArray(value)?value.join('\n'):'';
 
+function publicUrl(uid){return `${location.origin}${location.pathname.replace('ability-edit.html','ability.html')}?user=${encodeURIComponent(uid)}`;}
+function showPhoto(value=''){
+  photoData=value;
+  if(value){photoImage.src=value;photoImage.hidden=false;photoPlaceholder.hidden=true;}
+  else{photoImage.removeAttribute('src');photoImage.hidden=true;photoPlaceholder.hidden=false;}
+}
 function fill(data={}){
   const names=['publicName','headline','summary','coverLetter','contactEmail','website','instagram','otherLink'];
   names.forEach(name=>{if(form.elements[name])form.elements[name].value=data[name]||'';});
@@ -21,18 +34,57 @@ function fill(data={}){
   form.elements.projects.value=joinLines(data.projects);
   form.elements.achievements.value=joinLines(data.achievements);
   form.elements.isPublic.checked=Boolean(data.isPublic);
+  showPhoto(data.photoData||'');
 }
+function compressImage(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onerror=reject;
+    reader.onload=()=>{
+      const image=new Image();
+      image.onerror=reject;
+      image.onload=()=>{
+        const size=640;
+        const canvas=document.createElement('canvas');
+        canvas.width=size;canvas.height=size;
+        const ctx=canvas.getContext('2d');
+        const scale=Math.max(size/image.width,size/image.height);
+        const width=image.width*scale,height=image.height*scale;
+        ctx.drawImage(image,(size-width)/2,(size-height)/2,width,height);
+        resolve(canvas.toDataURL('image/jpeg',.78));
+      };
+      image.src=String(reader.result||'');
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+photoInput?.addEventListener('change',async event=>{
+  const file=event.target.files?.[0];
+  if(!file)return;
+  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){notice.textContent='JPG, PNG, WEBP 파일만 등록할 수 있습니다.';return;}
+  if(file.size>8*1024*1024){notice.textContent='이미지는 8MB 이하로 등록해 주세요.';return;}
+  notice.textContent='사진을 처리하고 있습니다.';
+  try{showPhoto(await compressImage(file));notice.textContent='사진이 준비되었습니다. 저장하기를 눌러 반영해 주세요.';}
+  catch{notice.textContent='사진을 처리하지 못했습니다.';}
+});
+photoRemove?.addEventListener('click',()=>{showPhoto('');if(photoInput)photoInput.value='';notice.textContent='사진을 삭제했습니다. 저장하기를 눌러 반영해 주세요.';});
+copyUrlButton?.addEventListener('click',async()=>{
+  if(!publicUrlInput?.value)return;
+  try{await navigator.clipboard.writeText(publicUrlInput.value);copyUrlButton.textContent='복사됨';setTimeout(()=>copyUrlButton.textContent='링크 복사',1500);}catch{}
+});
 
 onAuthStateChanged(auth,async current=>{
   user=current;
   if(!user){location.replace(`login.html?next=${encodeURIComponent('ability-edit.html')}`);return;}
   try{
     const snap=await getDoc(doc(db,'abilities',user.uid));
-    fill(snap.exists()?snap.data():{publicName:user.displayName||user.email?.split('@')[0]||'회원',contactEmail:user.email||''});
-    preview.href=`ability.html?user=${encodeURIComponent(user.uid)}`;
-    preview.hidden=false;
+    fill(snap.exists()?snap.data():{publicName:'',contactEmail:''});
+    const url=publicUrl(user.uid);
+    preview.href=url;preview.hidden=false;
+    publicUrlInput.value=url;
     loading.hidden=true;form.hidden=false;
-  }catch(error){loading.textContent='마이 어빌리티 정보를 불러오지 못했습니다.';}
+  }catch{loading.textContent='마이 어빌리티 정보를 불러오지 못했습니다.';}
 });
 
 form?.addEventListener('submit',async event=>{
@@ -57,7 +109,9 @@ form?.addEventListener('submit',async event=>{
       website:String(data.get('website')||'').trim(),
       instagram:String(data.get('instagram')||'').trim(),
       otherLink:String(data.get('otherLink')||'').trim(),
+      photoData,
       isPublic:data.get('isPublic')==='on',
+      publicUrl:publicUrl(user.uid),
       updatedAt:serverTimestamp()
     },{merge:true});
     notice.textContent='마이 어빌리티가 저장되었습니다.';
