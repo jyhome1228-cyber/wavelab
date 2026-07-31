@@ -12,25 +12,15 @@
 
   <main class="mypage-main shell" data-mypage hidden>
     <section class="mypage-head">
-      <div>
-        <p>MY WAVELAB</p>
-        <h1>마이페이지</h1>
-        <span>프로필과 저장 콘텐츠를 관리합니다.</span>
-      </div>
+      <div><p>MY WAVELAB</p><h1>마이페이지</h1><span>프로필, 저장 콘텐츠와 커뮤니티 활동을 관리합니다.</span></div>
       <button type="button" class="secondary-button" data-dashboard-logout>로그아웃</button>
     </section>
 
     <div class="mypage-layout">
       <aside class="mypage-side">
         <div class="profile-photo-wrap">
-          <div class="profile-photo" data-profile-photo>
-            <span data-user-initial>W</span>
-            <img data-profile-image alt="프로필 이미지" hidden>
-          </div>
-          <label class="photo-button">
-            프로필 사진 변경
-            <input type="file" accept="image/png,image/jpeg,image/webp" data-profile-input hidden>
-          </label>
+          <div class="profile-photo" data-profile-photo><span data-user-initial>W</span><img data-profile-image alt="프로필 이미지" hidden></div>
+          <label class="photo-button">프로필 사진 변경<input type="file" accept="image/png,image/jpeg,image/webp" data-profile-input hidden></label>
           <button type="button" class="text-button" data-profile-remove>사진 삭제</button>
         </div>
         <strong data-user-name>회원</strong>
@@ -39,59 +29,37 @@
         <nav>
           <a href="#profile" class="is-active">프로필 정보</a>
           <a href="#saved">저장한 콘텐츠</a>
+          <a href="#posts">내가 쓴 글</a>
           <a href="#account">계정 관리</a>
         </nav>
       </aside>
 
       <div class="mypage-content">
         <section class="settings-panel" id="profile">
-          <div class="panel-title">
-            <span>01</span>
-            <div><h2>프로필 정보</h2><p>웨이블랩에서 사용할 이름과 프로필을 수정합니다.</p></div>
-          </div>
+          <div class="panel-title"><span>01</span><div><h2>프로필 정보</h2><p>웨이블랩에서 사용할 이름과 프로필을 수정합니다.</p></div></div>
           <form class="profile-form" data-profile-form>
-            <label>
-              <span>이름</span>
-              <input type="text" name="displayName" maxlength="30" required>
-            </label>
-            <label>
-              <span>이메일</span>
-              <input type="email" name="email" readonly>
-              <small>이메일 변경 기능은 추후 제공됩니다.</small>
-            </label>
+            <label><span>이름</span><input type="text" name="displayName" maxlength="30" required></label>
+            <label><span>이메일</span><input type="email" name="email" readonly><small>이메일 변경 기능은 추후 제공됩니다.</small></label>
             <button type="submit" class="primary-button">정보 저장</button>
           </form>
           <p class="settings-notice" data-profile-notice></p>
         </section>
 
         <section class="settings-panel" id="saved">
-          <div class="panel-title">
-            <span>02</span>
-            <div><h2>저장한 콘텐츠</h2><p>별표로 저장한 콘텐츠를 다시 확인할 수 있습니다.</p></div>
-          </div>
-          <div class="saved-content-list" data-saved-list>
-            <div class="empty-state">
-              <strong>저장한 콘텐츠가 없습니다.</strong>
-              <p>매거진과 아티클 카드의 별표를 눌러 저장해보세요.</p>
-              <a href="article.html">콘텐츠 둘러보기</a>
-            </div>
-          </div>
+          <div class="panel-title"><span>02</span><div><h2>저장한 콘텐츠</h2><p>별표로 저장한 콘텐츠를 다시 확인할 수 있습니다.</p></div></div>
+          <div class="saved-content-list" data-saved-list><div class="empty-state"><strong>저장한 콘텐츠가 없습니다.</strong><p>매거진과 아티클 카드의 별표를 눌러 저장해보세요.</p><a href="article.html">콘텐츠 둘러보기</a></div></div>
+        </section>
+
+        <section class="settings-panel" id="posts">
+          <div class="panel-title"><span>03</span><div><h2>내가 쓴 글</h2><p>커뮤니티에 작성한 고민과 질문을 확인합니다.</p></div></div>
+          <div class="my-post-list" data-my-posts><div class="empty-state"><strong>작성한 글이 없습니다.</strong><p>커뮤니티에서 고민과 경험을 나눠보세요.</p><a href="community-write.html">글쓰기</a></div></div>
         </section>
 
         <section class="settings-panel" id="account">
-          <div class="panel-title">
-            <span>03</span>
-            <div><h2>계정 관리</h2><p>비밀번호 재설정과 회원탈퇴를 진행할 수 있습니다.</p></div>
-          </div>
+          <div class="panel-title"><span>04</span><div><h2>계정 관리</h2><p>비밀번호 재설정과 회원탈퇴를 진행할 수 있습니다.</p></div></div>
           <div class="account-actions">
-            <div>
-              <div><strong>비밀번호 재설정</strong><p>가입한 이메일로 비밀번호 재설정 링크를 보냅니다.</p></div>
-              <button type="button" class="secondary-button" data-password-reset>메일 보내기</button>
-            </div>
-            <div class="danger-row">
-              <div><strong>회원탈퇴</strong><p>계정과 로그인 정보가 삭제되며 복구할 수 없습니다.</p></div>
-              <button type="button" class="danger-button" data-delete-account>회원탈퇴</button>
-            </div>
+            <div><div><strong>비밀번호 재설정</strong><p>가입한 이메일로 비밀번호 재설정 링크를 보냅니다.</p></div><button type="button" class="secondary-button" data-password-reset>메일 보내기</button></div>
+            <div class="danger-row"><div><strong>회원탈퇴</strong><p>계정과 로그인 정보가 삭제되며 복구할 수 없습니다.</p></div><button type="button" class="danger-button" data-delete-account>회원탈퇴</button></div>
           </div>
           <p class="settings-notice" data-account-notice></p>
         </section>
@@ -99,13 +67,9 @@
     </div>
   </main>
 
-  <section class="mypage-loading shell" data-mypage-loading>
-    <span>✦</span>
-    <p>회원 정보를 확인하고 있습니다.</p>
-  </section>
-
+  <section class="mypage-loading shell" data-mypage-loading><span>✦</span><p>회원 정보를 확인하고 있습니다.</p></section>
   <footer class="footer" data-footer></footer>
   <script src="script.js"></script>
-  <script type="module" src="mypage.js?v=20260731-2"></script>
+  <script type="module" src="mypage.js?v=20260731-3"></script>
 </body>
 </html>
