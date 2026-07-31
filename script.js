@@ -137,7 +137,7 @@ function applyMemberAccess(user = null) {
 
     card.classList.add('member-locked');
     card.classList.remove('member-unlocked');
-    card.setAttribute('href', `login.html#signup?next=${encodeURIComponent(card.dataset.originalHref)}`);
+    card.setAttribute('href', `login.html?next=${encodeURIComponent(card.dataset.originalHref)}#signup`);
     card.setAttribute('aria-label', '회원가입 후 전체 콘텐츠 보기');
 
     const thumb = card.querySelector('.thumb');
