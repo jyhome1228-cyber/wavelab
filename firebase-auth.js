@@ -50,7 +50,7 @@ function setLoading(form, loading) {
   button.textContent = loading ? '처리 중...' : button.dataset.label;
 }
 
-loginForm?.addEventListener('submit', async (event) => {
+loginForm?.addEventListener('submit', async event => {
   event.preventDefault();
   setLoading(loginForm, true);
   setNotice('로그인 중입니다.');
@@ -72,7 +72,7 @@ loginForm?.addEventListener('submit', async (event) => {
   }
 });
 
-signupForm?.addEventListener('submit', async (event) => {
+signupForm?.addEventListener('submit', async event => {
   event.preventDefault();
   setLoading(signupForm, true);
   setNotice('회원가입을 처리하고 있습니다.');
@@ -95,7 +95,7 @@ signupForm?.addEventListener('submit', async (event) => {
   }
 });
 
-resetPassword?.addEventListener('click', async (event) => {
+resetPassword?.addEventListener('click', async event => {
   event.preventDefault();
   const emailInput = loginForm?.querySelector('input[name="email"]');
   const email = emailInput?.value.trim();
@@ -115,29 +115,44 @@ resetPassword?.addEventListener('click', async (event) => {
 });
 
 function updateHeaderAuth(user) {
-  const loginLink = document.querySelector('.header-actions .login');
-  if (!loginLink) return;
+  const actions = document.querySelector('.header-actions');
+  const loginLink = actions?.querySelector('.login');
+  if (!actions || !loginLink) return;
 
-  const replacement = loginLink.cloneNode(true);
-  loginLink.replaceWith(replacement);
+  actions.querySelector('.mypage-link')?.remove();
+  actions.querySelector('.logout-link')?.remove();
 
   if (!user) {
-    replacement.textContent = '로그인';
-    replacement.href = 'login.html';
+    loginLink.hidden = false;
+    loginLink.textContent = '로그인';
+    loginLink.href = 'login.html';
     return;
   }
 
-  replacement.textContent = '로그아웃';
-  replacement.href = '#';
-  replacement.title = user.displayName || user.email || '로그아웃';
-  replacement.addEventListener('click', async (event) => {
+  loginLink.hidden = true;
+
+  const mypageLink = document.createElement('a');
+  mypageLink.className = 'mypage-link';
+  mypageLink.href = 'mypage.html';
+  mypageLink.textContent = '마이페이지';
+  mypageLink.title = user.displayName || user.email || '마이페이지';
+
+  const logoutLink = document.createElement('a');
+  logoutLink.className = 'logout-link';
+  logoutLink.href = '#';
+  logoutLink.textContent = '로그아웃';
+  logoutLink.addEventListener('click', async event => {
     event.preventDefault();
     await signOut(auth);
     location.href = 'index.html';
   });
+
+  const cta = actions.querySelector('.cta');
+  actions.insertBefore(mypageLink, cta || null);
+  actions.insertBefore(logoutLink, cta || null);
 }
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, user => {
   window.WAVELAB_AUTH_USER = user;
   updateHeaderAuth(user);
   window.applyMemberAccess?.(user);
