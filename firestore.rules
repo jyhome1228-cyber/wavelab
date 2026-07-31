@@ -1,6 +1,14 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email in [
+          // 여기에 관리자 Firebase 로그인 이메일을 입력하세요.
+          // 'name@example.com'
+        ];
+    }
+
     match /communityPosts/{postId} {
       allow read: if true;
       allow create: if request.auth != null
@@ -10,6 +18,11 @@ service cloud.firestore {
         && request.resource.data.category is string;
       allow update, delete: if request.auth != null
         && resource.data.authorUid == request.auth.uid;
+    }
+
+    match /notices/{noticeId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
     }
   }
 }
