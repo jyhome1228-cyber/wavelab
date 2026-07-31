@@ -1,28 +1,79 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
     function isAdmin() {
-      return request.auth != null
-        && request.auth.token.email in [
-          // 여기에 관리자 Firebase 로그인 이메일을 입력하세요.
-          // 'name@example.com'
-        ];
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isApprovedColumnist() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/columnistProfiles/$(request.auth.uid))
+        && get(/databases/$(database)/documents/columnistProfiles/$(request.auth.uid)).data.status == 'approved';
+    }
+
+    match /admins/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false;
     }
 
     match /communityPosts/{postId} {
       allow read: if true;
-      allow create: if request.auth != null
+      allow create: if signedIn()
         && request.resource.data.authorUid == request.auth.uid
         && request.resource.data.title is string
         && request.resource.data.content is string
         && request.resource.data.category is string;
-      allow update, delete: if request.auth != null
+      allow update, delete: if signedIn()
         && resource.data.authorUid == request.auth.uid;
     }
 
     match /notices/{noticeId} {
       allow read: if true;
       allow create, update, delete: if isAdmin();
+    }
+
+    match /columnistApplications/{uid} {
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.applicantUid == request.auth.uid
+        && request.resource.data.status == 'pending';
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow update: if isAdmin()
+        || (signedIn()
+          && request.auth.uid == uid
+          && resource.data.applicantUid == request.auth.uid
+          && request.resource.data.applicantUid == request.auth.uid
+          && request.resource.data.status == 'pending');
+      allow delete: if isAdmin();
+    }
+
+    match /columnistProfiles/{uid} {
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /columns/{columnId} {
+      allow read: if resource.data.status == 'published'
+        || isAdmin()
+        || (signedIn() && resource.data.authorUid == request.auth.uid);
+
+      allow create: if isApprovedColumnist()
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.status in ['draft', 'review'];
+
+      allow update: if isAdmin()
+        || (isApprovedColumnist()
+          && resource.data.authorUid == request.auth.uid
+          && request.resource.data.authorUid == request.auth.uid
+          && request.resource.data.status in ['draft', 'review']);
+
+      allow delete: if isAdmin()
+        || (isApprovedColumnist() && resource.data.authorUid == request.auth.uid);
     }
   }
 }
