@@ -4,7 +4,7 @@ ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link')
 ensureHeadTag('meta[name="theme-color"]',()=>{const e=document.createElement('meta');e.name='theme-color';e.content='#171719';return e});
 ensureHeadTag('meta[name="description"]',()=>{const e=document.createElement('meta');e.name='description';e.content='WAVELAB은 디자인, 기획, 개발, 브랜딩과 비즈니스를 연결해 배우고 실제 프로젝트로 완성하는 올라운더 실무 콘텐츠 플랫폼입니다.';return e});
 function loadStylesheet(href){if(document.querySelector(`link[href="${href}"]`))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.appendChild(link)}
-loadStylesheet('refine.css');loadStylesheet('member-gate.css');
+loadStylesheet('refine.css');loadStylesheet('member-gate.css');loadStylesheet('mobile-spacing.css?v=20260731-1');
 const page=location.pathname.split('/').pop()||'index.html';
 const nav=[['매거진','magazine.html'],['아티클','article.html'],['칼럼','column.html'],['클래스','class.html'],['커뮤니티','community.html'],['뉴스','news.html']];
 function active(url){if(page===url)return true;if(url==='community.html'&&page.startsWith('community-'))return true;if(url==='class.html'&&page==='study-detail.html')return true;return false}
