@@ -11,72 +11,92 @@
   <header class="site-header" data-header></header>
 
   <main class="mypage-main shell" data-mypage hidden>
-    <section class="dashboard-head">
+    <section class="mypage-head">
       <div>
-        <p class="dashboard-kicker">MY WAVELAB</p>
-        <h1><span data-user-name>회원</span>님,<br>오늘도 새로운 흐름을 만들어보세요.</h1>
+        <p>MY WAVELAB</p>
+        <h1>마이페이지</h1>
+        <span>프로필과 저장 콘텐츠를 관리합니다.</span>
       </div>
-      <div class="profile-summary">
-        <div class="profile-avatar" data-user-initial>W</div>
-        <div>
-          <strong data-user-name-small>회원</strong>
-          <span data-user-email>이메일 확인 중</span>
-          <small>WAVELAB MEMBER</small>
+      <button type="button" class="secondary-button" data-dashboard-logout>로그아웃</button>
+    </section>
+
+    <div class="mypage-layout">
+      <aside class="mypage-side">
+        <div class="profile-photo-wrap">
+          <div class="profile-photo" data-profile-photo>
+            <span data-user-initial>W</span>
+            <img data-profile-image alt="프로필 이미지" hidden>
+          </div>
+          <label class="photo-button">
+            프로필 사진 변경
+            <input type="file" accept="image/png,image/jpeg,image/webp" data-profile-input hidden>
+          </label>
+          <button type="button" class="text-button" data-profile-remove>사진 삭제</button>
         </div>
-        <button type="button" data-dashboard-logout>로그아웃</button>
+        <strong data-user-name>회원</strong>
+        <span data-user-email>이메일 확인 중</span>
+        <small>WAVELAB MEMBER</small>
+        <nav>
+          <a href="#profile" class="is-active">프로필 정보</a>
+          <a href="#saved">저장한 콘텐츠</a>
+          <a href="#account">계정 관리</a>
+        </nav>
+      </aside>
+
+      <div class="mypage-content">
+        <section class="settings-panel" id="profile">
+          <div class="panel-title">
+            <span>01</span>
+            <div><h2>프로필 정보</h2><p>웨이블랩에서 사용할 이름과 프로필을 수정합니다.</p></div>
+          </div>
+          <form class="profile-form" data-profile-form>
+            <label>
+              <span>이름</span>
+              <input type="text" name="displayName" maxlength="30" required>
+            </label>
+            <label>
+              <span>이메일</span>
+              <input type="email" name="email" readonly>
+              <small>이메일 변경 기능은 추후 제공됩니다.</small>
+            </label>
+            <button type="submit" class="primary-button">정보 저장</button>
+          </form>
+          <p class="settings-notice" data-profile-notice></p>
+        </section>
+
+        <section class="settings-panel" id="saved">
+          <div class="panel-title">
+            <span>02</span>
+            <div><h2>저장한 콘텐츠</h2><p>별표로 저장한 콘텐츠를 다시 확인할 수 있습니다.</p></div>
+          </div>
+          <div class="saved-content-list" data-saved-list>
+            <div class="empty-state">
+              <strong>저장한 콘텐츠가 없습니다.</strong>
+              <p>매거진과 아티클 카드의 별표를 눌러 저장해보세요.</p>
+              <a href="article.html">콘텐츠 둘러보기</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-panel" id="account">
+          <div class="panel-title">
+            <span>03</span>
+            <div><h2>계정 관리</h2><p>비밀번호 재설정과 회원탈퇴를 진행할 수 있습니다.</p></div>
+          </div>
+          <div class="account-actions">
+            <div>
+              <div><strong>비밀번호 재설정</strong><p>가입한 이메일로 비밀번호 재설정 링크를 보냅니다.</p></div>
+              <button type="button" class="secondary-button" data-password-reset>메일 보내기</button>
+            </div>
+            <div class="danger-row">
+              <div><strong>회원탈퇴</strong><p>계정과 로그인 정보가 삭제되며 복구할 수 없습니다.</p></div>
+              <button type="button" class="danger-button" data-delete-account>회원탈퇴</button>
+            </div>
+          </div>
+          <p class="settings-notice" data-account-notice></p>
+        </section>
       </div>
-    </section>
-
-    <section class="dashboard-stats" aria-label="활동 요약">
-      <article><span>저장한 콘텐츠</span><strong data-saved-count>0</strong><small>BOOKMARKS</small></article>
-      <article><span>수강 중인 스터디</span><strong data-study-count>0</strong><small>ACTIVE STUDIES</small></article>
-      <article><span>완료한 학습</span><strong data-complete-count>0</strong><small>COMPLETED</small></article>
-      <article><span>학습 진행률</span><strong data-progress-count>0%</strong><small>PROGRESS</small></article>
-    </section>
-
-    <section class="dashboard-grid">
-      <article class="dashboard-panel dashboard-panel-wide">
-        <div class="panel-head"><div><span>01</span><h2>수강 중인 스터디</h2></div><a href="study.html">스터디 둘러보기 ↗</a></div>
-        <div class="empty-state" data-active-studies>
-          <div class="empty-icon">□</div>
-          <h3>진행 중인 스터디가 없습니다.</h3>
-          <p>관심 있는 프로젝트형 학습 과정을 시작해 보세요.</p>
-          <a href="study.html">스터디 확인하기</a>
-        </div>
-      </article>
-
-      <article class="dashboard-panel">
-        <div class="panel-head"><div><span>02</span><h2>학습 진행</h2></div></div>
-        <div class="progress-ring" style="--progress:0" data-progress-ring><strong>0%</strong><span>전체 진행률</span></div>
-        <div class="progress-meta"><span>완료 0</span><span>진행 중 0</span></div>
-      </article>
-
-      <article class="dashboard-panel dashboard-panel-wide">
-        <div class="panel-head"><div><span>03</span><h2>저장한 콘텐츠</h2></div><a href="article.html">콘텐츠 둘러보기 ↗</a></div>
-        <div class="saved-list" data-saved-list>
-          <div class="empty-state compact"><div class="empty-icon">◇</div><h3>저장한 콘텐츠가 없습니다.</h3><p>관심 있는 매거진과 아티클을 저장해두고 다시 확인하세요.</p></div>
-        </div>
-      </article>
-
-      <article class="dashboard-panel dashboard-panel-wide">
-        <div class="panel-head"><div><span>04</span><h2>최근 본 콘텐츠</h2></div></div>
-        <div class="recent-list" data-recent-list>
-          <a href="article-detail.html"><span>ARTICLE · BRANDING</span><strong>브랜드 콘셉트를 한 문장으로 정리하는 방법</strong><small>최근 열람</small></a>
-          <a href="article.html"><span>ARTICLE · PLANNING</span><strong>좋은 웹사이트의 정보 구조</strong><small>추천 콘텐츠</small></a>
-        </div>
-      </article>
-
-      <article class="dashboard-panel account-panel">
-        <div class="panel-head"><div><span>05</span><h2>계정 설정</h2></div></div>
-        <dl>
-          <div><dt>이름</dt><dd data-account-name>회원</dd></div>
-          <div><dt>이메일</dt><dd data-account-email>-</dd></div>
-          <div><dt>가입 방식</dt><dd>EMAIL</dd></div>
-          <div><dt>멤버십</dt><dd class="blue-text">FREE MEMBER</dd></div>
-        </dl>
-        <a class="account-action" href="login.html">비밀번호 변경</a>
-      </article>
-    </section>
+    </div>
   </main>
 
   <section class="mypage-loading shell" data-mypage-loading>
@@ -86,6 +106,6 @@
 
   <footer class="footer" data-footer></footer>
   <script src="script.js"></script>
-  <script type="module" src="mypage.js"></script>
+  <script type="module" src="mypage.js?v=20260731-2"></script>
 </body>
 </html>
