@@ -1,3 +1,8 @@
+function ensureHeadTag(selector,create){if(document.head.querySelector(selector))return;document.head.appendChild(create())}
+ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.rel='icon';e.type='image/svg+xml';e.href='favicon.svg';return e});
+ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link');e.rel='manifest';e.href='site.webmanifest';return e});
+ensureHeadTag('meta[name="theme-color"]',()=>{const e=document.createElement('meta');e.name='theme-color';e.content='#171719';return e});
+ensureHeadTag('meta[name="description"]',()=>{const e=document.createElement('meta');e.name='description';e.content='WAVELAB은 디자인, 기획, 개발, 브랜딩과 비즈니스를 연결해 배우고 실제 프로젝트로 완성하는 올라운더 실무 콘텐츠 플랫폼입니다.';return e});
 function loadStylesheet(href){if(document.querySelector(`link[href="${href}"]`))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.appendChild(link)}
 loadStylesheet('refine.css');loadStylesheet('member-gate.css');
 const page=location.pathname.split('/').pop()||'index.html';
