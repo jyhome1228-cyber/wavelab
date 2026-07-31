@@ -1,3 +1,8 @@
+const articleDetailRefine = document.createElement('link');
+articleDetailRefine.rel = 'stylesheet';
+articleDetailRefine.href = 'article-detail-refine.css?v=20260731-1';
+document.head.appendChild(articleDetailRefine);
+
 import { auth } from './firebase-config.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js';
 
