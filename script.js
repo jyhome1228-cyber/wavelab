@@ -1,3 +1,8 @@
+const refineStylesheet = document.createElement('link');
+refineStylesheet.rel = 'stylesheet';
+refineStylesheet.href = 'refine.css';
+document.head.appendChild(refineStylesheet);
+
 const page = location.pathname.split('/').pop() || 'index.html';
 
 const nav = [
