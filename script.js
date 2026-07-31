@@ -3,6 +3,11 @@ refineStylesheet.rel = 'stylesheet';
 refineStylesheet.href = 'refine.css';
 document.head.appendChild(refineStylesheet);
 
+const memberGateStylesheet = document.createElement('link');
+memberGateStylesheet.rel = 'stylesheet';
+memberGateStylesheet.href = 'member-gate.css';
+document.head.appendChild(memberGateStylesheet);
+
 const page = location.pathname.split('/').pop() || 'index.html';
 
 const nav = [
@@ -107,3 +112,49 @@ document.querySelectorAll('[data-demo-auth]').forEach(form => form.addEventListe
   const notice = document.querySelector('[data-auth-notice]');
   if (notice) notice.textContent = '입력 UI가 정상 작동합니다. 실제 인증은 Firebase 연결 단계에서 활성화됩니다.';
 }));
+
+const gatedPages = new Set(['magazine.html', 'article.html', 'news.html', 'study.html']);
+
+function applyMemberAccess(user = null) {
+  if (!gatedPages.has(page)) return;
+
+  const grid = document.querySelector('.grid, .study-grid');
+  if (!grid) return;
+
+  const cards = [...grid.querySelectorAll(':scope > .card, :scope > .study-card')];
+  const isSignedIn = Boolean(user);
+
+  cards.forEach((card, index) => {
+    if (!card.dataset.originalHref) card.dataset.originalHref = card.getAttribute('href') || '#';
+
+    if (index < 4 || isSignedIn) {
+      card.classList.remove('member-locked');
+      card.classList.toggle('member-unlocked', isSignedIn && index >= 4);
+      card.setAttribute('href', card.dataset.originalHref);
+      card.querySelector('.member-lock-overlay')?.remove();
+      return;
+    }
+
+    card.classList.add('member-locked');
+    card.classList.remove('member-unlocked');
+    card.setAttribute('href', `login.html#signup?next=${encodeURIComponent(card.dataset.originalHref)}`);
+    card.setAttribute('aria-label', '회원가입 후 전체 콘텐츠 보기');
+
+    const thumb = card.querySelector('.thumb');
+    if (thumb && !thumb.querySelector('.member-lock-overlay')) {
+      thumb.insertAdjacentHTML('beforeend', `<div class="member-lock-overlay"><span class="member-lock-icon">⌑</span><strong>MEMBERS ONLY</strong><span>회원가입하고 계속 보기</span></div>`);
+    }
+  });
+
+  let banner = grid.querySelector('.member-gate-banner');
+  if (!isSignedIn && cards.length > 4 && !banner) {
+    banner = document.createElement('div');
+    banner.className = 'member-gate-banner';
+    banner.innerHTML = `<div><h3>더 많은 콘텐츠가 준비되어 있습니다.</h3><p>무료 회원가입 후 매거진, 아티클, 뉴스와 스터디 콘텐츠를 계속 확인하세요.</p></div><a href="login.html#signup">무료로 가입하기</a>`;
+    grid.insertBefore(banner, cards[4]);
+  }
+  if (isSignedIn) banner?.remove();
+}
+
+window.applyMemberAccess = applyMemberAccess;
+applyMemberAccess(window.WAVELAB_AUTH_USER || null);
