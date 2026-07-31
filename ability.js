@@ -29,6 +29,9 @@ async function load(){
     setText('[data-ability-summary]',data.summary);
     setText('[data-cover-letter]',data.coverLetter||'자기소개가 아직 등록되지 않았습니다.');
     document.title=`${data.publicName||'My Ability'} — WAVELAB`;
+    const publicPhoto=document.querySelector('[data-public-photo]');
+    const publicPhotoPlaceholder=document.querySelector('[data-public-photo-placeholder]');
+    if(data.photoData&&publicPhoto){publicPhoto.src=data.photoData;publicPhoto.hidden=false;if(publicPhotoPlaceholder)publicPhotoPlaceholder.hidden=true;}
     const skills=document.querySelector('[data-skills]');
     skills.innerHTML=(data.skills||[]).length?(data.skills||[]).map(item=>`<span>${esc(item)}</span>`).join(''):'<span>등록된 스킬이 없습니다.</span>';
     renderList('[data-career]',data.career);
@@ -46,7 +49,7 @@ async function load(){
     links.innerHTML=extra.join('');
     await loadColumns(uid);
     status.hidden=true;page.hidden=false;
-  }catch(error){status.textContent='포트폴리오를 불러오지 못했습니다.';}
+  }catch{status.textContent='포트폴리오를 불러오지 못했습니다.';}
 }
 
 document.querySelector('[data-share-ability]')?.addEventListener('click',async()=>{
