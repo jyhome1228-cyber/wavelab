@@ -14,12 +14,13 @@ const nav = [
   ['매거진', 'magazine.html'],
   ['아티클', 'article.html'],
   ['뉴스', 'news.html'],
-  ['스터디', 'study.html']
+  ['스터디', 'study.html'],
+  ['커뮤니티', 'community.html']
 ];
 
 function headerMarkup() {
   const navigation = nav.map(([name, url]) =>
-    `<a href="${url}" class="${page === url ? 'is-active' : ''}">${name}</a>`
+    `<a href="${url}" class="${page === url || (url === 'community.html' && page.startsWith('community-')) ? 'is-active' : ''}">${name}</a>`
   ).join('');
 
   return `<div class="header-inner shell">
@@ -50,7 +51,7 @@ function footerMarkup() {
   return `<div class="shell">
     <div class="footer-grid">
       <div><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>WAVELAB</span></a><p>디자인, 기획, 개발과 비즈니스를 연결해 배우고 직접 만드는 올라운더 실무 학습 플랫폼.</p></div>
-      <div><h3>CONTENT</h3><nav><a href="magazine.html">매거진</a><a href="article.html">아티클</a><a href="news.html">뉴스</a><a href="study.html">스터디</a></nav></div>
+      <div><h3>CONTENT</h3><nav><a href="magazine.html">매거진</a><a href="article.html">아티클</a><a href="news.html">뉴스</a><a href="study.html">스터디</a><a href="community.html">커뮤니티</a></nav></div>
       <div><h3>WAVELAB</h3><nav><a href="about.html">웨이블랩 소개</a><a href="#">문의하기</a><a href="#">인스타그램</a></nav></div>
       <div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html?mode=signup">회원가입</a><a href="mypage.html">마이페이지</a><a href="#">개인정보처리방침</a></nav></div>
     </div>
@@ -146,5 +147,5 @@ applyMemberAccess(null);
 
 const firebaseModule = document.createElement('script');
 firebaseModule.type = 'module';
-firebaseModule.src = `firebase-auth.js?v=20260731-2`;
+firebaseModule.src = 'firebase-auth.js?v=20260731-3';
 document.body.appendChild(firebaseModule);
