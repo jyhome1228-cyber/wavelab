@@ -20,16 +20,10 @@
 
       <div class="auth-panel is-active" data-auth-panel="login">
         <h1>다시 만나 반가워요.</h1>
-        <p>저장한 콘텐츠와 스터디 정보를 확인하려면 로그인해 주세요.</p>
+        <p>저장한 콘텐츠와 웨이블랩 활동을 확인하려면 로그인해 주세요.</p>
         <form class="auth-form" data-login-form>
-          <label>
-            <span>이메일</span>
-            <input type="email" name="email" placeholder="name@example.com" autocomplete="email" required>
-          </label>
-          <label>
-            <span>비밀번호</span>
-            <input type="password" name="password" placeholder="비밀번호를 입력해 주세요" autocomplete="current-password" required>
-          </label>
+          <label><span>이메일</span><input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label>
+          <label><span>비밀번호</span><input type="password" name="password" placeholder="비밀번호를 입력해 주세요" autocomplete="current-password" required></label>
           <div class="auth-options">
             <label><input type="checkbox" name="remember"> 로그인 상태 유지</label>
             <a href="#" data-reset-password>비밀번호 찾기</a>
@@ -38,36 +32,23 @@
         </form>
         <div class="auth-divider"><span>또는</span></div>
         <div class="social-login">
-          <button type="button" disabled title="Google 로그인은 다음 단계에서 연결합니다.">Google로 계속하기</button>
-          <button type="button" disabled title="Kakao 로그인은 다음 단계에서 연결합니다.">Kakao로 계속하기</button>
+          <button type="button" disabled aria-disabled="true" title="Google 로그인은 준비 중입니다.">Google 로그인 준비 중</button>
         </div>
       </div>
 
       <div class="auth-panel" data-auth-panel="signup">
         <h1>웨이블랩을 시작해 보세요.</h1>
-        <p>관심 콘텐츠를 저장하고 새로운 스터디 소식을 받아보세요.</p>
+        <p>관심 콘텐츠를 저장하고 커뮤니티와 칼럼 활동을 시작해 보세요.</p>
         <form class="auth-form" data-signup-form>
-          <label>
-            <span>이름</span>
-            <input type="text" name="name" placeholder="이름을 입력해 주세요" autocomplete="name" required>
-          </label>
-          <label>
-            <span>이메일</span>
-            <input type="email" name="email" placeholder="name@example.com" autocomplete="email" required>
-          </label>
-          <label>
-            <span>비밀번호</span>
-            <input type="password" name="password" placeholder="6자 이상 입력해 주세요" autocomplete="new-password" minlength="6" required>
-          </label>
-          <label class="agreement">
-            <input type="checkbox" name="agreement" required>
-            이용약관과 개인정보처리방침에 동의합니다.
-          </label>
+          <label><span>이름</span><input type="text" name="name" placeholder="이름을 입력해 주세요" autocomplete="name" required></label>
+          <label><span>이메일</span><input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label>
+          <label><span>비밀번호</span><input type="password" name="password" placeholder="6자 이상 입력해 주세요" autocomplete="new-password" minlength="6" required></label>
+          <label class="agreement"><input type="checkbox" name="agreement" required>이용약관과 개인정보처리방침에 동의합니다.</label>
           <button class="auth-submit" type="submit">회원가입</button>
         </form>
       </div>
 
-      <p class="auth-notice" data-auth-notice>Firebase Authentication 연결을 확인하고 있습니다.</p>
+      <p class="auth-notice" data-auth-notice>로그인 정보를 입력해 주세요.</p>
     </section>
   </main>
 
