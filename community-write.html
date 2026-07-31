@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>글쓰기 — WAVELAB</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="community.css">
+</head>
+<body class="community-write-page">
+  <header class="site-header" data-header></header>
+  <main class="community-form-wrap shell" data-community-write-page hidden>
+    <section class="community-form-head"><p>WRITE A POST</p><h1>새 글 작성</h1></section>
+    <form class="community-form" data-community-form>
+      <label><span>카테고리</span><select name="category" required><option value="">선택해 주세요</option><option>고민</option><option>질문</option><option>작업 공유</option><option>커리어</option><option>자유</option></select></label>
+      <label><span>제목</span><input type="text" name="title" maxlength="80" placeholder="제목을 입력해 주세요" required></label>
+      <label><span>내용</span><textarea name="content" maxlength="5000" placeholder="함께 나누고 싶은 고민이나 경험을 작성해 주세요." required></textarea></label>
+      <p class="community-notice" data-community-notice></p>
+      <div class="community-form-actions"><a href="community.html">취소</a><button type="submit">등록하기</button></div>
+    </form>
+  </main>
+  <section class="mypage-loading shell" data-community-loading><span>✦</span><p>로그인 상태를 확인하고 있습니다.</p></section>
+  <footer class="footer" data-footer></footer>
+  <script src="script.js"></script>
+  <script type="module" src="community.js?v=20260731-1"></script>
+</body>
+</html>
