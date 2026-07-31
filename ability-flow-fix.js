@@ -1,16 +1,1 @@
-import { auth, db } from './firebase-config.js';
-import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js';
-import { doc, serverTimestamp, setDoc } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js';
-
-const form=document.querySelector('[data-ability-form]');
-const publicInput=document.querySelector('[data-ability-public-url]');
-const copyButton=document.querySelector('[data-copy-ability-url]');
-let currentUser=null;
-const splitLines=v=>String(v||'').split('\n').map(x=>x.trim()).filter(Boolean);
-const splitSkills=v=>String(v||'').split(',').map(x=>x.trim()).filter(Boolean);
-const makeUrl=uid=>`https://wavelab.my/ability.html?user=${encodeURIComponent(uid)}`;
-async function copyText(value){try{await navigator.clipboard.writeText(value);return true}catch{}const t=document.createElement('textarea');t.value=value;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();let ok=false;try{ok=document.execCommand('copy')}catch{}t.remove();return ok}
-function modal(url,isPublic){document.querySelector('.ability-complete-modal')?.remove();const wrap=document.createElement('div');wrap.className='ability-complete-modal';wrap.innerHTML=`<div class="ability-complete-dialog"><span>✦</span><h2>마이 어빌리티가 저장되었습니다.</h2><p>${isPublic?'개인 포트폴리오 링크가 생성되었습니다.':'현재 비공개 상태입니다. 공개 설정을 켜면 아래 링크로 공유할 수 있습니다.'}</p><div class="ability-complete-url"><input value="${url}" readonly><button type="button">링크 복사</button></div><div class="ability-complete-buttons"><a href="mypage.html#ability">마이페이지로 돌아가기</a><a class="primary" href="${url}" target="_blank">내 포트폴리오 보기</a></div></div>`;document.body.appendChild(wrap);wrap.querySelector('button').onclick=async e=>{e.currentTarget.textContent=await copyText(url)?'복사됨':'직접 복사해 주세요'};}
-onAuthStateChanged(auth,user=>{currentUser=user;if(user&&publicInput)publicInput.value=makeUrl(user.uid)});
-copyButton?.addEventListener('click',async e=>{e.stopImmediatePropagation();if(!publicInput?.value)return;copyButton.textContent=await copyText(publicInput.value)?'복사됨':'직접 복사';setTimeout(()=>copyButton.textContent='링크 복사',1500)},true);
-form?.addEventListener('submit',async event=>{event.preventDefault();event.stopImmediatePropagation();if(!currentUser)return;const button=form.querySelector('button[type=submit]');const notice=document.querySelector('[data-ability-notice]');button.disabled=true;button.textContent='저장 중...';const data=new FormData(form);const url=makeUrl(currentUser.uid);const isPublic=data.get('isPublic')==='on';try{await setDoc(doc(db,'abilities',currentUser.uid),{uid:currentUser.uid,publicName:String(data.get('publicName')||'').trim(),headline:String(data.get('headline')||'').trim(),summary:String(data.get('summary')||'').trim(),coverLetter:String(data.get('coverLetter')||'').trim(),skills:splitSkills(data.get('skills')),education:splitLines(data.get('education')),career:splitLines(data.get('career')),projects:splitLines(data.get('projects')),achievements:splitLines(data.get('achievements')),contactEmail:String(data.get('contactEmail')||'').trim(),website:String(data.get('website')||'').trim(),instagram:String(data.get('instagram')||'').trim(),otherLink:String(data.get('otherLink')||'').trim(),isPublic,publicUrl:url,updatedAt:serverTimestamp()},{merge:true});notice.textContent='저장되었습니다.';modal(url,isPublic)}catch(error){notice.textContent=error.code==='permission-denied'?'저장 권한을 확인해 주세요.':'저장 중 오류가 발생했습니다.'}button.disabled=false;button.textContent='저장하기'},true);
+import './ability-flow-core.js';
