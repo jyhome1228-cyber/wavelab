@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jyhome1228-cyber.github.io/wavelab/sitemap.xml
