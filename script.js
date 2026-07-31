@@ -1,15 +1,15 @@
-const refineStylesheet = document.createElement('link');
-refineStylesheet.rel = 'stylesheet';
-refineStylesheet.href = 'refine.css';
-document.head.appendChild(refineStylesheet);
+function loadStylesheet(href) {
+  if (document.querySelector(`link[href="${href}"]`)) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = href;
+  document.head.appendChild(link);
+}
 
-const memberGateStylesheet = document.createElement('link');
-memberGateStylesheet.rel = 'stylesheet';
-memberGateStylesheet.href = 'member-gate.css';
-document.head.appendChild(memberGateStylesheet);
+loadStylesheet('refine.css');
+loadStylesheet('member-gate.css');
 
 const page = location.pathname.split('/').pop() || 'index.html';
-
 const nav = [
   ['매거진', 'magazine.html'],
   ['아티클', 'article.html'],
@@ -24,8 +24,7 @@ function headerMarkup() {
 
   return `<div class="header-inner shell">
     <a class="brand" href="index.html" aria-label="WAVELAB 홈으로 이동">
-      <span class="brand-mark" aria-hidden="true">✦</span>
-      <span>WAVELAB</span>
+      <span class="brand-mark" aria-hidden="true">✦</span><span>WAVELAB</span>
     </a>
     <nav class="desktop-nav" aria-label="주요 메뉴">${navigation}</nav>
     <div class="header-actions">
@@ -36,8 +35,7 @@ function headerMarkup() {
     </div>
   </div>
   <nav class="mobile-nav" data-mobile aria-label="모바일 메뉴">
-    <a href="index.html">홈</a>
-    ${navigation}
+    <a href="index.html">홈</a>${navigation}
     <a href="about.html">웨이블랩 소개</a>
     <a href="login.html">로그인</a>
     <button type="button" data-search-open>검색</button>
@@ -47,13 +45,10 @@ function headerMarkup() {
 function footerMarkup() {
   return `<div class="shell">
     <div class="footer-grid">
-      <div>
-        <a class="brand" href="index.html"><span class="brand-mark">✦</span><span>WAVELAB</span></a>
-        <p>디자인, 기획, 개발과 비즈니스를 연결해 배우고 직접 만드는 올라운더 실무 학습 플랫폼.</p>
-      </div>
+      <div><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>WAVELAB</span></a><p>디자인, 기획, 개발과 비즈니스를 연결해 배우고 직접 만드는 올라운더 실무 학습 플랫폼.</p></div>
       <div><h3>CONTENT</h3><nav><a href="magazine.html">매거진</a><a href="article.html">아티클</a><a href="news.html">뉴스</a><a href="study.html">스터디</a></nav></div>
       <div><h3>WAVELAB</h3><nav><a href="about.html">웨이블랩 소개</a><a href="#">문의하기</a><a href="#">인스타그램</a></nav></div>
-      <div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html#signup">회원가입</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a></nav></div>
+      <div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html?mode=signup">회원가입</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a></nav></div>
     </div>
     <div class="footer-bottom"><span>LEARN. CONNECT. MAKE.</span><span>© 2026 WAVELAB.</span></div>
   </div>`;
@@ -70,7 +65,6 @@ menuButton?.addEventListener('click', () => {
   const opened = mobileMenu.classList.toggle('is-open');
   menuButton.setAttribute('aria-expanded', String(opened));
 });
-
 mobileMenu?.querySelectorAll('a, button').forEach(item => item.addEventListener('click', () => {
   mobileMenu.classList.remove('is-open');
   menuButton?.setAttribute('aria-expanded', 'false');
@@ -96,28 +90,19 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape') searchPanel?.classList.remove('is-open');
 });
 
-document.querySelectorAll('[data-auth-tab]').forEach(tab => tab.addEventListener('click', () => {
-  document.querySelectorAll('[data-auth-tab]').forEach(item => item.classList.remove('is-active'));
-  document.querySelectorAll('[data-auth-panel]').forEach(panel => panel.classList.remove('is-active'));
-  tab.classList.add('is-active');
-  document.querySelector(`[data-auth-panel="${tab.dataset.authTab}"]`)?.classList.add('is-active');
-}));
-
-if (location.hash === '#signup') {
-  document.querySelector('[data-auth-tab="signup"]')?.click();
+function activateAuthTab(name) {
+  document.querySelectorAll('[data-auth-tab]').forEach(item => item.classList.toggle('is-active', item.dataset.authTab === name));
+  document.querySelectorAll('[data-auth-panel]').forEach(panel => panel.classList.toggle('is-active', panel.dataset.authPanel === name));
 }
 
-document.querySelectorAll('[data-demo-auth]').forEach(form => form.addEventListener('submit', event => {
-  event.preventDefault();
-  const notice = document.querySelector('[data-auth-notice]');
-  if (notice) notice.textContent = '입력 UI가 정상 작동합니다. 실제 인증은 Firebase 연결 단계에서 활성화됩니다.';
-}));
+document.querySelectorAll('[data-auth-tab]').forEach(tab => tab.addEventListener('click', () => activateAuthTab(tab.dataset.authTab)));
+const authMode = new URLSearchParams(location.search).get('mode');
+if (authMode === 'signup' || location.hash === '#signup') activateAuthTab('signup');
 
 const gatedPages = new Set(['magazine.html', 'article.html', 'news.html', 'study.html']);
 
 function applyMemberAccess(user = null) {
   if (!gatedPages.has(page)) return;
-
   const grid = document.querySelector('.grid, .study-grid');
   if (!grid) return;
 
@@ -129,20 +114,17 @@ function applyMemberAccess(user = null) {
 
     if (index < 4 || isSignedIn) {
       card.classList.remove('member-locked');
-      card.classList.toggle('member-unlocked', isSignedIn && index >= 4);
       card.setAttribute('href', card.dataset.originalHref);
       card.querySelector('.member-lock-overlay')?.remove();
       return;
     }
 
     card.classList.add('member-locked');
-    card.classList.remove('member-unlocked');
-    card.setAttribute('href', `login.html?next=${encodeURIComponent(card.dataset.originalHref)}#signup`);
-    card.setAttribute('aria-label', '회원가입 후 전체 콘텐츠 보기');
-
+    const next = encodeURIComponent(card.dataset.originalHref);
+    card.setAttribute('href', `login.html?mode=signup&next=${next}`);
     const thumb = card.querySelector('.thumb');
     if (thumb && !thumb.querySelector('.member-lock-overlay')) {
-      thumb.insertAdjacentHTML('beforeend', `<div class="member-lock-overlay"><span class="member-lock-icon">⌑</span><strong>MEMBERS ONLY</strong><span>회원가입하고 계속 보기</span></div>`);
+      thumb.insertAdjacentHTML('beforeend', '<div class="member-lock-overlay"><span class="member-lock-icon">⌑</span><strong>MEMBERS ONLY</strong><span>회원가입하고 계속 보기</span></div>');
     }
   });
 
@@ -150,11 +132,16 @@ function applyMemberAccess(user = null) {
   if (!isSignedIn && cards.length > 4 && !banner) {
     banner = document.createElement('div');
     banner.className = 'member-gate-banner';
-    banner.innerHTML = `<div><h3>더 많은 콘텐츠가 준비되어 있습니다.</h3><p>무료 회원가입 후 매거진, 아티클, 뉴스와 스터디 콘텐츠를 계속 확인하세요.</p></div><a href="login.html#signup">무료로 가입하기</a>`;
+    banner.innerHTML = '<div><h3>더 많은 콘텐츠가 준비되어 있습니다.</h3><p>무료 회원가입 후 전체 콘텐츠를 계속 확인하세요.</p></div><a href="login.html?mode=signup">무료로 가입하기</a>';
     grid.insertBefore(banner, cards[4]);
   }
   if (isSignedIn) banner?.remove();
 }
 
 window.applyMemberAccess = applyMemberAccess;
-applyMemberAccess(window.WAVELAB_AUTH_USER || null);
+applyMemberAccess(null);
+
+const firebaseModule = document.createElement('script');
+firebaseModule.type = 'module';
+firebaseModule.src = 'firebase-auth.js';
+document.body.appendChild(firebaseModule);
