@@ -9,7 +9,7 @@ let user=null;
 
 const lines=v=>String(v||'').split('\n').map(x=>x.trim()).filter(Boolean);
 const skills=v=>String(v||'').split(',').map(x=>x.trim()).filter(Boolean);
-const makeUrl=uid=>`https://wavelab.my/ability.html?user=${encodeURIComponent(uid)}`;
+const makeUrl=uid=>`https://jyhome1228-cyber.github.io/wavelab/ability.html?user=${encodeURIComponent(uid)}`;
 
 async function copyText(value){
   try{await navigator.clipboard.writeText(value);return true;}catch{}
