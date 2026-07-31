@@ -29,7 +29,9 @@ function headerMarkup() {
     <nav class="desktop-nav" aria-label="주요 메뉴">${navigation}</nav>
     <div class="header-actions">
       <input class="search-box" type="text" placeholder="검색" data-search-open readonly aria-label="검색 열기">
-      <a class="login" href="login.html">로그인</a>
+      <a class="login" href="login.html" data-auth-login>로그인</a>
+      <a class="mypage-link" href="mypage.html" data-auth-mypage hidden>마이페이지</a>
+      <a class="logout-link" href="#" data-auth-logout hidden>로그아웃</a>
       <a class="cta" href="study.html">시작하기</a>
       <button class="menu-btn" type="button" data-menu aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i></button>
     </div>
@@ -37,7 +39,9 @@ function headerMarkup() {
   <nav class="mobile-nav" data-mobile aria-label="모바일 메뉴">
     <a href="index.html">홈</a>${navigation}
     <a href="about.html">웨이블랩 소개</a>
-    <a href="login.html">로그인</a>
+    <a href="login.html" data-mobile-login>로그인</a>
+    <a href="mypage.html" data-mobile-mypage hidden>마이페이지</a>
+    <a href="#" data-mobile-logout hidden>로그아웃</a>
     <button type="button" data-search-open>검색</button>
   </nav>`;
 }
@@ -48,7 +52,7 @@ function footerMarkup() {
       <div><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>WAVELAB</span></a><p>디자인, 기획, 개발과 비즈니스를 연결해 배우고 직접 만드는 올라운더 실무 학습 플랫폼.</p></div>
       <div><h3>CONTENT</h3><nav><a href="magazine.html">매거진</a><a href="article.html">아티클</a><a href="news.html">뉴스</a><a href="study.html">스터디</a></nav></div>
       <div><h3>WAVELAB</h3><nav><a href="about.html">웨이블랩 소개</a><a href="#">문의하기</a><a href="#">인스타그램</a></nav></div>
-      <div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html?mode=signup">회원가입</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a></nav></div>
+      <div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html?mode=signup">회원가입</a><a href="mypage.html">마이페이지</a><a href="#">개인정보처리방침</a></nav></div>
     </div>
     <div class="footer-bottom"><span>LEARN. CONNECT. MAKE.</span><span>© 2026 WAVELAB.</span></div>
   </div>`;
@@ -111,7 +115,6 @@ function applyMemberAccess(user = null) {
 
   cards.forEach((card, index) => {
     if (!card.dataset.originalHref) card.dataset.originalHref = card.getAttribute('href') || '#';
-
     if (index < 4 || isSignedIn) {
       card.classList.remove('member-locked');
       card.setAttribute('href', card.dataset.originalHref);
@@ -143,5 +146,5 @@ applyMemberAccess(null);
 
 const firebaseModule = document.createElement('script');
 firebaseModule.type = 'module';
-firebaseModule.src = 'firebase-auth.js';
+firebaseModule.src = `firebase-auth.js?v=20260731-2`;
 document.body.appendChild(firebaseModule);
