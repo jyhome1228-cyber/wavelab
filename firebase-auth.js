@@ -27,14 +27,25 @@ function getNextUrl() {
   return params.get('next') || 'index.html';
 }
 
-function authErrorMessage(error) {
+function authErrorMessage(error, mode = 'auth') {
+  if (mode === 'login') {
+    const loginMessages = {
+      'auth/invalid-email': '로그인에 실패했습니다. 올바른 이메일 주소를 입력해 주세요.',
+      'auth/invalid-credential': '로그인에 실패했습니다. 이메일 또는 비밀번호를 확인해 주세요.',
+      'auth/user-disabled': '로그인에 실패했습니다. 사용할 수 없는 계정입니다.',
+      'auth/too-many-requests': '로그인에 실패했습니다. 시도가 많아 잠시 후 다시 이용해 주세요.',
+      'auth/network-request-failed': '로그인에 실패했습니다. 네트워크 연결을 확인해 주세요.',
+      'auth/operation-not-allowed': '로그인에 실패했습니다. 관리자에게 문의해 주세요.'
+    };
+    return loginMessages[error.code] || '로그인에 실패했습니다. 이메일 또는 비밀번호를 확인해 주세요.';
+  }
+
   const messages = {
     'auth/email-already-in-use': '이미 가입된 이메일입니다.',
     'auth/invalid-email': '올바른 이메일 주소를 입력해 주세요.',
-    'auth/invalid-credential': '이메일 또는 비밀번호를 확인해 주세요.',
     'auth/missing-password': '비밀번호를 입력해 주세요.',
     'auth/weak-password': '비밀번호는 6자 이상 입력해 주세요.',
-    'auth/too-many-requests': '로그인 시도가 많습니다. 잠시 후 다시 시도해 주세요.',
+    'auth/too-many-requests': '요청이 많습니다. 잠시 후 다시 시도해 주세요.',
     'auth/network-request-failed': '네트워크 연결을 확인해 주세요.',
     'auth/operation-not-allowed': 'Firebase 콘솔에서 이메일/비밀번호 로그인을 활성화해 주세요.'
   };
@@ -65,7 +76,7 @@ loginForm?.addEventListener('submit', async event => {
     setNotice('로그인되었습니다.', 'success');
     location.href = getNextUrl();
   } catch (error) {
-    setNotice(authErrorMessage(error), 'error');
+    setNotice(authErrorMessage(error, 'login'), 'error');
   } finally {
     setLoading(loginForm, false);
   }
@@ -124,15 +135,11 @@ function toggleAuthLinks(user) {
   logoutLinks.forEach(link => { link.hidden = !user; });
 }
 
-function savedKey(uid) {
-  return `wavelab:saved:${uid}`;
-}
-
+function savedKey(uid) { return `wavelab:saved:${uid}`; }
 function readSaved(uid) {
   try { return JSON.parse(localStorage.getItem(savedKey(uid)) || '[]'); }
   catch { return []; }
 }
-
 function writeSaved(uid, items) {
   localStorage.setItem(savedKey(uid), JSON.stringify(items));
   window.dispatchEvent(new CustomEvent('wavelab:saved-updated', { detail: items }));
@@ -141,16 +148,13 @@ function writeSaved(uid, items) {
 function installBookmarkButtons(user) {
   document.querySelectorAll('.bookmark-button').forEach(button => button.remove());
   if (!user) return;
-
   const cards = document.querySelectorAll('.card, .study-card');
   const saved = readSaved(user.uid);
-
   cards.forEach(card => {
     if (card.classList.contains('member-locked')) return;
     const title = card.querySelector('h2, h3')?.textContent?.trim();
     const href = card.dataset.originalHref || card.getAttribute('href') || '#';
     if (!title || !href || href === '#') return;
-
     const category = card.dataset.category || card.querySelector('.label')?.textContent?.trim() || 'CONTENT';
     const id = `${href}|${title}`;
     const button = document.createElement('button');
@@ -158,20 +162,16 @@ function installBookmarkButtons(user) {
     button.className = 'bookmark-button';
     button.setAttribute('aria-label', '콘텐츠 저장');
     button.textContent = saved.some(item => item.id === id) ? '★' : '☆';
-
     button.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
       const current = readSaved(user.uid);
       const exists = current.some(item => item.id === id);
-      const next = exists
-        ? current.filter(item => item.id !== id)
-        : [{ id, title, href, category, savedAt: Date.now() }, ...current];
+      const next = exists ? current.filter(item => item.id !== id) : [{ id, title, href, category, savedAt: Date.now() }, ...current];
       writeSaved(user.uid, next);
       button.textContent = exists ? '☆' : '★';
     });
-
-    card.querySelector('.thumb')?.appendChild(button);
+    card.querySelector('.thumb, .real-thumb')?.appendChild(button);
   });
 }
 
@@ -188,7 +188,6 @@ onAuthStateChanged(auth, user => {
   toggleAuthLinks(user);
   window.applyMemberAccess?.(user);
   installBookmarkButtons(user);
-
   if (document.body.classList.contains('auth-page') && user) {
     setNotice(`${user.displayName || user.email || '회원'} 계정으로 로그인되어 있습니다.`, 'success');
   }
