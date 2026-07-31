@@ -1,0 +1,40 @@
+@media (max-width: 800px){
+  html,body{max-width:100%;overflow-x:hidden}
+  .shell,
+  .ability-shell,
+  .admin-shell,
+  .community-shell,
+  .notice-shell{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    padding-left:20px!important;
+    padding-right:20px!important;
+    box-sizing:border-box!important;
+  }
+  .page-head,
+  .home-intro,
+  .section>.shell,
+  .article-hero-inner,
+  .article-layout,
+  .article-bottom,
+  .column-form-page,
+  .mypage-main,
+  .auth-main{
+    box-sizing:border-box;
+  }
+  .grid,.study-grid{min-width:0}
+  .card,.study-card,.settings-panel,.ability-panel,.column-status{min-width:0}
+  img,video,iframe{max-width:100%;height:auto}
+}
+@media (max-width: 420px){
+  .shell,
+  .ability-shell,
+  .admin-shell,
+  .community-shell,
+  .notice-shell{
+    padding-left:16px!important;
+    padding-right:16px!important;
+  }
+}
