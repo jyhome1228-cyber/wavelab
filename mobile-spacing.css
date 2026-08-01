@@ -1,80 +1,27 @@
-@media (max-width: 800px){
+@media (max-width:800px){
   html,body{max-width:100%;overflow-x:hidden}
-  .shell,
-  .ability-shell,
-  .admin-shell,
-  .community-shell,
-  .notice-shell{
-    width:100%!important;
-    max-width:none!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-    padding-left:20px!important;
-    padding-right:20px!important;
-    box-sizing:border-box!important;
-  }
-  .page-head,
-  .home-intro,
-  .section>.shell,
-  .article-hero-inner,
-  .article-layout,
-  .article-bottom,
-  .column-form-page,
-  .mypage-main,
-  .auth-main{box-sizing:border-box}
-  .grid,.study-grid{min-width:0}
-  .card,.study-card,.settings-panel,.ability-panel,.column-status{min-width:0}
-  img,video,iframe{max-width:100%;height:auto}
+  .shell,.ability-shell,.admin-shell,.community-shell,.notice-shell{width:100%!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important;padding-left:20px!important;padding-right:20px!important;box-sizing:border-box!important}
+  .page-head,.home-intro,.section>.shell,.article-hero-inner,.article-layout,.article-bottom,.column-form-page,.mypage-main,.auth-main{box-sizing:border-box}
+  .grid,.study-grid{min-width:0}.card,.study-card,.settings-panel,.ability-panel,.column-status{min-width:0}img,video,iframe{max-width:100%;height:auto}
 
-  .mobile-nav{
-    max-height:calc(100dvh - var(--header));
-    overflow-y:auto;
-    padding:20px 20px 28px!important;
-  }
-  .mobile-nav>a:not([data-mobile-login]):not([data-mobile-mypage]):not([data-mobile-logout]){
-    min-height:58px;
-    display:flex;
-    align-items:center;
-    font-size:18px;
-    font-weight:600;
-  }
-  .mobile-nav [data-mobile-login],
-  .mobile-nav [data-mobile-mypage],
-  .mobile-nav [data-mobile-logout]{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:50px;
-    margin-top:16px;
-    padding:0 18px!important;
-    border:1px solid #4c4557!important;
-    border-radius:12px;
-    background:#242129!important;
-    color:#f6f2fb;
-    font-size:14px;
-    font-weight:800;
-    text-align:center!important;
-  }
-  .mobile-nav [data-mobile-login]{
-    border-color:#651DDC!important;
-    background:linear-gradient(135deg,#7C3AED,#651DDC)!important;
-    color:#fff!important;
-    box-shadow:0 12px 28px rgba(101,29,220,.24);
-  }
-  .mobile-nav [data-mobile-mypage]{margin-top:16px;border-color:#6f42b5!important}
-  .mobile-nav [data-mobile-logout]{margin-top:8px;color:#9f98a9!important}
+  .mobile-nav{max-height:calc(100dvh - var(--header));overflow-y:auto;padding:12px 20px 28px!important;background:#111015!important}
+  .mobile-menu-links{display:grid}
+  .mobile-menu-link{display:grid!important;grid-template-columns:34px 1fr auto;align-items:center;gap:16px;min-height:70px;padding:0!important;border-bottom:1px solid #312e36!important;background:transparent!important;color:#f5f1f8!important;text-align:left!important}
+  .mobile-menu-link.is-active{color:#fff!important}
+  .mobile-menu-icon{display:grid;place-items:center;width:30px;height:30px;color:#a56cff}
+  .mobile-menu-icon svg{width:25px;height:25px}
+  .mobile-menu-label{font-size:18px;font-weight:700;letter-spacing:-.025em}
+  .mobile-menu-arrow{color:#9a8ea8;font-size:31px;font-weight:300;line-height:1;transform:translateY(-1px)}
+  .mobile-menu-link:hover .mobile-menu-icon,.mobile-menu-link.is-active .mobile-menu-icon,.mobile-menu-link:hover .mobile-menu-arrow{color:#c49aff}
 
-  .footer{padding:42px 0 22px!important}
-  .footer-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:30px 22px!important}
-  .footer-grid>div:first-child{grid-column:1/-1;padding-bottom:4px}
-  .footer-grid>div:first-child p{max-width:440px;margin:14px 0 0;font-size:12px;line-height:1.65}
-  .footer h3{margin:0 0 14px;font-size:11px}
-  .footer nav{gap:10px}
-  .footer a,.footer p{font-size:12px}
-  .footer-bottom{display:flex!important;flex-wrap:wrap;justify-content:space-between;gap:8px 18px;margin-top:30px!important;padding-top:16px!important}
+  .mobile-account-actions{display:grid;gap:10px;margin-top:20px}
+  .mobile-account-actions>a{display:flex!important;align-items:center;justify-content:center;min-height:52px;margin:0!important;padding:0 20px!important;border:1px solid #6940a6!important;border-radius:12px;background:#211d27!important;color:#f7f3fa!important;font-size:14px;font-weight:800;text-align:center!important}
+  .mobile-account-actions>a>span{margin-left:auto;font-size:24px;font-weight:300}
+  .mobile-account-actions [data-mobile-login]{border-color:#7c3aed!important;background:linear-gradient(135deg,#7c3aed,#651ddc)!important;box-shadow:0 12px 28px rgba(101,29,220,.24)}
+  .mobile-account-actions [data-mobile-column-write]{border-color:#8b5cf6!important;background:rgba(101,29,220,.13)!important}
+  .mobile-account-actions [data-mobile-mypage]{background:#1b191f!important}
+  .mobile-account-actions [data-mobile-logout]{border-color:#45404d!important;background:#17151b!important;color:#918a99!important}
+
+  .footer{padding:42px 0 22px!important}.footer-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:30px 22px!important}.footer-grid>div:first-child{grid-column:1/-1;padding-bottom:4px}.footer-grid>div:first-child p{max-width:440px;margin:14px 0 0;font-size:12px;line-height:1.65}.footer h3{margin:0 0 14px;font-size:11px}.footer nav{gap:10px}.footer a,.footer p{font-size:12px}.footer-bottom{display:flex!important;flex-wrap:wrap;justify-content:space-between;gap:8px 18px;margin-top:30px!important;padding-top:16px!important}
 }
-@media (max-width:420px){
-  .shell,.ability-shell,.admin-shell,.community-shell,.notice-shell{padding-left:16px!important;padding-right:16px!important}
-  .mobile-nav{padding-left:16px!important;padding-right:16px!important}
-  .footer-grid{gap:28px 18px!important}
-}
+@media(max-width:420px){.shell,.ability-shell,.admin-shell,.community-shell,.notice-shell{padding-left:16px!important;padding-right:16px!important}.mobile-nav{padding-left:16px!important;padding-right:16px!important}.footer-grid{gap:28px 18px!important}.mobile-menu-link{min-height:67px;gap:14px}.mobile-menu-label{font-size:17px}}
