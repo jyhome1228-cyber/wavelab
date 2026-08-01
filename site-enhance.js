@@ -6,7 +6,24 @@
     {url:'class.html',type:'클래스'},
     {url:'news.html',type:'뉴스'}
   ];
+  const conceptAsset='assets/concept-car-future.svg';
   let indexPromise=null;
+  const isConceptImage=image=>{
+    const alt=String(image.alt||'');
+    const src=String(image.getAttribute('src')||'');
+    const card=image.closest('a[href*="magazine-concept-car-future-design"]');
+    return Boolean(card)||location.pathname.includes('magazine-concept-car-future-design')||/콘셉트카|콘셉트 디자인|엑스 그란 이퀘이터|아슐릭|원-일레븐|엘렉트라 오빗|EXP 15/.test(alt)||/genesis-x-gran-equator|20260322_183346|15-2-1|10-2-768x960|07-3\.jpg|16-3-1|10-13\.jpg/.test(src);
+  };
+  const repairConceptImage=image=>{
+    if(!isConceptImage(image)||image.dataset.localConceptApplied)return false;
+    image.dataset.localConceptApplied='true';
+    image.dataset.fallbackApplied='';
+    image.style.display='block';
+    image.alt=image.alt||'미래 모빌리티 콘셉트카';
+    image.src=conceptAsset;
+    image.closest('.article-source-image,.real-thumb')?.querySelector('.image-fallback')?.remove();
+    return true;
+  };
   const createPanel=()=>{
     let panel=document.querySelector('[data-search-panel]');
     if(!panel){
@@ -28,13 +45,18 @@
       if(!response.ok)return[];
       const html=await response.text();
       const doc=new DOMParser().parseFromString(html,'text/html');
-      return [...doc.querySelectorAll('.card,.study-card')].map(card=>({
-        title:card.querySelector('h2,h3,strong')?.textContent?.trim()||'',
-        meta:card.querySelector('.meta,.study-info')?.textContent?.replace(/\s+/g,' ').trim()||'',
-        href:card.getAttribute('href')||page.url,
-        image:card.querySelector('img')?.getAttribute('src')||'',
-        type:page.type
-      })).filter(item=>item.title);
+      return [...doc.querySelectorAll('.card,.study-card')].map(card=>{
+        const href=card.getAttribute('href')||page.url;
+        let image=card.querySelector('img')?.getAttribute('src')||'';
+        if(href.includes('magazine-concept-car-future-design'))image=conceptAsset;
+        return {
+          title:card.querySelector('h2,h3,strong')?.textContent?.trim()||'',
+          meta:card.querySelector('.meta,.study-info')?.textContent?.replace(/\s+/g,' ').trim()||'',
+          href,
+          image,
+          type:page.type
+        };
+      }).filter(item=>item.title);
     }catch{return[]}
   })).then(groups=>groups.flat()));
   const render=async query=>{
@@ -56,9 +78,12 @@
   panel.querySelector('[data-search-close]').addEventListener('click',()=>{panel.classList.remove('is-open');document.body.style.overflow=''});
   panel.addEventListener('click',event=>{if(event.target===panel){panel.classList.remove('is-open');document.body.style.overflow=''}});
   document.addEventListener('keydown',event=>{if(event.key==='Escape'){panel.classList.remove('is-open');document.body.style.overflow=''}});
+  document.querySelectorAll('img').forEach(image=>repairConceptImage(image));
   document.addEventListener('error',event=>{
     const image=event.target;
-    if(!(image instanceof HTMLImageElement)||image.dataset.fallbackApplied)return;
+    if(!(image instanceof HTMLImageElement))return;
+    if(repairConceptImage(image))return;
+    if(image.dataset.fallbackApplied)return;
     image.dataset.fallbackApplied='true';
     const parent=image.closest('.article-source-image,.real-thumb');
     image.removeAttribute('src');
