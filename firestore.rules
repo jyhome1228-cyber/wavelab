@@ -60,8 +60,8 @@ service cloud.firestore {
 
     match /columns/{columnId} {
       allow read: if resource.data.status == 'published' || isAdmin() || (signedIn() && resource.data.authorUid == request.auth.uid);
-      allow create: if isActiveColumnist() && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','review'];
-      allow update: if isAdmin() || (isActiveColumnist() && resource.data.authorUid == request.auth.uid && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','review']);
+      allow create: if isActiveColumnist() && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','published'];
+      allow update: if isAdmin() || (isActiveColumnist() && resource.data.authorUid == request.auth.uid && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','published']);
       allow delete: if isAdmin() || (isActiveColumnist() && resource.data.authorUid == request.auth.uid);
     }
   }
