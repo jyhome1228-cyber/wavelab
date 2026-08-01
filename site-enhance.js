@@ -8,6 +8,23 @@
   ];
   const conceptAsset='assets/concept-car-future.svg';
   let indexPromise=null;
+
+  const cleanEditorialSourceLinks=()=>{
+    const currentPage=location.pathname.split('/').pop()||'';
+    if(!/^(article-|magazine-).+\.html$/.test(currentPage))return;
+    document.querySelectorAll('.article-origin-note').forEach(element=>element.remove());
+    document.querySelectorAll('a[href]').forEach(link=>{
+      const href=link.getAttribute('href')||'';
+      const text=(link.textContent||'').trim();
+      const isSourceDomain=/design\.co\.kr|brunch\.co\.kr/i.test(href);
+      const isSourceLabel=/원문\s*보기|참고\s*글\s*보기|브런치\s*원문|Design\+\s*기사/i.test(text);
+      if(isSourceDomain||isSourceLabel)link.remove();
+    });
+  };
+
+  cleanEditorialSourceLinks();
+  document.addEventListener('DOMContentLoaded',cleanEditorialSourceLinks,{once:true});
+
   const isConceptImage=image=>{
     const alt=String(image.alt||'');
     const src=String(image.getAttribute('src')||'');
