@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">미래 모빌리티 콘셉트카</title>
+<desc id="desc">사막 지형 위에 놓인 미래형 럭셔리 콘셉트 SUV 일러스트레이션</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#11131b"/><stop offset="1" stop-color="#29283b"/></linearGradient>
+  <linearGradient id="sand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#665348"/><stop offset="1" stop-color="#241f20"/></linearGradient>
+  <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a8b1c8"/><stop offset=".45" stop-color="#59657e"/><stop offset="1" stop-color="#252936"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b7d7df" stop-opacity=".72"/><stop offset="1" stop-color="#18222d" stop-opacity=".95"/></linearGradient>
+  <filter id="shadow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<circle cx="1240" cy="190" r="88" fill="#4c61ff" opacity=".18"/>
+<path d="M0 730 C260 640 470 690 720 630 C960 570 1180 590 1600 500 L1600 1000 L0 1000Z" fill="url(#sand)"/>
+<path d="M0 825 C300 760 600 810 900 745 C1180 685 1400 700 1600 660 L1600 1000 L0 1000Z" fill="#151417" opacity=".62"/>
+<ellipse cx="835" cy="777" rx="520" ry="68" fill="#000" opacity=".5" filter="url(#shadow)"/>
+<g transform="translate(220 240)">
+  <path d="M160 410 L252 285 Q292 238 375 220 L785 194 Q866 190 926 244 L1050 356 Q1091 392 1110 449 L1135 528 L1049 548 Q1011 448 914 448 Q818 448 777 552 L401 552 Q356 449 260 449 Q165 449 126 546 L54 526 L75 455 Q96 424 160 410Z" fill="url(#body)" stroke="#d2d7e4" stroke-opacity=".25" stroke-width="4"/>
+  <path d="M342 239 L760 216 Q827 214 877 256 L973 346 L278 346 Z" fill="url(#glass)"/>
+  <path d="M505 224 L493 346 M744 216 L755 346" stroke="#d9e5eb" stroke-opacity=".25" stroke-width="5"/>
+  <path d="M92 430 H1046" stroke="#f6f7ff" stroke-width="11" stroke-linecap="round"/>
+  <path d="M92 447 H1046" stroke="#4c61ff" stroke-width="5" stroke-linecap="round" opacity=".95"/>
+  <path d="M101 481 H241 M962 481 H1095" stroke="#f0a46b" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="260" cy="548" r="112" fill="#111318" stroke="#6f788a" stroke-width="8"/>
+  <circle cx="260" cy="548" r="58" fill="#3f4657" stroke="#a8b0c0" stroke-width="7"/>
+  <circle cx="914" cy="548" r="112" fill="#111318" stroke="#6f788a" stroke-width="8"/>
+  <circle cx="914" cy="548" r="58" fill="#3f4657" stroke="#a8b0c0" stroke-width="7"/>
+  <path d="M198 274 L230 213 H824 L861 258" fill="none" stroke="#9da8bc" stroke-width="14" stroke-linecap="round"/>
+  <path d="M151 406 L84 413 Q49 418 35 448" fill="none" stroke="#8d96a8" stroke-width="8"/>
+</g>
+<g fill="#fff">
+  <path d="M131 122 l12 30 30 12-30 12-12 30-12-30-30-12 30-12z" opacity=".9"/>
+  <path d="M1440 304 l8 20 20 8-20 8-8 20-8-20-20-8 20-8z" opacity=".65"/>
+</g>
+<text x="110" y="880" fill="#f7f7f7" font-family="Arial, sans-serif" font-size="46" font-weight="700" letter-spacing="6">FUTURE MOBILITY</text>
+<text x="112" y="930" fill="#aeb3c2" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">WAVELAB MAGAZINE · CONCEPT DESIGN</text>
+</svg>
