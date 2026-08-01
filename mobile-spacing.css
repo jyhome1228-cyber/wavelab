@@ -27,6 +27,73 @@
   .grid,.study-grid{min-width:0}
   .card,.study-card,.settings-panel,.ability-panel,.column-status{min-width:0}
   img,video,iframe{max-width:100%;height:auto}
+
+  /* Mobile navigation */
+  .mobile-nav{
+    max-height:calc(100dvh - var(--header));
+    overflow-y:auto;
+    padding:22px 20px 26px!important;
+  }
+  .mobile-nav>a:not([data-mobile-login]):not([data-mobile-mypage]):not([data-mobile-logout]){
+    min-height:58px;
+    display:flex;
+    align-items:center;
+    font-size:18px;
+    font-weight:500;
+  }
+  .mobile-nav [data-mobile-login],
+  .mobile-nav [data-mobile-mypage],
+  .mobile-nav [data-mobile-logout]{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    margin-top:18px;
+    padding:0 18px!important;
+    border:1px solid #46464d!important;
+    border-radius:10px;
+    background:#242428!important;
+    color:#f4f4f6;
+    font-size:14px;
+    font-weight:800;
+    text-align:center!important;
+  }
+  .mobile-nav [data-mobile-login]{
+    border-color:#3b5bff!important;
+    background:#3b5bff!important;
+    color:#fff;
+  }
+  .mobile-nav [data-mobile-mypage]{margin-top:18px}
+  .mobile-nav [data-mobile-logout]{margin-top:8px;color:#aaa}
+
+  /* Compact two-column mobile footer */
+  .footer{padding:42px 0 22px!important}
+  .footer-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:30px 22px!important;
+  }
+  .footer-grid>div:first-child{
+    grid-column:1 / -1;
+    padding-bottom:4px;
+  }
+  .footer-grid>div:first-child p{
+    max-width:440px;
+    margin:14px 0 0;
+    font-size:12px;
+    line-height:1.65;
+  }
+  .footer h3{margin:0 0 14px;font-size:11px}
+  .footer nav{gap:10px}
+  .footer a,.footer p{font-size:12px}
+  .footer-bottom{
+    display:flex!important;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:8px 18px;
+    margin-top:30px!important;
+    padding-top:16px!important;
+  }
 }
 @media (max-width: 420px){
   .shell,
@@ -37,4 +104,6 @@
     padding-left:16px!important;
     padding-right:16px!important;
   }
+  .mobile-nav{padding-left:16px!important;padding-right:16px!important}
+  .footer-grid{gap:28px 18px!important}
 }
