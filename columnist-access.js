@@ -7,9 +7,9 @@ function removeLegacyReview(){document.querySelectorAll('a[href="editorial-revie
 function updateRoleLabel(profile){
   const role=document.querySelector('.mypage-side > small');
   if(!role)return;
-  if(profile?.status==='major')role.textContent='WAVELAB MAJOR COLUMNIST';
-  else if(profile?.status==='approved')role.textContent='WAVELAB COLUMNIST';
-  else role.textContent='WAVELAB MEMBER';
+  if(profile?.status==='major')role.textContent='AESOST MAJOR COLUMNIST';
+  else if(profile?.status==='approved')role.textContent='AESOST COLUMNIST';
+  else role.textContent='AESOST MEMBER';
 }
 
 onAuthStateChanged(auth,async user=>{
