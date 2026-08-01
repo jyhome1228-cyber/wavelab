@@ -6,35 +6,7 @@
     {url:'class.html',type:'클래스'},
     {url:'news.html',type:'뉴스'}
   ];
-
-  const conceptImages=[
-    {pattern:/미래 콘셉트카|미래 자동차|콘셉트 디자인 모음|미래 이동 방식/i,src:'assets/concept-cars-hero.svg'},
-    {pattern:/제네시스 엑스 그란 이퀘이터/i,src:'assets/concept-genesis.svg'},
-    {pattern:/아슐릭|AZULIK|모빌리티 EK/i,src:'assets/concept-azulik.svg'},
-    {pattern:/비전 원-일레븐|Vision One-Eleven|메르세데스/i,src:'assets/concept-mercedes.svg'},
-    {pattern:/뷰익 엘렉트라 오빗|Buick Electra Orbit/i,src:'assets/concept-buick.svg'},
-    {pattern:/벤틀리 EXP 15|Bentley EXP 15/i,src:'assets/concept-bentley.svg'}
-  ];
-
   let indexPromise=null;
-
-  function getConceptAsset(image){
-    const context=`${image.alt||''} ${image.getAttribute('src')||''} ${image.closest('a')?.getAttribute('href')||''}`;
-    if(image.closest('a[href*="magazine-concept-car-future-design"]'))return 'assets/concept-cars-hero.svg';
-    if(!location.pathname.includes('magazine-concept-car-future-design')&&!/concept-car-future-design/.test(context))return '';
-    return conceptImages.find(item=>item.pattern.test(context))?.src||'assets/concept-cars-hero.svg';
-  }
-
-  function applyLocalConceptImage(image){
-    const asset=getConceptAsset(image);
-    if(!asset||image.dataset.localConceptApplied)return false;
-    image.dataset.localConceptApplied='true';
-    image.dataset.fallbackApplied='';
-    image.style.display='block';
-    image.src=asset;
-    image.closest('.article-source-image,.real-thumb')?.querySelector('.image-fallback')?.remove();
-    return true;
-  }
 
   function removeSourceLabels(root=document){
     root.querySelectorAll('figcaption').forEach(caption=>caption.remove());
@@ -49,7 +21,6 @@
   }
 
   removeSourceLabels();
-  document.querySelectorAll('img').forEach(applyLocalConceptImage);
 
   const createPanel=()=>{
     let panel=document.querySelector('[data-search-panel]');
@@ -75,18 +46,13 @@
       const html=await response.text();
       const doc=new DOMParser().parseFromString(html,'text/html');
       removeSourceLabels(doc);
-      return [...doc.querySelectorAll('.card,.study-card')].map(card=>{
-        const href=card.getAttribute('href')||page.url;
-        let image=card.querySelector('img')?.getAttribute('src')||'';
-        if(href.includes('magazine-concept-car-future-design'))image='assets/concept-cars-hero.svg';
-        return {
-          title:card.querySelector('h2,h3,strong')?.textContent?.trim()||'',
-          meta:card.querySelector('.meta,.study-info')?.textContent?.replace(/\s+/g,' ').trim()||'',
-          href,
-          image,
-          type:page.type
-        };
-      }).filter(item=>item.title);
+      return [...doc.querySelectorAll('.card,.study-card')].map(card=>({
+        title:card.querySelector('h2,h3,strong')?.textContent?.trim()||'',
+        meta:card.querySelector('.meta,.study-info')?.textContent?.replace(/\s+/g,' ').trim()||'',
+        href:card.getAttribute('href')||page.url,
+        image:card.querySelector('img')?.getAttribute('src')||'',
+        type:page.type
+      })).filter(item=>item.title);
     }catch{return[]}
   })).then(groups=>groups.flat()));
 
@@ -113,9 +79,7 @@
 
   document.addEventListener('error',event=>{
     const image=event.target;
-    if(!(image instanceof HTMLImageElement))return;
-    if(applyLocalConceptImage(image))return;
-    if(image.dataset.fallbackApplied)return;
+    if(!(image instanceof HTMLImageElement)||image.dataset.fallbackApplied)return;
     image.dataset.fallbackApplied='true';
     const parent=image.closest('.article-source-image,.real-thumb');
     image.removeAttribute('src');
