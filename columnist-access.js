@@ -3,7 +3,9 @@ import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.16.0/f
 import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js';
 
 function setVisible(selector,visible){document.querySelectorAll(selector).forEach(el=>{el.hidden=!visible})}
+function removeLegacyReview(){document.querySelectorAll('a[href="editorial-review.html"]').forEach(link=>{const wrap=link.closest('.column-actions');if(wrap)wrap.remove();else link.remove()})}
 function updateMypage(profile){
+  removeLegacyReview();
   const role=document.querySelector('.mypage-side > small');
   const state=document.querySelector('[data-columnist-state]');
   const actions=document.querySelector('[data-column-actions]');
@@ -23,6 +25,7 @@ function updateMypage(profile){
 
 onAuthStateChanged(auth,async user=>{
   setVisible('[data-column-write],[data-mobile-column-write]',false);
+  removeLegacyReview();
   if(!user){updateMypage(null);return}
   try{
     const snap=await getDoc(doc(db,'columnistProfiles',user.uid));
