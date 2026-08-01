@@ -1,0 +1,10 @@
+/* WAVELAB content listing grid */
+@media (min-width: 901px){
+  .grid,.study-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media (min-width: 521px) and (max-width: 900px){
+  .grid,.study-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media (max-width:520px){
+  .grid,.study-grid{grid-template-columns:1fr!important}
+}
