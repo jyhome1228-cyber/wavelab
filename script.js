@@ -24,6 +24,6 @@ function applyMemberAccess(user=null){if(!gatedPages.has(page))return;const grid
 window.applyMemberAccess=applyMemberAccess;applyMemberAccess(null);
 const firebaseModule=document.createElement('script');firebaseModule.type='module';firebaseModule.src='firebase-auth.js?v=20260802-3';document.body.appendChild(firebaseModule);
 const columnistModule=document.createElement('script');columnistModule.type='module';columnistModule.src='columnist-access.js?v=20260801-2';document.body.appendChild(columnistModule);
-const enhance=document.createElement('script');enhance.src='site-enhance.js?v=20260802-7';document.body.appendChild(enhance);
+const enhance=document.createElement('script');enhance.src='site-enhance.js?v=20260803-1';document.body.appendChild(enhance);
 document.title=document.title.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트').replaceAll('전문가 피드백','엑스퍼트');
 document.querySelectorAll('meta[name="description"],meta[property="og:site_name"],meta[property="og:title"],meta[property="og:description"]').forEach(meta=>{if(meta.content)meta.content=meta.content.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트')});
