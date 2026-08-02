@@ -1,19 +1,12 @@
 function ensureHeadTag(selector,create){if(document.head.querySelector(selector))return;document.head.appendChild(create())}
 function loadStylesheet(href){if(document.querySelector(`link[href="${href}"]`))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.appendChild(link)}
-ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.rel='icon';e.type='image/svg+xml';e.href='favicon.svg?v=20260802-2';return e});
-ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link');e.rel='manifest';e.href='site.webmanifest?v=20260802-2';return e});
+ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.rel='icon';e.type='image/svg+xml';e.href='favicon.svg?v=20260802-3';return e});
+ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link');e.rel='manifest';e.href='site.webmanifest?v=20260802-3';return e});
 ensureHeadTag('meta[name="theme-color"]',()=>{const e=document.createElement('meta');e.name='theme-color';e.content='#651DDC';return e});
 ensureHeadTag('meta[name="description"]',()=>{const e=document.createElement('meta');e.name='description';e.content='AESOST는 질문과 경험을 연결해 커리어의 다음 방향을 구체화하는 플랫폼입니다.';return e});
-loadStylesheet('refine.css');loadStylesheet('member-gate.css');loadStylesheet('mobile-spacing.css?v=20260802-2');loadStylesheet('grid-four.css?v=20260801-1');loadStylesheet('wavelab-philosophy.css?v=20260801-1');loadStylesheet('search-refine.css?v=20260801-1');loadStylesheet('image-fallback.css?v=20260801-2');loadStylesheet('aesost-theme.css?v=20260802-2');
+loadStylesheet('refine.css');loadStylesheet('member-gate.css');loadStylesheet('mobile-spacing.css?v=20260802-2');loadStylesheet('grid-four.css?v=20260801-1');loadStylesheet('wavelab-philosophy.css?v=20260801-1');loadStylesheet('search-refine.css?v=20260801-1');loadStylesheet('image-fallback.css?v=20260801-2');loadStylesheet('aesost-theme.css?v=20260802-3');
 const page=location.pathname.split('/').pop()||'index.html';
-const nav=[
-  ['매거진','magazine.html','list'],
-  ['아티클','article.html','document'],
-  ['칼럼','column.html','edit'],
-  ['클래스','class.html','class'],
-  ['엑스퍼트','expert-feedback.html','expert'],
-  ['뉴스','news.html','news']
-];
+const nav=[['매거진','magazine.html','list'],['아티클','article.html','document'],['칼럼','column.html','edit'],['클래스','class.html','class'],['엑스퍼트','expert-feedback.html','expert'],['뉴스','news.html','news']];
 function active(url){if(page===url)return true;if(url==='class.html'&&page==='study-detail.html')return true;return false}
 function brandMarkup(){return '<img class="brand-logo" src="aesost-logo.svg?v=20260801-2" alt="AESOST">'}
 function menuIcon(type){const icons={list:'<path d="M5 6h14M5 12h14M5 18h14"/><circle cx="3" cy="6" r=".7"/><circle cx="3" cy="12" r=".7"/><circle cx="3" cy="18" r=".7"/>',document:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/>',edit:'<path d="m4 20 4.2-1 10-10a2 2 0 0 0-3-3l-10 10z"/><path d="m13.5 7.5 3 3"/>',class:'<path d="m3 9 9-5 9 5-9 5z"/><path d="M7 12v5c3 2 7 2 10 0v-5M21 9v6"/>',expert:'<circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/>',news:'<path d="M4 10v4h4l8 4V6l-8 4z"/><path d="M8 14v5M19 9a4 4 0 0 1 0 6"/>'};return `<span class="mobile-menu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${icons[type]||icons.list}</svg></span>`}
