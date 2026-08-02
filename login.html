@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>로그인 — AESOST</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="aesost-theme.css?v=20260801-1">
+  <meta name="description" content="에이소스트에 로그인하고 저장한 콘텐츠와 커리어 기록을 확인하세요.">
+  <link rel="stylesheet" href="styles.css?v=20260802-5">
+  <link rel="stylesheet" href="aesost-theme.css?v=20260802-3">
+  <link rel="stylesheet" href="auth-aesost.css?v=20260802-1">
 </head>
 <body class="auth-page">
   <header class="site-header" data-header></header>
   <main class="auth-main shell">
     <section class="auth-card">
-      <a class="auth-brand" href="index.html"><img class="brand-logo" src="aesost-logo.svg" alt="AESOST"></a>
+      <div class="auth-visual" aria-hidden="true"><img src="aesost-symbol-3d.svg?v=20260802-1" alt=""></div>
+      <a class="auth-brand" href="index.html" aria-label="AESOST 홈으로 이동"><img class="brand-logo" src="aesost-logo.svg?v=20260801-2" alt="AESOST"></a>
       <div class="auth-tabs"><button class="is-active" type="button" data-auth-tab="login">로그인</button><button type="button" data-auth-tab="signup">회원가입</button></div>
       <div class="auth-panel is-active" data-auth-panel="login">
-        <h1>다시 만나 반가워요.</h1><p>저장한 콘텐츠와 에이소스트 활동을 확인하려면 로그인해 주세요.</p>
+        <h1>다시 만나 반가워요.</h1><p>저장한 콘텐츠와 커리어 기록을 이어서 확인하세요.</p>
         <form class="auth-form" data-login-form>
           <label><span>이메일</span><input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label>
           <label><span>비밀번호</span><input type="password" name="password" placeholder="비밀번호를 입력해 주세요" autocomplete="current-password" required></label>
@@ -25,7 +28,7 @@
         <div class="social-login"><button type="button" disabled aria-disabled="true" title="Google 로그인은 준비 중입니다.">Google 로그인 준비 중</button></div>
       </div>
       <div class="auth-panel" data-auth-panel="signup">
-        <h1>에이소스트를 시작해 보세요.</h1><p>경험과 관점을 읽고, 전문가에게 고민을 남기며, 자신의 커리어 기록을 쌓아보세요.</p>
+        <h1>에이소스트를 시작해 보세요.</h1><p>지식을 얻고, 관점을 기록하며, 자신의 커리어 자산을 쌓아보세요.</p>
         <form class="auth-form" data-signup-form>
           <label><span>이름</span><input type="text" name="name" placeholder="이름을 입력해 주세요" autocomplete="name" required></label>
           <label><span>이메일</span><input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label>
@@ -38,6 +41,6 @@
     </section>
   </main>
   <footer class="footer" data-footer></footer>
-  <script src="script.js?v=20260801-10"></script>
+  <script src="script.js?v=20260802-9"></script>
 </body>
 </html>
