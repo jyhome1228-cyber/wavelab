@@ -9,8 +9,13 @@ const sources = [
 const supplementalCards = [
   {
     type: '매거진',
-    priority: 100,
-    html: '<a class="card" data-category="브랜딩" href="magazine-puma-sneaker-box-seoul.html"><div class="real-thumb"><img src="https://design-plus.storage.googleapis.com/wp-content/uploads/2026/06/15133051/20260615043047-2Q3A3591_compressed1.jpeg" alt="푸마 스니커 박스 플래그십 스토어"><span class="label">MAGAZINE · BRANDING · SPACE</span></div><h2>신발 상자는 어떻게 하나의 플래그십 스토어가 되었을까</h2><div class="meta"><span>브랜딩</span><span>AESOST MAGAZINE</span><span>2026.08.02</span></div></a>'
+    priority: 120,
+    html: '<a class="card" data-category="디자인" href="magazine-rareraw-system000.html"><div class="real-thumb"><img src="https://du85s6yu4vjql.cloudfront.net/fit-in/1000x1000/pictures/images/001/330/507/original/2a90e534341fc34f1b09062289296c77.jpeg" alt="레어로우 SYSTEM000 모듈 선반 시스템"><span class="label">MAGAZINE · DESIGN · SYSTEM FURNITURE</span></div><h2>레어로우는 왜 선반을 하나의 시스템으로 만들었을까</h2><div class="meta"><span>디자인</span><span>AESOST MAGAZINE</span><span>2026.08.03</span></div></a>'
+  },
+  {
+    type: '매거진',
+    priority: 110,
+    html: '<a class="card" data-category="브랜딩" href="magazine-puma-sneaker-box-seoul.html"><div class="real-thumb"><img src="https://design-plus.storage.googleapis.com/wp-content/uploads/2026/06/15133051/20260615043047-2Q3A3591_compressed1.jpeg" alt="푸마 스니커 박스 플래그십 스토어"><span class="label">MAGAZINE · BRANDING · SPACE</span></div><h2>푸마는 왜 신발 상자를 플래그십 스토어로 만들었을까</h2><div class="meta"><span>브랜딩</span><span>AESOST MAGAZINE</span><span>2026.08.02</span></div></a>'
   }
 ];
 
