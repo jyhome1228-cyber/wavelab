@@ -8,7 +8,10 @@
     {url:'news.html',type:'뉴스'}
   ];
   const liquidGlassThumbnail='https://www.designdb.com/usr/upload/editor/email/20260630140528543eec8d-d255-454a-b93f-8a06669c306d.png';
-  const pumaCardHtml='<a class="card" data-category="브랜딩" href="magazine-puma-sneaker-box-seoul.html"><div class="real-thumb"><img src="https://design-plus.storage.googleapis.com/wp-content/uploads/2026/06/15133051/20260615043047-2Q3A3591_compressed1.jpeg" alt="푸마 스니커 박스 플래그십 스토어"><span class="label">MAGAZINE · BRANDING · SPACE</span></div><h2>신발 상자는 어떻게 하나의 플래그십 스토어가 되었을까</h2><div class="meta"><span>브랜딩</span><span>AESOST MAGAZINE</span><span>2026.08.02</span></div></a>';
+  const magazineCards=[
+    '<a class="card" data-category="디자인" href="magazine-rareraw-system000.html"><div class="real-thumb"><img src="https://du85s6yu4vjql.cloudfront.net/fit-in/1000x1000/pictures/images/001/330/507/original/2a90e534341fc34f1b09062289296c77.jpeg" alt="레어로우 SYSTEM000 모듈 선반 시스템"><span class="label">MAGAZINE · DESIGN · SYSTEM FURNITURE</span></div><h2>레어로우는 왜 선반을 하나의 시스템으로 만들었을까</h2><div class="meta"><span>디자인</span><span>AESOST MAGAZINE</span><span>2026.08.03</span></div></a>',
+    '<a class="card" data-category="브랜딩" href="magazine-puma-sneaker-box-seoul.html"><div class="real-thumb"><img src="https://design-plus.storage.googleapis.com/wp-content/uploads/2026/06/15133051/20260615043047-2Q3A3591_compressed1.jpeg" alt="푸마 스니커 박스 플래그십 스토어"><span class="label">MAGAZINE · BRANDING · SPACE</span></div><h2>푸마는 왜 신발 상자를 플래그십 스토어로 만들었을까</h2><div class="meta"><span>브랜딩</span><span>AESOST MAGAZINE</span><span>2026.08.02</span></div></a>'
+  ];
   let indexPromise=null;
 
   function brandText(value=''){
@@ -23,13 +26,17 @@
   function replaceKnownThumbnails(root=document){
     root.querySelectorAll?.('a[href*="magazine-apple-liquid-glass-usability.html"] img').forEach(image=>{image.src=liquidGlassThumbnail;image.alt='리퀴드 글래스 투명도 조절 화면';image.dataset.fallbackApplied='';image.style.display='block'});
   }
-  function ensurePumaMagazineCard(root=document){
+  function ensureMagazineCards(root=document){
     const title=root.querySelector?.('.page-head h1')?.textContent?.trim();
     if(title!=='매거진')return;
-    const grid=root.querySelector('.grid');
-    if(!grid||grid.querySelector('a[href*="magazine-puma-sneaker-box-seoul.html"]'))return;
-    const doc=new DOMParser().parseFromString(pumaCardHtml,'text/html');
-    grid.prepend(doc.querySelector('.card'));
+    const grid=root.querySelector('.grid');if(!grid)return;
+    magazineCards.slice().reverse().forEach(html=>{
+      const doc=new DOMParser().parseFromString(html,'text/html');
+      const incoming=doc.querySelector('.card');
+      const href=incoming.getAttribute('href');
+      const existing=grid.querySelector(`a[href*="${href}"]`);
+      if(existing){existing.replaceWith(incoming)}else{grid.prepend(incoming)}
+    });
   }
   function overseasIcon(){return '<span class="mobile-menu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></span>'}
   function setupOverseasMagazineNavigation(){
@@ -58,13 +65,13 @@
     root.querySelectorAll('.article-body p,.article-body small,.news-body p,.column-body p').forEach(element=>{if(/이미지\s*출처|사진\s*출처|자료\s*출처|참고\s*(기사|자료)|원문\s*(보기|출처)/i.test(element.textContent||''))element.remove()});
     root.querySelectorAll('.article-body a,.news-body a,.column-body a').forEach(link=>{if(/원문|참고\s*(기사|글|자료)|출처|Design\+|브런치/i.test(link.textContent||''))link.remove()});
   }
-  function refreshPage(){applyAesostBrand();replaceKnownThumbnails();setupOverseasMagazineNavigation();ensurePumaMagazineCard();refreshFreeContent()}
+  function refreshPage(){applyAesostBrand();replaceKnownThumbnails();setupOverseasMagazineNavigation();ensureMagazineCards();refreshFreeContent()}
   removeSourceLabels();refreshPage();setTimeout(refreshPage,500);setTimeout(refreshPage,1600);window.addEventListener('pageshow',refreshPage);
 
   const createPanel=()=>{let panel=document.querySelector('[data-search-panel]');if(!panel){panel=document.createElement('div');panel.className='search-panel';panel.dataset.searchPanel='';document.body.appendChild(panel)}panel.innerHTML=`<div class="search-inner"><div class="search-top"><strong>AESOST SEARCH</strong><button type="button" data-search-close aria-label="검색 닫기">닫기</button></div><input class="search-input" type="search" placeholder="제목, 분야, 키워드를 검색하세요" autocomplete="off"><p class="wavelab-search-help">매거진, 해외 매거진, 아티클, 칼럼, 클래스와 뉴스에서 검색합니다.</p><div class="wavelab-search-results" data-search-results><div class="wavelab-search-empty">검색어를 입력하면 관련 콘텐츠가 표시됩니다.</div></div></div>`;return panel};
   const panel=createPanel(),input=panel.querySelector('.search-input'),results=panel.querySelector('[data-search-results]');
   const escape=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-  const buildIndex=()=>indexPromise||(indexPromise=Promise.all(listPages.map(async page=>{try{const response=await fetch(`${page.url}?searchIndex=1`,{cache:'no-store'});if(!response.ok)return[];const html=await response.text();const doc=new DOMParser().parseFromString(html,'text/html');removeSourceLabels(doc);applyAesostBrand(doc);replaceKnownThumbnails(doc);ensurePumaMagazineCard(doc);return [...doc.querySelectorAll('.card,.study-card')].map(card=>({title:card.querySelector('h2,h3,strong')?.textContent?.trim()||'',meta:card.querySelector('.meta,.study-info')?.textContent?.replace(/\s+/g,' ').trim()||'',href:card.getAttribute('href')||page.url,image:card.querySelector('img')?.getAttribute('src')||'',type:page.type})).filter(item=>item.title)}catch{return[]}})).then(groups=>groups.flat()));
+  const buildIndex=()=>indexPromise||(indexPromise=Promise.all(listPages.map(async page=>{try{const response=await fetch(`${page.url}?searchIndex=1`,{cache:'no-store'});if(!response.ok)return[];const html=await response.text();const doc=new DOMParser().parseFromString(html,'text/html');removeSourceLabels(doc);applyAesostBrand(doc);replaceKnownThumbnails(doc);ensureMagazineCards(doc);return [...doc.querySelectorAll('.card,.study-card')].map(card=>({title:card.querySelector('h2,h3,strong')?.textContent?.trim()||'',meta:card.querySelector('.meta,.study-info')?.textContent?.replace(/\s+/g,' ').trim()||'',href:card.getAttribute('href')||page.url,image:card.querySelector('img')?.getAttribute('src')||'',type:page.type})).filter(item=>item.title)}catch{return[]}})).then(groups=>groups.flat()));
   const render=async query=>{const keyword=query.trim().toLowerCase();if(!keyword){results.innerHTML='<div class="wavelab-search-empty">검색어를 입력하면 관련 콘텐츠가 표시됩니다.</div>';return}results.innerHTML='<div class="wavelab-search-empty">콘텐츠를 찾고 있습니다.</div>';const items=await buildIndex();const matched=items.filter(item=>`${item.title} ${item.meta} ${item.type}`.toLowerCase().includes(keyword)).slice(0,20);results.innerHTML=matched.length?matched.map(item=>`<a class="wavelab-search-result" href="${escape(item.href)}">${item.image?`<img src="${escape(item.image)}" alt="" loading="lazy">`:'<span></span>'}<div><strong>${escape(item.title)}</strong><span>${escape(item.type)}${item.meta?` · ${escape(item.meta)}`:''}</span></div><em>↗</em></a>`).join(''):'<div class="wavelab-search-empty">일치하는 콘텐츠가 없습니다. 다른 키워드로 검색해 보세요.</div>'};
   let timer;input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>render(input.value),180)});
   document.querySelectorAll('[data-search-open]').forEach(trigger=>trigger.addEventListener('click',event=>{event.preventDefault();panel.classList.add('is-open');document.body.style.overflow='hidden';setTimeout(()=>input.focus(),50)}));
