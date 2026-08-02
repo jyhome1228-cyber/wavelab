@@ -1,6 +1,7 @@
 (()=>{
   const listPages=[
     {url:'magazine.html',type:'매거진'},
+    {url:'overseas-magazine.html',type:'해외 매거진'},
     {url:'article.html',type:'아티클'},
     {url:'column.html',type:'칼럼'},
     {url:'class.html',type:'클래스'},
@@ -40,6 +41,45 @@
     });
   }
 
+  function overseasIcon(){
+    return '<span class="mobile-menu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></span>';
+  }
+
+  function setupOverseasMagazineNavigation(){
+    const isOverseas=location.pathname.endsWith('/overseas-magazine.html')||location.pathname.endsWith('overseas-magazine.html');
+    const desktop=document.querySelector('.desktop-nav');
+    if(desktop&&!desktop.querySelector('a[href="overseas-magazine.html"]')){
+      const magazine=desktop.querySelector('a[href="magazine.html"]');
+      const link=document.createElement('a');
+      link.href='overseas-magazine.html';
+      link.textContent='해외 매거진';
+      if(isOverseas)link.classList.add('is-active');
+      magazine?.insertAdjacentElement('afterend',link);
+    }
+    const mobileLinks=document.querySelector('.mobile-menu-links');
+    if(mobileLinks&&!mobileLinks.querySelector('a[href="overseas-magazine.html"]')){
+      const magazine=mobileLinks.querySelector('a[href="magazine.html"]');
+      const link=document.createElement('a');
+      link.href='overseas-magazine.html';
+      link.className=`mobile-menu-link${isOverseas?' is-active':''}`;
+      link.innerHTML=`${overseasIcon()}<span class="mobile-menu-label">해외 매거진</span><span class="mobile-menu-arrow" aria-hidden="true">›</span>`;
+      magazine?.insertAdjacentElement('afterend',link);
+    }
+    const footerContent=[...document.querySelectorAll('.footer h3')].find(el=>el.textContent.trim()==='CONTENT')?.parentElement?.querySelector('nav');
+    if(footerContent&&!footerContent.querySelector('a[href="overseas-magazine.html"]')){
+      const magazine=footerContent.querySelector('a[href="magazine.html"]');
+      const link=document.createElement('a');link.href='overseas-magazine.html';link.textContent='해외 매거진';
+      magazine?.insertAdjacentElement('afterend',link);
+    }
+    if(location.pathname.endsWith('/magazine.html')||location.pathname.endsWith('magazine.html')){
+      document.querySelector('.overseas-magazine-intro')?.remove();
+      document.querySelector('[data-filter="해외 매거진"]')?.remove();
+      document.querySelectorAll('.card[data-category="해외 매거진"]').forEach(card=>card.remove());
+      const desc=document.querySelector('.page-head p');
+      if(desc)desc.textContent='디자인, 기술, 비즈니스와 문화에서 발생하는 새로운 흐름을 발견하고 이해하기 쉽게 재해석합니다.';
+    }
+  }
+
   function removeSourceLabels(root=document){
     root.querySelectorAll('figcaption').forEach(caption=>caption.remove());
     root.querySelectorAll('.article-origin-note').forEach(note=>note.remove());
@@ -55,13 +95,14 @@
   removeSourceLabels();
   applyAesostBrand();
   replaceKnownThumbnails();
-  setTimeout(()=>{applyAesostBrand();replaceKnownThumbnails()},500);
-  setTimeout(()=>{applyAesostBrand();replaceKnownThumbnails()},1600);
+  setupOverseasMagazineNavigation();
+  setTimeout(()=>{applyAesostBrand();replaceKnownThumbnails();setupOverseasMagazineNavigation()},500);
+  setTimeout(()=>{applyAesostBrand();replaceKnownThumbnails();setupOverseasMagazineNavigation()},1600);
 
   const createPanel=()=>{
     let panel=document.querySelector('[data-search-panel]');
     if(!panel){panel=document.createElement('div');panel.className='search-panel';panel.dataset.searchPanel='';document.body.appendChild(panel)}
-    panel.innerHTML=`<div class="search-inner"><div class="search-top"><strong>AESOST SEARCH</strong><button type="button" data-search-close aria-label="검색 닫기">닫기</button></div><input class="search-input" type="search" placeholder="제목, 분야, 키워드를 검색하세요" autocomplete="off"><p class="wavelab-search-help">매거진, 아티클, 칼럼, 클래스와 뉴스에서 검색합니다.</p><div class="wavelab-search-results" data-search-results><div class="wavelab-search-empty">검색어를 입력하면 관련 콘텐츠가 표시됩니다.</div></div></div>`;
+    panel.innerHTML=`<div class="search-inner"><div class="search-top"><strong>AESOST SEARCH</strong><button type="button" data-search-close aria-label="검색 닫기">닫기</button></div><input class="search-input" type="search" placeholder="제목, 분야, 키워드를 검색하세요" autocomplete="off"><p class="wavelab-search-help">매거진, 해외 매거진, 아티클, 칼럼, 클래스와 뉴스에서 검색합니다.</p><div class="wavelab-search-results" data-search-results><div class="wavelab-search-empty">검색어를 입력하면 관련 콘텐츠가 표시됩니다.</div></div></div>`;
     return panel;
   };
 
