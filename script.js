@@ -4,7 +4,7 @@ ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.r
 ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link');e.rel='manifest';e.href='site.webmanifest?v=20260802-3';return e});
 ensureHeadTag('meta[name="theme-color"]',()=>{const e=document.createElement('meta');e.name='theme-color';e.content='#651DDC';return e});
 ensureHeadTag('meta[name="description"]',()=>{const e=document.createElement('meta');e.name='description';e.content='AESOST는 질문과 경험을 연결해 커리어의 다음 방향을 구체화하는 플랫폼입니다.';return e});
-loadStylesheet('refine.css');loadStylesheet('member-gate.css');loadStylesheet('mobile-spacing.css?v=20260802-2');loadStylesheet('grid-four.css?v=20260801-1');loadStylesheet('wavelab-philosophy.css?v=20260801-1');loadStylesheet('search-refine.css?v=20260801-1');loadStylesheet('image-fallback.css?v=20260801-2');loadStylesheet('aesost-theme.css?v=20260802-3');
+loadStylesheet('refine.css');loadStylesheet('member-gate.css');loadStylesheet('mobile-spacing.css?v=20260802-2');loadStylesheet('grid-four.css?v=20260801-1');loadStylesheet('wavelab-philosophy.css?v=20260801-1');loadStylesheet('search-refine.css?v=20260801-1');loadStylesheet('image-fallback.css?v=20260801-2');loadStylesheet('real-content.css?v=20260802-6');loadStylesheet('aesost-theme.css?v=20260802-3');
 const page=location.pathname.split('/').pop()||'index.html';
 const nav=[['매거진','magazine.html','list'],['아티클','article.html','document'],['칼럼','column.html','edit'],['클래스','class.html','class'],['엑스퍼트','expert-feedback.html','expert'],['뉴스','news.html','news']];
 function active(url){if(page===url)return true;if(url==='class.html'&&page==='study-detail.html')return true;return false}
@@ -24,6 +24,6 @@ function applyMemberAccess(user=null){if(!gatedPages.has(page))return;const grid
 window.applyMemberAccess=applyMemberAccess;applyMemberAccess(null);
 const firebaseModule=document.createElement('script');firebaseModule.type='module';firebaseModule.src='firebase-auth.js?v=20260801-2';document.body.appendChild(firebaseModule);
 const columnistModule=document.createElement('script');columnistModule.type='module';columnistModule.src='columnist-access.js?v=20260801-2';document.body.appendChild(columnistModule);
-const enhance=document.createElement('script');enhance.src='site-enhance.js?v=20260801-4';document.body.appendChild(enhance);
+const enhance=document.createElement('script');enhance.src='site-enhance.js?v=20260802-5';document.body.appendChild(enhance);
 document.title=document.title.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트').replaceAll('전문가 피드백','엑스퍼트');
 document.querySelectorAll('meta[name="description"],meta[property="og:site_name"],meta[property="og:title"],meta[property="og:description"]').forEach(meta=>{if(meta.content)meta.content=meta.content.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트')});
