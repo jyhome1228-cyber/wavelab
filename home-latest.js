@@ -1,19 +1,31 @@
 const sources = [
-  { url: 'magazine.html', type: '매거진' },
-  { url: 'article.html', type: '아티클' },
-  { url: 'column.html', type: '칼럼' }
+  { url: 'magazine.html', type: '매거진', priority: 50 },
+  { url: 'overseas-magazine.html', type: '해외 매거진', priority: 40 },
+  { url: 'news.html', type: '뉴스', priority: 30 },
+  { url: 'article.html', type: '아티클', priority: 20 },
+  { url: 'column.html', type: '칼럼', priority: 10 }
+];
+
+const supplementalCards = [
+  {
+    type: '매거진',
+    priority: 100,
+    html: '<a class="card" data-category="브랜딩" href="magazine-puma-sneaker-box-seoul.html"><div class="real-thumb"><img src="https://design-plus.storage.googleapis.com/wp-content/uploads/2026/06/15133051/20260615043047-2Q3A3591_compressed1.jpeg" alt="푸마 스니커 박스 플래그십 스토어"><span class="label">MAGAZINE · BRANDING · SPACE</span></div><h2>신발 상자는 어떻게 하나의 플래그십 스토어가 되었을까</h2><div class="meta"><span>브랜딩</span><span>AESOST MAGAZINE</span><span>2026.08.02</span></div></a>'
+  }
 ];
 
 const container = document.querySelector('[data-home-latest-content]');
 
 function parseCardDate(card) {
+  const explicit = card.dataset.publishedAt;
+  if (explicit && !Number.isNaN(Date.parse(explicit))) return Date.parse(explicit);
   const values = [...card.querySelectorAll('.meta span')].map(item => item.textContent.trim());
   const dateText = values.find(value => /^\d{4}\.\d{2}\.\d{2}$/.test(value));
   if (!dateText) return 0;
   return new Date(`${dateText.replaceAll('.', '-')}T00:00:00`).getTime();
 }
 
-function normalizeCard(card, source, type) {
+function normalizeCard(card, source, type, priority = 0, order = 0) {
   const base = new URL(source, location.href);
   const href = card.getAttribute('href');
   if (href) card.setAttribute('href', new URL(href, base).href);
@@ -24,7 +36,9 @@ function normalizeCard(card, source, type) {
   });
 
   card.dataset.contentType = type;
-  card.dataset.publishedAt = String(parseCardDate(card));
+  card.dataset.publishedAtValue = String(parseCardDate(card));
+  card.dataset.sourcePriority = String(priority);
+  card.dataset.sourceOrder = String(order);
   card.classList.add('home-latest-card');
 
   const label = card.querySelector('.real-thumb .label, .thumb .label');
@@ -41,8 +55,16 @@ async function readSource(source) {
 
   const html = await response.text();
   const documentFragment = new DOMParser().parseFromString(html, 'text/html');
-  return [...documentFragment.querySelectorAll('.grid > .card')]
-    .map(card => normalizeCard(card, source.url, source.type));
+  return [...documentFragment.querySelectorAll('.grid > .card, .study-grid > .study-card')]
+    .map((card, index) => normalizeCard(card, source.url, source.type, source.priority, 1000 - index));
+}
+
+function readSupplementalCards() {
+  return supplementalCards.map((item, index) => {
+    const doc = new DOMParser().parseFromString(item.html, 'text/html');
+    const card = doc.querySelector('.card, .study-card');
+    return normalizeCard(card, location.href, item.type, item.priority, 2000 - index);
+  });
 }
 
 async function loadLatestContent() {
@@ -50,9 +72,22 @@ async function loadLatestContent() {
 
   try {
     const groups = await Promise.all(sources.map(readSource));
-    const latest = groups
-      .flat()
-      .sort((a, b) => Number(b.dataset.publishedAt) - Number(a.dataset.publishedAt))
+    const unique = new Map();
+
+    [...readSupplementalCards(), ...groups.flat()].forEach(card => {
+      const key = new URL(card.getAttribute('href'), location.href).pathname;
+      const current = unique.get(key);
+      if (!current || Number(card.dataset.sourcePriority) > Number(current.dataset.sourcePriority)) unique.set(key, card);
+    });
+
+    const latest = [...unique.values()]
+      .sort((a, b) => {
+        const dateDifference = Number(b.dataset.publishedAtValue) - Number(a.dataset.publishedAtValue);
+        if (dateDifference) return dateDifference;
+        const priorityDifference = Number(b.dataset.sourcePriority) - Number(a.dataset.sourcePriority);
+        if (priorityDifference) return priorityDifference;
+        return Number(b.dataset.sourceOrder) - Number(a.dataset.sourceOrder);
+      })
       .slice(0, 4);
 
     if (!latest.length) throw new Error('No latest content found');
