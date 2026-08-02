@@ -6,6 +6,7 @@
     {url:'class.html',type:'클래스'},
     {url:'news.html',type:'뉴스'}
   ];
+  const liquidGlassThumbnail='https://www.designdb.com/usr/upload/editor/email/20260630140528543eec8d-d255-454a-b93f-8a06669c306d.png';
   let indexPromise=null;
 
   function brandText(value=''){
@@ -30,6 +31,15 @@
     if(root===document)document.title=brandText(document.title);
   }
 
+  function replaceKnownThumbnails(root=document){
+    root.querySelectorAll?.('a[href*="magazine-apple-liquid-glass-usability.html"] img').forEach(image=>{
+      image.src=liquidGlassThumbnail;
+      image.alt='리퀴드 글래스 투명도 조절 화면';
+      image.dataset.fallbackApplied='';
+      image.style.display='block';
+    });
+  }
+
   function removeSourceLabels(root=document){
     root.querySelectorAll('figcaption').forEach(caption=>caption.remove());
     root.querySelectorAll('.article-origin-note').forEach(note=>note.remove());
@@ -44,8 +54,9 @@
 
   removeSourceLabels();
   applyAesostBrand();
-  setTimeout(()=>applyAesostBrand(),500);
-  setTimeout(()=>applyAesostBrand(),1600);
+  replaceKnownThumbnails();
+  setTimeout(()=>{applyAesostBrand();replaceKnownThumbnails()},500);
+  setTimeout(()=>{applyAesostBrand();replaceKnownThumbnails()},1600);
 
   const createPanel=()=>{
     let panel=document.querySelector('[data-search-panel]');
@@ -61,7 +72,7 @@
   const buildIndex=()=>indexPromise||(indexPromise=Promise.all(listPages.map(async page=>{
     try{
       const response=await fetch(`${page.url}?searchIndex=1`,{cache:'no-store'});if(!response.ok)return[];
-      const html=await response.text();const doc=new DOMParser().parseFromString(html,'text/html');removeSourceLabels(doc);applyAesostBrand(doc);
+      const html=await response.text();const doc=new DOMParser().parseFromString(html,'text/html');removeSourceLabels(doc);applyAesostBrand(doc);replaceKnownThumbnails(doc);
       return [...doc.querySelectorAll('.card,.study-card')].map(card=>({title:card.querySelector('h2,h3,strong')?.textContent?.trim()||'',meta:card.querySelector('.meta,.study-info')?.textContent?.replace(/\s+/g,' ').trim()||'',href:card.getAttribute('href')||page.url,image:card.querySelector('img')?.getAttribute('src')||'',type:page.type})).filter(item=>item.title);
     }catch{return[]}
   })).then(groups=>groups.flat()));
