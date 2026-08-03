@@ -9,6 +9,7 @@ const DETAIL_FILE = path.join(process.cwd(), 'reference-that-joe-pizza.html');
 const BOARD_FILE = path.join(process.cwd(), 'reference.html');
 const CSS_FILE = path.join(process.cwd(), 'reference.css');
 const PROJECT_IMAGE_PATTERN = /\/api\/storage\/objects\/uploads\/[^/?]+_(\d+)-world-brand-design-society\.webp\?w=1200(?:&|$)/i;
+const MIN_IMAGE_BYTES = 5000;
 
 await fs.mkdir(ASSET_DIR, { recursive: true });
 for (const file of await fs.readdir(ASSET_DIR)) {
@@ -70,7 +71,7 @@ await page.waitForTimeout(3000);
 
 let projectImages = (await Promise.all(responsePromises))
   .filter(Boolean)
-  .filter((item) => item.body.byteLength > 20000)
+  .filter((item) => item.body.byteLength > MIN_IMAGE_BYTES)
   .sort((a, b) => a.number - b.number);
 
 if (projectImages.length < 4 && responseUrls.size >= 4) {
@@ -87,7 +88,7 @@ if (projectImages.length < 4 && responseUrls.size >= 4) {
     }).catch(() => null);
     if (!response?.ok()) continue;
     const body = await response.body();
-    if (body.byteLength < 20000) continue;
+    if (body.byteLength <= MIN_IMAGE_BYTES) continue;
     projectImages.push({
       url,
       number: Number(match?.[1] || projectImages.length + 1),
@@ -122,6 +123,10 @@ const absoluteFirst = `https://wavelab.my/${localFirst}`;
 
 let detail = await fs.readFile(DETAIL_FILE, 'utf8');
 detail = detail.replace(/<meta property="og:image" content="[^"]+">/, `<meta property="og:image" content="${absoluteFirst}">`);
+detail = detail.replace(
+  /\s*<section class="reference-image-gallery"[\s\S]*?<\/section>/,
+  `\n\n        <section class="reference-image-gallery" aria-label="That Joe Pizza Shop 프로젝트 이미지">\n${gallery}\n          <p class="reference-gallery-caption">Images © Tanaya Designs · World Brand Design Society. 디자인 연구와 비평을 위한 출처 표기형 열람입니다.</p>\n        </section>`
+);
 detail = detail.replace(
   /\s*<figure class="reference-cover">[\s\S]*?<\/figure>/,
   `\n\n        <section class="reference-image-gallery" aria-label="That Joe Pizza Shop 프로젝트 이미지">\n${gallery}\n          <p class="reference-gallery-caption">Images © Tanaya Designs · World Brand Design Society. 디자인 연구와 비평을 위한 출처 표기형 열람입니다.</p>\n        </section>`
