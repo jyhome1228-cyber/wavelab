@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT=process.cwd();
-const SCRIPT_VERSION='20260804-5';
+const SCRIPT_VERSION='20260804-6';
 const THEME_VERSION='20260804-3';
 const HOME_LATEST_VERSION='20260804-2';
 const REFERENCE_VERSION='20260804-3';
@@ -23,7 +23,25 @@ const sharedScriptPath=path.join(ROOT,'script.js');
 let sharedScript=await fs.readFile(sharedScriptPath,'utf8');
 sharedScript=sharedScript
   .replace(/reference-save\.css\?v=[^"']+/g,'reference-save.css?v=20260804-4')
-  .replace(/reference-save\.js\?v=[^"']+/g,'reference-save.js?v=20260804-3');
+  .replace(/reference-save\.js\?v=[^"']+/g,'reference-save.js?v=20260804-3')
+  .replace(/\n\s*\['클래스','class\.html','class'\],?/g,'')
+  .replace('<a href="class.html">클래스</a>','')
+  .replace('<a href="about.html">운영자 소개</a><a href="notice.html">공지사항</a>','<a href="about.html">운영자 소개</a>');
+
+if(!sharedScript.includes("['공지사항','notice.html'")){
+  sharedScript=sharedScript.replace(
+    "  ['뉴스','news.html','news']\n];",
+    "  ['뉴스','news.html','news'],\n  ['공지사항','notice.html','news']\n];"
+  );
+}
+
+if(!sharedScript.includes('<a href="news.html">뉴스</a><a href="notice.html">공지사항</a>')){
+  sharedScript=sharedScript.replace(
+    '<a href="news.html">뉴스</a></nav></div><div><h3>AESOST</h3>',
+    '<a href="news.html">뉴스</a><a href="notice.html">공지사항</a></nav></div><div><h3>AESOST</h3>'
+  );
+}
+
 await fs.writeFile(sharedScriptPath,sharedScript);
 
 const files=await walk(ROOT);
