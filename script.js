@@ -136,9 +136,9 @@ if(page.startsWith('magazine-')){
   document.body.appendChild(titles);
 }
 if(document.body.classList.contains('reference-detail-page')||page==='my-references.html'){
-  loadStylesheet('reference-save.css?v=20260804-3');
+  loadStylesheet('reference-save.css?v=20260804-4');
   const references=document.createElement('script');
-  references.src='reference-save.js?v=20260804-2';
+  references.src='reference-save.js?v=20260804-3';
   document.body.appendChild(references);
 }
 
