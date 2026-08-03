@@ -4,29 +4,157 @@ ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.r
 ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link');e.rel='manifest';e.href='site.webmanifest?v=20260802-3';return e});
 ensureHeadTag('meta[name="theme-color"]',()=>{const e=document.createElement('meta');e.name='theme-color';e.content='#651DDC';return e});
 ensureHeadTag('meta[name="description"]',()=>{const e=document.createElement('meta');e.name='description';e.content='AESOST는 배우고 기록하며 자신의 커리어를 만드는 사람들을 위한 플랫폼입니다.';return e});
-loadStylesheet('refine.css');loadStylesheet('member-gate.css');loadStylesheet('mobile-spacing.css?v=20260802-2');loadStylesheet('grid-four.css?v=20260801-1');loadStylesheet('wavelab-philosophy.css?v=20260801-1');loadStylesheet('search-refine.css?v=20260804-1');loadStylesheet('image-fallback.css?v=20260801-2');loadStylesheet('real-content.css?v=20260802-6');loadStylesheet('aesost-theme.css?v=20260804-2');
+loadStylesheet('refine.css');
+loadStylesheet('member-gate.css');
+loadStylesheet('mobile-spacing.css?v=20260802-2');
+loadStylesheet('grid-four.css?v=20260801-1');
+loadStylesheet('wavelab-philosophy.css?v=20260801-1');
+loadStylesheet('search-refine.css?v=20260804-1');
+loadStylesheet('image-fallback.css?v=20260801-2');
+loadStylesheet('real-content.css?v=20260802-6');
+loadStylesheet('aesost-theme.css?v=20260804-3');
+
 const page=location.pathname.split('/').pop()||'index.html';
-const nav=[['매거진','magazine.html','list'],['아티클','article.html','document'],['칼럼','column.html','edit'],['해외 매거진','overseas-magazine.html','globe'],['해외 레퍼런스','reference.html','reference'],['클래스','class.html','class'],['커리어 컨설팅','expert-feedback.html','expert'],['뉴스','news.html','news']];
-function active(url){if(page===url)return true;if(url==='class.html'&&page==='study-detail.html')return true;if(url==='overseas-magazine.html'&&page==='magazine-fold-studio-room-divider.html')return true;if(url==='reference.html'&&(page.startsWith('reference-')||page==='my-references.html'))return true;if(url==='expert-feedback.html'&&(page.startsWith('expert-')||page==='career-consulting-request.html'))return true;return false}
+const nav=[
+  ['매거진','magazine.html','list'],
+  ['아티클','article.html','document'],
+  ['칼럼','column.html','edit'],
+  ['해외 매거진','overseas-magazine.html','globe'],
+  ['해외 레퍼런스','reference.html','reference'],
+  ['클래스','class.html','class'],
+  ['커리어 컨설팅','expert-feedback.html','expert'],
+  ['뉴스','news.html','news']
+];
+function active(url){
+  if(page===url)return true;
+  if(url==='class.html'&&page==='study-detail.html')return true;
+  if(url==='overseas-magazine.html'&&page==='magazine-fold-studio-room-divider.html')return true;
+  if(url==='reference.html'&&(page.startsWith('reference-')||page==='my-references.html'))return true;
+  if(url==='expert-feedback.html'&&(page.startsWith('expert-')||page==='career-consulting-request.html'))return true;
+  return false;
+}
 function brandMarkup(){return '<img class="brand-logo" src="aesost-logo.svg?v=20260801-2" alt="AESOST">'}
-function menuIcon(type){const icons={list:'<path d="M5 6h14M5 12h14M5 18h14"/><circle cx="3" cy="6" r=".7"/><circle cx="3" cy="12" r=".7"/><circle cx="3" cy="18" r=".7"/>',reference:'<path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>',document:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/>',edit:'<path d="m4 20 4.2-1 10-10a2 2 0 0 0-3-3l-10 10z"/><path d="m13.5 7.5 3 3"/>',class:'<path d="m3 9 9-5 9 5-9 5z"/><path d="M7 12v5c3 2 7 2 10 0v-5M21 9v6"/>',expert:'<circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/>',news:'<path d="M4 10v4h4l8 4V6l-8 4z"/><path d="M8 14v5M19 9a4 4 0 0 1 0 6"/>'};return `<span class="mobile-menu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${icons[type]||icons.list}</svg></span>`}
+function menuIcon(type){
+  const icons={
+    list:'<path d="M5 6h14M5 12h14M5 18h14"/><circle cx="3" cy="6" r=".7"/><circle cx="3" cy="12" r=".7"/><circle cx="3" cy="18" r=".7"/>',
+    reference:'<path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/>',
+    globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>',
+    document:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/>',
+    edit:'<path d="m4 20 4.2-1 10-10a2 2 0 0 0-3-3l-10 10z"/><path d="m13.5 7.5 3 3"/>',
+    class:'<path d="m3 9 9-5 9 5-9 5z"/><path d="M7 12v5c3 2 7 2 10 0v-5M21 9v6"/>',
+    expert:'<circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/>',
+    news:'<path d="M4 10v4h4l8 4V6l-8 4z"/><path d="M8 14v5M19 9a4 4 0 0 1 0 6"/>'
+  };
+  return `<span class="mobile-menu-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${icons[type]||icons.list}</svg></span>`;
+}
 function desktopNavigation(){return nav.map(([name,url])=>`<a href="${url}" class="${active(url)?'is-active':''}">${name}</a>`).join('')}
 function mobileNavigation(){return nav.map(([name,url,icon])=>`<a href="${url}" class="mobile-menu-link ${active(url)?'is-active':''}">${menuIcon(icon)}<span class="mobile-menu-label">${name}</span><span class="mobile-menu-arrow" aria-hidden="true">›</span></a>`).join('')}
 function headerMarkup(){return `<div class="header-inner shell"><a class="brand" href="index.html" aria-label="AESOST 홈으로 이동">${brandMarkup()}</a><nav class="desktop-nav" aria-label="주요 메뉴">${desktopNavigation()}</nav><div class="header-actions"><input class="search-box" type="text" placeholder="검색" data-search-open readonly aria-label="검색 열기"><a class="cta" href="column-write.html" data-column-write hidden>칼럼 쓰기</a><a class="login" href="login.html" data-auth-login>로그인</a><a class="mypage-link" href="mypage.html" data-auth-mypage hidden>마이페이지</a><a class="logout-link" href="#" data-auth-logout hidden>로그아웃</a><button class="menu-btn" type="button" data-menu aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button></div></div><nav class="mobile-nav" data-mobile aria-label="모바일 메뉴"><div class="mobile-menu-links">${mobileNavigation()}</div><div class="mobile-account-actions"><a href="login.html" data-mobile-login>로그인 <span>›</span></a><a href="column-write.html" data-mobile-column-write hidden>칼럼 쓰기 <span>›</span></a><a href="mypage.html" data-mobile-mypage hidden>마이페이지 <span>›</span></a><a href="my-references.html">나의 레퍼런스 <span>›</span></a><a href="#" data-mobile-logout hidden>로그아웃 <span>›</span></a></div></nav>`}
 function footerMarkup(){return `<div class="shell"><div class="footer-grid"><div><a class="brand" href="index.html">${brandMarkup()}</a><p>지식을 얻고 관점을 기록하며, 자신의 경험을 커리어 자산으로 만드는 플랫폼.</p></div><div><h3>CONTENT</h3><nav><a href="magazine.html">매거진</a><a href="article.html">아티클</a><a href="column.html">칼럼</a><a href="overseas-magazine.html">해외 매거진</a><a href="reference.html">해외 레퍼런스</a><a href="class.html">클래스</a><a href="news.html">뉴스</a></nav></div><div><h3>AESOST</h3><nav><a href="expert-feedback.html">커리어 컨설팅</a><a href="columnist-apply.html">칼럼니스트 신청</a><a href="about.html">운영자 소개</a><a href="notice.html">공지사항</a></nav></div><div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html?mode=signup">회원가입</a><a href="mypage.html">마이페이지</a><a href="my-references.html">나의 레퍼런스</a><a href="ability-edit.html">커리어 아카이브</a></nav></div></div><div class="footer-bottom"><span>LEARN · THINK · WRITE · GROW</span><span>© 2026 AESOST.</span></div></div>`}
-const header=document.querySelector('[data-header]'),footer=document.querySelector('[data-footer]');if(header)header.innerHTML=headerMarkup();if(footer)footer.innerHTML=footerMarkup();
-const menuButton=document.querySelector('[data-menu]'),mobileMenu=document.querySelector('[data-mobile]');menuButton?.addEventListener('click',()=>{const opened=mobileMenu.classList.toggle('is-open');menuButton.classList.toggle('is-open',opened);menuButton.setAttribute('aria-expanded',String(opened))});mobileMenu?.querySelectorAll('a,button').forEach(item=>item.addEventListener('click',()=>{mobileMenu.classList.remove('is-open');menuButton?.classList.remove('is-open');menuButton?.setAttribute('aria-expanded','false')}));
-document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{const group=button.closest('.filters,.reference-filters');group?.querySelectorAll('[data-filter]').forEach(item=>item.classList.remove('is-active'));button.classList.add('is-active');const selected=button.dataset.filter;document.querySelectorAll('[data-category]').forEach(card=>{card.hidden=selected!=='전체'&&card.dataset.category!==selected})}));
-const searchPanel=document.querySelector('[data-search-panel]');document.querySelectorAll('[data-search-open]').forEach(button=>button.addEventListener('click',()=>{searchPanel?.classList.add('is-open');searchPanel?.querySelector('input')?.focus()}));searchPanel?.querySelector('[data-search-close]')?.addEventListener('click',()=>searchPanel.classList.remove('is-open'));document.addEventListener('keydown',event=>{if(event.key==='Escape')searchPanel?.classList.remove('is-open')});
-function activateAuthTab(name){document.querySelectorAll('[data-auth-tab]').forEach(item=>item.classList.toggle('is-active',item.dataset.authTab===name));document.querySelectorAll('[data-auth-panel]').forEach(panel=>panel.classList.toggle('is-active',panel.dataset.authPanel===name))}document.querySelectorAll('[data-auth-tab]').forEach(tab=>tab.addEventListener('click',()=>activateAuthTab(tab.dataset.authTab)));const authMode=new URLSearchParams(location.search).get('mode');if(authMode==='signup'||location.hash==='#signup')activateAuthTab('signup');
+
+const header=document.querySelector('[data-header]');
+const footer=document.querySelector('[data-footer]');
+if(header)header.innerHTML=headerMarkup();
+if(footer)footer.innerHTML=footerMarkup();
+
+const menuButton=document.querySelector('[data-menu]');
+const mobileMenu=document.querySelector('[data-mobile]');
+menuButton?.addEventListener('click',()=>{
+  const opened=mobileMenu.classList.toggle('is-open');
+  menuButton.classList.toggle('is-open',opened);
+  menuButton.setAttribute('aria-expanded',String(opened));
+});
+mobileMenu?.querySelectorAll('a,button').forEach(item=>item.addEventListener('click',()=>{
+  mobileMenu.classList.remove('is-open');
+  menuButton?.classList.remove('is-open');
+  menuButton?.setAttribute('aria-expanded','false');
+}));
+
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
+  const group=button.closest('.filters,.reference-filters');
+  group?.querySelectorAll('[data-filter]').forEach(item=>item.classList.remove('is-active'));
+  button.classList.add('is-active');
+  const selected=button.dataset.filter;
+  document.querySelectorAll('[data-category]').forEach(card=>{card.hidden=selected!=='전체'&&card.dataset.category!==selected});
+}));
+
+const searchPanel=document.querySelector('[data-search-panel]');
+document.querySelectorAll('[data-search-open]').forEach(button=>button.addEventListener('click',()=>{
+  searchPanel?.classList.add('is-open');
+  searchPanel?.querySelector('input')?.focus();
+}));
+searchPanel?.querySelector('[data-search-close]')?.addEventListener('click',()=>searchPanel.classList.remove('is-open'));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')searchPanel?.classList.remove('is-open')});
+
+function activateAuthTab(name){
+  document.querySelectorAll('[data-auth-tab]').forEach(item=>item.classList.toggle('is-active',item.dataset.authTab===name));
+  document.querySelectorAll('[data-auth-panel]').forEach(panel=>panel.classList.toggle('is-active',panel.dataset.authPanel===name));
+}
+document.querySelectorAll('[data-auth-tab]').forEach(tab=>tab.addEventListener('click',()=>activateAuthTab(tab.dataset.authTab)));
+const authMode=new URLSearchParams(location.search).get('mode');
+if(authMode==='signup'||location.hash==='#signup')activateAuthTab('signup');
+
 const gatedPages=new Set(['magazine.html','overseas-magazine.html','article.html','column.html','class.html','news.html']);
-function applyMemberAccess(user=null){if(!gatedPages.has(page))return;const grid=document.querySelector('.grid,.study-grid');if(!grid)return;grid.querySelector('.member-gate-banner')?.remove();const cards=[...grid.querySelectorAll(':scope > .card,:scope > .study-card')],signed=Boolean(user);cards.forEach(card=>{card.classList.remove('member-locked');card.querySelector('.member-lock-overlay')?.remove();if(card.dataset.originalHref)card.setAttribute('href',card.dataset.originalHref)});cards.forEach((card,index)=>{if(!card.dataset.originalHref)card.dataset.originalHref=card.getAttribute('href')||'#';if(index<4||signed){card.setAttribute('href',card.dataset.originalHref);return}card.classList.add('member-locked');card.setAttribute('href',`login.html?mode=signup&next=${encodeURIComponent(card.dataset.originalHref)}`);const thumb=card.querySelector('.thumb,.real-thumb');if(thumb&&!thumb.querySelector('.member-lock-overlay'))thumb.insertAdjacentHTML('beforeend','<div class="member-lock-overlay"><span class="member-lock-icon">⌑</span><strong>MEMBERS ONLY</strong><span>에이소스트 시작하기</span></div>')});if(!signed&&cards.length>4){const banner=document.createElement('div');banner.className='member-gate-banner';banner.innerHTML='<div class="member-gate-philosophy"><span>LEARN · THINK · WRITE · GROW</span><h3>다른 사람의 지식과 관점을 읽고, 자신의 경험도 커리어 자산으로 남겨보세요.</h3><p>에이소스트에서 전체 콘텐츠를 읽고, 커리어 컨설팅을 요청하고, 자신의 생각과 경험을 기록할 수 있습니다.</p></div><a href="login.html?mode=signup">에이소스트 시작하기</a>';grid.insertBefore(banner,cards[4])}}
-window.applyMemberAccess=applyMemberAccess;applyMemberAccess(null);
-if(page==='magazine.html'){const extra=document.createElement('script');extra.src='magazine-extra.js?v=20260804-2';document.body.appendChild(extra)}
-if(page.startsWith('magazine-')){const titles=document.createElement('script');titles.src='magazine-titles.js?v=20260804-1';document.body.appendChild(titles)}
-if(document.body.classList.contains('reference-detail-page')||page==='my-references.html'){loadStylesheet('reference-save.css?v=20260804-1');const references=document.createElement('script');references.src='reference-save.js?v=20260804-1';document.body.appendChild(references)}
-const firebaseModule=document.createElement('script');firebaseModule.type='module';firebaseModule.src='firebase-auth.js?v=20260802-3';document.body.appendChild(firebaseModule);
-const columnistModule=document.createElement('script');columnistModule.type='module';columnistModule.src='columnist-access.js?v=20260801-2';document.body.appendChild(columnistModule);
-const enhance=document.createElement('script');enhance.src='site-enhance.js?v=20260803-1';document.body.appendChild(enhance);
+function applyMemberAccess(user=null){
+  if(!gatedPages.has(page))return;
+  const grid=document.querySelector('.grid,.study-grid');
+  if(!grid)return;
+  grid.querySelector('.member-gate-banner')?.remove();
+  const cards=[...grid.querySelectorAll(':scope > .card,:scope > .study-card')];
+  const signed=Boolean(user);
+  cards.forEach(card=>{
+    card.classList.remove('member-locked');
+    card.querySelector('.member-lock-overlay')?.remove();
+    if(card.dataset.originalHref)card.setAttribute('href',card.dataset.originalHref);
+  });
+  cards.forEach((card,index)=>{
+    if(!card.dataset.originalHref)card.dataset.originalHref=card.getAttribute('href')||'#';
+    if(index<4||signed){card.setAttribute('href',card.dataset.originalHref);return}
+    card.classList.add('member-locked');
+    card.setAttribute('href',`login.html?mode=signup&next=${encodeURIComponent(card.dataset.originalHref)}`);
+    const thumb=card.querySelector('.thumb,.real-thumb');
+    if(thumb&&!thumb.querySelector('.member-lock-overlay'))thumb.insertAdjacentHTML('beforeend','<div class="member-lock-overlay"><span class="member-lock-icon">⌑</span><strong>MEMBERS ONLY</strong><span>에이소스트 시작하기</span></div>');
+  });
+  if(!signed&&cards.length>4){
+    const banner=document.createElement('div');
+    banner.className='member-gate-banner';
+    banner.innerHTML='<div class="member-gate-philosophy"><span>LEARN · THINK · WRITE · GROW</span><h3>다른 사람의 지식과 관점을 읽고, 자신의 경험도 커리어 자산으로 남겨보세요.</h3><p>에이소스트에서 전체 콘텐츠를 읽고, 커리어 컨설팅을 요청하고, 자신의 생각과 경험을 기록할 수 있습니다.</p></div><a href="login.html?mode=signup">에이소스트 시작하기</a>';
+    grid.insertBefore(banner,cards[4]);
+  }
+}
+window.applyMemberAccess=applyMemberAccess;
+applyMemberAccess(null);
+
+if(page==='magazine.html'){
+  const extra=document.createElement('script');
+  extra.src='magazine-extra.js?v=20260804-2';
+  document.body.appendChild(extra);
+}
+if(page.startsWith('magazine-')){
+  const titles=document.createElement('script');
+  titles.src='magazine-titles.js?v=20260804-1';
+  document.body.appendChild(titles);
+}
+if(document.body.classList.contains('reference-detail-page')||page==='my-references.html'){
+  loadStylesheet('reference-save.css?v=20260804-2');
+  const references=document.createElement('script');
+  references.src='reference-save.js?v=20260804-2';
+  document.body.appendChild(references);
+}
+
+const firebaseModule=document.createElement('script');
+firebaseModule.type='module';
+firebaseModule.src='firebase-auth.js?v=20260802-3';
+document.body.appendChild(firebaseModule);
+const columnistModule=document.createElement('script');
+columnistModule.type='module';
+columnistModule.src='columnist-access.js?v=20260801-2';
+document.body.appendChild(columnistModule);
+const enhance=document.createElement('script');
+enhance.src='site-enhance.js?v=20260803-1';
+document.body.appendChild(enhance);
+
 document.title=document.title.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트').replaceAll('전문가 피드백','커리어 컨설팅');
-document.querySelectorAll('meta[name="description"],meta[property="og:site_name"],meta[property="og:title"],meta[property="og:description"]').forEach(meta=>{if(meta.content)meta.content=meta.content.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트')});
+document.querySelectorAll('meta[name="description"],meta[property="og:site_name"],meta[property="og:title"],meta[property="og:description"]').forEach(meta=>{
+  if(meta.content)meta.content=meta.content.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트');
+});
