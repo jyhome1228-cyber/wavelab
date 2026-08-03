@@ -7,7 +7,7 @@
   <meta name="description" content="에이소스트에 로그인하고 저장한 콘텐츠와 커리어 기록을 확인하세요.">
   <link rel="stylesheet" href="styles.css?v=20260802-5">
   <link rel="stylesheet" href="aesost-theme.css?v=20260802-3">
-  <link rel="stylesheet" href="auth-aesost.css?v=20260802-1">
+  <link rel="stylesheet" href="auth-aesost.css?v=20260803-2">
 </head>
 <body class="auth-page">
   <header class="site-header" data-header></header>
@@ -42,5 +42,38 @@
   </main>
   <footer class="footer" data-footer></footer>
   <script src="script.js?v=20260802-9"></script>
+  <script>
+    (() => {
+      const card = document.querySelector('.auth-card');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      if (!card || reducedMotion || coarsePointer) return;
+
+      let frame = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+
+      const renderGlow = () => {
+        const rect = card.getBoundingClientRect();
+        const x = Math.max(0, Math.min(100, ((pointerX - rect.left) / rect.width) * 100));
+        const y = Math.max(0, Math.min(100, ((pointerY - rect.top) / rect.height) * 100));
+        card.style.setProperty('--mouse-x', `${x}%`);
+        card.style.setProperty('--mouse-y', `${y}%`);
+        frame = 0;
+      };
+
+      card.addEventListener('pointerenter', () => card.classList.add('is-pointer-active'));
+      card.addEventListener('pointermove', event => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (!frame) frame = requestAnimationFrame(renderGlow);
+      });
+      card.addEventListener('pointerleave', () => {
+        card.classList.remove('is-pointer-active');
+        card.style.setProperty('--mouse-x', '50%');
+        card.style.setProperty('--mouse-y', '18%');
+      });
+    })();
+  </script>
 </body>
 </html>
