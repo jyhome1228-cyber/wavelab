@@ -13,9 +13,9 @@ for(const entry of entries){
   if(!html.includes('reference-detail-page'))continue;
   const before=html;
   if(/reference-layout-fix\.css\?v=[^"']+/.test(html)){
-    html=html.replace(/reference-layout-fix\.css\?v=[^"']+/g,'reference-layout-fix.css?v=20260804-1');
+    html=html.replace(/reference-layout-fix\.css\?v=[^"']+/g,'reference-layout-fix.css?v=20260804-2');
   }else{
-    html=html.replace(/<\/head>/i,'  <link rel="stylesheet" href="reference-layout-fix.css?v=20260804-1">\n</head>');
+    html=html.replace(/<\/head>/i,'  <link rel="stylesheet" href="reference-layout-fix.css?v=20260804-2">\n</head>');
   }
   if(html!==before){
     await fs.writeFile(file,html);
