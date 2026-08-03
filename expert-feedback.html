@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>엑스퍼트 — AESOST</title>
-  <meta name="description" content="취업, 이직, 프리랜서, 1인 사업과 창업 고민을 먼저 길을 지나온 엑스퍼트에게 남겨보세요.">
+  <meta name="description" content="각자의 분야에서 실제 사업과 실무를 이끌어온 대표들의 프로필과 경험을 확인하세요.">
   <link rel="stylesheet" href="styles.css?v=20260802-5">
-  <link rel="stylesheet" href="expert-feedback.css?v=20260803-1">
+  <link rel="stylesheet" href="expert-feedback.css?v=20260803-2">
 </head>
 <body>
   <header class="site-header" data-header></header>
@@ -15,78 +15,90 @@
     <section class="page-head shell expert-page-head">
       <div class="page-icon">◎</div>
       <h1>엑스퍼트</h1>
-      <p>취업과 이직, 프리랜서 전환, 1인 사업과 창업까지. 먼저 같은 길을 지나온 사람의 실제 경험을 통해 다음 선택을 구체적으로 정리합니다.</p>
+      <p>각자의 분야에서 직접 선택하고 책임지며 사업과 실무를 이끌어온 대표들을 소개합니다. 프로필을 확인한 뒤 가장 가까운 경험을 가진 엑스퍼트에게 고민과 조언을 남겨보세요.</p>
     </section>
 
     <section class="expert-intro shell">
       <div>
         <span>AESOST EXPERTS</span>
-        <h2>정답보다 실제 경험에서 나온<br>다음 선택을 전합니다.</h2>
+        <h2>먼저 지나온 대표들의<br>실제 경험을 연결합니다.</h2>
       </div>
-      <p>이론적인 조언보다 직접 부딪히며 알게 된 시행착오와 선택 기준, 지금 바로 실행할 수 있는 현실적인 다음 행동을 이야기합니다.</p>
-      <a href="#concern">고민 남기기</a>
+      <p>직함이나 유명세보다 직접 부딪히며 쌓은 경험, 실패와 선택의 기준을 중심으로 엑스퍼트를 초청합니다. 각 대표님의 상세 프로필에서 전문 분야와 상담 가능한 주제를 확인할 수 있습니다.</p>
+      <a href="#experts">대표 프로필 보기</a>
     </section>
 
     <section class="expert-list-section shell" id="experts">
       <div class="expert-list-head">
         <div>
-          <span>EXPERT LINE-UP</span>
-          <h2>혼자 길을 만들어온<br>엑스퍼트를 만납니다.</h2>
+          <span>EXPERT PROFILES</span>
+          <h2>경험을 가진 대표를<br>프로필로 만납니다.</h2>
         </div>
-        <p>조직 안의 직함보다 직접 선택하고 책임지며 자신의 일을 만들어온 경험을 기준으로 엑스퍼트를 소개합니다.</p>
+        <p>대표님의 성함, 소속, 주요 경력과 전문 분야를 프로필 단위로 소개합니다. 초청이 확정되는 순서대로 실제 사진과 상세 이력이 반영됩니다.</p>
       </div>
 
-      <div class="expert-filter">
-        <button class="is-active" type="button">전체</button>
-        <button type="button">취업·이직</button>
-        <button type="button">프리랜서</button>
-        <button type="button">1인 사업</button>
-        <button type="button">창업</button>
+      <div class="expert-filter" aria-label="엑스퍼트 분야 필터">
+        <button class="is-active" type="button" data-expert-filter="전체">전체</button>
+        <button type="button" data-expert-filter="취업·이직">취업·이직</button>
+        <button type="button" data-expert-filter="프리랜서">프리랜서</button>
+        <button type="button" data-expert-filter="1인 사업">1인 사업</button>
+        <button type="button" data-expert-filter="창업">창업</button>
       </div>
 
       <div class="expert-grid">
-        <article class="expert-card">
-          <div class="expert-photo"><span>01</span></div>
-          <div class="expert-card-body">
-            <span>BRAND · BUSINESS</span>
-            <h3>브랜드를 직접 만들고 운영한 창업가</h3>
-            <p>브랜드 시작, 고객 검증, 첫 매출과 운영 과정에서 생기는 현실적인 고민을 함께 정리합니다.</p>
-            <div><em>브랜드 창업</em><em>사업 방향</em><em>첫 고객</em></div>
-            <a href="#concern">이 엑스퍼트에게 고민 남기기</a>
-          </div>
+        <article class="expert-card" data-expert-category="창업 1인 사업">
+          <a class="expert-card-link" href="expert-brand-founder.html" aria-label="브랜드·비즈니스 대표 프로필 보기">
+            <div class="expert-photo"><span>PROFILE</span><em>초청 준비 중</em></div>
+            <div class="expert-card-body">
+              <span>BRAND · BUSINESS</span>
+              <strong class="expert-person-name">성함 · 소속 공개 예정</strong>
+              <h3>브랜드를 직접 만들고 운영한 대표</h3>
+              <p>브랜드 시작부터 고객 검증, 첫 매출과 운영 구조까지 직접 경험한 대표의 선택 기준을 나눕니다.</p>
+              <div class="expert-tags"><em>브랜드 창업</em><em>사업 방향</em><em>첫 고객</em></div>
+              <span class="expert-card-cta">대표 프로필 보기 <b>↗</b></span>
+            </div>
+          </a>
         </article>
 
-        <article class="expert-card">
-          <div class="expert-photo"><span>02</span></div>
-          <div class="expert-card-body">
-            <span>CAREER · INDEPENDENT</span>
-            <h3>회사 밖에서 자신의 일을 만든 독립 실무자</h3>
-            <p>퇴사 준비, 프리랜서 전환, 견적과 고객 관리처럼 독립 이후 필요한 기준을 이야기합니다.</p>
-            <div><em>퇴사 준비</em><em>프리랜서</em><em>수익 구조</em></div>
-            <a href="#concern">이 엑스퍼트에게 고민 남기기</a>
-          </div>
+        <article class="expert-card" data-expert-category="프리랜서 1인 사업">
+          <a class="expert-card-link" href="expert-independent-worker.html" aria-label="독립 실무자 대표 프로필 보기">
+            <div class="expert-photo"><span>PROFILE</span><em>초청 준비 중</em></div>
+            <div class="expert-card-body">
+              <span>CAREER · INDEPENDENT</span>
+              <strong class="expert-person-name">성함 · 소속 공개 예정</strong>
+              <h3>회사 밖에서 자신의 일을 만든 대표</h3>
+              <p>퇴사 준비부터 프리랜서 전환, 견적과 고객 관리, 안정적인 수익 구조를 만든 경험을 나눕니다.</p>
+              <div class="expert-tags"><em>퇴사 준비</em><em>프리랜서</em><em>수익 구조</em></div>
+              <span class="expert-card-cta">대표 프로필 보기 <b>↗</b></span>
+            </div>
+          </a>
         </article>
 
-        <article class="expert-card">
-          <div class="expert-photo"><span>03</span></div>
-          <div class="expert-card-body">
-            <span>PORTFOLIO · CAREER</span>
-            <h3>실무와 채용을 모두 경험한 커리어 멘토</h3>
-            <p>포트폴리오 방향, 지원 전략, 직무 선택과 이직 시점에 대한 고민을 구체적으로 답변합니다.</p>
-            <div><em>포트폴리오</em><em>취업</em><em>이직</em></div>
-            <a href="#concern">이 엑스퍼트에게 고민 남기기</a>
-          </div>
+        <article class="expert-card" data-expert-category="취업·이직">
+          <a class="expert-card-link" href="expert-career-mentor.html" aria-label="커리어 대표 프로필 보기">
+            <div class="expert-photo"><span>PROFILE</span><em>초청 준비 중</em></div>
+            <div class="expert-card-body">
+              <span>PORTFOLIO · CAREER</span>
+              <strong class="expert-person-name">성함 · 소속 공개 예정</strong>
+              <h3>실무와 채용을 모두 경험한 대표</h3>
+              <p>포트폴리오 방향, 지원 전략, 직무 선택과 이직 시점에 관한 현실적인 판단 기준을 나눕니다.</p>
+              <div class="expert-tags"><em>포트폴리오</em><em>취업</em><em>이직</em></div>
+              <span class="expert-card-cta">대표 프로필 보기 <b>↗</b></span>
+            </div>
+          </a>
         </article>
 
-        <article class="expert-card">
-          <div class="expert-photo"><span>04</span></div>
-          <div class="expert-card-body">
-            <span>PRODUCT · STARTUP</span>
-            <h3>아이디어를 서비스로 만들어본 제품 창업가</h3>
-            <p>아이디어 검증, MVP, 팀 구성과 출시 이후의 시행착오를 실제 경험에 기반해 나눕니다.</p>
-            <div><em>서비스 기획</em><em>MVP</em><em>팀 빌딩</em></div>
-            <a href="#concern">이 엑스퍼트에게 고민 남기기</a>
-          </div>
+        <article class="expert-card" data-expert-category="창업 1인 사업">
+          <a class="expert-card-link" href="expert-product-founder.html" aria-label="제품·서비스 대표 프로필 보기">
+            <div class="expert-photo"><span>PROFILE</span><em>초청 준비 중</em></div>
+            <div class="expert-card-body">
+              <span>PRODUCT · STARTUP</span>
+              <strong class="expert-person-name">성함 · 소속 공개 예정</strong>
+              <h3>아이디어를 서비스로 만든 대표</h3>
+              <p>아이디어 검증과 MVP, 팀 구성, 출시 이후의 시행착오를 직접 겪은 대표의 경험을 나눕니다.</p>
+              <div class="expert-tags"><em>서비스 기획</em><em>MVP</em><em>팀 빌딩</em></div>
+              <span class="expert-card-cta">대표 프로필 보기 <b>↗</b></span>
+            </div>
+          </a>
         </article>
       </div>
     </section>
@@ -95,43 +107,17 @@
       <div class="shell">
         <div class="expert-list-head expert-list-head--light">
           <div>
-            <span>HOW IT WORKS</span>
-            <h2>고민을 남기면<br>엑스퍼트가 직접 답변합니다.</h2>
+            <span>HOW TO CONNECT</span>
+            <h2>대표를 선택한 뒤<br>상세 페이지에서 연결됩니다.</h2>
           </div>
-          <p>현재 상황을 간단히 정리해 보내면, 선택한 엑스퍼트가 실제 경험을 기준으로 다음 행동을 제안합니다.</p>
+          <p>공용 페이지에서는 대표들을 비교하고, 각 대표님의 상세 페이지에서 상담 가능한 주제와 안내를 확인한 뒤 고민을 남깁니다.</p>
         </div>
 
         <div class="feedback-process">
-          <article><span>01</span><div><h3>엑스퍼트 선택</h3><p>현재 고민과 가장 가까운 경험을 가진 엑스퍼트를 선택합니다.</p></div></article>
-          <article><span>02</span><div><h3>상황과 질문 작성</h3><p>현재 상황, 이미 시도한 것과 가장 궁금한 질문을 구체적으로 남깁니다.</p></div></article>
-          <article><span>03</span><div><h3>답변 확인</h3><p>엑스퍼트가 직접 작성한 답변을 이후 마이페이지에서 확인하는 구조로 연결할 예정입니다.</p></div></article>
+          <article><span>01</span><div><h3>대표 프로필 확인</h3><p>성함과 소속, 실제 경험과 전문 분야를 먼저 살펴봅니다.</p></div></article>
+          <article><span>02</span><div><h3>상담 가능한 주제 확인</h3><p>대표님이 답변할 수 있는 고민의 범위와 진행 방식을 확인합니다.</p></div></article>
+          <article><span>03</span><div><h3>상세 페이지에서 고민 남기기</h3><p>현재 상황과 질문을 남기면 선택한 대표님에게만 전달되는 구조로 연결됩니다.</p></div></article>
         </div>
-      </div>
-    </section>
-
-    <section class="concern-section shell" id="concern">
-      <div class="concern-layout">
-        <div class="concern-copy">
-          <span>LEAVE A CONCERN</span>
-          <h2>지금 가장 막막한 고민을 남겨주세요.</h2>
-          <p>잘 정리된 질문이 아니어도 괜찮습니다. 현재 상황과 원하는 방향을 적으면 엑스퍼트가 핵심을 정리해 답변합니다.</p>
-          <ul>
-            <li>취업과 이직 방향이 불분명할 때</li>
-            <li>퇴사 후 프리랜서 전환이 고민될 때</li>
-            <li>혼자 사업을 시작했지만 다음 단계가 막힐 때</li>
-            <li>아이디어는 있지만 무엇부터 해야 할지 모를 때</li>
-          </ul>
-        </div>
-
-        <form class="concern-form" data-concern-form>
-          <label><span>고민 분야</span><select name="category"><option>취업·이직</option><option>포트폴리오</option><option>프리랜서 전환</option><option>1인 사업</option><option>창업·서비스</option><option>기타</option></select></label>
-          <label><span>답변받고 싶은 엑스퍼트</span><select name="expert"><option>브랜드를 직접 만들고 운영한 창업가</option><option>회사 밖에서 자신의 일을 만든 독립 실무자</option><option>실무와 채용을 모두 경험한 커리어 멘토</option><option>아이디어를 서비스로 만들어본 제품 창업가</option></select></label>
-          <label><span>고민 제목</span><input name="title" maxlength="80" placeholder="예: 퇴사 후 프리랜서로 전환해도 될지 고민입니다."></label>
-          <label><span>현재 상황과 질문</span><textarea name="content" maxlength="2000" placeholder="현재 상황, 이미 해본 시도, 가장 궁금한 질문을 편하게 작성해 주세요."></textarea></label>
-          <label class="concern-agree"><input type="checkbox" name="agree"><span>답변을 위해 작성 내용을 선택한 엑스퍼트가 확인하는 것에 동의합니다.</span></label>
-          <button type="submit">고민 남기기</button>
-          <p>현재는 UI 준비 단계이며 작성 내용은 저장되지 않습니다. Firebase 연결 후 정식으로 접수됩니다.</p>
-        </form>
       </div>
     </section>
   </main>
@@ -144,6 +130,6 @@
     </div>
   </div>
   <script src="script.js?v=20260802-6"></script>
-  <script src="expert-feedback.js?v=20260801-1"></script>
+  <script src="expert-feedback.js?v=20260803-2"></script>
 </body>
 </html>
