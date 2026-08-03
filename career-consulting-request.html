@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>커리어 컨설팅 요청 — AESOST</title>
+  <meta name="description" content="현재 커리어 상황과 개선 목표를 작성하고 AESOST 커리어 컨설팅을 요청하세요.">
+  <link rel="stylesheet" href="styles.css?v=20260802-5">
+  <link rel="stylesheet" href="career-consulting-request.css?v=20260803-1">
+</head>
+<body class="consulting-request-page">
+  <header class="site-header" data-header></header>
+
+  <main>
+    <div class="consulting-breadcrumb shell"><a href="expert-feedback.html">커리어 컨설팅</a><span>›</span><span>컨설팅 요청</span></div>
+
+    <section class="consulting-request-hero shell">
+      <div>
+        <span>CAREER CONSULTING REQUEST</span>
+        <h1>현재 위치를 진단하고<br>다음 선택을 구체화하세요.</h1>
+      </div>
+      <p>컨설턴트가 현재 상황을 정확히 이해할 수 있도록 커리어 단계와 개선이 필요한 지점, 컨설팅을 통해 얻고 싶은 결과를 작성해 주세요.</p>
+    </section>
+
+    <section class="consulting-request-steps shell" aria-label="컨설팅 요청 절차">
+      <article class="is-complete"><span>01</span><div><strong>컨설턴트 선택</strong><p>전문 분야와 프로필 확인</p></div></article>
+      <article class="is-current"><span>02</span><div><strong>요청서 작성</strong><p>현재 상황과 개선 목표 작성</p></div></article>
+      <article><span>03</span><div><strong>검토 및 연결</strong><p>요청 내용 확인 후 진행 안내</p></div></article>
+    </section>
+
+    <section class="consulting-request-layout shell">
+      <aside class="consulting-request-guide">
+        <span>REQUEST BRIEF</span>
+        <h2>좋은 컨설팅은<br>명확한 목표에서 시작됩니다.</h2>
+        <p>완성된 계획이 없어도 괜찮습니다. 지금 어디에 있고 무엇을 바꾸고 싶은지 구체적으로 작성하면 진단의 정확도가 높아집니다.</p>
+        <ul>
+          <li>현재 커리어·사업 단계</li>
+          <li>이미 시도한 방법과 결과</li>
+          <li>가장 개선하고 싶은 지점</li>
+          <li>컨설팅 이후 원하는 변화</li>
+        </ul>
+        <div class="selected-consultant-card">
+          <span>SELECTED CONSULTANT</span>
+          <strong data-consultant-name>커리어 컨설턴트</strong>
+          <p data-consultant-field>커리어 개선 및 방향 설정</p>
+          <a href="expert-feedback.html" data-consultant-return>프로필 다시 보기 <b>↗</b></a>
+        </div>
+      </aside>
+
+      <form class="consulting-request-form" data-consulting-request-form>
+        <div class="consulting-form-head">
+          <span>CONSULTING FORM</span>
+          <h2>커리어 컨설팅 요청서</h2>
+          <p>필수 항목을 중심으로 작성해 주세요. 구체적인 정보일수록 현재 상황에 맞는 컨설팅이 가능합니다.</p>
+        </div>
+
+        <div class="consulting-form-grid">
+          <label><span>선택한 컨설턴트</span><input type="text" name="consultant" data-consultant-input value="커리어 컨설턴트" readonly></label>
+          <label><span>컨설팅 분야</span><select name="field" data-consulting-field><option>취업·이직</option><option>프리랜서·독립</option><option>브랜드·사업</option><option>제품·서비스</option><option>커리어 방향</option></select></label>
+          <label><span>현재 단계</span><select name="stage" required><option value="">현재 단계를 선택해 주세요</option><option>취업 준비 중</option><option>재직 중·이직 준비</option><option>프리랜서 활동 중</option><option>1인 사업 운영 중</option><option>창업·서비스 준비 중</option><option>기타</option></select></label>
+          <label><span>컨설팅 목적</span><select name="purpose" required><option value="">목적을 선택해 주세요</option><option>현재 문제 진단</option><option>포트폴리오·자료 개선</option><option>커리어 방향 설정</option><option>실행 우선순위 정리</option><option>사업·수익 구조 개선</option><option>기타</option></select></label>
+          <label class="is-wide"><span>요청 제목</span><input type="text" name="title" maxlength="90" placeholder="예: 포트폴리오의 방향과 이직 전략을 함께 점검하고 싶습니다." required></label>
+          <label class="is-wide"><span>현재 상황</span><textarea name="situation" maxlength="1800" placeholder="현재 역할과 경력 단계, 준비한 내용, 지금까지 시도한 방법과 결과를 적어주세요." required></textarea></label>
+          <label class="is-wide"><span>개선이 필요한 지점</span><textarea name="improvement" maxlength="1400" placeholder="반복해서 막히는 부분이나 스스로 해결하기 어려운 지점을 구체적으로 적어주세요." required></textarea></label>
+          <label class="is-wide"><span>컨설팅을 통해 원하는 결과</span><textarea name="goal" maxlength="1200" placeholder="컨설팅 이후 어떤 판단을 내리거나 무엇을 개선하고 싶은지 적어주세요." required></textarea></label>
+          <label class="is-wide"><span>참고 자료 링크 <em>선택</em></span><input type="url" name="reference" placeholder="포트폴리오, 이력서, 웹사이트 또는 참고 자료 링크"></label>
+          <label class="consulting-request-agree is-wide"><input type="checkbox" name="agree" required><span>컨설팅 검토를 위해 작성 내용과 첨부 링크를 선택한 컨설턴트가 확인하는 것에 동의합니다.</span></label>
+          <button class="is-wide" type="submit">커리어 컨설팅 요청하기</button>
+          <p class="consulting-form-notice is-wide">현재는 컨설팅 요청 UI 준비 단계이며 작성 내용은 저장되지 않습니다.</p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" data-footer></footer>
+  <div class="search-panel" data-search-panel><div class="shell search-inner"><div class="search-top"><strong>AESOST SEARCH</strong><button data-search-close>닫기 ×</button></div><input class="search-input" placeholder="검색어를 입력하세요"></div></div>
+  <script src="script.js?v=20260803-5"></script>
+  <script src="career-consulting-request.js?v=20260803-1"></script>
+</body>
+</html>
