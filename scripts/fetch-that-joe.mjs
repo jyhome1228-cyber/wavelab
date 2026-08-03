@@ -1,3 +1,4 @@
+// One-time importer for the That Joe reference article.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
@@ -80,7 +81,7 @@ let projectImages = (await Promise.all(responsePromises))
   .filter((item) => item.body.byteLength > 20000)
   .sort((a, b) => a.number - b.number);
 
-// The article currently contains ten numbered project images. If a response body
+// The article currently contains numbered project images. If a response body
 // was released before Playwright could read it, request the same loaded URL again.
 if (projectImages.length < 4 && responseUrls.size >= 4) {
   projectImages = [];
