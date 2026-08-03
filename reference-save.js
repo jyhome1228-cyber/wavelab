@@ -13,28 +13,48 @@
     return {id:document.body.dataset.articleId||page,title,designer,image,summary,href:page,savedAt:Date.now()};
   }
 
-  function addSaveButton(){
+  function addActions(){
     const metaCard=document.querySelector('.reference-meta-card');
     if(!metaCard||metaCard.querySelector('[data-reference-save]'))return;
     const item=currentReference();
     if(!item)return;
+
+    metaCard.querySelector('.reference-source-button')?.remove();
+
     const actions=document.createElement('div');
     actions.className='reference-save-actions';
-    actions.innerHTML='<button class="reference-save-button" type="button" data-reference-save>나의 레퍼런스에 담기</button><a class="reference-collection-link" href="my-references.html">나의 레퍼런스</a>';
+    actions.innerHTML='<button class="reference-save-button" type="button" data-reference-save>나의 레퍼런스에 담기</button><button class="reference-share-button" type="button" data-reference-share>공유하기</button>';
     metaCard.appendChild(actions);
-    const button=actions.querySelector('[data-reference-save]');
-    const render=()=>{
+
+    const saveButton=actions.querySelector('[data-reference-save]');
+    const shareButton=actions.querySelector('[data-reference-share]');
+
+    const renderSaveState=()=>{
       const saved=read().some(entry=>entry.id===item.id);
-      button.classList.toggle('is-saved',saved);
-      button.textContent=saved?'담김 ✓':'나의 레퍼런스에 담기';
+      saveButton.classList.toggle('is-saved',saved);
+      saveButton.textContent=saved?'담김 ✓':'나의 레퍼런스에 담기';
     };
-    button.addEventListener('click',()=>{
+
+    saveButton.addEventListener('click',()=>{
       const items=read();
       const exists=items.some(entry=>entry.id===item.id);
       write(exists?items.filter(entry=>entry.id!==item.id):[{...item,savedAt:Date.now()},...items]);
-      render();
+      renderSaveState();
     });
-    render();
+
+    shareButton.addEventListener('click',async()=>{
+      const shareData={title:item.title,text:item.summary,url:location.href};
+      try{
+        if(navigator.share)await navigator.share(shareData);
+        else{
+          await navigator.clipboard.writeText(location.href);
+          shareButton.textContent='링크 복사됨';
+          setTimeout(()=>{shareButton.textContent='공유하기'},1600);
+        }
+      }catch{}
+    });
+
+    renderSaveState();
   }
 
   function renderCollection(){
@@ -53,7 +73,7 @@
     }));
   }
 
-  if(document.body.classList.contains('reference-detail-page'))addSaveButton();
+  if(document.body.classList.contains('reference-detail-page'))addActions();
   if(page==='my-references.html')renderCollection();
   window.addEventListener('aesost:references-updated',renderCollection);
 })();
