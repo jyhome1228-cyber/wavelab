@@ -1,0 +1,41 @@
+name: Apply reference detail layout
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-reference-layout.yml'
+      - 'scripts/apply-reference-layout.mjs'
+      - 'reference-layout-fix.css'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply shared reference layout
+        run: node scripts/apply-reference-layout.mjs
+
+      - name: Commit updated reference pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'reference-*.html'
+          if git diff --cached --quiet; then
+            echo "No reference pages needed updating"
+          else
+            git commit -m "Align overseas reference detail pages"
+            git push
+          fi
