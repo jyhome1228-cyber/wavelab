@@ -7,7 +7,7 @@ const ASSET_DIR = path.join(process.cwd(), 'assets/reference/that-joe');
 const DETAIL_FILE = path.join(process.cwd(), 'reference-that-joe-pizza.html');
 const BOARD_FILE = path.join(process.cwd(), 'reference.html');
 const CSS_FILE = path.join(process.cwd(), 'reference.css');
-const IMAGE_EXT = /\.(?:avif|jpe?g|png|webp)(?:$|[?#])/i;
+const PROJECT_IMAGE_PATTERN = /\/api\/storage\/objects\/uploads\/[^/?]+_(\d+)-world-brand-design-society\.webp\?w=1200(?:&|$)/i;
 
 await fs.mkdir(ASSET_DIR, { recursive: true });
 for (const file of await fs.readdir(ASSET_DIR)) {
@@ -17,156 +17,109 @@ for (const file of await fs.readdir(ASSET_DIR)) {
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({
   viewport: { width: 1600, height: 1200 },
-  deviceScaleFactor: 1,
   locale: 'en-GB',
   userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36'
 });
 const page = await context.newPage();
 
-const networkImages = [];
-const networkSeen = new Set();
-page.on('response', async (response) => {
+const responsePromises = [];
+const responseUrls = new Set();
+page.on('response', (response) => {
   const url = response.url();
-  const headers = response.headers();
-  const type = (headers['content-type'] || '').toLowerCase();
-  if ((!type.startsWith('image/') && !IMAGE_EXT.test(url)) || networkSeen.has(url)) return;
-  networkSeen.add(url);
-  networkImages.push({
-    url,
-    type,
-    length: Number(headers['content-length'] || 0),
-    source: 'network'
-  });
+  const match = url.match(PROJECT_IMAGE_PATTERN);
+  if (!match || responseUrls.has(url)) return;
+  responseUrls.add(url);
+  responsePromises.push((async () => {
+    try {
+      const body = await response.body();
+      return {
+        url,
+        number: Number(match[1]),
+        type: (response.headers()['content-type'] || '').toLowerCase(),
+        body
+      };
+    } catch {
+      return null;
+    }
+  })());
 });
 
 await page.goto(SOURCE_URL, { waitUntil: 'domcontentloaded', timeout: 120000 });
-await page.waitForTimeout(5000);
+await page.waitForTimeout(4500);
 
 for (const label of ['Accept', 'Accept all', 'I agree', 'Agree', 'Allow all']) {
   const button = page.getByRole('button', { name: new RegExp(`^${label}$`, 'i') }).first();
   if (await button.isVisible().catch(() => false)) {
     await button.click().catch(() => {});
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(800);
     break;
   }
 }
 
 let previousHeight = 0;
-for (let i = 0; i < 30; i += 1) {
+for (let i = 0; i < 32; i += 1) {
   const height = await page.evaluate(() => document.documentElement.scrollHeight);
-  await page.evaluate(() => window.scrollBy(0, Math.max(900, window.innerHeight * 0.9)));
-  await page.waitForTimeout(500);
-  const y = await page.evaluate(() => window.scrollY + window.innerHeight);
-  if (height === previousHeight && y >= height - 20) break;
+  await page.evaluate(() => window.scrollBy(0, Math.max(900, window.innerHeight * 0.88)));
+  await page.waitForTimeout(480);
+  const position = await page.evaluate(() => window.scrollY + window.innerHeight);
+  if (height === previousHeight && position >= height - 30) break;
   previousHeight = height;
 }
 await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-await page.waitForTimeout(3500);
+await page.waitForTimeout(3000);
 
 const pageInfo = await page.evaluate(() => ({
   title: document.title,
-  url: location.href,
-  text: document.body?.innerText?.slice(0, 500) || '',
-  htmlLength: document.documentElement.outerHTML.length,
   imageCount: document.images.length,
   scrollHeight: document.documentElement.scrollHeight
 }));
 console.log('PAGE_INFO', JSON.stringify(pageInfo));
 
-const domCandidates = await page.evaluate(() => {
-  const values = [];
-  const add = (value, source, width = 0, height = 0, alt = '') => {
-    if (!value || typeof value !== 'string') return;
-    for (const part of value.split(',').map((item) => item.trim().split(/\s+/)[0])) {
-      if (part) values.push({ url: part, source, width, height, alt });
-    }
-  };
+let projectImages = (await Promise.all(responsePromises))
+  .filter(Boolean)
+  .filter((item) => item.body.byteLength > 20000)
+  .sort((a, b) => a.number - b.number);
 
-  for (const img of document.querySelectorAll('img')) {
-    const rect = img.getBoundingClientRect();
-    const width = img.naturalWidth || Math.round(rect.width);
-    const height = img.naturalHeight || Math.round(rect.height);
-    for (const key of ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-image']) {
-      add(img.getAttribute(key), `img:${key}`, width, height, img.alt || '');
-    }
-    add(img.currentSrc, 'img:currentSrc', width, height, img.alt || '');
-    add(img.getAttribute('srcset'), 'img:srcset', width, height, img.alt || '');
-    add(img.getAttribute('data-srcset'), 'img:data-srcset', width, height, img.alt || '');
+// The article currently contains ten numbered project images. If a response body
+// was released before Playwright could read it, request the same loaded URL again.
+if (projectImages.length < 4 && responseUrls.size >= 4) {
+  projectImages = [];
+  for (const url of responseUrls) {
+    const match = url.match(PROJECT_IMAGE_PATTERN);
+    const response = await context.request.get(url, {
+      headers: {
+        referer: SOURCE_URL,
+        accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8'
+      },
+      timeout: 90000,
+      failOnStatusCode: false
+    }).catch(() => null);
+    if (!response?.ok()) continue;
+    const body = await response.body();
+    if (body.byteLength < 20000) continue;
+    projectImages.push({
+      url,
+      number: Number(match?.[1] || projectImages.length + 1),
+      type: (response.headers()['content-type'] || '').toLowerCase(),
+      body
+    });
   }
-
-  for (const source of document.querySelectorAll('source')) {
-    add(source.getAttribute('src'), 'source:src');
-    add(source.getAttribute('srcset'), 'source:srcset');
-    add(source.getAttribute('data-srcset'), 'source:data-srcset');
-  }
-
-  for (const node of document.querySelectorAll('*')) {
-    const style = getComputedStyle(node).backgroundImage;
-    const matches = [...style.matchAll(/url\(["']?(.*?)["']?\)/gi)];
-    for (const match of matches) add(match[1], 'background');
-    for (const key of ['data-bg', 'data-background', 'data-background-image']) {
-      add(node.getAttribute(key), key);
-    }
-  }
-  return values;
-});
-
-const rawHtml = await page.content();
-const htmlCandidates = [...rawHtml.matchAll(/https?:\\?\/\\?\/[^"'<>\s)]+?\.(?:avif|jpe?g|png|webp)(?:\?[^"'<>\s)]*)?/gi)]
-  .map((match) => ({ url: match[0].replaceAll('\\/', '/').replaceAll('&amp;', '&'), source: 'html' }));
-
-console.log('NETWORK_IMAGE_COUNT', networkImages.length);
-console.log('DOM_IMAGE_COUNT', domCandidates.length);
-console.log('NETWORK_SAMPLE', JSON.stringify(networkImages.slice(0, 30).map((item) => item.url)));
-console.log('DOM_SAMPLE', JSON.stringify(domCandidates.slice(0, 30).map((item) => item.url)));
-
-const candidateMap = new Map();
-for (const candidate of [...domCandidates, ...networkImages, ...htmlCandidates]) {
-  let url;
-  try {
-    url = new URL(candidate.url, SOURCE_URL);
-  } catch {
-    continue;
-  }
-  if (!['http:', 'https:'].includes(url.protocol)) continue;
-  const clean = `${url.origin}${url.pathname}`;
-  const lower = `${clean} ${candidate.alt || ''}`.toLowerCase();
-  if (!IMAGE_EXT.test(url.href)) continue;
-  if (/(avatar|gravatar|favicon|emoji|icon|badge|author|profile|site-logo|logo-world|world-brand-design-society|flags\/|advert|banner-ads|pixel)/i.test(lower)) continue;
-  if (!candidateMap.has(clean)) candidateMap.set(clean, { ...candidate, url: url.href, clean });
-}
-
-const candidates = [...candidateMap.values()];
-console.log('FILTERED_CANDIDATE_COUNT', candidates.length);
-console.log('FILTERED_SAMPLE', JSON.stringify(candidates.slice(0, 50).map((item) => item.url)));
-
-const saved = [];
-for (const item of candidates) {
-  if (saved.length >= 20) break;
-  const response = await context.request.get(item.url, {
-    headers: {
-      referer: SOURCE_URL,
-      accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
-    },
-    timeout: 90000,
-    failOnStatusCode: false
-  }).catch(() => null);
-  if (!response?.ok()) continue;
-  const body = await response.body();
-  const type = (response.headers()['content-type'] || '').toLowerCase();
-  if (!type.startsWith('image/') || body.byteLength < 45000) continue;
-
-  const ext = type.includes('png') ? 'png' : type.includes('webp') ? 'webp' : type.includes('avif') ? 'avif' : 'jpg';
-  const filename = `${String(saved.length + 1).padStart(2, '0')}.${ext}`;
-  await fs.writeFile(path.join(ASSET_DIR, filename), body);
-  saved.push({ filename, alt: item.alt || '', originalUrl: item.url, bytes: body.byteLength });
-  console.log('SAVED_IMAGE', filename, body.byteLength, item.url);
+  projectImages.sort((a, b) => a.number - b.number);
 }
 
 await browser.close();
 
-if (saved.length < 4) {
-  throw new Error(`다운로드된 프로젝트 이미지가 충분하지 않습니다. 후보 ${candidates.length}개, 저장 ${saved.length}개`);
+console.log('PROJECT_IMAGE_URLS', JSON.stringify(projectImages.map((item) => item.url)));
+if (projectImages.length < 4) {
+  throw new Error(`That Joe 프로젝트 이미지를 충분히 불러오지 못했습니다. 발견 ${responseUrls.size}개, 저장 가능 ${projectImages.length}개`);
+}
+
+const saved = [];
+for (const item of projectImages.slice(0, 20)) {
+  const filename = `${String(saved.length + 1).padStart(2, '0')}.webp`;
+  await fs.writeFile(path.join(ASSET_DIR, filename), item.body);
+  saved.push({ filename, originalUrl: item.url, bytes: item.body.byteLength });
+  console.log('SAVED_IMAGE', filename, item.body.byteLength, item.url);
 }
 
 const gallery = saved.map((image, index) => {
@@ -194,10 +147,9 @@ board = board.replace(
 await fs.writeFile(BOARD_FILE, board);
 
 let css = await fs.readFile(CSS_FILE, 'utf8');
-const marker = '.reference-image-gallery{';
-if (!css.includes(marker)) {
+if (!css.includes('.reference-image-gallery{')) {
   css += '.reference-image-gallery{display:grid;gap:16px;margin:36px 0 64px}.reference-project-image{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#101012}.reference-project-image img{display:block;width:100%;height:auto}.reference-gallery-caption{margin:2px 0 0;color:#716e76;font-size:10px;line-height:1.65}@media(max-width:540px){.reference-image-gallery{gap:10px;margin-top:30px}.reference-project-image{border-radius:13px}}';
 }
 await fs.writeFile(CSS_FILE, css);
 
-console.log(`Imported ${saved.length} images from ${SOURCE_URL}`);
+console.log(`Imported ${saved.length} project images from ${SOURCE_URL}`);
