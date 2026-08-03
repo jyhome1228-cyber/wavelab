@@ -19,6 +19,7 @@
     const item=currentReference();
     if(!item)return;
 
+    metaCard.querySelector('dl')?.remove();
     metaCard.querySelector('.reference-source-button')?.remove();
 
     const actions=document.createElement('div');
