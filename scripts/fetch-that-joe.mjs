@@ -8,6 +8,8 @@ const ASSET_DIR = path.join(process.cwd(), 'assets/reference/that-joe');
 const DETAIL_FILE = path.join(process.cwd(), 'reference-that-joe-pizza.html');
 const BOARD_FILE = path.join(process.cwd(), 'reference.html');
 const CSS_FILE = path.join(process.cwd(), 'reference.css');
+const SOURCE_CSS_FILE = path.join(process.cwd(), 'reference-source-images.css');
+const SOURCE_JS_FILE = path.join(process.cwd(), 'reference-source-images.js');
 const PROJECT_IMAGE_PATTERN = /\/api\/storage\/objects\/uploads\/[^/?]+_(\d+)-world-brand-design-society\.webp\?w=1200(?:&|$)/i;
 const MIN_IMAGE_BYTES = 5000;
 
@@ -33,11 +35,10 @@ page.on('response', (response) => {
   responseUrls.add(url);
   responsePromises.push((async () => {
     try {
-      const body = await response.body();
       return {
         url,
         number: Number(match[1]),
-        body
+        body: await response.body()
       };
     } catch {
       return null;
@@ -112,38 +113,64 @@ for (const item of projectImages.slice(0, 20)) {
   console.log('SAVED_IMAGE', filename, item.body.byteLength, item.url);
 }
 
-const gallery = saved.map((image, index) => {
+const figures = saved.map((image, index) => {
   const loading = index === 0 ? 'eager' : 'lazy';
   const alt = `That Joe Pizza Shop 브랜딩 프로젝트 이미지 ${index + 1}`;
   return `          <figure class="reference-project-image${index === 0 ? ' is-featured' : ''}">\n            <img src="assets/reference/that-joe/${image.filename}" alt="${alt}" loading="${loading}" decoding="async">\n          </figure>`;
 }).join('\n');
 
+const gallerySection = `        <h2 id="source-images">Project Images</h2>\n        <p class="reference-source-note">아래 이미지는 원문 프로젝트에서 가져와 웨이블랩 내부에 저장한 시각자료입니다. 이미지와 디자인 결과물의 권리는 Tanaya Designs, 프로젝트 클라이언트, World Brand Design Society 및 해당 권리자에게 있습니다.</p>\n        <section class="reference-image-gallery" aria-label="That Joe Pizza Shop 프로젝트 이미지">\n${figures}\n          <p class="reference-gallery-caption">Images © Tanaya Designs · World Brand Design Society. 디자인 연구와 비평을 위한 출처 표기형 열람입니다.</p>\n        </section>`;
+const galleryOnly = `        <section class="reference-image-gallery" aria-label="That Joe Pizza Shop 프로젝트 이미지">\n${figures}\n          <p class="reference-gallery-caption">Images © Tanaya Designs · World Brand Design Society. 디자인 연구와 비평을 위한 출처 표기형 열람입니다.</p>\n        </section>`;
 const localFirst = `assets/reference/that-joe/${saved[0].filename}`;
 const absoluteFirst = `https://wavelab.my/${localFirst}`;
 
 let detail = await fs.readFile(DETAIL_FILE, 'utf8');
-detail = detail.replace(/<meta property="og:image" content="[^"]+">/, `<meta property="og:image" content="${absoluteFirst}">`);
-detail = detail.replace(
-  /\s*<section class="reference-image-gallery"[\s\S]*?<\/section>/,
-  `\n\n        <section class="reference-image-gallery" aria-label="That Joe Pizza Shop 프로젝트 이미지">\n${gallery}\n          <p class="reference-gallery-caption">Images © Tanaya Designs · World Brand Design Society. 디자인 연구와 비평을 위한 출처 표기형 열람입니다.</p>\n        </section>`
-);
-detail = detail.replace(
-  /\s*<figure class="reference-cover">[\s\S]*?<\/figure>/,
-  `\n\n        <section class="reference-image-gallery" aria-label="That Joe Pizza Shop 프로젝트 이미지">\n${gallery}\n          <p class="reference-gallery-caption">Images © Tanaya Designs · World Brand Design Society. 디자인 연구와 비평을 위한 출처 표기형 열람입니다.</p>\n        </section>`
-);
+detail = detail
+  .replace(/<meta property="og:image" content="[^"]+">/, `<meta property="og:image" content="${absoluteFirst}">`)
+  .replace(/\s*<link[^>]+href="reference-source-images\.css[^"]*"[^>]*>/, '')
+  .replace(/\s*<script[^>]+src="reference-source-images\.js[^"]*"[^>]*><\/script>/, '')
+  .replace(/reference\.css\?v=[^"']+/, 'reference.css?v=20260804-3');
+
+const dynamicBlock = /\s*<h2 id="source-images">[\s\S]*?<div\b[^>]*data-reference-source-gallery[^>]*><\/div>/;
+const galleryWithHeading = /\s*<h2 id="source-images">[\s\S]*?<section class="reference-image-gallery"[\s\S]*?<\/section>/;
+const galleryWithoutHeading = /\s*<section class="reference-image-gallery"[\s\S]*?<\/section>/;
+const oldCover = /\s*<figure class="reference-cover">[\s\S]*?<\/figure>/;
+
+if (dynamicBlock.test(detail)) {
+  detail = detail.replace(dynamicBlock, `\n\n${gallerySection}`);
+} else if (galleryWithHeading.test(detail)) {
+  detail = detail.replace(galleryWithHeading, `\n\n${gallerySection}`);
+} else if (galleryWithoutHeading.test(detail)) {
+  detail = detail.replace(galleryWithoutHeading, `\n\n${galleryOnly}`);
+} else if (oldCover.test(detail)) {
+  detail = detail.replace(oldCover, `\n\n${gallerySection}`);
+} else {
+  throw new Error('상세 페이지에서 이미지 영역을 찾지 못했습니다.');
+}
 await fs.writeFile(DETAIL_FILE, detail);
 
 let board = await fs.readFile(BOARD_FILE, 'utf8');
+board = board
+  .replace(/\s*<script[^>]+src="reference-source-images\.js[^"]*"[^>]*><\/script>/, '')
+  .replace(/reference\.css\?v=[^"']+/, 'reference.css?v=20260804-3');
+
+const thumbnailCard = /(<a class="reference-card"[^>]*href="reference-that-joe-pizza\.html"[\s\S]*?<div class="reference-thumb">\s*)<img\b[\s\S]*?>/;
+if (!thumbnailCard.test(board)) {
+  throw new Error('레퍼런스 목록에서 That Joe 썸네일을 찾지 못했습니다.');
+}
 board = board.replace(
-  /<img src="https:\/\/image\.thum\.io\/get\/width\/1200\/crop\/1200\/noanimate\/https:\/\/worldbranddesign\.com\/that-joe-pizza-shop-branding-by-tanaya-designs"([^>]*)>/,
-  `<img src="${localFirst}"$1>`
+  thumbnailCard,
+  `$1<img src="${localFirst}" alt="That Joe Pizza Shop 브랜딩 프로젝트 이미지" loading="lazy" decoding="async">`
 );
 await fs.writeFile(BOARD_FILE, board);
 
 let css = await fs.readFile(CSS_FILE, 'utf8');
 if (!css.includes('.reference-image-gallery{')) {
-  css += '.reference-image-gallery{display:grid;gap:16px;margin:36px 0 64px}.reference-project-image{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#101012}.reference-project-image img{display:block;width:100%;height:auto}.reference-gallery-caption{margin:2px 0 0;color:#716e76;font-size:10px;line-height:1.65}@media(max-width:540px){.reference-image-gallery{gap:10px;margin-top:30px}.reference-project-image{border-radius:13px}}';
+  css += '.reference-image-gallery{display:grid;gap:16px;margin:26px 0 64px}.reference-project-image{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#101012}.reference-project-image img{display:block;width:100%;height:auto}.reference-gallery-caption{margin:2px 0 0;color:#716e76;font-size:10px;line-height:1.65}@media(max-width:540px){.reference-image-gallery{gap:10px;margin-top:22px}.reference-project-image{border-radius:13px}}';
 }
 await fs.writeFile(CSS_FILE, css);
+
+await fs.rm(SOURCE_CSS_FILE, { force: true });
+await fs.rm(SOURCE_JS_FILE, { force: true });
 
 console.log(`Imported ${saved.length} project images from ${SOURCE_URL}`);
