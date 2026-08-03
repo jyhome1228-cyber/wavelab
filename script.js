@@ -1,6 +1,6 @@
 function ensureHeadTag(selector,create){if(document.head.querySelector(selector))return;document.head.appendChild(create())}
 function loadStylesheet(href){if(document.querySelector(`link[href="${href}"]`))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.appendChild(link)}
-ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.rel='icon';e.type='image/svg+xml';e.href='favicon.svg?v=20260802-3';return e});
+ensureHeadTag('link[rel="icon"]',()=>{const e=document.createElement('link');e.rel='icon';e.type='image/svg+xml';e.href='favicon.svg?v=20260803-4';return e});
 ensureHeadTag('link[rel="manifest"]',()=>{const e=document.createElement('link');e.rel='manifest';e.href='site.webmanifest?v=20260802-3';return e});
 ensureHeadTag('meta[name="theme-color"]',()=>{const e=document.createElement('meta');e.name='theme-color';e.content='#651DDC';return e});
 ensureHeadTag('meta[name="description"]',()=>{const e=document.createElement('meta');e.name='description';e.content='AESOST는 배우고 기록하며 자신의 커리어를 만드는 사람들을 위한 플랫폼입니다.';return e});
