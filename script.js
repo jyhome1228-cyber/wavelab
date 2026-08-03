@@ -21,9 +21,9 @@ const nav=[
   ['칼럼','column.html','edit'],
   ['해외 매거진','overseas-magazine.html','globe'],
   ['해외 레퍼런스','reference.html','reference'],
-  ['클래스','class.html','class'],
   ['커리어 컨설팅','expert-feedback.html','expert'],
-  ['뉴스','news.html','news']
+  ['뉴스','news.html','news'],
+  ['공지사항','notice.html','news']
 ];
 function active(url){
   if(page===url)return true;
@@ -50,7 +50,7 @@ function menuIcon(type){
 function desktopNavigation(){return nav.map(([name,url])=>`<a href="${url}" class="${active(url)?'is-active':''}">${name}</a>`).join('')}
 function mobileNavigation(){return nav.map(([name,url,icon])=>`<a href="${url}" class="mobile-menu-link ${active(url)?'is-active':''}">${menuIcon(icon)}<span class="mobile-menu-label">${name}</span><span class="mobile-menu-arrow" aria-hidden="true">›</span></a>`).join('')}
 function headerMarkup(){return `<div class="header-inner shell"><a class="brand" href="index.html" aria-label="AESOST 홈으로 이동">${brandMarkup()}</a><nav class="desktop-nav" aria-label="주요 메뉴">${desktopNavigation()}</nav><div class="header-actions"><input class="search-box" type="text" placeholder="검색" data-search-open readonly aria-label="검색 열기"><a class="cta" href="column-write.html" data-column-write hidden>칼럼 쓰기</a><a class="login" href="login.html" data-auth-login>로그인</a><a class="mypage-link" href="mypage.html" data-auth-mypage hidden>마이페이지</a><a class="logout-link" href="#" data-auth-logout hidden>로그아웃</a><button class="menu-btn" type="button" data-menu aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button></div></div><nav class="mobile-nav" data-mobile aria-label="모바일 메뉴"><div class="mobile-menu-links">${mobileNavigation()}</div><div class="mobile-account-actions"><a href="login.html" data-mobile-login>로그인 <span>›</span></a><a href="column-write.html" data-mobile-column-write hidden>칼럼 쓰기 <span>›</span></a><a href="mypage.html" data-mobile-mypage hidden>마이페이지 <span>›</span></a><a href="my-references.html">나의 레퍼런스 <span>›</span></a><a href="#" data-mobile-logout hidden>로그아웃 <span>›</span></a></div></nav>`}
-function footerMarkup(){return `<div class="shell"><div class="footer-grid"><div><a class="brand" href="index.html">${brandMarkup()}</a><p>지식을 얻고 관점을 기록하며, 자신의 경험을 커리어 자산으로 만드는 플랫폼.</p></div><div><h3>CONTENT</h3><nav><a href="magazine.html">매거진</a><a href="article.html">아티클</a><a href="column.html">칼럼</a><a href="overseas-magazine.html">해외 매거진</a><a href="reference.html">해외 레퍼런스</a><a href="class.html">클래스</a><a href="news.html">뉴스</a></nav></div><div><h3>AESOST</h3><nav><a href="expert-feedback.html">커리어 컨설팅</a><a href="columnist-apply.html">칼럼니스트 신청</a><a href="about.html">운영자 소개</a><a href="notice.html">공지사항</a></nav></div><div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html?mode=signup">회원가입</a><a href="mypage.html">마이페이지</a><a href="my-references.html">나의 레퍼런스</a><a href="ability-edit.html">커리어 아카이브</a></nav></div></div><div class="footer-bottom"><span>LEARN · THINK · WRITE · GROW</span><span>© 2026 AESOST.</span></div></div>`}
+function footerMarkup(){return `<div class="shell"><div class="footer-grid"><div><a class="brand" href="index.html">${brandMarkup()}</a><p>지식을 얻고 관점을 기록하며, 자신의 경험을 커리어 자산으로 만드는 플랫폼.</p></div><div><h3>CONTENT</h3><nav><a href="magazine.html">매거진</a><a href="article.html">아티클</a><a href="column.html">칼럼</a><a href="overseas-magazine.html">해외 매거진</a><a href="reference.html">해외 레퍼런스</a><a href="news.html">뉴스</a><a href="notice.html">공지사항</a></nav></div><div><h3>AESOST</h3><nav><a href="expert-feedback.html">커리어 컨설팅</a><a href="columnist-apply.html">칼럼니스트 신청</a><a href="about.html">운영자 소개</a></nav></div><div><h3>ACCOUNT</h3><nav><a href="login.html">로그인</a><a href="login.html?mode=signup">회원가입</a><a href="mypage.html">마이페이지</a><a href="my-references.html">나의 레퍼런스</a><a href="ability-edit.html">커리어 아카이브</a></nav></div></div><div class="footer-bottom"><span>LEARN · THINK · WRITE · GROW</span><span>© 2026 AESOST.</span></div></div>`}
 
 const header=document.querySelector('[data-header]');
 const footer=document.querySelector('[data-footer]');
