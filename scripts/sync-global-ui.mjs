@@ -2,9 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT=process.cwd();
-const SCRIPT_VERSION='20260804-4';
+const SCRIPT_VERSION='20260804-5';
 const THEME_VERSION='20260804-3';
 const HOME_LATEST_VERSION='20260804-2';
+const REFERENCE_VERSION='20260804-3';
 
 async function walk(dir){
   const entries=await fs.readdir(dir,{withFileTypes:true});
@@ -21,8 +22,8 @@ async function walk(dir){
 const sharedScriptPath=path.join(ROOT,'script.js');
 let sharedScript=await fs.readFile(sharedScriptPath,'utf8');
 sharedScript=sharedScript
-  .replace(/reference-save\.css\?v=[^"']+/g,'reference-save.css?v=20260804-3')
-  .replace(/reference-save\.js\?v=[^"']+/g,'reference-save.js?v=20260804-2');
+  .replace(/reference-save\.css\?v=[^"']+/g,'reference-save.css?v=20260804-4')
+  .replace(/reference-save\.js\?v=[^"']+/g,'reference-save.js?v=20260804-3');
 await fs.writeFile(sharedScriptPath,sharedScript);
 
 const files=await walk(ROOT);
@@ -33,6 +34,7 @@ for(const file of files){
 
   html=html.replace(/script\.js(?:\?v=[^"']*)?/g,`script.js?v=${SCRIPT_VERSION}`);
   html=html.replace(/aesost-theme\.css(?:\?v=[^"']*)?/g,`aesost-theme.css?v=${THEME_VERSION}`);
+  html=html.replace(/reference\.css(?:\?v=[^"']*)?/g,`reference.css?v=${REFERENCE_VERSION}`);
   if(path.basename(file)==='index.html')html=html.replace(/home-latest\.js(?:\?v=[^"']*)?/g,`home-latest.js?v=${HOME_LATEST_VERSION}`);
 
   if(html.includes('data-header')&&!/src=["']script\.js\?v=/.test(html)){
