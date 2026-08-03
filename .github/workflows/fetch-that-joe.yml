@@ -1,5 +1,6 @@
 name: Import That Joe reference images
 
+# This pull request runs the one-time source image importer.
 on:
   push:
     branches: [main]
