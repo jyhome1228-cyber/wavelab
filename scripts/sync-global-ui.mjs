@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT=process.cwd();
-const SCRIPT_VERSION='20260804-3';
+const SCRIPT_VERSION='20260804-4';
 const THEME_VERSION='20260804-3';
 const HOME_LATEST_VERSION='20260804-2';
 
@@ -17,6 +17,13 @@ async function walk(dir){
   }
   return files;
 }
+
+const sharedScriptPath=path.join(ROOT,'script.js');
+let sharedScript=await fs.readFile(sharedScriptPath,'utf8');
+sharedScript=sharedScript
+  .replace(/reference-save\.css\?v=[^"']+/g,'reference-save.css?v=20260804-3')
+  .replace(/reference-save\.js\?v=[^"']+/g,'reference-save.js?v=20260804-2');
+await fs.writeFile(sharedScriptPath,sharedScript);
 
 const files=await walk(ROOT);
 let changed=0;
