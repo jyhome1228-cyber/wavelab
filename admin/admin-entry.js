@@ -1,5 +1,5 @@
 import { auth } from '../firebase-config.js';
-import { onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js';
+import { getIdToken, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js';
 
 const ADMIN_EMAIL='planus253@naver.com';
 const gateTitle=document.querySelector('[data-admin-gate-title]');
@@ -33,5 +33,17 @@ onAuthStateChanged(auth,async user=>{
   }
 
   booted=true;
-  await import('./admin-owner-dashboard.js?v=20260804-1');
+  gateTitle.textContent='회원 데이터 연결 중';
+  gateMessage.textContent='관리자 인증 정보를 갱신하고 가입자 목록을 불러오고 있습니다.';
+  gateActions.hidden=true;
+
+  try{
+    await getIdToken(user,true);
+    await import('./admin-owner-dashboard.js?v=20260804-2');
+  }catch(error){
+    console.error('Admin bootstrap failed',error);
+    gateTitle.textContent='관리자 연결에 실패했습니다.';
+    gateMessage.textContent='로그아웃 후 다시 로그인하거나 Firestore 규칙 게시 상태를 확인해 주세요.';
+    gateActions.hidden=false;
+  }
 });
