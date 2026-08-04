@@ -6,9 +6,7 @@ service cloud.firestore {
       return signedIn() && request.auth.token.memberDashboard == true;
     }
     function isAdmin() {
-      return signedIn()
-        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
-        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.status == 'active';
+      return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
     }
     function isActiveColumnist() {
       return signedIn()
