@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jyhome1228-cyber.github.io/wavelab/sitemap.xml
+Sitemap: https://aesost.com/sitemap.xml
