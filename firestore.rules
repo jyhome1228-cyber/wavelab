@@ -3,11 +3,7 @@ service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
     function isAdmin() {
-      return signedIn()
-        && request.auth.token.email == 'planus253@naver.com'
-        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active';
+      return signedIn() && request.auth.token.email == 'planus253@naver.com';
     }
     function isActiveColumnist() {
       return signedIn()
