@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 74"><path d="M51.31 65.02c-3.82-2.91-4.64-8.17-10.83-9.7-2.84-.7-5.83-.74-8.69-.05-5.34 1.29-6.67 6.71-10 9.44-4.86 3.99-11.74 3.91-16.57.07-4.67-3.73-6.91-10.67-3.76-16.27L25.72 5.39C27.75 1.78 32.28.18 36.1.01c5.56-.24 10.19 2.81 12.29 7.79 1.78 4.24 1.51 8.94-.76 12.91l-6.3 11.03c-2.21 3.87-4.6 7.48-6.33 11.57-.7 1.66-.3 3.72.56 5.12s2.61 2.36 4.49 2.51c3.51.27 6.45-1.54 8.4-4.38 3.79-5.51 11.19-7.03 16.99-4 5.83 3.05 8.68 10.04 6.33 16.3-1.48 3.93-4.67 6.84-8.11 8.03-4.32 1.5-8.8.82-12.34-1.88Z" fill="#8B5CF6" transform="translate(7.5 9.5) scale(.82)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">AESOST</title>
+  <desc id="desc">검정 배경과 보라색 AESOST 심볼로 구성된 앱 아이콘</desc>
+  <defs>
+    <linearGradient id="icon-bg" x1="14" y1="8" x2="88" y2="94" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17131F"/>
+      <stop offset="0.55" stop-color="#0D0A12"/>
+      <stop offset="1" stop-color="#050407"/>
+    </linearGradient>
+    <linearGradient id="icon-symbol" x1="28" y1="18" x2="72" y2="83" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B794F6"/>
+      <stop offset="0.48" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#651DDC"/>
+    </linearGradient>
+    <filter id="icon-glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#651DDC" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="url(#icon-bg)"/>
+  <rect x="2.5" y="2.5" width="95" height="95" rx="21.5" fill="none" stroke="#6D3BD1" stroke-opacity="0.34"/>
+  <path d="M51.31 65.02c-3.82-2.91-4.64-8.17-10.83-9.7-2.84-.7-5.83-.74-8.69-.05-5.34 1.29-6.67 6.71-10 9.44-4.86 3.99-11.74 3.91-16.57.07-4.67-3.73-6.91-10.67-3.76-16.27L25.72 5.39C27.75 1.78 32.28.18 36.1.01c5.56-.24 10.19 2.81 12.29 7.79 1.78 4.24 1.51 8.94-.76 12.91l-6.3 11.03c-2.21 3.87-4.6 7.48-6.33 11.57-.7 1.66-.3 3.72.56 5.12s2.61 2.36 4.49 2.51c3.51.27 6.45-1.54 8.4-4.38 3.79-5.51 11.19-7.03 16.99-4 5.83 3.05 8.68 10.04 6.33 16.3-1.48 3.93-4.67 6.84-8.11 8.03-4.32 1.5-8.8.82-12.34-1.88Z" fill="url(#icon-symbol)" filter="url(#icon-glow)" transform="translate(15 15) scale(.95)"/>
+</svg>
