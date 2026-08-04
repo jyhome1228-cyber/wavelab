@@ -62,48 +62,20 @@
 
       <section class="admin-section" id="overview">
         <div class="metric-grid">
-          <article class="metric-card metric-main">
-            <span>TOTAL MEMBERS</span>
-            <strong data-total-users>—</strong>
-            <p>누적 가입 회원</p>
-          </article>
-          <article class="metric-card">
-            <span>NEW · 7 DAYS</span>
-            <strong data-new-users>—</strong>
-            <p>최근 7일 신규 가입</p>
-          </article>
-          <article class="metric-card">
-            <span>ACTIVE · 30 DAYS</span>
-            <strong data-active-users>—</strong>
-            <p>최근 30일 로그인</p>
-          </article>
-          <article class="metric-card">
-            <span>TODAY LOGIN</span>
-            <strong data-today-users>—</strong>
-            <p>오늘 로그인 회원</p>
-          </article>
+          <article class="metric-card metric-main"><span>TOTAL MEMBERS</span><strong data-total-users>—</strong><p>누적 가입 회원</p></article>
+          <article class="metric-card"><span>NEW · 7 DAYS</span><strong data-new-users>—</strong><p>최근 7일 신규 가입</p></article>
+          <article class="metric-card"><span>ACTIVE · 30 DAYS</span><strong data-active-users>—</strong><p>최근 30일 로그인</p></article>
+          <article class="metric-card"><span>TODAY LOGIN</span><strong data-today-users>—</strong><p>오늘 로그인 회원</p></article>
         </div>
       </section>
 
       <section class="analytics-grid" id="growth">
         <article class="dashboard-panel growth-panel">
-          <div class="panel-head">
-            <div>
-              <span>MEMBER GROWTH</span>
-              <h2>최근 14일 가입 추이</h2>
-            </div>
-            <p data-growth-summary>데이터를 불러오는 중입니다.</p>
-          </div>
+          <div class="panel-head"><div><span>MEMBER GROWTH</span><h2>최근 14일 가입 추이</h2></div><p data-growth-summary>데이터를 불러오는 중입니다.</p></div>
           <div class="growth-chart" data-growth-chart></div>
         </article>
-
         <article class="dashboard-panel status-panel">
-          <div class="panel-head">
-            <div>
-              <span>ACCOUNT STATUS</span>
-              <h2>회원 상태</h2>
-            </div>
-          </div>
+          <div class="panel-head"><div><span>ACCOUNT STATUS</span><h2>회원 상태</h2></div></div>
           <div class="status-overview" data-status-overview></div>
         </article>
       </section>
@@ -111,10 +83,7 @@
       <section class="admin-section" id="members">
         <article class="dashboard-panel members-panel">
           <div class="panel-head member-panel-head">
-            <div>
-              <span>MEMBER DIRECTORY</span>
-              <h2>가입 회원</h2>
-            </div>
+            <div><span>MEMBER DIRECTORY</span><h2>가입 회원</h2></div>
             <div class="member-tools">
               <input type="search" placeholder="이름 또는 이메일 검색" data-member-search aria-label="회원 검색">
               <select data-date-filter aria-label="가입 기간 필터">
@@ -126,27 +95,13 @@
               <button type="button" data-export-csv>CSV 내보내기</button>
             </div>
           </div>
-
           <div class="member-table-wrap">
             <table>
-              <thead>
-                <tr>
-                  <th>회원</th>
-                  <th>이메일</th>
-                  <th>가입일</th>
-                  <th>최근 로그인</th>
-                  <th>상태</th>
-                </tr>
-              </thead>
-              <tbody data-member-rows>
-                <tr><td class="table-empty" colspan="5">회원 데이터를 불러오고 있습니다.</td></tr>
-              </tbody>
+              <thead><tr><th>회원</th><th>이메일</th><th>가입일</th><th>최근 로그인</th><th>상태</th></tr></thead>
+              <tbody data-member-rows><tr><td class="table-empty" colspan="5">회원 데이터를 불러오고 있습니다.</td></tr></tbody>
             </table>
           </div>
-          <div class="table-footer">
-            <span data-filtered-count>0명 표시</span>
-            <span>Firestore users 컬렉션 기준</span>
-          </div>
+          <div class="table-footer"><span data-filtered-count>0명 표시</span><span>Firestore users 컬렉션 기준</span></div>
         </article>
       </section>
 
@@ -157,6 +112,6 @@
     </main>
   </div>
 
-  <script type="module" src="admin.js?v=20260804-2"></script>
+  <script type="module" src="admin-secure.js?v=20260804-1"></script>
 </body>
 </html>
