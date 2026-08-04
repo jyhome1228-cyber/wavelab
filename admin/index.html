@@ -3,86 +3,160 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>WAVELAB ADMIN</title>
-  <meta name="robots" content="noindex,nofollow">
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="admin.css">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>AESOST Admin</title>
+  <link rel="icon" href="../favicon.svg?v=20260803-4" type="image/svg+xml">
+  <link rel="stylesheet" href="admin.css?v=20260804-2">
 </head>
-<body class="admin-page">
-  <aside class="admin-sidebar">
-    <a class="admin-brand" href="../index.html"><span>✦</span><strong>WAVELAB</strong><small>ADMIN</small></a>
-    <nav aria-label="관리자 메뉴">
-      <button class="is-active" type="button" data-admin-tab="dashboard">대시보드</button>
-      <button type="button" data-admin-tab="members">회원 관리</button>
-      <button type="button" data-admin-tab="applications">칼럼니스트 신청</button>
-      <button type="button" data-admin-tab="columns">칼럼 관리</button>
-      <button type="button" data-admin-tab="community">커뮤니티 관리</button>
-      <button type="button" data-admin-tab="notices">공지사항</button>
-      <button type="button" data-admin-tab="settings">사이트 설정</button>
-    </nav>
-    <div class="admin-sidebar-bottom">
-      <a href="../index.html">사이트 보기 ↗</a>
-      <button type="button" data-admin-logout>로그아웃</button>
-    </div>
-  </aside>
+<body>
+  <section class="admin-gate" data-admin-gate>
+    <div class="gate-grid" aria-hidden="true"></div>
+    <form class="gate-card" data-admin-form autocomplete="off">
+      <a class="gate-brand" href="../index.html" aria-label="AESOST 홈으로 이동">
+        <img class="gate-symbol" src="../aesost-symbol.svg" alt="">
+        <img class="gate-logo" src="../aesost-logo.svg" alt="AESOST">
+      </a>
+      <p class="gate-kicker">AESOST ADMIN CONSOLE</p>
+      <h1>관리 코드 입력</h1>
+      <p class="gate-copy">회원 가입 현황과 활동 흐름을 확인하는 관리자 전용 대시보드입니다.</p>
+      <label class="gate-field">
+        <span>ACCESS CODE</span>
+        <input type="password" name="accessCode" placeholder="관리 코드를 입력하세요" required autofocus>
+      </label>
+      <button class="gate-submit" type="submit">대시보드 열기</button>
+      <p class="gate-notice" data-gate-notice aria-live="polite"></p>
+    </form>
+  </section>
 
-  <main class="admin-main" data-admin-main hidden>
-    <header class="admin-topbar">
-      <button class="admin-menu-button" type="button" data-admin-menu>메뉴</button>
-      <div><p>MASTER CONSOLE</p><h1 data-admin-heading>대시보드</h1></div>
-      <div class="admin-account"><span data-admin-name>관리자</span><small data-admin-email></small></div>
-    </header>
-
-    <section class="admin-panel is-active" data-admin-panel="dashboard">
-      <div class="admin-stats">
-        <article><span>회원</span><strong data-count-users>0</strong><small>등록된 회원 데이터</small></article>
-        <article><span>신청 대기</span><strong data-count-applications>0</strong><small>칼럼니스트 검토</small></article>
-        <article><span>검토 중 글</span><strong data-count-reviews>0</strong><small>공개 승인 대기</small></article>
-        <article><span>커뮤니티</span><strong data-count-community>0</strong><small>전체 게시글</small></article>
+  <div class="admin-app" data-admin-app hidden>
+    <aside class="admin-sidebar">
+      <div>
+        <a class="sidebar-brand" href="../index.html">
+          <img class="sidebar-symbol" src="../aesost-symbol.svg" alt="">
+          <img class="sidebar-logo" src="../aesost-logo.svg" alt="AESOST">
+        </a>
+        <p class="sidebar-caption">ADMIN CONSOLE</p>
+        <nav class="sidebar-nav" aria-label="관리자 메뉴">
+          <a class="is-active" href="#overview"><span>01</span>현황</a>
+          <a href="#growth"><span>02</span>가입 추이</a>
+          <a href="#members"><span>03</span>회원 목록</a>
+        </nav>
       </div>
-      <div class="admin-dashboard-grid">
-        <section class="admin-card"><div class="admin-section-head"><div><span>RECENT APPLICATIONS</span><h2>최근 칼럼니스트 신청</h2></div><button type="button" data-go-tab="applications">전체 보기</button></div><div data-dashboard-applications></div></section>
-        <section class="admin-card"><div class="admin-section-head"><div><span>CONTENT REVIEW</span><h2>검토가 필요한 칼럼</h2></div><button type="button" data-go-tab="columns">전체 보기</button></div><div data-dashboard-reviews></div></section>
+      <div class="sidebar-foot">
+        <a href="../index.html">사이트 보기 ↗</a>
+        <button type="button" data-admin-lock>관리자 잠금</button>
       </div>
-    </section>
+    </aside>
 
-    <section class="admin-panel" data-admin-panel="members">
-      <div class="admin-section-head"><div><span>MEMBERS</span><h2>회원 관리</h2><p>회원가입 또는 로그인 시 생성된 회원 프로필을 확인합니다.</p></div><input type="search" placeholder="이름 또는 이메일 검색" data-member-search></div>
-      <div class="admin-table-wrap"><table><thead><tr><th>회원</th><th>역할</th><th>상태</th><th>가입일</th><th>관리</th></tr></thead><tbody data-member-list></tbody></table></div>
-    </section>
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <p>AESOST MEMBER ANALYTICS</p>
+          <h1>회원 현황 대시보드</h1>
+        </div>
+        <div class="header-actions">
+          <span class="connection-status" data-connection-status>Firebase 연결 대기</span>
+          <button type="button" data-refresh>새로고침</button>
+        </div>
+      </header>
 
-    <section class="admin-panel" data-admin-panel="applications">
-      <div class="admin-section-head"><div><span>COLUMNIST APPLICATIONS</span><h2>칼럼니스트 신청</h2><p>신청자의 경력과 작성 주제를 검토해 승인합니다.</p></div></div>
-      <div class="admin-list" data-application-list></div>
-    </section>
+      <section class="admin-section" id="overview">
+        <div class="metric-grid">
+          <article class="metric-card metric-main">
+            <span>TOTAL MEMBERS</span>
+            <strong data-total-users>—</strong>
+            <p>누적 가입 회원</p>
+          </article>
+          <article class="metric-card">
+            <span>NEW · 7 DAYS</span>
+            <strong data-new-users>—</strong>
+            <p>최근 7일 신규 가입</p>
+          </article>
+          <article class="metric-card">
+            <span>ACTIVE · 30 DAYS</span>
+            <strong data-active-users>—</strong>
+            <p>최근 30일 로그인</p>
+          </article>
+          <article class="metric-card">
+            <span>TODAY LOGIN</span>
+            <strong data-today-users>—</strong>
+            <p>오늘 로그인 회원</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="admin-panel" data-admin-panel="columns">
-      <div class="admin-section-head"><div><span>COLUMNS</span><h2>칼럼 관리</h2><p>임시저장, 검토 중, 공개된 칼럼을 관리합니다.</p></div><select data-column-filter><option value="all">전체</option><option value="review">검토 중</option><option value="published">공개</option><option value="draft">임시저장</option></select></div>
-      <div class="admin-list" data-column-list></div>
-    </section>
+      <section class="analytics-grid" id="growth">
+        <article class="dashboard-panel growth-panel">
+          <div class="panel-head">
+            <div>
+              <span>MEMBER GROWTH</span>
+              <h2>최근 14일 가입 추이</h2>
+            </div>
+            <p data-growth-summary>데이터를 불러오는 중입니다.</p>
+          </div>
+          <div class="growth-chart" data-growth-chart></div>
+        </article>
 
-    <section class="admin-panel" data-admin-panel="community">
-      <div class="admin-section-head"><div><span>COMMUNITY</span><h2>커뮤니티 관리</h2><p>회원이 작성한 게시글을 확인하고 부적절한 글을 삭제합니다.</p></div></div>
-      <div class="admin-list" data-community-list></div>
-    </section>
+        <article class="dashboard-panel status-panel">
+          <div class="panel-head">
+            <div>
+              <span>ACCOUNT STATUS</span>
+              <h2>회원 상태</h2>
+            </div>
+          </div>
+          <div class="status-overview" data-status-overview></div>
+        </article>
+      </section>
 
-    <section class="admin-panel" data-admin-panel="notices">
-      <div class="admin-section-head"><div><span>NOTICES</span><h2>공지사항 관리</h2><p>공지사항 작성 페이지와 기존 공지를 관리합니다.</p></div><a class="admin-primary" href="../notice-write.html">공지 작성</a></div>
-      <div class="admin-list" data-notice-list></div>
-    </section>
+      <section class="admin-section" id="members">
+        <article class="dashboard-panel members-panel">
+          <div class="panel-head member-panel-head">
+            <div>
+              <span>MEMBER DIRECTORY</span>
+              <h2>가입 회원</h2>
+            </div>
+            <div class="member-tools">
+              <input type="search" placeholder="이름 또는 이메일 검색" data-member-search aria-label="회원 검색">
+              <select data-date-filter aria-label="가입 기간 필터">
+                <option value="all">전체 기간</option>
+                <option value="7">최근 7일</option>
+                <option value="30">최근 30일</option>
+                <option value="90">최근 90일</option>
+              </select>
+              <button type="button" data-export-csv>CSV 내보내기</button>
+            </div>
+          </div>
 
-    <section class="admin-panel" data-admin-panel="settings">
-      <div class="admin-section-head"><div><span>SETTINGS</span><h2>사이트 설정</h2><p>사이트 운영에 필요한 주요 링크와 Firebase 상태를 확인합니다.</p></div></div>
-      <div class="admin-settings-grid">
-        <article><strong>사이트 주소</strong><p>https://wavelab.my/</p><a href="../index.html">사이트 열기 ↗</a></article>
-        <article><strong>Firestore 관리자</strong><p>현재 계정은 admins/{uid} 문서 존재 여부로 확인됩니다.</p><span data-admin-role>권한 확인됨</span></article>
-        <article><strong>에디토리얼 검토</strong><p>기존 전용 검토 화면도 계속 사용할 수 있습니다.</p><a href="../editorial-review.html">검토 화면 열기 ↗</a></article>
-      </div>
-    </section>
-  </main>
+          <div class="member-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>회원</th>
+                  <th>이메일</th>
+                  <th>가입일</th>
+                  <th>최근 로그인</th>
+                  <th>상태</th>
+                </tr>
+              </thead>
+              <tbody data-member-rows>
+                <tr><td class="table-empty" colspan="5">회원 데이터를 불러오고 있습니다.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span data-filtered-count>0명 표시</span>
+            <span>Firestore users 컬렉션 기준</span>
+          </div>
+        </article>
+      </section>
 
-  <section class="admin-gate" data-admin-gate><span>✦</span><strong>관리자 권한을 확인하고 있습니다.</strong><p>잠시만 기다려 주세요.</p></section>
-  <script type="module" src="admin.js"></script>
+      <section class="admin-error" data-admin-error hidden>
+        <strong>회원 데이터를 불러오지 못했습니다.</strong>
+        <p data-admin-error-message></p>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="admin.js?v=20260804-2"></script>
 </body>
 </html>
