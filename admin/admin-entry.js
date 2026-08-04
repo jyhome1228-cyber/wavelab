@@ -33,5 +33,5 @@ onAuthStateChanged(auth,async user=>{
   }
 
   booted=true;
-  await import('./admin-account.js?v=20260804-2');
+  await import('./admin-owner-dashboard.js?v=20260804-1');
 });
