@@ -2,7 +2,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function isAdmin() { return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+    function hasDashboardAccess() {
+      return signedIn() && request.auth.token.memberDashboard == true;
+    }
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.status == 'active';
+    }
     function isActiveColumnist() {
       return signedIn()
         && exists(/databases/$(database)/documents/columnistProfiles/$(request.auth.uid))
@@ -16,7 +23,8 @@ service cloud.firestore {
 
     match /users/{uid} {
       allow create: if signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid && request.resource.data.role == 'member' && request.resource.data.status == 'active';
-      allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow get: if isAdmin() || hasDashboardAccess() || (signedIn() && request.auth.uid == uid);
+      allow list: if isAdmin() || hasDashboardAccess();
       allow update: if isAdmin() || (signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid && request.resource.data.role == resource.data.role && request.resource.data.status == resource.data.status);
       allow delete: if isAdmin();
     }
@@ -48,13 +56,7 @@ service cloud.firestore {
 
     match /columnistProfiles/{uid} {
       allow read: if isAdmin() || (signedIn() && request.auth.uid == uid) || resource.data.status in ['approved','major'];
-      allow create: if signedIn()
-        && request.auth.uid == uid
-        && request.resource.data.uid == request.auth.uid
-        && request.resource.data.status == 'approved'
-        && request.resource.data.level == 'columnist'
-        && exists(/databases/$(database)/documents/columnistApplications/$(uid))
-        && get(/databases/$(database)/documents/columnistApplications/$(uid)).data.status == 'approved';
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid && request.resource.data.status == 'approved' && request.resource.data.level == 'columnist' && exists(/databases/$(database)/documents/columnistApplications/$(uid)) && get(/databases/$(database)/documents/columnistApplications/$(uid)).data.status == 'approved';
       allow update, delete: if isAdmin();
     }
 
@@ -63,6 +65,10 @@ service cloud.firestore {
       allow create: if isActiveColumnist() && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','published'];
       allow update: if isAdmin() || (isActiveColumnist() && resource.data.authorUid == request.auth.uid && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','published']);
       allow delete: if isAdmin() || (isActiveColumnist() && resource.data.authorUid == request.auth.uid);
+    }
+
+    match /_adminRateLimits/{document=**} {
+      allow read, write: if false;
     }
   }
 }
