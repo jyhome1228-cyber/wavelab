@@ -3,10 +3,12 @@ import {
   browserLocalPersistence,
   browserSessionPersistence,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
   setPersistence,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile
 } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js';
@@ -16,6 +18,7 @@ const authNotice=document.querySelector('[data-auth-notice]');
 const loginForm=document.querySelector('[data-login-form]');
 const signupForm=document.querySelector('[data-signup-form]');
 const resetPassword=document.querySelector('[data-reset-password]');
+const googleLoginButtons=[...document.querySelectorAll('[data-google-login]')];
 
 function setNotice(message,type=''){if(!authNotice)return;authNotice.textContent=message;authNotice.dataset.state=type}
 function getNextUrl(){return new URLSearchParams(location.search).get('next')||'index.html'}
@@ -89,6 +92,56 @@ async function syncUserProfile(user){
   }catch(error){console.warn('User profile sync failed',error.code)}
 }
 
+const googleProvider=new GoogleAuthProvider();
+googleProvider.setCustomParameters({prompt:'select_account'});
+
+function googleLoginErrorDetail(error){
+  const messages={
+    'auth/popup-closed-by-user':{title:'Google 로그인이 취소되었습니다.',message:'계정 선택 창을 닫았습니다. 다시 시도해 주세요.'},
+    'auth/popup-blocked':{title:'팝업이 차단되었습니다.',message:'브라우저에서 aesost.com의 팝업을 허용한 뒤 다시 시도해 주세요.'},
+    'auth/cancelled-popup-request':{title:'로그인 요청이 취소되었습니다.',message:'이미 다른 로그인 창이 열려 있습니다. 잠시 후 다시 시도해 주세요.'},
+    'auth/network-request-failed':{title:'네트워크 연결을 확인해 주세요.',message:'인터넷 연결 상태를 확인한 뒤 다시 시도해 주세요.'},
+    'auth/operation-not-allowed':{title:'Google 로그인을 사용할 수 없습니다.',message:'Firebase Authentication에서 Google 로그인 제공업체를 활성화해 주세요.'},
+    'auth/unauthorized-domain':{title:'승인되지 않은 도메인입니다.',message:'Firebase Authentication 승인 도메인에 aesost.com과 www.aesost.com을 추가해 주세요.'},
+    'auth/account-exists-with-different-credential':{title:'이미 가입된 이메일입니다.',message:'같은 이메일로 만든 기존 로그인 방식으로 먼저 로그인해 주세요.'},
+    'auth/user-disabled':{title:'사용할 수 없는 계정입니다.',message:'계정이 비활성화되어 있습니다. 관리자에게 문의해 주세요.'},
+    'auth/too-many-requests':{title:'로그인 요청이 너무 많습니다.',message:'잠시 후 다시 시도해 주세요.'}
+  };
+  return messages[error.code]||{title:'Google 로그인에 실패했습니다.',message:'잠시 후 다시 시도해 주세요.'};
+}
+
+function setGoogleLoading(loading){
+  googleLoginButtons.forEach(button=>{
+    if(!button.dataset.label)button.dataset.label=button.textContent.trim();
+    button.disabled=loading;
+    button.classList.toggle('is-loading',loading);
+    const label=button.querySelector('[data-google-label]');
+    if(label)label.textContent=loading?'Google 로그인 중...':button.dataset.label;
+    else button.textContent=loading?'Google 로그인 중...':button.dataset.label;
+  });
+}
+
+async function signInWithGoogle(){
+  if(!googleLoginButtons.length)return;
+  setGoogleLoading(true);
+  setNotice('Google 계정으로 로그인 중입니다.');
+  try{
+    await setPersistence(auth,browserLocalPersistence);
+    const credential=await signInWithPopup(auth,googleProvider);
+    await syncUserProfile(credential.user);
+    setNotice('Google 계정으로 로그인되었습니다.','success');
+    location.href=getNextUrl();
+  }catch(error){
+    const detail=googleLoginErrorDetail(error);
+    setNotice(detail.message,'error');
+    if(error.code!=='auth/popup-closed-by-user')showAuthPopup(detail.title,detail.message);
+  }finally{
+    setGoogleLoading(false);
+  }
+}
+
+googleLoginButtons.forEach(button=>button.addEventListener('click',signInWithGoogle));
+
 loginForm?.addEventListener('submit',async event=>{
   event.preventDefault();
   const data=new FormData(loginForm);const email=String(data.get('email')||'').trim();const password=String(data.get('password')||'');const remember=data.get('remember')==='on';
@@ -121,4 +174,4 @@ function installBookmarkButtons(user){document.querySelectorAll('.bookmark-butto
 
 document.addEventListener('click',async event=>{const logout=event.target.closest('[data-auth-logout], [data-mobile-logout]');if(!logout)return;event.preventDefault();await signOut(auth);location.href='index.html'});
 
-onAuthStateChanged(auth,async user=>{window.WAVELAB_AUTH_USER=user;toggleAuthLinks(user);window.applyMemberAccess?.(user);installBookmarkButtons(user);if(user)await syncUserProfile(user);if(document.body.classList.contains('auth-page')&&user)setNotice(`${user.displayName||user.email||'회원'} 계정으로 로그인되어 있습니다.`,'success')});
+onAuthStateChanged(auth,async user=>{window.AESOST_AUTH_USER=user;window.WAVELAB_AUTH_USER=user;toggleAuthLinks(user);window.applyMemberAccess?.(user);installBookmarkButtons(user);if(user)await syncUserProfile(user);if(document.body.classList.contains('auth-page')&&user)setNotice(`${user.displayName||user.email||'회원'} 계정으로 로그인되어 있습니다.`,'success')});
