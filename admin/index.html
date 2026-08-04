@@ -6,26 +6,25 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>AESOST Admin</title>
   <link rel="icon" href="../favicon.svg?v=20260803-4" type="image/svg+xml">
-  <link rel="stylesheet" href="admin.css?v=20260804-2">
+  <link rel="stylesheet" href="admin.css?v=20260804-3">
 </head>
 <body>
   <section class="admin-gate" data-admin-gate>
     <div class="gate-grid" aria-hidden="true"></div>
-    <form class="gate-card" data-admin-form autocomplete="off">
+    <div class="gate-card">
       <a class="gate-brand" href="../index.html" aria-label="AESOST 홈으로 이동">
         <img class="gate-symbol" src="../aesost-symbol.svg" alt="">
         <img class="gate-logo" src="../aesost-logo.svg" alt="AESOST">
       </a>
       <p class="gate-kicker">AESOST ADMIN CONSOLE</p>
-      <h1>관리 코드 입력</h1>
-      <p class="gate-copy">회원 가입 현황과 활동 흐름을 확인하는 관리자 전용 대시보드입니다.</p>
-      <label class="gate-field">
-        <span>ACCESS CODE</span>
-        <input type="password" name="accessCode" placeholder="관리 코드를 입력하세요" required autofocus>
-      </label>
-      <button class="gate-submit" type="submit">대시보드 열기</button>
-      <p class="gate-notice" data-gate-notice aria-live="polite"></p>
-    </form>
+      <h1 data-admin-gate-title>관리자 계정 확인 중</h1>
+      <p class="gate-copy" data-admin-gate-message>현재 로그인한 Firebase 계정의 관리자 권한을 확인하고 있습니다.</p>
+      <div class="gate-actions" data-admin-gate-actions hidden>
+        <a class="gate-primary" href="../login.html?next=admin/">관리자 로그인</a>
+        <button type="button" data-admin-switch-account>다른 계정으로 로그인</button>
+        <a href="../index.html">사이트로 돌아가기</a>
+      </div>
+    </div>
   </section>
 
   <div class="admin-app" data-admin-app hidden>
@@ -43,8 +42,9 @@
         </nav>
       </div>
       <div class="sidebar-foot">
+        <span class="sidebar-admin-account" data-admin-account></span>
         <a href="../index.html">사이트 보기 ↗</a>
-        <button type="button" data-admin-lock>관리자 잠금</button>
+        <button type="button" data-admin-logout>관리자 로그아웃</button>
       </div>
     </aside>
 
@@ -112,6 +112,6 @@
     </main>
   </div>
 
-  <script type="module" src="admin-secure.js?v=20260804-1"></script>
+  <script type="module" src="admin-account.js?v=20260804-1"></script>
 </body>
 </html>
