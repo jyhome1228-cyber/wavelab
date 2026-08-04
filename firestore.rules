@@ -2,11 +2,11 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function hasDashboardAccess() {
-      return signedIn() && request.auth.token.memberDashboard == true;
-    }
     function isAdmin() {
-      return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active';
     }
     function isActiveColumnist() {
       return signedIn()
@@ -14,16 +14,21 @@ service cloud.firestore {
         && get(/databases/$(database)/documents/columnistProfiles/$(request.auth.uid)).data.status in ['approved','major'];
     }
 
-    match /admins/{uid} {
-      allow read: if signedIn() && request.auth.uid == uid;
-      allow write: if false;
-    }
-
     match /users/{uid} {
-      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid && request.resource.data.role == 'member' && request.resource.data.status == 'active';
-      allow get: if isAdmin() || hasDashboardAccess() || (signedIn() && request.auth.uid == uid);
-      allow list: if isAdmin() || hasDashboardAccess();
-      allow update: if isAdmin() || (signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid && request.resource.data.role == resource.data.role && request.resource.data.status == resource.data.status);
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.role == 'member'
+        && request.resource.data.status == 'active';
+      allow get: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow list: if isAdmin();
+      allow update: if isAdmin() || (
+        signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.role == resource.data.role
+        && request.resource.data.status == resource.data.status
+      );
       allow delete: if isAdmin();
     }
 
@@ -36,7 +41,11 @@ service cloud.firestore {
 
     match /communityPosts/{postId} {
       allow read: if true;
-      allow create: if signedIn() && request.resource.data.authorUid == request.auth.uid && request.resource.data.title is string && request.resource.data.content is string && request.resource.data.category is string;
+      allow create: if signedIn()
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.title is string
+        && request.resource.data.content is string
+        && request.resource.data.category is string;
       allow update, delete: if isAdmin() || (signedIn() && resource.data.authorUid == request.auth.uid);
     }
 
@@ -46,27 +55,45 @@ service cloud.firestore {
     }
 
     match /columnistApplications/{uid} {
-      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.applicantUid == request.auth.uid && request.resource.data.status == 'approved';
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.applicantUid == request.auth.uid
+        && request.resource.data.status == 'approved';
       allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
-      allow update: if isAdmin() || (signedIn() && request.auth.uid == uid && resource.data.applicantUid == request.auth.uid && request.resource.data.applicantUid == request.auth.uid && request.resource.data.status == resource.data.status);
+      allow update: if isAdmin() || (
+        signedIn()
+        && request.auth.uid == uid
+        && resource.data.applicantUid == request.auth.uid
+        && request.resource.data.applicantUid == request.auth.uid
+        && request.resource.data.status == resource.data.status
+      );
       allow delete: if isAdmin();
     }
 
     match /columnistProfiles/{uid} {
       allow read: if isAdmin() || (signedIn() && request.auth.uid == uid) || resource.data.status in ['approved','major'];
-      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid && request.resource.data.status == 'approved' && request.resource.data.level == 'columnist' && exists(/databases/$(database)/documents/columnistApplications/$(uid)) && get(/databases/$(database)/documents/columnistApplications/$(uid)).data.status == 'approved';
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'approved'
+        && request.resource.data.level == 'columnist'
+        && exists(/databases/$(database)/documents/columnistApplications/$(uid))
+        && get(/databases/$(database)/documents/columnistApplications/$(uid)).data.status == 'approved';
       allow update, delete: if isAdmin();
     }
 
     match /columns/{columnId} {
       allow read: if resource.data.status == 'published' || isAdmin() || (signedIn() && resource.data.authorUid == request.auth.uid);
-      allow create: if isActiveColumnist() && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','published'];
-      allow update: if isAdmin() || (isActiveColumnist() && resource.data.authorUid == request.auth.uid && request.resource.data.authorUid == request.auth.uid && request.resource.data.status in ['draft','published']);
+      allow create: if isActiveColumnist()
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.status in ['draft','published'];
+      allow update: if isAdmin() || (
+        isActiveColumnist()
+        && resource.data.authorUid == request.auth.uid
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.status in ['draft','published']
+      );
       allow delete: if isAdmin() || (isActiveColumnist() && resource.data.authorUid == request.auth.uid);
-    }
-
-    match /_adminRateLimits/{document=**} {
-      allow read, write: if false;
     }
   }
 }
