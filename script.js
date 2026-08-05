@@ -158,3 +158,139 @@ document.title=document.title.replaceAll('WAVELAB','AESOST').replaceAll('웨이�
 document.querySelectorAll('meta[name="description"],meta[property="og:site_name"],meta[property="og:title"],meta[property="og:description"]').forEach(meta=>{
   if(meta.content)meta.content=meta.content.replaceAll('WAVELAB','AESOST').replaceAll('웨이블랩','에이소스트');
 });
+
+const SEO_DEFAULT_IMAGE='https://cdn.imweb.me/upload/S2023030963558ef55ba8e/533bf9324fd96.png';
+const SEO_BASE='https://aesost.com/';
+const seoPages={
+  'index.html':{
+    title:'AESOST | 커리어 성장과 디자인 인사이트 플랫폼',
+    description:'커리어 성장, 디자인, 브랜딩, 비즈니스와 실무 지식을 읽고 기록하며 자신의 경험을 커리어 자산으로 만드는 AESOST 플랫폼입니다.',
+    keywords:'에이소스트,AESOST,커리어 플랫폼,커리어 성장,디자인 매거진,디자인 아티클,브랜딩 인사이트',
+    h1:'배우고, 기록하고, 자신의 커리어를 만드는 사람들.'
+  },
+  'magazine.html':{
+    title:'디자인 매거진 | 브랜딩·공간·제품 디자인 트렌드 — AESOST',
+    description:'국내외 브랜딩, 공간, 제품, 시각디자인과 비즈니스 사례를 분석하고 실무에 적용할 수 있는 디자인 인사이트를 소개합니다.',
+    keywords:'디자인 매거진,브랜딩 매거진,디자인 트렌드,공간 브랜딩,제품 디자인,시각디자인',
+    h1:'디자인 매거진'
+  },
+  'article.html':{
+    title:'디자인 아티클 | 디자인·기획·개발 실무 지식 — AESOST',
+    description:'디자인, 기획, 개발, 브랜딩과 비즈니스 실무에 필요한 방법과 관점을 AESOST 아티클에서 확인하세요.',
+    keywords:'디자인 아티클,디자인 실무,기획 실무,개발 실무,브랜딩 아티클,비즈니스 인사이트',
+    h1:'디자인 아티클'
+  },
+  'column.html':{
+    title:'커리어 칼럼 | 디자이너·프리랜서·창업 경험 — AESOST',
+    description:'디자이너, 기획자, 개발자와 창업가가 자신의 경험과 전문성을 기록한 커리어 칼럼을 소개합니다.',
+    keywords:'커리어 칼럼,디자이너 커리어,프리랜서 커리어,창업 칼럼,전문가 칼럼',
+    h1:'커리어 칼럼'
+  },
+  'overseas-magazine.html':{
+    title:'해외 디자인 매거진 | 글로벌 디자인·브랜드 트렌드 — AESOST',
+    description:'해외 디자인, 건축, 브랜드와 문화 매체의 주요 소식을 한국어로 정리하고 실무 관점에서 분석합니다.',
+    keywords:'해외 디자인 매거진,글로벌 디자인 트렌드,해외 브랜딩,건축 매거진,디자인 뉴스',
+    h1:'해외 디자인 매거진'
+  },
+  'reference.html':{
+    title:'디자인 레퍼런스 | 브랜딩·패키지·공간 디자인 사례 — AESOST',
+    description:'해외 브랜딩, 패키지, 공간, 그래픽과 디지털 디자인 프로젝트를 모아 한국어로 분석하는 디자인 레퍼런스 아카이브입니다.',
+    keywords:'디자인 레퍼런스,브랜딩 레퍼런스,패키지 디자인 사례,공간 디자인 사례,그래픽 디자인 사례',
+    h1:'디자인 레퍼런스'
+  },
+  'expert-feedback.html':{
+    title:'커리어 컨설팅 | 취업·이직·프리랜서 방향 설계 — AESOST',
+    description:'취업, 이직, 프리랜서 전환, 1인 사업과 창업을 위한 커리어 진단과 실행 방향을 전문 컨설턴트와 구체화하세요.',
+    keywords:'커리어 컨설팅,취업 컨설팅,이직 컨설팅,프리랜서 컨설팅,창업 컨설팅,포트폴리오 피드백',
+    h1:'커리어 컨설팅'
+  },
+  'news.html':{
+    title:'디자인 뉴스 | AI·브랜딩·비즈니스 최신 소식 — AESOST',
+    description:'디자인, AI, 브랜딩, 기술, 비즈니스와 커리어 분야에서 지금 주목할 최신 소식을 전합니다.',
+    keywords:'디자인 뉴스,AI 뉴스,브랜딩 뉴스,비즈니스 뉴스,커리어 뉴스',
+    h1:'디자인 뉴스'
+  },
+  'notice.html':{
+    title:'AESOST 공지사항 | 서비스 및 운영 안내',
+    description:'AESOST 서비스, 콘텐츠, 회원 기능과 운영에 관한 주요 공지사항을 확인하세요.',
+    keywords:'AESOST 공지,에이소스트 공지사항,서비스 안내,운영 안내',
+    h1:'공지사항'
+  },
+  'about.html':{
+    title:'AESOST 소개 | 배우고 기록하며 커리어를 만드는 플랫폼',
+    description:'AESOST가 지식, 기록, 경험과 커리어 성장을 연결하는 방식과 운영 방향을 소개합니다.',
+    keywords:'AESOST 소개,에이소스트,커리어 플랫폼,디자인 플랫폼',
+    h1:'AESOST 소개'
+  }
+};
+const noindexPages=new Set(['login.html','mypage.html','ability-edit.html','column-write.html','notice-write.html','my-references.html','career-consulting-request.html','admin.html','admin-members.html','admin-columnists.html']);
+function upsertMeta(selector,attributes){
+  let element=document.head.querySelector(selector);
+  if(!element){element=document.createElement('meta');document.head.appendChild(element)}
+  Object.entries(attributes).forEach(([key,value])=>element.setAttribute(key,value));
+  return element;
+}
+function upsertLink(selector,attributes){
+  let element=document.head.querySelector(selector);
+  if(!element){element=document.createElement('link');document.head.appendChild(element)}
+  Object.entries(attributes).forEach(([key,value])=>element.setAttribute(key,value));
+  return element;
+}
+function applySeo(){
+  const canonicalUrl=page==='index.html'?SEO_BASE:`${SEO_BASE}${page}`;
+  if(noindexPages.has(page)){
+    upsertMeta('meta[name="robots"]',{name:'robots',content:'noindex,nofollow'});
+    return;
+  }
+  const config=seoPages[page];
+  if(!config)return;
+  document.title=config.title;
+  upsertMeta('meta[name="description"]',{name:'description',content:config.description});
+  upsertMeta('meta[name="keywords"]',{name:'keywords',content:config.keywords});
+  upsertMeta('meta[name="robots"]',{name:'robots',content:'index,follow,max-image-preview:large'});
+  upsertLink('link[rel="canonical"]',{rel:'canonical',href:canonicalUrl});
+  upsertMeta('meta[property="og:type"]',{property:'og:type',content:'website'});
+  upsertMeta('meta[property="og:site_name"]',{property:'og:site_name',content:'AESOST'});
+  upsertMeta('meta[property="og:title"]',{property:'og:title',content:config.title});
+  upsertMeta('meta[property="og:description"]',{property:'og:description',content:config.description});
+  upsertMeta('meta[property="og:url"]',{property:'og:url',content:canonicalUrl});
+  upsertMeta('meta[property="og:image"]',{property:'og:image',content:SEO_DEFAULT_IMAGE});
+  upsertMeta('meta[property="og:image:secure_url"]',{property:'og:image:secure_url',content:SEO_DEFAULT_IMAGE});
+  upsertMeta('meta[property="og:image:type"]',{property:'og:image:type',content:'image/png'});
+  upsertMeta('meta[property="og:image:width"]',{property:'og:image:width',content:'1200'});
+  upsertMeta('meta[property="og:image:height"]',{property:'og:image:height',content:'630'});
+  upsertMeta('meta[name="twitter:card"]',{name:'twitter:card',content:'summary_large_image'});
+  upsertMeta('meta[name="twitter:title"]',{name:'twitter:title',content:config.title});
+  upsertMeta('meta[name="twitter:description"]',{name:'twitter:description',content:config.description});
+  upsertMeta('meta[name="twitter:image"]',{name:'twitter:image',content:SEO_DEFAULT_IMAGE});
+  const h1=document.querySelector('.page-head h1,.notice-head h1,.expert-page-head h1');
+  if(h1&&config.h1)h1.textContent=config.h1;
+  let schema=document.head.querySelector('script[data-seo-schema]');
+  if(!schema){schema=document.createElement('script');schema.type='application/ld+json';schema.dataset.seoSchema='';document.head.appendChild(schema)}
+  schema.textContent=JSON.stringify({
+    '@context':'https://schema.org',
+    '@type':page==='index.html'?'WebSite':'CollectionPage',
+    name:config.title.replace(/\s+[—|]\s+AESOST$/,''),
+    description:config.description,
+    url:canonicalUrl,
+    isPartOf:{'@type':'WebSite',name:'AESOST',url:SEO_BASE},
+    inLanguage:'ko-KR'
+  });
+}
+applySeo();
+
+const navSeoTitles={
+  'magazine.html':'AESOST 디자인 매거진',
+  'article.html':'AESOST 디자인 아티클',
+  'column.html':'AESOST 커리어 칼럼',
+  'overseas-magazine.html':'AESOST 해외 디자인 매거진',
+  'reference.html':'AESOST 디자인 레퍼런스',
+  'expert-feedback.html':'AESOST 커리어 컨설팅',
+  'news.html':'AESOST 디자인 뉴스',
+  'notice.html':'AESOST 공지사항'
+};
+document.querySelectorAll('header a[href],footer a[href]').forEach(link=>{
+  const href=link.getAttribute('href')?.split('?')[0];
+  if(navSeoTitles[href])link.title=navSeoTitles[href];
+  if(active(href))link.setAttribute('aria-current','page');
+});
