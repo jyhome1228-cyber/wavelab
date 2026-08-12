@@ -33,13 +33,14 @@ onAuthStateChanged(auth,async user=>{
   }
 
   booted=true;
-  gateTitle.textContent='회원 데이터 연결 중';
-  gateMessage.textContent='관리자 인증 정보를 갱신하고 가입자 목록을 불러오고 있습니다.';
+  gateTitle.textContent='사이트 데이터 연결 중';
+  gateMessage.textContent='관리자 인증 정보를 갱신하고 회원 및 방문자 데이터를 불러오고 있습니다.';
   gateActions.hidden=true;
 
   try{
     await getIdToken(user,true);
     await import('./admin-owner-dashboard.js?v=20260804-2');
+    await import('./admin-visitor-analytics.js?v=20260812-1');
   }catch(error){
     console.error('Admin bootstrap failed',error);
     gateTitle.textContent='관리자 연결에 실패했습니다.';
