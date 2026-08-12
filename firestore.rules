@@ -30,6 +30,24 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
+    match /visitorVisits/{visitId} {
+      allow get: if true;
+      allow list: if isAdmin();
+      allow create: if request.resource.data.keys().hasOnly(['visitorId','date','visitedAt','firstPath','referrer'])
+        && request.resource.data.visitorId is string
+        && request.resource.data.visitorId.size() >= 20
+        && request.resource.data.visitorId.size() <= 80
+        && request.resource.data.date is string
+        && request.resource.data.date.matches('^\\d{4}-\\d{2}-\\d{2}$')
+        && visitId == request.resource.data.date + '_' + request.resource.data.visitorId
+        && request.resource.data.visitedAt == request.time
+        && request.resource.data.firstPath is string
+        && request.resource.data.firstPath.size() <= 180
+        && request.resource.data.referrer is string
+        && request.resource.data.referrer.size() <= 160;
+      allow update, delete: if false;
+    }
+
     match /abilities/{uid} {
       allow read: if resource.data.isPublic == true || isAdmin() || (signedIn() && request.auth.uid == uid);
       allow create: if signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid;
