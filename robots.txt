@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /login.html
+Disallow: /mypage.html
+Disallow: /my-references.html
+Disallow: /ability-edit.html
+Disallow: /column-write.html
+Disallow: /notice-write.html
+Disallow: /community-write.html
+Disallow: /career-consulting-request.html
+Disallow: /editorial-review.html
 
 Sitemap: https://aesost.com/sitemap.xml
