@@ -1,28 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://aesost.com/</loc><lastmod>2026-08-05</lastmod><priority>1.0</priority></url>
-  <url><loc>https://aesost.com/magazine.html</loc><lastmod>2026-08-05</lastmod><priority>0.9</priority></url>
-  <url><loc>https://aesost.com/article.html</loc><lastmod>2026-08-05</lastmod><priority>0.8</priority></url>
-  <url><loc>https://aesost.com/column.html</loc><lastmod>2026-08-05</lastmod><priority>0.8</priority></url>
-  <url><loc>https://aesost.com/overseas-magazine.html</loc><lastmod>2026-08-05</lastmod><priority>0.8</priority></url>
-  <url><loc>https://aesost.com/reference.html</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://aesost.com/expert-feedback.html</loc><lastmod>2026-08-05</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/news.html</loc><lastmod>2026-08-05</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/notice.html</loc><lastmod>2026-08-05</lastmod><priority>0.6</priority></url>
-  <url><loc>https://aesost.com/about.html</loc><lastmod>2026-08-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://aesost.com/</loc></url>
+  <url><loc>https://aesost.com/magazine.html</loc></url>
+  <url><loc>https://aesost.com/article.html</loc></url>
+  <url><loc>https://aesost.com/column.html</loc></url>
+  <url><loc>https://aesost.com/overseas-magazine.html</loc></url>
+  <url><loc>https://aesost.com/reference.html</loc></url>
+  <url><loc>https://aesost.com/expert-feedback.html</loc></url>
+  <url><loc>https://aesost.com/news.html</loc></url>
+  <url><loc>https://aesost.com/notice.html</loc></url>
+  <url><loc>https://aesost.com/community.html</loc></url>
+  <url><loc>https://aesost.com/about.html</loc></url>
+  <url><loc>https://aesost.com/columnist-apply.html</loc></url>
 
-  <url><loc>https://aesost.com/magazine-matcha-society-modern-tradition.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/magazine-montana-hannam-color-modular.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/magazine-ferrari-yoonseul-korean-craft.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/magazine-muds-global-cultural-brand.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/magazine-rareraw-system000.html</loc><lastmod>2026-08-03</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/magazine-puma-sneaker-box-seoul.html</loc><lastmod>2026-08-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://aesost.com/article-ai-designer.html</loc></url>
+  <url><loc>https://aesost.com/article-jollibee-brand-acquisition.html</loc></url>
+  <url><loc>https://aesost.com/article-platform-revenue-model.html</loc></url>
+  <url><loc>https://aesost.com/article-startup-ir-deck.html</loc></url>
+  <url><loc>https://aesost.com/article-typeface-font-typography.html</loc></url>
 
-  <url><loc>https://aesost.com/reference-kimori-matcha-cat-cafe.html</loc><lastmod>2026-08-06</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/reference-bloc-choc.html</loc><lastmod>2026-08-05</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/reference-cofario-club.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/reference-aartin-lighting.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/reference-hummey-honey.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/reference-mili-cottage-cheese.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
-  <url><loc>https://aesost.com/reference-that-joe-pizza.html</loc><lastmod>2026-08-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://aesost.com/column-ai-direction.html</loc></url>
+  <url><loc>https://aesost.com/column-design-company.html</loc></url>
+  <url><loc>https://aesost.com/column-independent-brand-designer.html</loc></url>
+  <url><loc>https://aesost.com/column-proposal-sense.html</loc></url>
+
+  <url><loc>https://aesost.com/magazine-acne-studios-pink-library.html</loc></url>
+  <url><loc>https://aesost.com/magazine-apple-liquid-glass-usability.html</loc></url>
+  <url><loc>https://aesost.com/magazine-braun-beams-color-classic.html</loc></url>
+  <url><loc>https://aesost.com/magazine-braun-proportion-system.html</loc></url>
+  <url><loc>https://aesost.com/magazine-bugatti-blanc-eternel.html</loc></url>
+  <url><loc>https://aesost.com/magazine-coca-cola-visual-system.html</loc></url>
+  <url><loc>https://aesost.com/magazine-concept-car-future-design.html</loc></url>
+  <url><loc>https://aesost.com/magazine-ferrari-luce-electric-identity.html</loc></url>
+  <url><loc>https://aesost.com/magazine-ferrari-yoonseul-korean-craft.html</loc></url>
+  <url><loc>https://aesost.com/magazine-fold-studio-room-divider.html</loc></url>
+  <url><loc>https://aesost.com/magazine-hyundai-motorstudio-culture-platform.html</loc></url>
+  <url><loc>https://aesost.com/magazine-luxury-wellness-lifestyle.html</loc></url>
+  <url><loc>https://aesost.com/magazine-matcha-society-modern-tradition.html</loc></url>
+  <url><loc>https://aesost.com/magazine-montana-hannam-color-modular.html</loc></url>
+  <url><loc>https://aesost.com/magazine-muds-global-cultural-brand.html</loc></url>
+  <url><loc>https://aesost.com/magazine-peach-air-rebranding.html</loc></url>
+  <url><loc>https://aesost.com/magazine-prada-gentle-monster.html</loc></url>
+  <url><loc>https://aesost.com/magazine-puma-sneaker-box-seoul.html</loc></url>
+  <url><loc>https://aesost.com/magazine-rareraw-system000.html</loc></url>
+  <url><loc>https://aesost.com/magazine-rolls-royce-phantom-arabesque.html</loc></url>
+  <url><loc>https://aesost.com/magazine-shinhan-visual-system.html</loc></url>
+  <url><loc>https://aesost.com/magazine-sk-broadband-giga-wifi7.html</loc></url>
+  <url><loc>https://aesost.com/magazine-the-hyundai-gift-story-curation.html</loc></url>
+
+  <url><loc>https://aesost.com/overseas-mschf-cut-pratone.html</loc></url>
+  <url><loc>https://aesost.com/news-disney-firefly-themepark.html</loc></url>
+
+  <url><loc>https://aesost.com/reference-aartin-lighting.html</loc></url>
+  <url><loc>https://aesost.com/reference-bloc-choc.html</loc></url>
+  <url><loc>https://aesost.com/reference-cofario-club.html</loc></url>
+  <url><loc>https://aesost.com/reference-hummey-honey.html</loc></url>
+  <url><loc>https://aesost.com/reference-kimori-matcha-cat-cafe.html</loc></url>
+  <url><loc>https://aesost.com/reference-mili-cottage-cheese.html</loc></url>
+  <url><loc>https://aesost.com/reference-that-joe-pizza.html</loc></url>
+
+  <url><loc>https://aesost.com/expert-brand-founder.html</loc></url>
+  <url><loc>https://aesost.com/expert-career-mentor.html</loc></url>
+  <url><loc>https://aesost.com/expert-independent-worker.html</loc></url>
+  <url><loc>https://aesost.com/expert-product-founder.html</loc></url>
 </urlset>
