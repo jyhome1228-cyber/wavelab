@@ -1,5 +1,6 @@
 (()=>{
   const titles={
+    'magazine-63-building-studio-fnt-identity.html':'63빌딩, 물리적 상징을 정서적 브랜드로 다시 설계하다',
     'magazine-matcha-society-modern-tradition.html':'말차 소사이어티, 전통 차 문화를 위한 가장 현대적인 포맷',
     'magazine-montana-hannam-color-modular.html':'몬타나, 컬러와 모듈로 완성한 취향의 시스템',
     'magazine-ferrari-yoonseul-korean-craft.html':'페라리 12칠린드리 ‘윤슬’, 한국 공예를 품은 제작 방식',
