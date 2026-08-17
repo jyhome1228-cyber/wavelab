@@ -3,6 +3,7 @@
   if(!grid)return;
 
   const titleMap={
+    'magazine-daangn-seed-design-system-v3.html':'당근 SEED, 디자인 시스템은 어떻게 하나의 브랜드가 되었나',
     'magazine-63-building-studio-fnt-identity.html':'63빌딩, 물리적 상징을 정서적 브랜드로 다시 설계하다',
     'magazine-matcha-society-modern-tradition.html':'말차 소사이어티, 전통 차 문화를 위한 가장 현대적인 포맷',
     'magazine-montana-hannam-color-modular.html':'몬타나, 컬러와 모듈로 완성한 취향의 시스템',
@@ -67,6 +68,18 @@
       alt:'studio fnt가 디자인한 63빌딩 브랜드 아이덴티티',
       label:'MAGAZINE · BRANDING · SPACE',
       title:titleMap['magazine-63-building-studio-fnt-identity.html'],
+      date:'2026.08.17'
+    }));
+  }
+
+  if(!grid.querySelector('[href="magazine-daangn-seed-design-system-v3.html"]')){
+    grid.prepend(makeCard({
+      href:'magazine-daangn-seed-design-system-v3.html',
+      category:'디자인',
+      image:'https://design-plus.storage.googleapis.com/wp-content/uploads/2026/08/03171200/20260803081159-10-desk-mockup.0x.e.cpqiv004.jpg',
+      alt:'당근 SEED 디자인 시스템 V3 리브랜딩',
+      label:'MAGAZINE · DESIGN · TECH',
+      title:titleMap['magazine-daangn-seed-design-system-v3.html'],
       date:'2026.08.17'
     }));
   }
