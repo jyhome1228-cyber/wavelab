@@ -2,11 +2,7 @@
   const grid=document.querySelector('.grid');
   if(!grid)return;
 
-  const titleMap={
-    'magazine-daangn-seed-design-system-v3.html':'당근 SEED, 디자인 시스템은 어떻게 하나의 브랜드가 되었나',
-    'magazine-63-building-studio-fnt-identity.html':'63빌딩, 물리적 상징을 정서적 브랜드로 다시 설계하다',
-    'magazine-matcha-society-modern-tradition.html':'말차 소사이어티, 전통 차 문화를 위한 가장 현대적인 포맷',
-    'magazine-montana-hannam-color-modular.html':'몬타나, 컬러와 모듈로 완성한 취향의 시스템',
+  const staticTitleMap={
     'magazine-ferrari-yoonseul-korean-craft.html':'페라리 12칠린드리 ‘윤슬’, 한국 공예를 품은 제작 방식',
     'magazine-muds-global-cultural-brand.html':'뮷즈, 한국 문화를 세계인의 일상으로 번역하다',
     'magazine-fold-studio-room-divider.html':'Fold Studio, 벽 없이 공간을 나누는 부드러운 파티션',
@@ -27,69 +23,47 @@
     'magazine-coca-cola-visual-system.html':'코카콜라, 핵심 자산을 다시 정렬한 글로벌 비주얼 시스템'
   };
 
-  function makeCard({href,category,image,alt,label,title,date}){
+  function makeCard(item){
     const card=document.createElement('a');
     card.className='card';
-    card.dataset.category=category;
-    card.href=href;
-    card.innerHTML=`<div class="real-thumb"><img src="${image}" alt="${alt}" loading="eager"><span class="label">${label}</span></div><h2>${title}</h2><div class="meta"><span>${category}</span><span>AESOST MAGAZINE</span><span>${date}</span></div>`;
+    card.dataset.category=item.category;
+    if(item.publishedAt)card.dataset.publishedAt=item.publishedAt;
+    card.href=item.href;
+    card.innerHTML=`<div class="real-thumb"><img src="${item.image}" alt="${item.alt||item.title}" loading="eager"><span class="label">${item.label}</span></div><h2>${item.title}</h2><div class="meta"><span>${item.category}</span><span>AESOST MAGAZINE</span><span>${item.date}</span></div>`;
     return card;
   }
 
-  if(!grid.querySelector('[href="magazine-montana-hannam-color-modular.html"]')){
-    grid.prepend(makeCard({
-      href:'magazine-montana-hannam-color-modular.html',
-      category:'디자인',
-      image:'https://design-plus.storage.googleapis.com/wp-content/uploads/2026/05/15115622/20260515025620-0.jpg',
-      alt:'컬러와 모듈 가구로 구성된 몬타나 한남 모노 스토어',
-      label:'MAGAZINE · DESIGN · SPACE',
-      title:titleMap['magazine-montana-hannam-color-modular.html'],
-      date:'2026.08.04'
-    }));
+  async function readFeed(){
+    try{
+      const response=await fetch(`magazine-feed.json?v=${Date.now()}`,{cache:'no-store'});
+      if(!response.ok)throw new Error('Failed to load magazine feed');
+      const data=await response.json();
+      return Array.isArray(data)?data:[];
+    }catch(error){
+      console.error(error);
+      return [];
+    }
   }
 
-  if(!grid.querySelector('[href="magazine-matcha-society-modern-tradition.html"]')){
-    grid.prepend(makeCard({
-      href:'magazine-matcha-society-modern-tradition.html',
-      category:'브랜딩',
-      image:'https://design-plus.storage.googleapis.com/wp-content/uploads/2026/01/01203950/Matchasociety_Image-3-1.jpg',
-      alt:'말차 소사이어티의 컬러 틴 패키지와 브랜드 아이덴티티',
-      label:'MAGAZINE · BRANDING · F&B',
-      title:titleMap['magazine-matcha-society-modern-tradition.html'],
-      date:'2026.08.04'
-    }));
+  async function syncMagazine(){
+    const feed=await readFeed();
+    const titleMap={...staticTitleMap};
+    feed.forEach(item=>{if(item?.href&&item?.title)titleMap[item.href]=item.title});
+
+    [...feed].reverse().forEach(item=>{
+      if(!item?.href||grid.querySelector(`[href="${item.href}"]`))return;
+      grid.prepend(makeCard(item));
+    });
+
+    grid.querySelectorAll(':scope > a.card').forEach(card=>{
+      const href=(card.getAttribute('href')||'').split('/').pop();
+      const title=titleMap[href];
+      const heading=card.querySelector('h2');
+      if(title&&heading)heading.textContent=title;
+    });
+
+    window.applyMemberAccess?.(null);
   }
 
-  if(!grid.querySelector('[href="magazine-63-building-studio-fnt-identity.html"]')){
-    grid.prepend(makeCard({
-      href:'magazine-63-building-studio-fnt-identity.html',
-      category:'브랜딩',
-      image:'https://design-plus.storage.googleapis.com/wp-content/uploads/2026/08/12133848/20260812043847-KakaoTalk_20260812_133737518_02.jpg',
-      alt:'studio fnt가 디자인한 63빌딩 브랜드 아이덴티티',
-      label:'MAGAZINE · BRANDING · SPACE',
-      title:titleMap['magazine-63-building-studio-fnt-identity.html'],
-      date:'2026.08.17'
-    }));
-  }
-
-  if(!grid.querySelector('[href="magazine-daangn-seed-design-system-v3.html"]')){
-    grid.prepend(makeCard({
-      href:'magazine-daangn-seed-design-system-v3.html',
-      category:'디자인',
-      image:'https://design-plus.storage.googleapis.com/wp-content/uploads/2026/08/03171200/20260803081159-10-desk-mockup.0x.e.cpqiv004.jpg',
-      alt:'당근 SEED 디자인 시스템 V3 리브랜딩',
-      label:'MAGAZINE · DESIGN · TECH',
-      title:titleMap['magazine-daangn-seed-design-system-v3.html'],
-      date:'2026.08.17'
-    }));
-  }
-
-  grid.querySelectorAll(':scope > a.card').forEach(card=>{
-    const href=(card.getAttribute('href')||'').split('/').pop();
-    const title=titleMap[href];
-    const heading=card.querySelector('h2');
-    if(title&&heading)heading.textContent=title;
-  });
-
-  window.applyMemberAccess?.(null);
+  syncMagazine();
 })();
