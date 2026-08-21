@@ -1,5 +1,6 @@
 (()=>{
   const titles={
+    'magazine-ikea-ps-2026-playful-functionality.html':'IKEA PS 2026, 기능만으로는 부족한 시대의 ‘즐거움’ 디자인',
     'magazine-daangn-seed-design-system-v3.html':'당근 SEED, 디자인 시스템은 어떻게 하나의 브랜드가 되었나',
     'magazine-63-building-studio-fnt-identity.html':'63빌딩, 물리적 상징을 정서적 브랜드로 다시 설계하다',
     'magazine-matcha-society-modern-tradition.html':'말차 소사이어티, 전통 차 문화를 위한 가장 현대적인 포맷',
