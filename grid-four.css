@@ -8,3 +8,7 @@
 @media (max-width:520px){
   .grid,.study-grid{grid-template-columns:1fr!important}
 }
+
+/* AESOST temporary global typography + navigation */
+body,button,input,textarea,select{letter-spacing:-.02em}
+a[href="news.html"]{display:none!important}
