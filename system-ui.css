@@ -1,48 +1,56 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root{
-  /* AESOST System UI v1 — inspired by disciplined product-system spacing */
   --sys-font:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
-  --sys-fs-title:28px;
-  --sys-fs-section:22px;
-  --sys-fs-card:18px;
-  --sys-fs-body:16px;
-  --sys-fs-label:14px;
+  /* type */
   --sys-fs-caption:12px;
-
-  --sys-lh-title:1.36;
-  --sys-lh-section:1.4;
-  --sys-lh-card:1.45;
-  --sys-lh-body:1.5;
-  --sys-lh-label:1.4;
-  --sys-lh-caption:1.35;
-
+  --sys-fs-label:14px;
+  --sys-fs-body:16px;
+  --sys-fs-card:18px;
+  --sys-fs-section:22px;
+  --sys-fs-title:26px;
+  --sys-lh-caption:16px;
+  --sys-lh-label:19px;
+  --sys-lh-body:24px;
+  --sys-lh-card:24px;
+  --sys-lh-section:30px;
+  --sys-lh-title:35px;
   --sys-weight-regular:400;
   --sys-weight-medium:500;
-  --sys-weight-semibold:600;
+  --sys-weight-semibold:700;
 
+  /* spacing */
   --sys-space-1:4px;
   --sys-space-2:8px;
   --sys-space-3:12px;
   --sys-space-4:16px;
   --sys-space-5:20px;
   --sys-space-6:24px;
+  --sys-space-7:28px;
   --sys-space-8:32px;
+  --sys-space-9:36px;
   --sys-space-10:40px;
   --sys-space-12:48px;
+  --sys-space-14:56px;
   --sys-space-16:64px;
 
+  /* controls */
   --sys-control-sm:36px;
-  --sys-control-md:44px;
-  --sys-control-lg:48px;
+  --sys-control-md:40px;
+  --sys-control-lg:52px;
 
+  /* radius */
+  --sys-radius-xs:4px;
   --sys-radius-sm:6px;
   --sys-radius-md:8px;
   --sys-radius-lg:12px;
   --sys-radius-xl:16px;
+  --sys-radius-2xl:20px;
+  --sys-radius-modal:24px;
   --sys-radius-pill:999px;
 
+  /* project brand color tokens */
   --sys-bg:#f6f7f9;
   --sys-surface:#ffffff;
   --sys-surface-subtle:#f8f9fb;
@@ -62,18 +70,29 @@
   --sys-danger:#b94747;
   --sys-danger-soft:#fdeaea;
 
+  /* layout */
   --sys-sidebar:240px;
-  --sys-content-max:1200px;
+  --sys-content-max:1280px;
+  --sys-reading-max:1040px;
   --sys-page-gutter:32px;
+
+  /* motion */
+  --sys-motion-fast:150ms;
+  --sys-motion-base:220ms;
+  --sys-ease:cubic-bezier(.2,.8,.2,1);
+  --sys-shadow-low:0 4px 16px rgba(0,0,0,.05);
+  --sys-shadow-medium:0 16px 40px rgba(0,0,0,.10);
+  --sys-shadow-high:0 24px 72px rgba(0,0,0,.16);
 }
 
 *{box-sizing:border-box}
 html{font-family:var(--sys-font);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 body,button,input,select,textarea{font-family:var(--sys-font)}
+body{font-size:var(--sys-fs-body);font-weight:var(--sys-weight-regular);line-height:var(--sys-lh-body)}
 button,input,select,textarea{font-size:var(--sys-fs-label)}
 button{cursor:pointer}
 
-.sys-page-title{font-size:var(--sys-fs-title);font-weight:var(--sys-weight-semibold);line-height:var(--sys-lh-title);letter-spacing:-.035em}
+.sys-page-title{font-size:var(--sys-fs-title);font-weight:var(--sys-weight-semibold);line-height:var(--sys-lh-title);letter-spacing:-.03em}
 .sys-section-title{font-size:var(--sys-fs-section);font-weight:var(--sys-weight-semibold);line-height:var(--sys-lh-section);letter-spacing:-.025em}
 .sys-card-title{font-size:var(--sys-fs-card);font-weight:var(--sys-weight-semibold);line-height:var(--sys-lh-card);letter-spacing:-.02em}
 .sys-body{font-size:var(--sys-fs-body);font-weight:var(--sys-weight-regular);line-height:var(--sys-lh-body);letter-spacing:-.015em}
@@ -81,14 +100,15 @@ button{cursor:pointer}
 .sys-caption{font-size:var(--sys-fs-caption);font-weight:var(--sys-weight-regular);line-height:var(--sys-lh-caption);letter-spacing:0}
 
 .sys-card{padding:var(--sys-space-6);border:1px solid var(--sys-border);border-radius:var(--sys-radius-lg);background:var(--sys-surface)}
-.sys-button{height:var(--sys-control-md);display:inline-flex;align-items:center;justify-content:center;gap:var(--sys-space-2);padding:0 var(--sys-space-4);border:1px solid transparent;border-radius:var(--sys-radius-md);font-size:var(--sys-fs-label);font-weight:var(--sys-weight-semibold);line-height:1;white-space:nowrap;transition:background .16s ease,border-color .16s ease,color .16s ease}
+.sys-button{height:var(--sys-control-md);display:inline-flex;align-items:center;justify-content:center;gap:var(--sys-space-2);padding:0 var(--sys-space-4);border:1px solid transparent;border-radius:var(--sys-radius-md);font-size:var(--sys-fs-label);font-weight:var(--sys-weight-semibold);line-height:1;white-space:nowrap;transition:background var(--sys-motion-fast) var(--sys-ease),border-color var(--sys-motion-fast) var(--sys-ease),color var(--sys-motion-fast) var(--sys-ease),transform var(--sys-motion-fast) var(--sys-ease)}
+.sys-button:active{transform:scale(.98)}
 .sys-button-primary{background:var(--sys-accent);color:#fff}.sys-button-primary:hover{background:var(--sys-accent-hover)}
 .sys-button-secondary{border-color:var(--sys-border-strong);background:var(--sys-surface);color:var(--sys-text)}.sys-button-secondary:hover{background:var(--sys-surface-subtle)}
 .sys-button-text{height:auto;padding:0;border:0;background:transparent;color:var(--sys-accent)}
 
 .sys-field{display:grid;gap:var(--sys-space-2)}
-.sys-field>label{font-size:var(--sys-fs-label);font-weight:var(--sys-weight-medium);color:var(--sys-text)}
-.sys-input,.sys-select{width:100%;height:var(--sys-control-md);padding:0 var(--sys-space-3);border:1px solid var(--sys-border-strong);border-radius:var(--sys-radius-md);background:var(--sys-surface);color:var(--sys-text);outline:0}
+.sys-field>label{font-size:var(--sys-fs-label);font-weight:var(--sys-weight-medium);line-height:var(--sys-lh-label);color:var(--sys-text)}
+.sys-input,.sys-select{width:100%;height:44px;padding:0 var(--sys-space-3);border:1px solid var(--sys-border-strong);border-radius:var(--sys-radius-md);background:var(--sys-surface);color:var(--sys-text);outline:0}
 .sys-input:focus,.sys-select:focus{border-color:var(--sys-accent);box-shadow:0 0 0 3px rgba(114,86,232,.10)}
 
 .sys-badge{min-height:26px;display:inline-flex;align-items:center;padding:0 var(--sys-space-2);border-radius:var(--sys-radius-pill);font-size:var(--sys-fs-caption);font-weight:var(--sys-weight-semibold);line-height:1.2}
@@ -103,7 +123,8 @@ button{cursor:pointer}
 .sys-table td{font-size:var(--sys-fs-label);color:var(--sys-text)}
 
 :focus-visible{outline:2px solid var(--sys-accent);outline-offset:2px}
+button:disabled,[aria-disabled="true"]{pointer-events:none;opacity:.45}
 
-@media(max-width:760px){
-  :root{--sys-page-gutter:16px;--sys-fs-title:26px;--sys-fs-section:21px}
-}
+@media(max-width:1279px){:root{--sys-page-gutter:24px}}
+@media(max-width:767px){:root{--sys-page-gutter:16px;--sys-fs-title:24px;--sys-lh-title:32px;--sys-fs-section:20px;--sys-lh-section:27px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
