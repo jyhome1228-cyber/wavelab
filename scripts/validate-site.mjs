@@ -3,10 +3,10 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const root=process.cwd();
-const pages=['index.html','about.html','services.html','system-solutions.html','works.html','request.html'];
-const required=['dev-site.css','dev-operational.css','dev-shell.js','system-ui.css','aesost-logo.svg','favicon.svg'];
+const pages=['index.html','about.html','services.html','system-solutions.html','solution-solodesk.html','works.html','request.html'];
+const required=['dev-site.css','dev-operational.css','dev-shell.js','system-ui.css','solution-detail.css','solution-solodesk.js','aesost-logo.svg','favicon.svg'];
 const demoPages=['demo/solodesk/index.html'];
-const demoRequired=['demo/solodesk/styles.css','demo/solodesk/app.js','assets/dev/work-solodesk.svg'];
+const demoRequired=['demo/solodesk/styles.css','demo/solodesk/app.js','demo/solodesk/guide.js','assets/dev/work-solodesk.svg'];
 const errors=[];
 
 for(const file of [...required,...demoRequired]){
@@ -50,7 +50,7 @@ for(const page of demoPages){
 const devAssets=['assets/dev/hero-system.svg','assets/dev/work-crm.svg','assets/dev/work-proposal.svg','assets/dev/work-nowthere.svg','assets/dev/work-relim.svg','assets/dev/work-solodesk.svg'];
 for(const asset of devAssets){if(!fs.existsSync(path.join(root,asset)))errors.push(`Missing visual asset: ${asset}`)}
 
-for(const script of ['dev-shell.js','demo/solodesk/app.js']){
+for(const script of ['dev-shell.js','solution-solodesk.js','demo/solodesk/app.js','demo/solodesk/guide.js']){
   const result=spawnSync(process.execPath,['--check',path.join(root,script)],{encoding:'utf8'});
   if(result.status!==0)errors.push(`${script}: JavaScript syntax check failed\n${result.stderr.trim()}`);
 }
@@ -59,4 +59,4 @@ if(errors.length){
   console.error('\nAESOST site validation failed:\n- '+errors.join('\n- '));
   process.exit(1);
 }
-console.log(`AESOST site validation passed (${pages.length} core pages + ${demoPages.length} demo checked, System UI v1 required).`);
+console.log(`AESOST site validation passed (${pages.length} core pages + ${demoPages.length} demo checked, guided solution flow enabled).`);
