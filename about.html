@@ -3,186 +3,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About AESOST — 관점을 만드는 곳</title>
-  <meta name="description" content="AESOST는 디자인, 브랜드, 비즈니스와 기술에서 지금 알아두어야 할 사례와 변화를 선별하고 해석하며, 경험을 커리어 자산으로 연결하는 플랫폼입니다.">
-  <link rel="stylesheet" href="styles.css?v=20260802-5">
-  <style>
-    .about-page{overflow:hidden}
-    .about-hero{position:relative}
-    .about-hero:after{content:"AESOST";position:absolute;right:var(--gutter);bottom:-.12em;color:rgba(255,255,255,.025);font-size:clamp(110px,20vw,320px);font-weight:900;letter-spacing:-.09em;line-height:.8;pointer-events:none}
-    .about-hero h1{position:relative;z-index:1}
-    .about-hero .about-lead{position:relative;z-index:1}
-    .about-hero .about-lead p:first-child{color:#eee}
-    .about-statement{max-width:850px;margin-top:52px;padding-top:24px;border-top:1px solid var(--line);color:#86868c;font-size:12px;font-weight:700;letter-spacing:.08em}
-    .about-highlight{color:var(--blue2)}
-    .about-intro-copy{max-width:800px}
-    .about-intro-copy p{margin:0 0 22px;color:#c8c8cc;font-size:17px;line-height:1.9}
-    .about-intro-copy strong{color:#fff}
-    .about-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:56px}
-    .about-principle{min-height:250px;padding:28px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.018)}
-    .about-principle span{display:block;margin-bottom:46px;color:var(--blue2);font-size:10px;font-weight:800;letter-spacing:.12em}
-    .about-principle h3{margin:0 0 16px;font-size:26px;letter-spacing:-.045em}
-    .about-principle p{margin:0;color:var(--muted);font-size:14px;line-height:1.75}
-    .about-content-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:50px;border:1px solid var(--line);background:var(--line)}
-    .about-content-card{display:flex;min-height:240px;flex-direction:column;padding:28px;background:var(--bg);transition:.2s ease}
-    .section-dark .about-content-card{background:var(--deep)}
-    .about-content-card:hover{background:#222226}
-    .about-content-card span{color:#777;font-size:10px;font-weight:800;letter-spacing:.11em}
-    .about-content-card h3{margin:48px 0 12px;font-size:24px;letter-spacing:-.04em}
-    .about-content-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
-    .about-content-card em{margin-top:auto;padding-top:26px;color:var(--blue2);font-size:11px;font-style:normal;font-weight:800}
-    .about-audience{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:50px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .about-audience span{padding:22px 14px;border-right:1px solid var(--line);color:#ddd;font-size:12px;font-weight:800;text-align:center;letter-spacing:.03em}
-    .about-audience span:last-child{border-right:0}
-    .about-founder{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
-    .about-founder-role{padding-top:18px;border-top:1px solid var(--line)}
-    .about-founder-role span{color:var(--blue2);font-size:10px;font-weight:800;letter-spacing:.11em}
-    .about-founder-role h3{margin:18px 0 0;font-size:32px;letter-spacing:-.05em}
-    .about-founder-copy p{margin:0 0 20px;color:#c8c8cc;font-size:16px;line-height:1.85}
-    .about-founder-copy a{display:inline-block;margin-top:12px;padding-bottom:5px;border-bottom:1px solid #666;color:#fff;font-size:12px;font-weight:800}
-    .about-next{padding:120px 0}
-    .about-next .about-content h2{max-width:850px;font-size:clamp(42px,5vw,72px)}
-    .about-next-copy{max-width:760px;color:#c8c8cc;font-size:17px;line-height:1.9}
-    .about-next-copy strong{color:#fff}
-    .about-cta-wrap{margin-top:58px;padding-top:28px;border-top:1px solid var(--line)}
-    .about-cta-title{display:block;margin-bottom:22px;color:#777;font-size:10px;font-weight:800;letter-spacing:.12em}
-    .about-cta-row{display:flex;flex-wrap:wrap;gap:10px}
-    .about-cta-row a{padding:13px 18px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:800;transition:.2s ease}
-    .about-cta-row a:first-child,.about-cta-row a:hover{border-color:var(--blue);background:var(--blue);color:#fff}
-    @media(max-width:900px){.about-principles,.about-content-grid{grid-template-columns:1fr}.about-principle{min-height:auto}.about-principle span{margin-bottom:28px}.about-content-card{min-height:220px}.about-audience{grid-template-columns:1fr 1fr}.about-audience span{border-bottom:1px solid var(--line)}.about-audience span:nth-child(2n){border-right:0}.about-founder{grid-template-columns:1fr;gap:34px}}
-    @media(max-width:520px){.about-hero:after{display:none}.about-statement{margin-top:36px}.about-principle{padding:24px 20px}.about-content-card{padding:24px 20px}.about-audience{grid-template-columns:1fr}.about-audience span{border-right:0;text-align:left}.about-next{padding:82px 0}}
-  </style>
+  <title>About | AESOST</title>
+  <meta name="description" content="AESOST는 웹사이트와 디지털 시스템을 기획·디자인·개발하고 실제 운영 환경까지 연결하는 개발 파트너입니다.">
+  <link rel="canonical" href="https://aesost.com/about.html">
+  <link rel="icon" href="favicon.svg?v=20260803-4" type="image/svg+xml">
+  <link rel="stylesheet" href="dev-site.css?v=20260906-1">
 </head>
 <body>
-  <header class="site-header" data-header></header>
-  <main class="about-page">
-    <section class="about-hero shell">
-      <p class="about-kicker">ABOUT AESOST</p>
-      <h1>전문가가 되기 전,<br><span class="about-highlight">관점을 만드는 곳.</span></h1>
-      <div class="about-lead">
-        <p>좋은 실무는 많은 것을 아는 것보다 무엇을 보고, 어떻게 해석하는가에서 시작합니다.</p>
-        <p>AESOST는 디자인, 브랜드, 비즈니스와 기술에서 지금 알아두어야 할 사례와 변화를 선별하고, 그 안의 맥락을 이해하기 쉬운 언어로 기록합니다.</p>
-      </div>
-      <p class="about-statement">LEARN · THINK · WRITE · GROW</p>
-    </section>
+<header class="dev-header" data-dev-header></header>
+<main>
+  <section class="page-hero">
+    <div class="shell page-hero-grid">
+      <p class="eyebrow">ABOUT AESOST</p>
+      <div><h1 class="page-title">Digital systems,<br>designed to work.</h1><p class="lead">AESOST는 화면을 만드는 개발사가 아니라 비즈니스가 실제로 작동하는 디지털 구조를 설계하는 개발 파트너를 지향합니다.</p></div>
+    </div>
+  </section>
 
-    <section class="about-section section-dark">
-      <div class="shell about-info-grid">
-        <div class="about-label">01 / WHY AESOST</div>
-        <div class="about-content">
-          <h2>정보는 많아졌지만,<br>무엇을 봐야 하는지는 더 어려워졌습니다.</h2>
-          <div class="about-intro-copy">
-            <p>학교에서 배우는 것과 실제 현장에서 필요한 것 사이에는 항상 간격이 있고, 매일 새로운 브랜드와 기술, 디자인 사례가 쏟아집니다.</p>
-            <p>AESOST는 그 많은 정보 중 <strong>지금 봐야 할 것을 선별하고, 왜 중요한지 해석하는 것</strong>에서 시작합니다.</p>
-            <p>단순히 트렌드를 전달하는 것이 아니라 하나의 사례가 디자인·브랜드·비즈니스와 어떻게 연결되는지 함께 살펴봅니다.</p>
-          </div>
-        </div>
+  <section class="section">
+    <div class="shell">
+      <div class="section-head"><p class="eyebrow">WHO WE ARE</p><div class="section-copy"><h2 class="section-title">비즈니스에 필요한 웹과 시스템을 하나의 과정으로 연결합니다.</h2><p>기업 홈페이지, 브랜드 사이트, CRM, 관리자 페이지, 예약·회원·데이터 시스템처럼 조직이 실제로 사용하는 디지털 환경을 구축합니다. 기획과 디자인, 개발이 서로 분리되면서 생기는 손실을 줄이고 프로젝트의 목적부터 운영까지 한 흐름으로 다룹니다.</p></div></div>
+      <div class="about-principles">
+        <article class="about-principle"><span>01 / STRUCTURE</span><h3>Structure before development.</h3><p>개발에 들어가기 전 사용자, 기능, 정보와 데이터 구조를 먼저 정리합니다. 무엇을 만들지보다 왜 필요한지를 먼저 이해합니다.</p></article>
+        <article class="about-principle"><span>02 / OPERATION</span><h3>Design for operation.</h3><p>보기 좋은 화면만이 아니라 담당자가 관리하고 고객이 실제로 사용하는 운영 환경까지 고려해 인터페이스와 기능을 설계합니다.</p></article>
+        <article class="about-principle"><span>03 / SCALE</span><h3>Build for scalability.</h3><p>현재 필요한 기능만 빠르게 구현하되 이후 서비스와 조직이 확장될 때 구조를 다시 만들지 않도록 확장 가능성을 함께 고려합니다.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="about-section">
-      <div class="shell about-info-grid">
-        <div class="about-label">02 / WHAT WE DO</div>
-        <div class="about-content">
-          <h2>좋은 정보를 모으고,<br>관점으로 바꾸고, 경험과 연결합니다.</h2>
-          <div class="about-principles">
-            <article class="about-principle">
-              <span>01 / CURATE</span>
-              <h3>선별합니다.</h3>
-              <p>수많은 사례와 변화 중 지금 볼 가치가 있는 것을 찾습니다. 많이 보여주는 것보다 무엇을 남길지에 집중합니다.</p>
-            </article>
-            <article class="about-principle">
-              <span>02 / INTERPRET</span>
-              <h3>해석합니다.</h3>
-              <p>무엇이 달라졌고 왜 중요한지, 실무에서는 어떤 지점까지 생각해 볼 수 있는지 맥락을 함께 정리합니다.</p>
-            </article>
-            <article class="about-principle">
-              <span>03 / CONNECT</span>
-              <h3>연결합니다.</h3>
-              <p>발견한 지식이 읽고 끝나는 정보가 아니라 실제 작업, 기록, 커리어의 다음 행동으로 이어지도록 연결합니다.</p>
-            </article>
-          </div>
-        </div>
+  <section class="section soft">
+    <div class="shell">
+      <div class="section-head"><p class="eyebrow">WHAT WE DO</p><div class="section-copy"><h2 class="section-title">웹사이트부터 내부 업무 도구까지.</h2><p>외부 고객이 보는 브랜드 경험과 내부 구성원이 사용하는 업무 시스템은 서로 다르지만 결국 하나의 비즈니스 안에서 연결됩니다. AESOST는 두 영역을 함께 이해하고 구축합니다.</p></div></div>
+      <div class="definition-grid">
+        <article class="definition-card"><span>01 / EXTERNAL</span><h3>Web Experience</h3><p>기업 홈페이지, 브랜드 사이트, 랜딩페이지, 쇼핑몰과 서비스 소개 페이지를 구축합니다.</p></article>
+        <article class="definition-card"><span>02 / INTERNAL</span><h3>Business System</h3><p>CRM, 관리자 페이지, 프로젝트·계약·고객·데이터 관리 등 조직 내부 업무 환경을 만듭니다.</p></article>
+        <article class="definition-card"><span>03 / PRODUCT</span><h3>Platform & MVP</h3><p>예약, 회원, 구독, 커뮤니티, SaaS와 같은 새로운 디지털 서비스의 초기 제품과 확장 구조를 개발합니다.</p></article>
+        <article class="definition-card"><span>04 / EFFICIENCY</span><h3>Automation</h3><p>AI, API, 데이터베이스와 알림 시스템을 연결해 반복되는 업무 흐름을 자동화합니다.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="about-section section-dark">
-      <div class="shell about-info-grid">
-        <div class="about-label">03 / AESOST CONTENT</div>
-        <div class="about-content">
-          <h2>하나의 사례를<br>여러 깊이로 읽습니다.</h2>
-          <p>AESOST의 콘텐츠는 빠르게 발견하는 것부터 깊게 생각하고 기록하는 것까지 서로 다른 역할로 연결됩니다.</p>
-          <div class="about-content-grid">
-            <a class="about-content-card" href="magazine.html"><span>MAGAZINE</span><h3>매거진</h3><p>새로운 디자인, 브랜드, 문화의 흐름과 지금 볼 만한 사례를 발견합니다.</p><em>EXPLORE ↗</em></a>
-            <a class="about-content-card" href="article.html"><span>ARTICLE</span><h3>아티클</h3><p>하나의 주제를 조금 더 깊게 분석하고 실무와 연결할 수 있는 맥락을 정리합니다.</p><em>EXPLORE ↗</em></a>
-            <a class="about-content-card" href="column.html"><span>COLUMN</span><h3>칼럼</h3><p>실무와 연구, 프로젝트 과정에서 만들어진 경험과 개인의 관점을 기록합니다.</p><em>EXPLORE ↗</em></a>
-            <a class="about-content-card" href="overseas-magazine.html"><span>OVERSEAS</span><h3>해외 매거진</h3><p>해외에서 먼저 나타나는 디자인과 비즈니스의 변화를 빠르게 살펴봅니다.</p><em>EXPLORE ↗</em></a>
-            <a class="about-content-card" href="reference.html"><span>REFERENCE</span><h3>해외 레퍼런스</h3><p>좋은 프로젝트와 사례를 출처와 함께 축적하고 다시 꺼내 볼 수 있게 정리합니다.</p><em>EXPLORE ↗</em></a>
-            <a class="about-content-card" href="news.html"><span>NEWS</span><h3>뉴스</h3><p>디자인과 기술, 산업에서 지금 알아두어야 할 빠른 변화를 짧게 확인합니다.</p><em>EXPLORE ↗</em></a>
-          </div>
-        </div>
+  <section class="section dark">
+    <div class="shell">
+      <div class="section-head"><p class="eyebrow">OUR APPROACH</p><div class="section-copy"><h2 class="section-title">기술 스택보다 먼저 업무의 구조를 봅니다.</h2><p>같은 CRM도 회사마다 관리해야 하는 정보와 업무 순서가 다릅니다. AESOST는 익숙한 솔루션에 업무를 억지로 맞추기보다 실제 흐름을 분석하고 그에 필요한 시스템을 설계합니다.</p></div></div>
+      <div class="process-grid">
+        <article class="process-step"><span>01 / DEFINE</span><h3>Business</h3><p>목표, 사용자, 기존 문제와 운영 환경을 이해합니다.</p></article>
+        <article class="process-step"><span>02 / MAP</span><h3>Workflow</h3><p>업무 순서와 사용자 행동, 필요한 데이터의 흐름을 정리합니다.</p></article>
+        <article class="process-step"><span>03 / DESIGN</span><h3>Interface</h3><p>정보와 기능이 실제로 사용되기 쉬운 화면 구조를 설계합니다.</p></article>
+        <article class="process-step"><span>04 / BUILD</span><h3>System</h3><p>프론트엔드, 데이터와 기능을 연결하고 테스트합니다.</p></article>
+        <article class="process-step"><span>05 / IMPROVE</span><h3>Operation</h3><p>배포 이후 실제 사용을 기준으로 유지보수와 기능 확장을 이어갑니다.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="about-section">
-      <div class="shell about-info-grid">
-        <div class="about-label">04 / FOR FUTURE PROFESSIONALS</div>
-        <div class="about-content">
-          <h2>아직 전문가가 아니어도,<br>좋은 관점은 먼저 만들 수 있습니다.</h2>
-          <p>취업을 준비하는 사람부터 실무를 시작한 사람, 자신의 일을 만들고 싶은 사람까지. AESOST는 앞으로의 일을 준비하는 사람을 위한 공간입니다.</p>
-          <div class="about-audience" aria-label="AESOST 주요 독자">
-            <span>DESIGNER</span>
-            <span>BRAND PRACTITIONER</span>
-            <span>PLANNER</span>
-            <span>CREATOR</span>
-            <span>INDEPENDENT WORKER</span>
-          </div>
-        </div>
+  <section class="section">
+    <div class="shell">
+      <div class="section-head"><p class="eyebrow">AESOST STANDARD</p><div class="section-copy"><h2 class="section-title">작게 시작해도 구조는 전문적으로.</h2><p>초기 사업자와 소규모 조직의 MVP부터 운영 중인 기업의 웹사이트와 관리자 시스템까지 프로젝트 규모에 맞는 현실적인 범위를 제안합니다.</p></div></div>
+      <div class="primary-services">
+        <article class="primary-service"><span class="num">01</span><div><h3>Clear Scope</h3></div><p>개발 전에 기능과 산출물을 명확하게 정의해 일정과 비용의 불확실성을 줄입니다.</p></article>
+        <article class="primary-service"><span class="num">02</span><div><h3>Documented System</h3></div><p>기능과 구조를 프로젝트 안에서만 알고 끝내지 않고 이후 관리와 확장에 필요한 형태로 정리합니다.</p></article>
+        <article class="primary-service"><span class="num">03</span><div><h3>Practical Delivery</h3></div><p>오픈 자체가 목표가 아니라 담당자가 인수하고 실제 업무와 서비스에 사용할 수 있는 상태를 목표로 합니다.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="about-section section-dark">
-      <div class="shell about-info-grid">
-        <div class="about-label">05 / EDITOR &amp; FOUNDER</div>
-        <div class="about-content">
-          <h2>AESOST를 만드는 사람.</h2>
-          <div class="about-founder">
-            <div class="about-founder-role">
-              <span>EDITOR · DESIGNER · RESEARCHER</span>
-              <h3>박재영</h3>
-            </div>
-            <div class="about-founder-copy">
-              <p>디자인과 브랜드를 중심으로 기획, 개발, 비즈니스까지 다양한 영역의 실무를 경험하며 브랜드와 커리어가 만들어지는 과정을 연구하고 있습니다.</p>
-              <p>AESOST에서는 좋은 사례를 발견하고 기록하며, 실무 경험과 연구를 바탕으로 디자인과 일을 바라보는 관점을 공유합니다.</p>
-              <a href="column.html">칼럼에서 더 보기 ↗</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-next">
-      <div class="shell about-info-grid">
-        <div class="about-label">06 / NEXT AESOST</div>
-        <div class="about-content">
-          <h2>읽는 곳에서,<br>경험이 쌓이는 곳으로.</h2>
-          <div class="about-next-copy">
-            <p>AESOST는 콘텐츠를 소비하는 곳에 머무르지 않습니다. 발견한 지식을 기록하고, 자신의 경험을 나누고, 필요한 사람에게 피드백을 받으며 <strong>하나의 경험을 커리어 자산으로 만드는 플랫폼</strong>으로 확장합니다.</p>
-          </div>
-          <div class="about-cta-wrap">
-            <span class="about-cta-title">EXPLORE AESOST</span>
-            <div class="about-cta-row">
-              <a href="magazine.html">매거진 보기</a>
-              <a href="community.html">커뮤니티 참여하기</a>
-              <a href="column.html">칼럼 읽기</a>
-              <a href="expert-feedback.html">커리어 컨설팅</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer" data-footer></footer>
-  <script src="script.js?v=20260804-6"></script>
+  <section class="cta-section"><div class="shell cta-grid"><div><p class="eyebrow">WORK WITH AESOST</p><h2>From idea<br>to operation.</h2><p>현재 필요한 웹사이트나 시스템이 있다면 프로젝트의 목적과 문제부터 함께 정리할 수 있습니다.</p></div><a class="btn" href="request.html">PROJECT REQUEST ↗</a></div></section>
+</main>
+<footer class="dev-footer" data-dev-footer></footer>
+<script src="dev-shell.js?v=20260906-1"></script>
 </body>
 </html>
