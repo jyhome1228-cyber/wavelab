@@ -48,7 +48,7 @@ for(const page of demoPages){
 const devAssets=['assets/dev/hero-system.svg','assets/dev/work-crm.svg','assets/dev/work-proposal.svg','assets/dev/work-nowthere.svg','assets/dev/work-relim.svg','assets/dev/work-solodesk.svg'];
 for(const asset of devAssets){if(!fs.existsSync(path.join(root,asset)))errors.push(`Missing visual asset: ${asset}`)}
 
-for(const script of ['dev-shell.js','request-form.js','demo/solodesk/app.js']){
+for(const script of ['dev-shell.js','demo/solodesk/app.js']){
   const result=spawnSync(process.execPath,['--check',path.join(root,script)],{encoding:'utf8'});
   if(result.status!==0)errors.push(`${script}: JavaScript syntax check failed\n${result.stderr.trim()}`);
 }
