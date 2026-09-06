@@ -1,13 +1,13 @@
 const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const isDemoPath=location.pathname.includes('/demo/');
 const isActive=(url)=>current===url;
-const solutionPages=['system-solutions.html','solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html'];
+const solutionPages=['system-solutions.html','solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html'];
 const solutionsActive=solutionPages.includes(current)||isDemoPath;
 const logo='<img src="aesost-logo.svg?v=20260803-4" alt="AESOST">';
 const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
 function ensureStylesheet(href,id){if(document.getElementById(id))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.id=id;document.head.appendChild(link)}
 function ensureScript(src,id){if(document.getElementById(id))return;const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script)}
-ensureStylesheet('dev-operational.css?v=20260906-2','aesost-operational-css');
+ensureStylesheet('dev-operational.css?v=20260906-3','aesost-operational-css');
 ensureStylesheet('universal-web-system.css?v=20260906-2','aesost-universal-ui-css');
 ensureStylesheet('custom-development.css?v=20260906-1','aesost-custom-development-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
@@ -19,7 +19,8 @@ const items=[
 ['04','고객 프로젝트 공유 시스템','Client Portal · 일정 · 파일 · 승인 · 피드백','solution-client-portal.html'],
 ['05','예약 기반 사업 관리 시스템','Booking OS · 예약 · 고객 · 이용권 · 담당자','solution-booking-os.html'],
 ['06','협력사·발주 관리 시스템','Vendor Desk · 협력사 · 발주 · 납기 · 정산','solution-vendor-desk.html'],
-['07','회원·멤버십 운영 시스템','Membership Admin · 회원 · 플랜 · 결제 · 갱신','solution-membership-admin.html']
+['07','회원·멤버십 운영 시스템','Membership Admin · 회원 · 플랜 · 결제 · 갱신','solution-membership-admin.html'],
+['08','고객 문의·지원 관리 시스템','Support Desk · 티켓 · SLA · 담당자 · 해결','solution-support-desk.html']
 ];
 const dropdownItems=items.map(([n,title,desc,url])=>`<a class="dev-dropdown-item" href="${url}"><span class="dev-dropdown-index">${n}</span><span><strong>${title}</strong><small>${desc}</small></span><em class="is-live">VIEW SOLUTION</em></a>`).join('');
 const solutionDropdown=`<div class="dev-nav-dropdown${solutionsActive?' is-active':''}" data-solutions-dropdown><button class="dev-nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="aesost-solutions-dropdown" data-solutions-trigger>SYSTEM SOLUTIONS <span aria-hidden="true">⌄</span></button><div class="dev-dropdown-panel" id="aesost-solutions-dropdown" data-solutions-panel><div class="dev-dropdown-head"><span>AESOST SYSTEM SOLUTIONS</span><small>Interactive product demos</small></div>${dropdownItems}<a class="dev-dropdown-all" href="system-solutions.html">전체 시스템 솔루션 보기 <span aria-hidden="true">↗</span></a></div></div>`;
