@@ -1,0 +1,46 @@
+/* AESOST System Solutions Index / 2026-09-07 */
+.solutions-index-page .solution-index-hero{padding-bottom:64px!important}
+.solutions-index-page .solution-index-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.solutions-index-page .solution-index-stats span{min-height:34px;display:inline-flex;align-items:center;gap:7px;padding:0 11px;border:1px solid var(--line);border-radius:999px;color:#83838c;font-size:11px;font-weight:600;letter-spacing:.055em}
+.solutions-index-page .solution-index-stats b{color:#fff;font-size:12px}
+.solutions-index-page .solution-index-section{border-top:1px solid var(--line)}
+.solutions-index-page .solution-index-head{align-items:start!important}
+
+.solutions-index-page .solution-index-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important}
+.solutions-index-page .solution-index-card{min-width:0!important;min-height:0!important;padding:0!important;display:flex!important;flex-direction:column!important;gap:0!important;border:1px solid var(--line)!important;border-radius:12px!important;background:#0c0c0e!important;overflow:hidden!important;color:inherit!important;text-decoration:none!important;transition:border-color .18s ease,background .18s ease,transform .18s ease!important}
+.solutions-index-page .solution-index-card:hover{border-color:#45454d!important;background:#101012!important;transform:translateY(-2px)!important}
+.solutions-index-page .solution-index-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:#111216}
+.solutions-index-page .solution-index-thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .28s ease,opacity .28s ease}
+.solutions-index-page .solution-index-card:hover .solution-index-thumb img{transform:scale(1.012);opacity:.96}
+.solutions-index-page .solution-index-thumb-badge{position:absolute;left:16px;top:16px;min-height:28px;display:inline-flex;align-items:center;padding:0 9px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(10,10,12,.78);backdrop-filter:blur(10px);color:#d6caff;font-size:10px;font-weight:700;letter-spacing:.075em}
+
+.solutions-index-page .solution-index-body{padding:24px;display:flex;flex:1;flex-direction:column;gap:0}
+.solutions-index-page .solution-index-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:22px}
+.solutions-index-page .solution-index-top span{color:var(--purple-strong);font-size:11px;font-weight:700;letter-spacing:.07em}
+.solutions-index-page .solution-index-top em{color:#8b8b94;font-size:10px;font-style:normal;font-weight:700;letter-spacing:.08em}
+.solutions-index-page .solution-index-card h3{margin:0;color:#f4f4f5;font-size:22px!important;line-height:1.38!important;letter-spacing:-.03em}
+.solutions-index-page .solution-index-product{display:block;margin-top:8px;color:#aaaab2;font-size:14px;font-weight:500!important}
+.solutions-index-page .solution-index-card p{max-width:500px;margin:16px 0 0;color:#909099;font-size:14px!important;line-height:1.7!important}
+.solutions-index-page .solution-index-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.solutions-index-page .solution-index-tags span{min-height:26px;display:inline-flex;align-items:center;padding:0 8px;border:1px solid var(--line);border-radius:999px;color:#777780;font-size:10px;font-weight:600;letter-spacing:.045em}
+.solutions-index-page .solution-index-actions{display:flex;gap:8px;margin-top:auto;padding-top:24px}
+.solutions-index-page .solution-index-actions a{min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 14px;border:1px solid var(--line-strong);border-radius:6px;color:#e8e8ea;font-size:12px;font-weight:700;letter-spacing:.01em;text-decoration:none;transition:background .16s ease,border-color .16s ease,color .16s ease}
+.solutions-index-page .solution-index-actions a:first-child{background:var(--purple);border-color:var(--purple);color:#fff}
+.solutions-index-page .solution-index-actions a:first-child:hover{background:var(--purple-strong);border-color:var(--purple-strong)}
+.solutions-index-page .solution-index-actions a:last-child:hover{background:#171719;border-color:#55555d;color:#fff}
+.solutions-index-page .solution-index-custom{border-top:1px solid var(--line)}
+
+@media(max-width:1020px){
+  .solutions-index-page .solution-index-grid{gap:16px!important}
+  .solutions-index-page .solution-index-body{padding:20px}
+  .solutions-index-page .solution-index-card h3{font-size:20px!important}
+}
+
+@media(max-width:760px){
+  .solutions-index-page .solution-index-hero{padding-bottom:48px!important}
+  .solutions-index-page .solution-index-grid{grid-template-columns:1fr!important;gap:14px!important}
+  .solutions-index-page .solution-index-body{padding:20px}
+  .solutions-index-page .solution-index-thumb-badge{left:12px;top:12px}
+  .solutions-index-page .solution-index-actions{flex-direction:column}
+  .solutions-index-page .solution-index-actions a{width:100%}
+}
