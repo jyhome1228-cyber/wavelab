@@ -3,8 +3,8 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const root=process.cwd();
-const pages=['index.html','about.html','services.html','works.html','request.html'];
-const required=['dev-site.css','dev-shell.js','aesost-logo.svg','favicon.svg'];
+const pages=['index.html','about.html','services.html','system-solutions.html','works.html','request.html'];
+const required=['dev-site.css','dev-operational.css','dev-shell.js','aesost-logo.svg','favicon.svg'];
 const demoPages=['demo/solodesk/index.html'];
 const demoRequired=['demo/solodesk/styles.css','demo/solodesk/app.js','assets/dev/work-solodesk.svg'];
 const errors=[];
