@@ -1,10 +1,10 @@
-/* AESOST Site Polish / 2026-09-06
+/* AESOST Site Polish / 2026-09-07
    Final structural refinement layer.
-   Content explanation groups use spaced cards; navigation and data-heavy UI stay restrained. */
+   Explanation groups use spaced cards; navigation stays simple; solution index is a 3-column catalog. */
 
 :root{
   --ui-radius-control:6px;
-  --ui-radius-card:8px;
+  --ui-radius-card:10px;
   --ui-radius-panel:10px;
   --ui-radius-explain:10px;
   --ui-card-gap:12px;
@@ -21,61 +21,138 @@
 .hero-actions{margin-top:28px!important}
 .section,.page-hero,.cta-section,.dev-footer{border-color:var(--line)!important}
 
-/* ---------------------------------------------------------
-   Header / dropdown
-   Main-navigation underline belongs only to the top-level nav.
-   Dropdown rows use neutral separators, never the purple link underline.
---------------------------------------------------------- */
+/* top navigation: only direct links, no product dropdown */
 .dev-nav>a{
   height:var(--header-height)!important;
   display:inline-flex!important;
   align-items:center!important;
+  position:relative;
 }
-.dev-nav>a:after{
-  bottom:0!important;
+.dev-nav>a:after{bottom:0!important}
+.dev-nav>a.is-active,
+.dev-nav>a[aria-current="page"]{color:#fff!important}
+
+/* ---------------------------------------------------------
+   System Solutions index
+--------------------------------------------------------- */
+.solution-index-hero{padding-bottom:72px!important}
+.solution-index-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:30px;
 }
-.dev-nav-dropdown.is-active:after{
-  bottom:0!important;
+.solution-index-stats span{
+  min-height:34px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:0 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:#83838c;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.055em;
 }
-.dev-dropdown-item:after,
-.dev-dropdown-all:after,
-.dev-dropdown-panel a:after{
-  content:none!important;
-  display:none!important;
+.solution-index-stats b{color:#fff;font-size:12px}
+.solution-index-section{border-top:1px solid var(--line)}
+.solution-index-head{align-items:start!important}
+.solution-index-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
 }
-.dev-dropdown-panel{
-  top:calc(100% + 8px)!important;
-  width:min(620px,calc(100vw - 48px))!important;
-  max-height:calc(100svh - var(--header-height) - 28px)!important;
-  overflow-y:auto!important;
-  overscroll-behavior:contain;
-  border:1px solid var(--line-strong)!important;
-  border-radius:var(--ui-radius-panel)!important;
-  padding:14px!important;
-  background:#101012!important;
+.solution-index-card{
+  min-height:292px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:34px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#0c0c0e;
+  color:inherit;
+  text-decoration:none;
+  transition:border-color .16s ease,background .16s ease,transform .16s ease;
 }
-.dev-dropdown-head{
-  padding:4px 4px 14px!important;
-  border-bottom:1px solid var(--line)!important;
+a.solution-index-card:hover{
+  border-color:#45454d;
+  background:#111113;
+  transform:translateY(-2px);
 }
-.dev-dropdown-item{
-  padding:12px 6px!important;
-  border-bottom:1px solid var(--line)!important;
-  background:transparent!important;
+.solution-index-top,
+.solution-index-foot{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:center;
 }
-a.dev-dropdown-item:hover{
-  padding-left:10px!important;
-  background:#151518!important;
-  border-radius:6px!important;
+.solution-index-top span{
+  color:var(--purple-strong);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.07em;
 }
-.dev-dropdown-all{
-  padding:14px 4px 2px!important;
-  border-top:0!important;
+.solution-index-top em{
+  color:#bca5ff;
+  font-size:10px;
+  font-style:normal;
+  font-weight:700;
+  letter-spacing:.08em;
 }
+.solution-index-card h3{
+  margin:0;
+  color:#f4f4f5;
+  font-size:20px;
+  line-height:1.4;
+  letter-spacing:-.025em;
+}
+.solution-index-card strong{
+  display:block;
+  margin-top:8px;
+  color:#aaaab2;
+  font-size:14px;
+  font-weight:500!important;
+}
+.solution-index-card p{
+  max-width:340px;
+  margin:18px 0 0;
+  color:#8c8c95;
+  font-size:14px!important;
+  line-height:1.7!important;
+}
+.solution-index-foot{
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.solution-index-foot span{
+  color:#66666f;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.06em;
+}
+.solution-index-foot b{
+  color:#d1c4ff;
+  font-size:11px;
+  font-weight:700!important;
+  letter-spacing:.06em;
+}
+.solution-index-card.is-reserved{
+  border-style:dashed;
+  background:transparent;
+  opacity:.62;
+}
+.solution-index-card.is-reserved .solution-index-top span,
+.solution-index-card.is-reserved .solution-index-top em,
+.solution-index-card.is-reserved .solution-index-foot b{color:#777780}
+.solution-index-card.is-reserved h3{color:#a3a3aa}
+.solution-index-custom{border-top:1px solid var(--line)}
 
 /* ---------------------------------------------------------
    Explanation / principle / workflow groups
-   These are content cards, so each item should feel independent.
+   These are independent content cards.
 --------------------------------------------------------- */
 .solution-problems,
 .solution-flow,
@@ -102,13 +179,9 @@ a.dev-dropdown-item:hover{
   overflow:hidden;
 }
 .solution-problems article,
-.solution-flow article{
-  padding:28px 24px!important;
-}
+.solution-flow article{padding:28px 24px!important}
 .solution-problems h3,
-.solution-flow h3{
-  margin:28px 0 10px!important;
-}
+.solution-flow h3{margin:28px 0 10px!important}
 .solution-problems p,
 .solution-flow p{
   color:#9b9ba3!important;
@@ -118,17 +191,13 @@ a.dev-dropdown-item:hover{
 .capability,
 .about-principle,
 .process-step,
-.process-compact article{
-  padding:24px!important;
-}
+.process-compact article{padding:24px!important}
 .capability h3,
 .about-principle h3,
 .process-step h3,
-.process-compact h3{
-  margin:32px 0 12px!important;
-}
+.process-compact h3{margin:32px 0 12px!important}
 
-/* independent cards use a quiet radius */
+/* independent cards */
 .project-card,
 .case-card,
 .solution-catalog-card,
@@ -150,8 +219,6 @@ a.dev-dropdown-item:hover{
   border-radius:var(--ui-radius-panel)!important;
   overflow:hidden;
 }
-
-/* cards should read as sections, not bubbles */
 .project-card,
 .case-card,
 .solution-catalog-card,
@@ -168,7 +235,7 @@ a.dev-dropdown-item:hover{
   background:#0f0f11!important;
 }
 
-/* solution feature navigation: line-based on desktop */
+/* solution detail tab navigation */
 .solution-feature-nav{border-top:1px solid var(--line)!important}
 .solution-feature-tab{
   min-height:68px!important;
@@ -195,9 +262,7 @@ a.dev-dropdown-item:hover{
 .field select,
 .field textarea,
 .choice span,
-.form-notice{
-  border-radius:var(--ui-radius-control)!important;
-}
+.form-notice{border-radius:var(--ui-radius-control)!important}
 .cta-section .btn{border-radius:var(--ui-radius-control)!important}
 .solution-detail-tags span,
 .solution-status span,
@@ -220,7 +285,7 @@ a.dev-dropdown-item:hover{
 .request-intro>p:last-child{max-width:650px!important}
 .solution-detail-tags{margin-top:22px!important}
 
-/* footer: ten solution links stay readable */
+/* footer */
 .footer-col:last-child{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -231,11 +296,15 @@ a.dev-dropdown-item:hover{
 .footer-col:last-child a{margin:5px 0!important;line-height:1.45}
 .dev-custom-build{border-radius:0!important}
 
-/* request form should feel like the same system */
+/* request form */
 .request-section{padding:40px 0!important}
 .request-section-head{margin-bottom:20px!important}
 .field input,.field select{min-height:44px!important}
 .field textarea{min-height:132px!important}
+
+@media(max-width:1020px){
+  .solution-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 
 @media(max-width:900px){
   :root{--ui-section-y:60px;--ui-card-gap:10px}
@@ -252,6 +321,11 @@ a.dev-dropdown-item:hover{
 @media(max-width:767px){
   .section,.page-hero{padding:var(--ui-section-y-mobile) 0!important}
   .section-head{margin-bottom:28px!important}
+  .solution-index-hero{padding-bottom:52px!important}
+  .solution-index-grid{grid-template-columns:1fr;gap:10px}
+  .solution-index-card{min-height:250px;padding:20px;gap:28px}
+  .solution-index-card h3{font-size:18px}
+  .solution-index-stats{margin-top:24px}
   .solution-problems article,.solution-flow article{padding:24px 20px!important}
   .solution-problems,
   .solution-flow,
@@ -269,8 +343,4 @@ a.dev-dropdown-item:hover{
   .project-grid,.case-grid{gap:20px!important}
   .footer-col:last-child{display:block}
   .footer-col:last-child a{margin:8px 0!important}
-  .dev-dropdown-panel{
-    top:100%!important;
-    border-radius:0!important;
-  }
 }
