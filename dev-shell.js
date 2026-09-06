@@ -14,7 +14,7 @@ function ensureScript(src,id){
   const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script);
 }
 ensureStylesheet('dev-operational.css?v=20260906-2','aesost-operational-css');
-ensureStylesheet('universal-web-system.css?v=20260906-1','aesost-universal-ui-css');
+ensureStylesheet('universal-web-system.css?v=20260906-2','aesost-universal-ui-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 
 const themeMeta=document.querySelector('meta[name="theme-color"]');
