@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process';
 
 const root=process.cwd();
 const pages=['index.html','about.html','services.html','system-solutions.html','works.html','request.html'];
-const required=['dev-site.css','dev-operational.css','dev-shell.js','aesost-logo.svg','favicon.svg'];
+const required=['dev-site.css','dev-operational.css','dev-shell.js','system-ui.css','aesost-logo.svg','favicon.svg'];
 const demoPages=['demo/solodesk/index.html'];
 const demoRequired=['demo/solodesk/styles.css','demo/solodesk/app.js','assets/dev/work-solodesk.svg'];
 const errors=[];
@@ -42,7 +42,9 @@ for(const page of pages){
 for(const page of demoPages){
   const full=path.join(root,page);
   if(!fs.existsSync(full)){errors.push(`Missing demo page: ${page}`);continue;}
-  checkLocalRefs(page,fs.readFileSync(full,'utf8'));
+  const html=fs.readFileSync(full,'utf8');
+  if(!html.includes('system-ui.css'))errors.push(`${page}: missing AESOST System UI stylesheet`);
+  checkLocalRefs(page,html);
 }
 
 const devAssets=['assets/dev/hero-system.svg','assets/dev/work-crm.svg','assets/dev/work-proposal.svg','assets/dev/work-nowthere.svg','assets/dev/work-relim.svg','assets/dev/work-solodesk.svg'];
@@ -57,4 +59,4 @@ if(errors.length){
   console.error('\nAESOST site validation failed:\n- '+errors.join('\n- '));
   process.exit(1);
 }
-console.log(`AESOST site validation passed (${pages.length} core pages + ${demoPages.length} demo checked).`);
+console.log(`AESOST site validation passed (${pages.length} core pages + ${demoPages.length} demo checked, System UI v1 required).`);
