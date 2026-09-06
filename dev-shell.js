@@ -6,8 +6,9 @@ const nav=[
 ];
 const isActive=(url)=>current===url;
 const logo='<img src="aesost-logo.svg?v=20260803-4" alt="AESOST">';
-const desktopNav=nav.map(([label,url])=>`<a href="${url}" class="${isActive(url)?'is-active':''}">${label}</a>`).join('');
-const mobileNav=[...nav,['CONTACT','request.html']].map(([label,url])=>`<a href="${url}"><span>${label}</span><span>↗</span></a>`).join('');
+const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
+const desktopNav=nav.map(([label,url])=>`<a href="${url}" class="${isActive(url)?'is-active':''}"${activeAttr(url)}>${label}</a>`).join('');
+const mobileNav=[...nav,['CONTACT','request.html']].map(([label,url])=>`<a href="${url}"${activeAttr(url)}><span>${label}</span><span aria-hidden="true">↗</span></a>`).join('');
 
 const themeMeta=document.querySelector('meta[name="theme-color"]');
 if(themeMeta)themeMeta.setAttribute('content','#09090a');
@@ -19,23 +20,23 @@ else{
 }
 
 const headerMarkup=`<div class="shell dev-header-inner">
-  <a class="dev-brand" href="index.html" aria-label="AESOST home">${logo}</a>
-  <nav class="dev-nav" aria-label="Primary navigation">${desktopNav}</nav>
-  <a class="dev-contact" href="request.html">CONTACT ↗</a>
-  <button class="dev-menu" type="button" aria-label="Open menu" aria-expanded="false" data-dev-menu><span></span><span></span></button>
+  <a class="dev-brand" href="index.html" aria-label="AESOST 홈">${logo}</a>
+  <nav class="dev-nav" aria-label="주요 메뉴">${desktopNav}</nav>
+  <a class="dev-contact" href="request.html"${activeAttr('request.html')}>CONTACT ↗</a>
+  <button class="dev-menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="aesost-mobile-nav" data-dev-menu><span></span><span></span></button>
 </div>
-<nav class="dev-mobile-nav" data-dev-mobile>${mobileNav}</nav>`;
+<nav class="dev-mobile-nav" id="aesost-mobile-nav" data-dev-mobile aria-label="모바일 메뉴">${mobileNav}</nav>`;
 
 const footerMarkup=`<div class="shell">
   <div class="footer-top">
     <div>
-      <a class="footer-brand" href="index.html">${logo}</a>
-      <p class="footer-intro">AESOST는 비즈니스에 필요한 웹사이트와 맞춤형 시스템을 기획, 디자인, 개발하고 실제 운영 환경까지 연결합니다.</p>
+      <a class="footer-brand" href="index.html" aria-label="AESOST 홈">${logo}</a>
+      <p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p>
     </div>
     <div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="works.html">Works</a></div>
     <div class="footer-col"><h4>PROJECT</h4><a href="request.html">Project Request ↗</a><a href="index.html#process">Process</a></div>
   </div>
-  <div class="footer-bottom"><span>WEB · SYSTEM · PLATFORM · AUTOMATION</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div>
+  <div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div>
 </div>`;
 
 document.querySelectorAll('[data-dev-header]').forEach(el=>el.innerHTML=headerMarkup);
@@ -43,11 +44,21 @@ document.querySelectorAll('[data-dev-footer]').forEach(el=>el.innerHTML=footerMa
 
 const button=document.querySelector('[data-dev-menu]');
 const mobile=document.querySelector('[data-dev-mobile]');
-button?.addEventListener('click',()=>{
-  const opened=mobile?.classList.toggle('is-open');
-  button.setAttribute('aria-expanded',String(Boolean(opened)));
-});
-mobile?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+const closeMenu=()=>{
+  if(!mobile||!button)return;
   mobile.classList.remove('is-open');
-  button?.setAttribute('aria-expanded','false');
-}));
+  button.setAttribute('aria-expanded','false');
+  button.setAttribute('aria-label','메뉴 열기');
+  document.body.classList.remove('menu-open');
+};
+const openMenu=()=>{
+  if(!mobile||!button)return;
+  mobile.classList.add('is-open');
+  button.setAttribute('aria-expanded','true');
+  button.setAttribute('aria-label','메뉴 닫기');
+  document.body.classList.add('menu-open');
+};
+button?.addEventListener('click',()=>mobile?.classList.contains('is-open')?closeMenu():openMenu());
+mobile?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
+window.addEventListener('resize',()=>{if(window.innerWidth>760)closeMenu()},{passive:true});
