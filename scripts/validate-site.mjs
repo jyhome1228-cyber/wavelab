@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process';
 
 const root=process.cwd();
 const pages=['index.html','about.html','services.html','system-solutions.html','solution-solodesk.html','works.html','request.html'];
-const required=['dev-site.css','dev-operational.css','dev-shell.js','system-ui.css','solution-detail.css','solution-solodesk.js','aesost-logo.svg','favicon.svg'];
+const required=['dev-site.css','dev-operational.css','universal-web-system.css','dev-shell.js','system-ui.css','solution-detail.css','solution-solodesk.js','aesost-logo.svg','favicon.svg'];
 const demoPages=['demo/solodesk/index.html'];
 const demoRequired=['demo/solodesk/styles.css','demo/solodesk/app.js','demo/solodesk/guide.js','assets/dev/work-solodesk.svg'];
 const errors=[];
@@ -39,6 +39,9 @@ for(const page of pages){
   checkLocalRefs(page,html);
 }
 
+const shell=fs.readFileSync(path.join(root,'dev-shell.js'),'utf8');
+if(!shell.includes('universal-web-system.css'))errors.push('dev-shell.js: universal web design system is not injected globally');
+
 for(const page of demoPages){
   const full=path.join(root,page);
   if(!fs.existsSync(full)){errors.push(`Missing demo page: ${page}`);continue;}
@@ -59,4 +62,4 @@ if(errors.length){
   console.error('\nAESOST site validation failed:\n- '+errors.join('\n- '));
   process.exit(1);
 }
-console.log(`AESOST site validation passed (${pages.length} core pages + ${demoPages.length} demo checked, guided solution flow enabled).`);
+console.log(`AESOST site validation passed (${pages.length} core pages + ${demoPages.length} demo checked, universal UI system required).`);
