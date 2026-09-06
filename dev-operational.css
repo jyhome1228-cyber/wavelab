@@ -1,0 +1,106 @@
+/* AESOST operational refinement / 2026-09-06 */
+
+html,body{max-width:100%;overflow-x:hidden}
+body{min-height:100vh}
+main{display:block}
+.shell{max-width:var(--container)}
+img{height:auto}
+figure{margin:0}
+
+/* keyboard / accessibility */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
+::selection{background:var(--purple);color:#fff}
+
+/* safer global content width */
+.hero-grid,.page-hero-grid,.section-head,.solution-row,.project-grid,.case-grid,.process-compact,.form-grid,.cta-grid,.footer-top{min-width:0}
+.hero-grid>*,.page-hero-grid>*,.section-head>*,.solution-row>*,.project-grid>*,.case-grid>*,.process-compact>*,.form-grid>*,.cta-grid>*,.footer-top>*{min-width:0}
+
+/* header stability */
+.dev-header{isolation:isolate}
+.dev-header-inner{width:min(calc(100% - 48px),var(--container));margin-inline:auto}
+.dev-nav a[aria-current="page"]{color:#fff}
+.dev-contact[aria-current="page"]{border-color:var(--purple);background:var(--purple)}
+.dev-mobile-nav{max-height:calc(100svh - var(--header-height));overflow:auto}
+body.menu-open{overflow:hidden}
+
+/* hero rhythm */
+.hero-copy{min-width:0}
+.hero-copy .display{max-width:650px}
+.hero-description{max-width:610px}
+.hero-visual{overflow:hidden}
+.hero-visual img{display:block}
+
+/* stronger visual clarity */
+.solution-visual,.project-thumb,.case-visual{position:relative}
+.solution-visual:after,.project-thumb:after,.case-visual:after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.035);pointer-events:none}
+.project-card,.solution-link,.btn{transition:opacity .2s ease,border-color .2s ease,background-color .2s ease,transform .2s ease}
+.project-card:hover{opacity:.94}
+.solution-link:hover{color:var(--purple-strong)}
+
+/* request page */
+.request-page{padding:96px 0 120px}
+.request-wrap{width:min(calc(100% - 48px),1040px);padding:0}
+.request-intro{max-width:760px;margin-bottom:72px}
+.request-intro h1{margin:24px 0 0;font-size:var(--fs-h1);font-weight:470;line-height:1.16;letter-spacing:-.045em}
+.request-intro>p:last-child{max-width:680px;margin:28px 0 0;color:var(--text-2);font-size:17px;line-height:1.7}
+.request-section{padding:46px 0;border-top:1px solid var(--line)}
+.request-section-head{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px 24px;margin-bottom:30px}
+.request-section-head>span{grid-row:1/3;color:var(--purple);font-size:14px;font-weight:600;letter-spacing:.1em}
+.request-section-head h2{margin:0;font-size:24px;font-weight:540;line-height:1.35;letter-spacing:-.03em}
+.request-section-head p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 28px}
+.field{display:flex;min-width:0;flex-direction:column;gap:9px}.field.full{grid-column:1/-1}
+.field label{color:#dedee2;font-size:13px;font-weight:510;letter-spacing:.02em}
+.field input,.field select,.field textarea{width:100%;min-width:0;border:0;border-bottom:1px solid var(--line-strong);border-radius:0;background:transparent;padding:12px 0;color:#fff;outline:0;font-size:16px;line-height:1.6}
+.field input::placeholder,.field textarea::placeholder{color:#66666e}
+.field select{color-scheme:dark}
+.field textarea{min-height:154px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--purple)}
+.choice-grid{display:flex;flex-wrap:wrap;gap:9px}
+.choice{position:relative}.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice span{display:inline-flex;min-height:44px;align-items:center;padding:0 14px;border:1px solid var(--line-strong);color:#c6c6cc;font-size:14px;line-height:1.4;transition:.2s ease}
+.choice input:checked+span{border-color:var(--purple);background:var(--purple);color:#fff}
+.choice input:focus-visible+span{outline:2px solid var(--purple);outline-offset:3px}
+.request-consent{display:flex;gap:12px;align-items:flex-start;margin:34px 0;color:#93939b;font-size:13px;line-height:1.7}
+.request-consent input{margin-top:5px;accent-color:var(--purple)}
+.request-submit{display:flex;justify-content:space-between;gap:32px;align-items:center;padding-top:30px;border-top:1px solid var(--line)}
+.request-submit small{max-width:600px;color:#777780;font-size:12px;line-height:1.65}
+.request-submit .btn{min-width:170px}
+.form-notice{display:none;margin-top:22px;padding:17px 18px;border:1px solid var(--line);font-size:14px;line-height:1.6}
+.form-notice.is-visible{display:block}.form-notice.success{border-color:#5c3aa7;background:#15101f;color:#d8c8ff}.form-notice.error{border-color:#713d45;background:#1b1012;color:#f0b7bf}
+[data-submit][disabled]{opacity:.55;cursor:wait}
+
+/* compact footer */
+.dev-footer{margin-top:0}
+.footer-intro{font-size:14px;line-height:1.7}
+.footer-col a{min-height:28px}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+@media(max-width:1100px){
+  .dev-header-inner{width:min(calc(100% - 40px),var(--container))}
+  .section-head{grid-template-columns:170px minmax(0,1fr);gap:48px}
+}
+
+@media(max-width:760px){
+  body{font-size:16px}
+  .shell,.dev-header-inner{width:calc(100% - 32px)}
+  .dev-header-inner{height:78px}
+  .dev-brand{width:116px}
+  .section{padding:78px 0}
+  .section-head{grid-template-columns:1fr;gap:18px;margin-bottom:38px}
+  .section-head .section-copy p{margin-top:18px;font-size:16px}
+  .hero-copy .display{max-width:none}
+  .request-page{padding:68px 0 88px}
+  .request-wrap{width:calc(100% - 32px)}
+  .request-intro{margin-bottom:54px}
+  .request-intro>p:last-child{font-size:16px}
+  .request-section{padding:38px 0}
+  .request-section-head{grid-template-columns:42px minmax(0,1fr);gap:6px 12px}
+  .request-section-head h2{font-size:22px}
+  .request-section-head p{font-size:14px}
+  .form-grid{grid-template-columns:1fr;gap:25px}.field.full{grid-column:auto}
+  .choice-grid{gap:7px}.choice span{min-height:42px;padding:0 12px;font-size:13px}
+  .request-submit{align-items:stretch;flex-direction:column}.request-submit .btn{width:100%}
+}
