@@ -14,6 +14,7 @@ function ensureScript(src,id){
   const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script);
 }
 ensureStylesheet('dev-operational.css?v=20260906-2','aesost-operational-css');
+ensureStylesheet('universal-web-system.css?v=20260906-1','aesost-universal-ui-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 
 const themeMeta=document.querySelector('meta[name="theme-color"]');
@@ -34,17 +35,17 @@ const solutionDropdown=`
       <div class="dev-dropdown-head"><span>AESOST SYSTEM SOLUTIONS</span><small>Interactive product demos</small></div>
       <a class="dev-dropdown-item" href="solution-solodesk.html">
         <span class="dev-dropdown-index">01</span>
-        <span><strong>SoloDesk</strong><small>1인사업자 · 프리랜서 업무관리</small></span>
+        <span><strong>1인사업자를 위한 관리 시스템</strong><small>SoloDesk · 고객 · 프로젝트 · 정산</small></span>
         <em class="is-live">VIEW SOLUTION</em>
       </a>
       <div class="dev-dropdown-item is-disabled">
         <span class="dev-dropdown-index">02</span>
-        <span><strong>B2B Inquiry Hub</strong><small>기업 문의 · 영업 파이프라인</small></span>
+        <span><strong>기업 B2B 문의 관리 시스템</strong><small>B2B Inquiry Hub · 문의 · 영업 파이프라인</small></span>
         <em>COMING SOON</em>
       </div>
       <div class="dev-dropdown-item is-disabled">
         <span class="dev-dropdown-index">03</span>
-        <span><strong>Company CMS</strong><small>회사 홈페이지 · 관리자 시스템</small></span>
+        <span><strong>기업 홈페이지 운영 시스템</strong><small>Company CMS · 홈페이지 · 관리자</small></span>
         <em>COMING SOON</em>
       </div>
       <a class="dev-dropdown-all" href="system-solutions.html">전체 시스템 솔루션 보기 <span aria-hidden="true">↗</span></a>
@@ -69,9 +70,9 @@ const headerMarkup=`<div class="shell dev-header-inner">
     <button type="button" aria-expanded="false" data-mobile-solutions-trigger><span>SYSTEM SOLUTIONS</span><span aria-hidden="true">+</span></button>
     <div class="dev-mobile-solutions-panel" data-mobile-solutions-panel>
       <a href="system-solutions.html"><span>전체 시스템 솔루션</span><small>Overview</small></a>
-      <a href="solution-solodesk.html"><span>SoloDesk</span><small>제품 소개 · 화면 안내</small></a>
-      <div><span>B2B Inquiry Hub</span><small>COMING SOON</small></div>
-      <div><span>Company CMS</span><small>COMING SOON</small></div>
+      <a href="solution-solodesk.html"><span>1인사업자를 위한 관리 시스템</span><small>SoloDesk · 제품 소개</small></a>
+      <div><span>기업 B2B 문의 관리 시스템</span><small>B2B Inquiry Hub · SOON</small></div>
+      <div><span>기업 홈페이지 운영 시스템</span><small>Company CMS · SOON</small></div>
     </div>
   </div>
   <a href="works.html"${activeAttr('works.html')}><span>WORKS</span><span aria-hidden="true">↗</span></a>
@@ -85,7 +86,7 @@ const footerMarkup=`<div class="shell">
       <p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p>
     </div>
     <div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="system-solutions.html">System Solutions</a><a href="works.html">Works</a></div>
-    <div class="footer-col"><h4>PROJECT</h4><a href="solution-solodesk.html">SoloDesk Solution ↗</a><a href="request.html">Project Request ↗</a><a href="index.html#process">Process</a></div>
+    <div class="footer-col"><h4>SYSTEM</h4><a href="solution-solodesk.html">1인사업자 관리 시스템 · SoloDesk ↗</a><a href="request.html">Project Request ↗</a><a href="index.html#process">Process</a></div>
   </div>
   <div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div>
 </div>`;
@@ -123,7 +124,6 @@ solutionTrigger?.addEventListener('click',event=>{
 solutionWrap?.addEventListener('mouseenter',()=>{solutionWrap.classList.add('is-open');solutionTrigger?.setAttribute('aria-expanded','true')});
 solutionWrap?.addEventListener('mouseleave',closeSolutions);
 solutionWrap?.addEventListener('focusout',event=>{if(!solutionWrap.contains(event.relatedTarget))closeSolutions()});
-
 document.addEventListener('click',event=>{if(solutionWrap&&!solutionWrap.contains(event.target))closeSolutions()});
 
 const mobileSolutions=document.querySelector('[data-mobile-solutions-trigger]');
@@ -136,4 +136,4 @@ mobileSolutions?.addEventListener('click',()=>{
 });
 
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMenu();closeSolutions()}});
-window.addEventListener('resize',()=>{if(window.innerWidth>760)closeMenu()},{passive:true});
+window.addEventListener('resize',()=>{if(window.innerWidth>767)closeMenu()},{passive:true});
