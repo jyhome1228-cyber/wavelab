@@ -48,6 +48,41 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    match /projectRequests/{requestId} {
+      allow list, get: if isAdmin();
+      allow create: if request.resource.data.keys().hasOnly([
+          'company','name','phone','email','projectTypes','description',
+          'budget','schedule','contactMethod','source','status','createdAt'
+        ])
+        && request.resource.data.company is string
+        && request.resource.data.company.size() <= 120
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 1
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.phone is string
+        && request.resource.data.phone.size() >= 7
+        && request.resource.data.phone.size() <= 30
+        && request.resource.data.email is string
+        && request.resource.data.email.size() >= 5
+        && request.resource.data.email.size() <= 160
+        && request.resource.data.projectTypes is list
+        && request.resource.data.projectTypes.size() >= 1
+        && request.resource.data.projectTypes.size() <= 8
+        && request.resource.data.description is string
+        && request.resource.data.description.size() >= 5
+        && request.resource.data.description.size() <= 5000
+        && request.resource.data.budget is string
+        && request.resource.data.budget.size() <= 40
+        && request.resource.data.schedule is string
+        && request.resource.data.schedule.size() <= 40
+        && request.resource.data.contactMethod is string
+        && request.resource.data.contactMethod in ['이메일','전화','온라인 미팅']
+        && request.resource.data.source == 'aesost.com/request'
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if isAdmin();
+    }
+
     match /abilities/{uid} {
       allow read: if resource.data.isPublic == true || isAdmin() || (signedIn() && request.auth.uid == uid);
       allow create: if signedIn() && request.auth.uid == uid && request.resource.data.uid == request.auth.uid;
