@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>SoloDesk — AESOST Concept System</title>
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#111216">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260906-1">
+  <link rel="stylesheet" href="../../system-ui.css?v=20260906-1">
+  <link rel="stylesheet" href="styles.css?v=20260906-2">
 </head>
 <body>
   <div class="demo-banner">
-    <span><b>AESOST CONCEPT SYSTEM</b> · Interactive Product Demo</span>
-    <a href="../../works.html">AESOST WORKS ↗</a>
+    <span><b>AESOST CONCEPT SYSTEM</b> · Demo Company: 에이소스트 주식회사</span>
+    <a href="../../system-solutions.html">SYSTEM SOLUTIONS ↗</a>
   </div>
 
   <div class="app-shell">
@@ -30,7 +31,7 @@
       </nav>
 
       <div class="sidebar-foot">
-        <div class="user-chip"><span>JY</span><div><b>Jaeyoung Park</b><small>Independent Designer</small></div></div>
+        <div class="user-chip"><span>AE</span><div><b>에이소스트 주식회사</b><small>DEMO COMPANY</small></div></div>
         <button class="text-button" data-reset>Reset demo data</button>
       </div>
     </aside>
@@ -39,25 +40,25 @@
       <header class="topbar">
         <div>
           <p class="kicker">SOLO BUSINESS MANAGEMENT</p>
-          <h1 data-view-title>Good afternoon, Jaeyoung.</h1>
+          <h1 data-view-title>오늘의 업무 현황</h1>
         </div>
         <div class="top-actions">
-          <label class="search-box"><span>⌕</span><input type="search" placeholder="Search clients or projects" data-search></label>
-          <button class="primary-button" data-open-project>+ New project</button>
+          <label class="search-box"><span>⌕</span><input type="search" placeholder="고객 또는 프로젝트 검색" data-search></label>
+          <button class="primary-button" data-open-project>+ 새 프로젝트</button>
         </div>
       </header>
 
       <section class="view is-active" data-view-panel="dashboard">
         <div class="metric-grid">
-          <article class="metric-card"><span>This month</span><strong data-metric="revenue">₩0</strong><small>Revenue</small></article>
-          <article class="metric-card"><span>Outstanding</span><strong data-metric="outstanding">₩0</strong><small>Unpaid invoices</small></article>
-          <article class="metric-card"><span>Active</span><strong data-metric="active">0</strong><small>Projects in progress</small></article>
-          <article class="metric-card"><span>Clients</span><strong data-metric="clients">0</strong><small>Total clients</small></article>
+          <article class="metric-card"><span>이번 달</span><strong data-metric="revenue">₩0</strong><small>입금 매출</small></article>
+          <article class="metric-card"><span>미수금</span><strong data-metric="outstanding">₩0</strong><small>대기 중인 청구</small></article>
+          <article class="metric-card"><span>진행중</span><strong data-metric="active">0</strong><small>활성 프로젝트</small></article>
+          <article class="metric-card"><span>고객</span><strong data-metric="clients">0</strong><small>전체 고객</small></article>
         </div>
 
         <div class="dashboard-grid">
           <article class="panel large-panel">
-            <div class="panel-head"><div><span>PROJECT PIPELINE</span><h2>Current work</h2></div><button class="text-link" data-go="projects">View all ↗</button></div>
+            <div class="panel-head"><div><span>PROJECT PIPELINE</span><h2>진행 중인 업무</h2></div><button class="text-link" data-go="projects">전체 보기 ↗</button></div>
             <div class="project-list" data-dashboard-projects></div>
           </article>
 
@@ -68,14 +69,14 @@
           </article>
 
           <article class="panel">
-            <div class="panel-head"><div><span>NEXT</span><h2>Upcoming</h2></div></div>
+            <div class="panel-head"><div><span>NEXT</span><h2>다가오는 일정</h2></div></div>
             <div class="upcoming-list" data-upcoming></div>
           </article>
         </div>
       </section>
 
       <section class="view" data-view-panel="clients">
-        <div class="section-toolbar"><div><p>CLIENT DATABASE</p><h2>Clients</h2></div><button class="secondary-button" data-open-client>+ Add client</button></div>
+        <div class="section-toolbar"><div><p>CLIENT DATABASE</p><h2>Clients</h2></div><button class="secondary-button" data-open-client>+ 고객 추가</button></div>
         <div class="table-card">
           <table><thead><tr><th>Client</th><th>Contact</th><th>Projects</th><th>Total value</th><th>Status</th></tr></thead><tbody data-clients-table></tbody></table>
         </div>
@@ -102,30 +103,30 @@
 
   <div class="modal" data-modal="project" aria-hidden="true">
     <div class="modal-card">
-      <div class="modal-head"><div><span>NEW PROJECT</span><h2>Add a project</h2></div><button class="close-button" data-close>×</button></div>
+      <div class="modal-head"><div><span>NEW PROJECT</span><h2>새 프로젝트</h2></div><button class="close-button" data-close aria-label="닫기">×</button></div>
       <form data-project-form>
-        <label>Project name<input name="name" required placeholder="e.g. Brand website renewal"></label>
-        <label>Client<select name="client" required data-client-select></select></label>
-        <div class="form-two"><label>Value<input name="amount" type="number" min="0" step="100000" required placeholder="3500000"></label><label>Due date<input name="due" type="date" required></label></div>
-        <label>Status<select name="status"><option>In Progress</option><option>Review</option><option>Complete</option></select></label>
-        <button class="primary-button full" type="submit">Create project</button>
+        <label>프로젝트명<input name="name" required placeholder="예: Corporate Website Renewal"></label>
+        <label>고객<select name="client" required data-client-select></select></label>
+        <div class="form-two"><label>금액<input name="amount" type="number" min="0" step="100000" required placeholder="3500000"></label><label>마감일<input name="due" type="date" required></label></div>
+        <label>상태<select name="status"><option>In Progress</option><option>Review</option><option>Complete</option></select></label>
+        <button class="primary-button full" type="submit">프로젝트 생성</button>
       </form>
     </div>
   </div>
 
   <div class="modal" data-modal="client" aria-hidden="true">
     <div class="modal-card">
-      <div class="modal-head"><div><span>NEW CLIENT</span><h2>Add a client</h2></div><button class="close-button" data-close>×</button></div>
+      <div class="modal-head"><div><span>NEW CLIENT</span><h2>고객 추가</h2></div><button class="close-button" data-close aria-label="닫기">×</button></div>
       <form data-client-form>
-        <label>Company / Name<input name="name" required placeholder="e.g. Studio More"></label>
-        <label>Email<input name="email" type="email" required placeholder="hello@company.com"></label>
-        <label>Phone<input name="phone" required placeholder="010-0000-0000"></label>
-        <button class="primary-button full" type="submit">Add client</button>
+        <label>회사 / 고객명<input name="name" required placeholder="예: 오브젝트랩"></label>
+        <label>이메일<input name="email" type="email" required placeholder="hello@company.com"></label>
+        <label>연락처<input name="phone" required placeholder="010-0000-0000"></label>
+        <button class="primary-button full" type="submit">고객 추가</button>
       </form>
     </div>
   </div>
 
   <div class="toast" data-toast></div>
-  <script src="app.js?v=20260906-1"></script>
+  <script src="app.js?v=20260906-2"></script>
 </body>
 </html>
