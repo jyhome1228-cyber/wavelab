@@ -10,28 +10,53 @@ function ensureScript(src,id){if(document.getElementById(id))return;const script
 ensureStylesheet('dev-operational.css?v=20260906-3','aesost-operational-css');
 ensureStylesheet('universal-web-system.css?v=20260906-2','aesost-universal-ui-css');
 ensureStylesheet('custom-development.css?v=20260906-1','aesost-custom-development-css');
-ensureStylesheet('site-polish.css?v=20260906-2','aesost-site-polish-css');
+ensureStylesheet('site-polish.css?v=20260907-1','aesost-site-polish-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#09090a');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#09090a';document.head.appendChild(meta)}
+
 const items=[
-['01','1인사업자를 위한 관리 시스템','SoloDesk · 고객 · 프로젝트 · 정산','solution-solodesk.html'],
-['02','기업 B2B 문의 관리 시스템','B2B Inquiry Hub · 문의 · 영업 파이프라인','solution-b2b-inquiry.html'],
-['03','기업 홈페이지 운영 시스템','Company CMS · 콘텐츠 · 포트폴리오 · SEO','solution-company-cms.html'],
-['04','고객 프로젝트 공유 시스템','Client Portal · 일정 · 파일 · 승인 · 피드백','solution-client-portal.html'],
-['05','예약 기반 사업 관리 시스템','Booking OS · 예약 · 고객 · 이용권 · 담당자','solution-booking-os.html'],
-['06','협력사·발주 관리 시스템','Vendor Desk · 협력사 · 발주 · 납기 · 정산','solution-vendor-desk.html'],
-['07','회원·멤버십 운영 시스템','Membership Admin · 회원 · 플랜 · 결제 · 갱신','solution-membership-admin.html'],
-['08','고객 문의·지원 관리 시스템','Support Desk · 티켓 · SLA · 담당자 · 해결','solution-support-desk.html'],
-['09','프로젝트 협업·진행 관리 시스템','Project Room · 업무 · 일정 · 산출물 · 승인','solution-project-room.html'],
-['10','견적·제안서 자동화 시스템','QuoteFlow · 견적 · 버전 · VAT · 승인','solution-quote-flow.html']
+['01','1인사업자를 위한 관리 시스템','SoloDesk','solution-solodesk.html'],
+['02','기업 B2B 문의 관리 시스템','B2B Inquiry Hub','solution-b2b-inquiry.html'],
+['03','기업 홈페이지 운영 시스템','Company CMS','solution-company-cms.html'],
+['04','고객 프로젝트 공유 시스템','Client Portal','solution-client-portal.html'],
+['05','예약 기반 사업 관리 시스템','Booking OS','solution-booking-os.html'],
+['06','협력사·발주 관리 시스템','Vendor Desk','solution-vendor-desk.html'],
+['07','회원·멤버십 운영 시스템','Membership Admin','solution-membership-admin.html'],
+['08','고객 문의·지원 관리 시스템','Support Desk','solution-support-desk.html'],
+['09','프로젝트 협업·진행 관리 시스템','Project Room','solution-project-room.html'],
+['10','견적·제안서 자동화 시스템','QuoteFlow','solution-quote-flow.html']
 ];
-const dropdownItems=items.map(([n,title,desc,url])=>`<a class="dev-dropdown-item" href="${url}"><span class="dev-dropdown-index">${n}</span><span><strong>${title}</strong><small>${desc}</small></span><em class="is-live">VIEW SOLUTION</em></a>`).join('');
-const solutionDropdown=`<div class="dev-nav-dropdown${solutionsActive?' is-active':''}" data-solutions-dropdown><button class="dev-nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="aesost-solutions-dropdown" data-solutions-trigger>SYSTEM SOLUTIONS <span aria-hidden="true">⌄</span></button><div class="dev-dropdown-panel" id="aesost-solutions-dropdown" data-solutions-panel><div class="dev-dropdown-head"><span>AESOST SYSTEM SOLUTIONS</span><small>Interactive product demos</small></div>${dropdownItems}<a class="dev-dropdown-all" href="system-solutions.html">전체 시스템 솔루션 보기 <span aria-hidden="true">↗</span></a></div></div>`;
-const mobileItems=items.map(([,title,desc,url])=>`<a href="${url}"><span>${title}</span><small>${desc.split(' · ')[0]} · 제품 소개</small></a>`).join('');
-const headerMarkup=`<div class="shell dev-header-inner"><a class="dev-brand" href="index.html" aria-label="AESOST 홈">${logo}</a><nav class="dev-nav" aria-label="주요 메뉴"><a href="about.html" class="${isActive('about.html')?'is-active':''}"${activeAttr('about.html')}>ABOUT</a><a href="services.html" class="${isActive('services.html')?'is-active':''}"${activeAttr('services.html')}>SERVICES</a>${solutionDropdown}<a href="works.html" class="${isActive('works.html')?'is-active':''}"${activeAttr('works.html')}>WORKS</a></nav><a class="dev-contact" href="request.html"${activeAttr('request.html')}>CONTACT ↗</a><button class="dev-menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="aesost-mobile-nav" data-dev-menu><span></span><span></span></button></div><nav class="dev-mobile-nav" id="aesost-mobile-nav" data-dev-mobile aria-label="모바일 메뉴"><a href="about.html"${activeAttr('about.html')}><span>ABOUT</span><span aria-hidden="true">↗</span></a><a href="services.html"${activeAttr('services.html')}><span>SERVICES</span><span aria-hidden="true">↗</span></a><div class="dev-mobile-solutions${solutionsActive?' is-active':''}"><button type="button" aria-expanded="false" data-mobile-solutions-trigger><span>SYSTEM SOLUTIONS</span><span aria-hidden="true">+</span></button><div class="dev-mobile-solutions-panel" data-mobile-solutions-panel><a href="system-solutions.html"><span>전체 시스템 솔루션</span><small>Overview</small></a>${mobileItems}</div></div><a href="works.html"${activeAttr('works.html')}><span>WORKS</span><span aria-hidden="true">↗</span></a><a href="request.html"${activeAttr('request.html')}><span>CONTACT</span><span aria-hidden="true">↗</span></a></nav>`;
-const footerSystem=items.map(([,title,desc,url])=>`<a href="${url}">${title.replace(' 시스템','')} · ${desc.split(' · ')[0]} ↗</a>`).join('');
+
+const headerMarkup=`<div class="shell dev-header-inner">
+  <a class="dev-brand" href="index.html" aria-label="AESOST 홈">${logo}</a>
+  <nav class="dev-nav" aria-label="주요 메뉴">
+    <a href="about.html" class="${isActive('about.html')?'is-active':''}"${activeAttr('about.html')}>ABOUT</a>
+    <a href="services.html" class="${isActive('services.html')?'is-active':''}"${activeAttr('services.html')}>SERVICES</a>
+    <a href="system-solutions.html" class="${solutionsActive?'is-active':''}"${solutionsActive?' aria-current="page"':''}>SYSTEM SOLUTIONS</a>
+    <a href="works.html" class="${isActive('works.html')?'is-active':''}"${activeAttr('works.html')}>WORKS</a>
+  </nav>
+  <a class="dev-contact" href="request.html"${activeAttr('request.html')}>CONTACT ↗</a>
+  <button class="dev-menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="aesost-mobile-nav" data-dev-menu><span></span><span></span></button>
+</div>
+<nav class="dev-mobile-nav" id="aesost-mobile-nav" data-dev-mobile aria-label="모바일 메뉴">
+  <a href="about.html"${activeAttr('about.html')}><span>ABOUT</span><span aria-hidden="true">↗</span></a>
+  <a href="services.html"${activeAttr('services.html')}><span>SERVICES</span><span aria-hidden="true">↗</span></a>
+  <a href="system-solutions.html"${solutionsActive?' aria-current="page"':''}><span>SYSTEM SOLUTIONS</span><span aria-hidden="true">↗</span></a>
+  <a href="works.html"${activeAttr('works.html')}><span>WORKS</span><span aria-hidden="true">↗</span></a>
+  <a href="request.html"${activeAttr('request.html')}><span>CONTACT</span><span aria-hidden="true">↗</span></a>
+</nav>`;
+
+const footerSystem=items.map(([,title,product,url])=>`<a href="${url}">${title.replace(' 시스템','')} · ${product} ↗</a>`).join('');
 const footerMarkup=`<div class="shell"><div class="dev-custom-build"><span>CUSTOM DEVELOPMENT</span><div><strong>각 기업·브랜드에 맞춰 기능부터 디자인, 레이아웃과 콘텐츠 구조까지 커스터마이징해 개발합니다.</strong><p>AESOST는 정해진 템플릿을 그대로 적용하지 않습니다. 실제 업무 방식, 필요한 기능, 브랜드의 시각 언어와 운영 방식을 확인한 뒤 웹사이트와 시스템 구조를 함께 설계합니다.</p></div></div><div class="footer-top"><div><a class="footer-brand" href="index.html" aria-label="AESOST 홈">${logo}</a><p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p></div><div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="system-solutions.html">System Solutions</a><a href="works.html">Works</a></div><div class="footer-col"><h4>SYSTEM</h4>${footerSystem}</div></div><div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div></div>`;
-document.querySelectorAll('[data-dev-header]').forEach(el=>el.innerHTML=headerMarkup);document.querySelectorAll('[data-dev-footer]').forEach(el=>el.innerHTML=footerMarkup);
-const button=document.querySelector('[data-dev-menu]'),mobile=document.querySelector('[data-dev-mobile]');const closeMenu=()=>{if(!mobile||!button)return;mobile.classList.remove('is-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','메뉴 열기');document.body.classList.remove('menu-open')};const openMenu=()=>{if(!mobile||!button)return;mobile.classList.add('is-open');button.setAttribute('aria-expanded','true');button.setAttribute('aria-label','메뉴 닫기');document.body.classList.add('menu-open')};button?.addEventListener('click',()=>mobile?.classList.contains('is-open')?closeMenu():openMenu());mobile?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
-const solutionWrap=document.querySelector('[data-solutions-dropdown]'),solutionTrigger=document.querySelector('[data-solutions-trigger]');const closeSolutions=()=>{solutionWrap?.classList.remove('is-open');solutionTrigger?.setAttribute('aria-expanded','false')};solutionTrigger?.addEventListener('click',event=>{event.stopPropagation();const open=solutionWrap?.classList.toggle('is-open');solutionTrigger.setAttribute('aria-expanded',String(Boolean(open)))});solutionWrap?.addEventListener('mouseenter',()=>{solutionWrap.classList.add('is-open');solutionTrigger?.setAttribute('aria-expanded','true')});solutionWrap?.addEventListener('mouseleave',closeSolutions);solutionWrap?.addEventListener('focusout',event=>{if(!solutionWrap.contains(event.relatedTarget))closeSolutions()});document.addEventListener('click',event=>{if(solutionWrap&&!solutionWrap.contains(event.target))closeSolutions()});
-const mobileSolutions=document.querySelector('[data-mobile-solutions-trigger]'),mobileSolutionsPanel=document.querySelector('[data-mobile-solutions-panel]');mobileSolutions?.addEventListener('click',()=>{const open=mobileSolutionsPanel?.classList.toggle('is-open');mobileSolutions.setAttribute('aria-expanded',String(Boolean(open)));const indicator=mobileSolutions.querySelector('span:last-child');if(indicator)indicator.textContent=open?'−':'+'});document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMenu();closeSolutions()}});window.addEventListener('resize',()=>{if(window.innerWidth>767)closeMenu()},{passive:true});
+
+document.querySelectorAll('[data-dev-header]').forEach(el=>el.innerHTML=headerMarkup);
+document.querySelectorAll('[data-dev-footer]').forEach(el=>el.innerHTML=footerMarkup);
+
+const button=document.querySelector('[data-dev-menu]');
+const mobile=document.querySelector('[data-dev-mobile]');
+const closeMenu=()=>{if(!mobile||!button)return;mobile.classList.remove('is-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','메뉴 열기');document.body.classList.remove('menu-open')};
+const openMenu=()=>{if(!mobile||!button)return;mobile.classList.add('is-open');button.setAttribute('aria-expanded','true');button.setAttribute('aria-label','메뉴 닫기');document.body.classList.add('menu-open')};
+button?.addEventListener('click',()=>mobile?.classList.contains('is-open')?closeMenu():openMenu());
+mobile?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
+window.addEventListener('resize',()=>{if(window.innerWidth>767)closeMenu()},{passive:true});
