@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>SoloDesk — AESOST Concept System</title>
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260906-1">
+</head>
+<body>
+  <div class="demo-banner">
+    <span><b>AESOST CONCEPT SYSTEM</b> · Interactive Product Demo</span>
+    <a href="../../works.html">AESOST WORKS ↗</a>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-row">
+        <div class="product-mark">S</div>
+        <div><strong>SoloDesk</strong><span>Independent Business OS</span></div>
+      </div>
+
+      <nav class="side-nav" aria-label="SoloDesk 메뉴">
+        <button class="nav-item is-active" data-view="dashboard"><span class="nav-icon">⌂</span>Dashboard</button>
+        <button class="nav-item" data-view="clients"><span class="nav-icon">◫</span>Clients <em data-count="clients">0</em></button>
+        <button class="nav-item" data-view="projects"><span class="nav-icon">▣</span>Projects <em data-count="projects">0</em></button>
+        <button class="nav-item" data-view="finance"><span class="nav-icon">₩</span>Finance</button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="user-chip"><span>JY</span><div><b>Jaeyoung Park</b><small>Independent Designer</small></div></div>
+        <button class="text-button" data-reset>Reset demo data</button>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div>
+          <p class="kicker">SOLO BUSINESS MANAGEMENT</p>
+          <h1 data-view-title>Good afternoon, Jaeyoung.</h1>
+        </div>
+        <div class="top-actions">
+          <label class="search-box"><span>⌕</span><input type="search" placeholder="Search clients or projects" data-search></label>
+          <button class="primary-button" data-open-project>+ New project</button>
+        </div>
+      </header>
+
+      <section class="view is-active" data-view-panel="dashboard">
+        <div class="metric-grid">
+          <article class="metric-card"><span>This month</span><strong data-metric="revenue">₩0</strong><small>Revenue</small></article>
+          <article class="metric-card"><span>Outstanding</span><strong data-metric="outstanding">₩0</strong><small>Unpaid invoices</small></article>
+          <article class="metric-card"><span>Active</span><strong data-metric="active">0</strong><small>Projects in progress</small></article>
+          <article class="metric-card"><span>Clients</span><strong data-metric="clients">0</strong><small>Total clients</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel large-panel">
+            <div class="panel-head"><div><span>PROJECT PIPELINE</span><h2>Current work</h2></div><button class="text-link" data-go="projects">View all ↗</button></div>
+            <div class="project-list" data-dashboard-projects></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><div><span>THIS MONTH</span><h2>Cash flow</h2></div><b data-cash-total>₩0</b></div>
+            <div class="bar-chart" data-chart></div>
+            <div class="chart-legend"><span><i class="dot income"></i>Paid</span><span><i class="dot pending"></i>Pending</span></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><div><span>NEXT</span><h2>Upcoming</h2></div></div>
+            <div class="upcoming-list" data-upcoming></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="clients">
+        <div class="section-toolbar"><div><p>CLIENT DATABASE</p><h2>Clients</h2></div><button class="secondary-button" data-open-client>+ Add client</button></div>
+        <div class="table-card">
+          <table><thead><tr><th>Client</th><th>Contact</th><th>Projects</th><th>Total value</th><th>Status</th></tr></thead><tbody data-clients-table></tbody></table>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="projects">
+        <div class="section-toolbar"><div><p>PROJECT MANAGEMENT</p><h2>Projects</h2></div><div class="filter-row"><button class="filter is-active" data-filter="all">All</button><button class="filter" data-filter="In Progress">In progress</button><button class="filter" data-filter="Review">Review</button><button class="filter" data-filter="Complete">Complete</button></div></div>
+        <div class="project-board" data-project-board></div>
+      </section>
+
+      <section class="view" data-view-panel="finance">
+        <div class="section-toolbar"><div><p>FINANCE</p><h2>Invoices & payments</h2></div></div>
+        <div class="finance-summary">
+          <article><span>Paid</span><strong data-finance-paid>₩0</strong></article>
+          <article><span>Pending</span><strong data-finance-pending>₩0</strong></article>
+          <article><span>Total project value</span><strong data-finance-total>₩0</strong></article>
+        </div>
+        <div class="table-card">
+          <table><thead><tr><th>Invoice</th><th>Client</th><th>Project</th><th>Amount</th><th>Due</th><th>Status</th></tr></thead><tbody data-finance-table></tbody></table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" data-modal="project" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head"><div><span>NEW PROJECT</span><h2>Add a project</h2></div><button class="close-button" data-close>×</button></div>
+      <form data-project-form>
+        <label>Project name<input name="name" required placeholder="e.g. Brand website renewal"></label>
+        <label>Client<select name="client" required data-client-select></select></label>
+        <div class="form-two"><label>Value<input name="amount" type="number" min="0" step="100000" required placeholder="3500000"></label><label>Due date<input name="due" type="date" required></label></div>
+        <label>Status<select name="status"><option>In Progress</option><option>Review</option><option>Complete</option></select></label>
+        <button class="primary-button full" type="submit">Create project</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" data-modal="client" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head"><div><span>NEW CLIENT</span><h2>Add a client</h2></div><button class="close-button" data-close>×</button></div>
+      <form data-client-form>
+        <label>Company / Name<input name="name" required placeholder="e.g. Studio More"></label>
+        <label>Email<input name="email" type="email" required placeholder="hello@company.com"></label>
+        <label>Phone<input name="phone" required placeholder="010-0000-0000"></label>
+        <button class="primary-button full" type="submit">Add client</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" data-toast></div>
+  <script src="app.js?v=20260906-1"></script>
+</body>
+</html>
