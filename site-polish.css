@@ -1,12 +1,13 @@
 /* AESOST Site Polish / 2026-09-06
    Final structural refinement layer.
-   Connected layouts stay square and line-based; only independent UI surfaces use subtle radius. */
+   Content explanation groups use spaced cards; navigation and data-heavy UI stay restrained. */
 
 :root{
   --ui-radius-control:6px;
   --ui-radius-card:8px;
-  --ui-radius-panel:8px;
-  --ui-radius-connected:0px;
+  --ui-radius-panel:10px;
+  --ui-radius-explain:10px;
+  --ui-card-gap:12px;
   --ui-section-y:72px;
   --ui-section-y-mobile:52px;
 }
@@ -20,15 +21,73 @@
 .hero-actions{margin-top:28px!important}
 .section,.page-hero,.cta-section,.dev-footer{border-color:var(--line)!important}
 
-/* keep connected structures architectural, not card-like */
+/* ---------------------------------------------------------
+   Header / dropdown
+   Main-navigation underline belongs only to the top-level nav.
+   Dropdown rows use neutral separators, never the purple link underline.
+--------------------------------------------------------- */
+.dev-nav>a{
+  height:var(--header-height)!important;
+  display:inline-flex!important;
+  align-items:center!important;
+}
+.dev-nav>a:after{
+  bottom:0!important;
+}
+.dev-nav-dropdown.is-active:after{
+  bottom:0!important;
+}
+.dev-dropdown-item:after,
+.dev-dropdown-all:after,
+.dev-dropdown-panel a:after{
+  content:none!important;
+  display:none!important;
+}
+.dev-dropdown-panel{
+  top:calc(100% + 8px)!important;
+  width:min(620px,calc(100vw - 48px))!important;
+  max-height:calc(100svh - var(--header-height) - 28px)!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  border:1px solid var(--line-strong)!important;
+  border-radius:var(--ui-radius-panel)!important;
+  padding:14px!important;
+  background:#101012!important;
+}
+.dev-dropdown-head{
+  padding:4px 4px 14px!important;
+  border-bottom:1px solid var(--line)!important;
+}
+.dev-dropdown-item{
+  padding:12px 6px!important;
+  border-bottom:1px solid var(--line)!important;
+  background:transparent!important;
+}
+a.dev-dropdown-item:hover{
+  padding-left:10px!important;
+  background:#151518!important;
+  border-radius:6px!important;
+}
+.dev-dropdown-all{
+  padding:14px 4px 2px!important;
+  border-top:0!important;
+}
+
+/* ---------------------------------------------------------
+   Explanation / principle / workflow groups
+   These are content cards, so each item should feel independent.
+--------------------------------------------------------- */
 .solution-problems,
 .solution-flow,
 .capability-grid,
 .about-principles,
 .process-grid,
 .process-compact{
-  border-radius:var(--ui-radius-connected)!important;
-  overflow:hidden;
+  gap:var(--ui-card-gap)!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  overflow:visible!important;
 }
 .solution-problems article,
 .solution-flow article,
@@ -36,8 +95,11 @@
 .about-principle,
 .process-step,
 .process-compact article{
-  border-radius:0!important;
+  border:1px solid var(--line)!important;
+  border-radius:var(--ui-radius-explain)!important;
+  background:#0d0d0f!important;
   box-shadow:none!important;
+  overflow:hidden;
 }
 .solution-problems article,
 .solution-flow article{
@@ -53,8 +115,20 @@
   font-size:15px!important;
   line-height:1.65!important;
 }
+.capability,
+.about-principle,
+.process-step,
+.process-compact article{
+  padding:24px!important;
+}
+.capability h3,
+.about-principle h3,
+.process-step h3,
+.process-compact h3{
+  margin:32px 0 12px!important;
+}
 
-/* independent cards use only a quiet radius */
+/* independent cards use a quiet radius */
 .project-card,
 .case-card,
 .solution-catalog-card,
@@ -133,19 +207,6 @@
 .case-tags span,
 .solution-meta span{border-radius:4px!important}
 
-/* dropdown has many solutions now: compact and scroll-safe */
-.dev-dropdown-panel{
-  width:min(620px,calc(100vw - 48px))!important;
-  max-height:calc(100svh - var(--header-height) - 20px)!important;
-  overflow-y:auto!important;
-  overscroll-behavior:contain;
-  border-radius:var(--ui-radius-panel)!important;
-  padding:14px!important;
-}
-.dev-dropdown-item{padding:12px 6px!important}
-.dev-dropdown-head{padding:4px 4px 12px!important}
-.dev-dropdown-all{padding:14px 4px 2px!important}
-
 /* cleaner catalog and work spacing */
 .solution-catalog{gap:16px!important}
 .project-grid,.case-grid{gap:24px!important}
@@ -176,24 +237,28 @@
 .field input,.field select{min-height:44px!important}
 .field textarea{min-height:132px!important}
 
-/* prevent accidental radius on connected components added by future overrides */
-.solution-problems>* ,
-.solution-flow>* ,
-.capability-grid>* ,
-.about-principles>* ,
-.process-grid>* ,
-.process-compact>*{border-radius:0!important}
-
 @media(max-width:900px){
-  :root{--ui-section-y:60px}
+  :root{--ui-section-y:60px;--ui-card-gap:10px}
   .section-head{margin-bottom:32px!important}
   .footer-col:last-child{grid-template-columns:1fr 1fr}
+  .solution-problems,
+  .solution-flow,
+  .capability-grid,
+  .about-principles,
+  .process-grid,
+  .process-compact{gap:10px!important}
 }
 
 @media(max-width:767px){
   .section,.page-hero{padding:var(--ui-section-y-mobile) 0!important}
   .section-head{margin-bottom:28px!important}
   .solution-problems article,.solution-flow article{padding:24px 20px!important}
+  .solution-problems,
+  .solution-flow,
+  .capability-grid,
+  .about-principles,
+  .process-grid,
+  .process-compact{gap:10px!important}
   .solution-feature-nav{border-top:0!important}
   .solution-feature-tab{
     min-width:205px!important;
@@ -204,4 +269,8 @@
   .project-grid,.case-grid{gap:20px!important}
   .footer-col:last-child{display:block}
   .footer-col:last-child a{margin:8px 0!important}
+  .dev-dropdown-panel{
+    top:100%!important;
+    border-radius:0!important;
+  }
 }
