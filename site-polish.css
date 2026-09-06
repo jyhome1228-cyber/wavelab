@@ -1,0 +1,207 @@
+/* AESOST Site Polish / 2026-09-06
+   Final structural refinement layer.
+   Connected layouts stay square and line-based; only independent UI surfaces use subtle radius. */
+
+:root{
+  --ui-radius-control:6px;
+  --ui-radius-card:8px;
+  --ui-radius-panel:8px;
+  --ui-radius-connected:0px;
+  --ui-section-y:72px;
+  --ui-section-y-mobile:52px;
+}
+
+/* overall rhythm */
+.section{padding:var(--ui-section-y) 0!important}
+.page-hero{padding:72px 0 64px!important}
+.section-head{margin-bottom:40px!important}
+.section-head .section-copy p{margin-top:20px!important}
+.page-hero .lead{margin-top:22px!important}
+.hero-actions{margin-top:28px!important}
+.section,.page-hero,.cta-section,.dev-footer{border-color:var(--line)!important}
+
+/* keep connected structures architectural, not card-like */
+.solution-problems,
+.solution-flow,
+.capability-grid,
+.about-principles,
+.process-grid,
+.process-compact{
+  border-radius:var(--ui-radius-connected)!important;
+  overflow:hidden;
+}
+.solution-problems article,
+.solution-flow article,
+.capability,
+.about-principle,
+.process-step,
+.process-compact article{
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.solution-problems article,
+.solution-flow article{
+  padding:28px 24px!important;
+}
+.solution-problems h3,
+.solution-flow h3{
+  margin:28px 0 10px!important;
+}
+.solution-problems p,
+.solution-flow p{
+  color:#9b9ba3!important;
+  font-size:15px!important;
+  line-height:1.65!important;
+}
+
+/* independent cards use only a quiet radius */
+.project-card,
+.case-card,
+.solution-catalog-card,
+.definition-card,
+.work-row,
+.metric-card,
+.panel,
+.finance-summary article{
+  border-radius:var(--ui-radius-card)!important;
+  box-shadow:none!important;
+}
+.case-visual,
+.project-thumb,
+.solution-visual,
+.solution-detail-visual,
+.system-visual,
+.solution-demo-browser,
+.solution-feature-browser{
+  border-radius:var(--ui-radius-panel)!important;
+  overflow:hidden;
+}
+
+/* cards should read as sections, not bubbles */
+.project-card,
+.case-card,
+.solution-catalog-card,
+.definition-card,
+.work-row{
+  border-color:var(--line)!important;
+  background:transparent!important;
+}
+.project-card:hover,
+.case-card:hover,
+.work-row:hover,
+.solution-catalog-card:hover{
+  border-color:var(--line-strong)!important;
+  background:#0f0f11!important;
+}
+
+/* solution feature navigation: line-based on desktop */
+.solution-feature-nav{border-top:1px solid var(--line)!important}
+.solution-feature-tab{
+  min-height:68px!important;
+  padding:16px 14px!important;
+  border-radius:0!important;
+  border-left:2px solid transparent!important;
+  border-bottom:1px solid var(--line)!important;
+  background:transparent!important;
+}
+.solution-feature-tab:hover{background:#111113!important}
+.solution-feature-tab.is-active{
+  border-left-color:var(--purple)!important;
+  background:#111113!important;
+}
+.solution-feature-tab strong{font-size:15px!important}
+.solution-feature-tab small{font-size:12px!important}
+
+/* buttons and fields */
+.btn,
+.dev-contact,
+.primary-button,
+.secondary-button,
+.field input,
+.field select,
+.field textarea,
+.choice span,
+.form-notice{
+  border-radius:var(--ui-radius-control)!important;
+}
+.cta-section .btn{border-radius:var(--ui-radius-control)!important}
+.solution-detail-tags span,
+.solution-status span,
+.solution-catalog-tags span{border-radius:999px!important}
+.service-tags span,
+.tech-line span,
+.case-tags span,
+.solution-meta span{border-radius:4px!important}
+
+/* dropdown has many solutions now: compact and scroll-safe */
+.dev-dropdown-panel{
+  width:min(620px,calc(100vw - 48px))!important;
+  max-height:calc(100svh - var(--header-height) - 20px)!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  border-radius:var(--ui-radius-panel)!important;
+  padding:14px!important;
+}
+.dev-dropdown-item{padding:12px 6px!important}
+.dev-dropdown-head{padding:4px 4px 12px!important}
+.dev-dropdown-all{padding:14px 4px 2px!important}
+
+/* cleaner catalog and work spacing */
+.solution-catalog{gap:16px!important}
+.project-grid,.case-grid{gap:24px!important}
+.project-info,.case-body{padding-top:18px!important}
+.project-info h3,.case-card h2{margin-top:8px!important}
+
+/* content measures */
+.solution-detail-copy .lead,
+.solution-intro-copy>p,
+.section-copy p,
+.request-intro>p:last-child{max-width:650px!important}
+.solution-detail-tags{margin-top:22px!important}
+
+/* footer: ten solution links stay readable */
+.footer-col:last-child{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:20px;
+  align-content:start;
+}
+.footer-col:last-child h4{grid-column:1/-1}
+.footer-col:last-child a{margin:5px 0!important;line-height:1.45}
+.dev-custom-build{border-radius:0!important}
+
+/* request form should feel like the same system */
+.request-section{padding:40px 0!important}
+.request-section-head{margin-bottom:20px!important}
+.field input,.field select{min-height:44px!important}
+.field textarea{min-height:132px!important}
+
+/* prevent accidental radius on connected components added by future overrides */
+.solution-problems>* ,
+.solution-flow>* ,
+.capability-grid>* ,
+.about-principles>* ,
+.process-grid>* ,
+.process-compact>*{border-radius:0!important}
+
+@media(max-width:900px){
+  :root{--ui-section-y:60px}
+  .section-head{margin-bottom:32px!important}
+  .footer-col:last-child{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:767px){
+  .section,.page-hero{padding:var(--ui-section-y-mobile) 0!important}
+  .section-head{margin-bottom:28px!important}
+  .solution-problems article,.solution-flow article{padding:24px 20px!important}
+  .solution-feature-nav{border-top:0!important}
+  .solution-feature-tab{
+    min-width:205px!important;
+    border:1px solid var(--line)!important;
+    border-radius:var(--ui-radius-control)!important;
+  }
+  .solution-feature-tab.is-active{border-color:var(--purple)!important}
+  .project-grid,.case-grid{gap:20px!important}
+  .footer-col:last-child{display:block}
+  .footer-col:last-child a{margin:8px 0!important}
+}
