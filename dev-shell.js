@@ -10,6 +10,17 @@ const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
 const desktopNav=nav.map(([label,url])=>`<a href="${url}" class="${isActive(url)?'is-active':''}"${activeAttr(url)}>${label}</a>`).join('');
 const mobileNav=[...nav,['CONTACT','request.html']].map(([label,url])=>`<a href="${url}"${activeAttr(url)}><span>${label}</span><span aria-hidden="true">↗</span></a>`).join('');
 
+function ensureStylesheet(href,id){
+  if(document.getElementById(id))return;
+  const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.id=id;document.head.appendChild(link);
+}
+function ensureScript(src,id){
+  if(document.getElementById(id))return;
+  const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script);
+}
+ensureStylesheet('dev-operational.css?v=20260906-1','aesost-operational-css');
+ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
+
 const themeMeta=document.querySelector('meta[name="theme-color"]');
 if(themeMeta)themeMeta.setAttribute('content','#09090a');
 else{
