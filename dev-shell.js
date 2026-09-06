@@ -10,6 +10,7 @@ function ensureScript(src,id){if(document.getElementById(id))return;const script
 ensureStylesheet('dev-operational.css?v=20260906-3','aesost-operational-css');
 ensureStylesheet('universal-web-system.css?v=20260906-2','aesost-universal-ui-css');
 ensureStylesheet('custom-development.css?v=20260906-1','aesost-custom-development-css');
+ensureStylesheet('site-polish.css?v=20260906-1','aesost-site-polish-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#09090a');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#09090a';document.head.appendChild(meta)}
 const items=[
