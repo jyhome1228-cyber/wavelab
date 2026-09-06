@@ -1,7 +1,7 @@
 const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const isDemoPath=location.pathname.includes('/demo/');
 const isActive=(url)=>current===url;
-const solutionsActive=current==='system-solutions.html'||isDemoPath;
+const solutionsActive=current==='system-solutions.html'||current==='solution-solodesk.html'||isDemoPath;
 const logo='<img src="aesost-logo.svg?v=20260803-4" alt="AESOST">';
 const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
 
@@ -32,10 +32,10 @@ const solutionDropdown=`
     </button>
     <div class="dev-dropdown-panel" id="aesost-solutions-dropdown" data-solutions-panel>
       <div class="dev-dropdown-head"><span>AESOST SYSTEM SOLUTIONS</span><small>Interactive product demos</small></div>
-      <a class="dev-dropdown-item" href="demo/solodesk/">
+      <a class="dev-dropdown-item" href="solution-solodesk.html">
         <span class="dev-dropdown-index">01</span>
         <span><strong>SoloDesk</strong><small>1인사업자 · 프리랜서 업무관리</small></span>
-        <em class="is-live">LIVE DEMO</em>
+        <em class="is-live">VIEW SOLUTION</em>
       </a>
       <div class="dev-dropdown-item is-disabled">
         <span class="dev-dropdown-index">02</span>
@@ -69,7 +69,7 @@ const headerMarkup=`<div class="shell dev-header-inner">
     <button type="button" aria-expanded="false" data-mobile-solutions-trigger><span>SYSTEM SOLUTIONS</span><span aria-hidden="true">+</span></button>
     <div class="dev-mobile-solutions-panel" data-mobile-solutions-panel>
       <a href="system-solutions.html"><span>전체 시스템 솔루션</span><small>Overview</small></a>
-      <a href="demo/solodesk/"><span>SoloDesk</span><small>LIVE DEMO ↗</small></a>
+      <a href="solution-solodesk.html"><span>SoloDesk</span><small>제품 소개 · 화면 안내</small></a>
       <div><span>B2B Inquiry Hub</span><small>COMING SOON</small></div>
       <div><span>Company CMS</span><small>COMING SOON</small></div>
     </div>
@@ -85,7 +85,7 @@ const footerMarkup=`<div class="shell">
       <p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p>
     </div>
     <div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="system-solutions.html">System Solutions</a><a href="works.html">Works</a></div>
-    <div class="footer-col"><h4>PROJECT</h4><a href="demo/solodesk/">SoloDesk Demo ↗</a><a href="request.html">Project Request ↗</a><a href="index.html#process">Process</a></div>
+    <div class="footer-col"><h4>PROJECT</h4><a href="solution-solodesk.html">SoloDesk Solution ↗</a><a href="request.html">Project Request ↗</a><a href="index.html#process">Process</a></div>
   </div>
   <div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div>
 </div>`;
