@@ -1,0 +1,1 @@
+const params=new URLSearchParams(location.search);const view=params.get('view');if(view){const btn=document.querySelector(`[data-view="${view}"]`);btn?.click()}if(params.get('guide')==='1'){document.body.classList.add('guide-mode');document.querySelectorAll('button,input,select').forEach(el=>{if(!el.classList.contains('nav-item'))el.setAttribute('tabindex','-1')})}
