@@ -9,6 +9,15 @@ const logo='<img src="aesost-logo.svg?v=20260803-4" alt="AESOST">';
 const desktopNav=nav.map(([label,url])=>`<a href="${url}" class="${isActive(url)?'is-active':''}">${label}</a>`).join('');
 const mobileNav=[...nav,['CONTACT','request.html']].map(([label,url])=>`<a href="${url}"><span>${label}</span><span>↗</span></a>`).join('');
 
+const themeMeta=document.querySelector('meta[name="theme-color"]');
+if(themeMeta)themeMeta.setAttribute('content','#09090a');
+else{
+  const meta=document.createElement('meta');
+  meta.name='theme-color';
+  meta.content='#09090a';
+  document.head.appendChild(meta);
+}
+
 const headerMarkup=`<div class="shell dev-header-inner">
   <a class="dev-brand" href="index.html" aria-label="AESOST home">${logo}</a>
   <nav class="dev-nav" aria-label="Primary navigation">${desktopNav}</nav>
