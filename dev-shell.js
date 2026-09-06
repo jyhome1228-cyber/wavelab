@@ -1,7 +1,7 @@
 const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const isDemoPath=location.pathname.includes('/demo/');
 const isActive=(url)=>current===url;
-const solutionPages=['system-solutions.html','solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html','solution-project-room.html'];
+const solutionPages=['system-solutions.html','solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html','solution-project-room.html','solution-quote-flow.html'];
 const solutionsActive=solutionPages.includes(current)||isDemoPath;
 const logo='<img src="aesost-logo.svg?v=20260803-4" alt="AESOST">';
 const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
@@ -21,7 +21,8 @@ const items=[
 ['06','협력사·발주 관리 시스템','Vendor Desk · 협력사 · 발주 · 납기 · 정산','solution-vendor-desk.html'],
 ['07','회원·멤버십 운영 시스템','Membership Admin · 회원 · 플랜 · 결제 · 갱신','solution-membership-admin.html'],
 ['08','고객 문의·지원 관리 시스템','Support Desk · 티켓 · SLA · 담당자 · 해결','solution-support-desk.html'],
-['09','프로젝트 협업·진행 관리 시스템','Project Room · 업무 · 일정 · 산출물 · 승인','solution-project-room.html']
+['09','프로젝트 협업·진행 관리 시스템','Project Room · 업무 · 일정 · 산출물 · 승인','solution-project-room.html'],
+['10','견적·제안서 자동화 시스템','QuoteFlow · 견적 · 버전 · VAT · 승인','solution-quote-flow.html']
 ];
 const dropdownItems=items.map(([n,title,desc,url])=>`<a class="dev-dropdown-item" href="${url}"><span class="dev-dropdown-index">${n}</span><span><strong>${title}</strong><small>${desc}</small></span><em class="is-live">VIEW SOLUTION</em></a>`).join('');
 const solutionDropdown=`<div class="dev-nav-dropdown${solutionsActive?' is-active':''}" data-solutions-dropdown><button class="dev-nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="aesost-solutions-dropdown" data-solutions-trigger>SYSTEM SOLUTIONS <span aria-hidden="true">⌄</span></button><div class="dev-dropdown-panel" id="aesost-solutions-dropdown" data-solutions-panel><div class="dev-dropdown-head"><span>AESOST SYSTEM SOLUTIONS</span><small>Interactive product demos</small></div>${dropdownItems}<a class="dev-dropdown-all" href="system-solutions.html">전체 시스템 솔루션 보기 <span aria-hidden="true">↗</span></a></div></div>`;
