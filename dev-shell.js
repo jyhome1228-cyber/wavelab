@@ -13,6 +13,7 @@ ensureStylesheet('custom-development.css?v=20260906-1','aesost-custom-developmen
 ensureStylesheet('site-polish.css?v=20260907-1','aesost-site-polish-css');
 ensureStylesheet('project-room-fix.css?v=20260907-1','aesost-project-room-fix-css');
 ensureStylesheet('motion-widgets.css?v=20260907-1','aesost-motion-widgets-css');
+ensureStylesheet('alignment-system.css?v=20260907-1','aesost-alignment-system-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#09090a');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#09090a';document.head.appendChild(meta)}
 
