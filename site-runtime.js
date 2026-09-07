@@ -6,6 +6,11 @@
   document.querySelectorAll('img').forEach((img,index)=>{
     if(!img.hasAttribute('decoding')) img.decoding='async';
     if(index>0 && !img.hasAttribute('loading')) img.loading='lazy';
+
+    const src=img.getAttribute('src')||'';
+    if(src==='assets/dev/work-project-room.svg'){
+      img.setAttribute('src','assets/dev/work-project-room.svg?v=20260907-3');
+    }
   });
 
   document.querySelectorAll('a[href]').forEach(link=>{
