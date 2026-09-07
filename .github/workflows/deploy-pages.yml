@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Apply current AESOST SEO
+        run: node scripts/apply-seo.mjs
       - name: Validate core site
         run: node scripts/validate-site.mjs
       - uses: actions/configure-pages@v5
