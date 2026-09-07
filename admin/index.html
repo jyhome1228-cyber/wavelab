@@ -4,24 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f6f7f9">
   <title>AESOST Admin</title>
   <link rel="icon" href="../favicon.svg?v=20260803-4" type="image/svg+xml">
-  <link rel="stylesheet" href="admin.css?v=20260804-3">
-  <link rel="stylesheet" href="admin-account.css?v=20260804-1">
-  <link rel="stylesheet" href="admin-current.css?v=20260907-1">
+  <link rel="stylesheet" href="admin-current.css?v=20260907-2">
 </head>
 <body>
   <section class="admin-gate" data-admin-gate>
     <div class="gate-grid" aria-hidden="true"></div>
     <div class="gate-card">
       <a class="gate-brand" href="../index.html" aria-label="AESOST 홈으로 이동">
-        <img class="gate-symbol" src="../aesost-symbol.svg" alt="">
-        <img class="gate-logo" src="../aesost-logo-dark.svg?v=20260907-1" alt="AESOST">
+        <img src="../aesost-logo-dark.svg?v=20260907-1" alt="AESOST">
       </a>
-      <p class="gate-kicker">AESOST ADMIN CONSOLE</p>
+      <p class="gate-kicker">AESOST BUSINESS CONSOLE</p>
       <h1 data-admin-gate-title>관리자 계정 확인 중</h1>
-      <p class="gate-copy" data-admin-gate-message>현재 로그인한 Firebase 계정의 관리자 권한을 확인하고 있습니다.</p>
+      <p class="gate-copy" data-admin-gate-message>관리자 권한과 운영 데이터를 확인하고 있습니다.</p>
       <div class="gate-actions" data-admin-gate-actions hidden>
         <a class="gate-primary" href="../login.html?next=admin/">관리자 로그인</a>
         <button type="button" data-admin-switch-account>다른 계정으로 로그인</button>
@@ -33,94 +30,165 @@
   <div class="admin-app" data-admin-app hidden>
     <aside class="admin-sidebar">
       <div>
-        <a class="sidebar-brand" href="../index.html">
-          <img class="sidebar-symbol" src="../aesost-symbol.svg" alt="">
-          <img class="sidebar-logo" src="../aesost-logo-dark.svg?v=20260907-1" alt="AESOST">
+        <a class="sidebar-brand" href="../index.html" aria-label="AESOST 홈">
+          <img src="../aesost-logo-dark.svg?v=20260907-1" alt="AESOST">
         </a>
-        <p class="sidebar-caption">ADMIN CONSOLE</p>
+        <p class="sidebar-caption">BUSINESS CONSOLE</p>
         <nav class="sidebar-nav" aria-label="관리자 메뉴">
-          <a class="is-active" href="#business-overview"><span>01</span>대시보드</a>
-          <a href="#requests"><span>02</span>프로젝트 문의</a>
-          <a href="#solutions-admin"><span>03</span>솔루션</a>
-          <a href="#visitors"><span>04</span>방문자</a>
-          <a href="#members"><span>05</span>회원</a>
+          <a class="is-active" href="#dashboard" data-admin-nav="dashboard"><span>01</span>대시보드</a>
+          <a href="#requests" data-admin-nav="requests"><span>02</span>프로젝트 문의</a>
+          <a href="#solutions" data-admin-nav="solutions"><span>03</span>솔루션</a>
+          <a href="#visitors" data-admin-nav="visitors"><span>04</span>방문자</a>
+          <a href="#members" data-admin-nav="members"><span>05</span>회원</a>
         </nav>
       </div>
       <div class="sidebar-foot">
         <span class="sidebar-admin-account" data-admin-account></span>
         <a href="../index.html">사이트 보기 ↗</a>
-        <button type="button" data-admin-logout>관리자 로그아웃</button>
+        <button type="button" data-admin-logout>로그아웃</button>
       </div>
     </aside>
 
     <main class="admin-main">
       <header class="admin-header">
         <div>
-          <p>AESOST BUSINESS CONSOLE</p>
-          <h1>운영 대시보드</h1>
+          <p data-admin-header-kicker>OVERVIEW</p>
+          <h1 data-admin-header-title>대시보드</h1>
         </div>
         <div class="header-actions">
-          <span class="connection-status" data-connection-status>Firebase 연결 대기</span>
+          <span class="connection-status" data-connection-status>데이터 연결 중</span>
           <button type="button" data-refresh>새로고침</button>
         </div>
       </header>
 
-      <section class="admin-section" id="overview">
-        <div class="admin-section-title">
-          <div><span>MEMBER SUMMARY</span><h2>회원 현황</h2></div>
-          <p>회원 데이터는 기존 Firebase users 컬렉션 기준으로 유지합니다.</p>
-        </div>
-        <div class="metric-grid">
-          <article class="metric-card metric-main"><span>TOTAL MEMBERS</span><strong data-total-users>—</strong><p>누적 가입 회원</p></article>
-          <article class="metric-card"><span>NEW · 7 DAYS</span><strong data-new-users>—</strong><p>최근 7일 신규 가입</p></article>
-          <article class="metric-card"><span>ACTIVE · 30 DAYS</span><strong data-active-users>—</strong><p>최근 30일 로그인</p></article>
-          <article class="metric-card"><span>TODAY LOGIN</span><strong data-today-users>—</strong><p>오늘 로그인 회원</p></article>
-        </div>
-      </section>
+      <div class="admin-content">
+        <section class="admin-view is-active" id="dashboard" data-admin-view="dashboard">
+          <div class="view-head">
+            <div><span>BUSINESS OVERVIEW</span><h2>오늘 확인할 운영 상태</h2></div>
+            <p>문의, 방문자, 회원과 공개 솔루션을 한 화면에서 요약합니다.</p>
+          </div>
+          <div class="business-metrics">
+            <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4z"/><path d="M8 9h8M8 13h5"/></svg></i><span>NEW REQUESTS</span><strong data-admin-new-requests>—</strong><p>확인하지 않은 신규 문의</p></article>
+            <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M4 19V5h16v14z"/><path d="M8 15V9M12 15v-3M16 15V7"/></svg></i><span>ACTIVE PIPELINE</span><strong data-admin-active-requests>—</strong><p>연락·제안 진행 중</p></article>
+            <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg></i><span>TODAY VISITORS</span><strong data-dashboard-visitors>—</strong><p>오늘 순 방문자</p></article>
+            <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></i><span>TOTAL MEMBERS</span><strong data-dashboard-members>—</strong><p>누적 가입 회원</p></article>
+          </div>
 
-      <section class="analytics-grid" id="growth">
-        <article class="dashboard-panel growth-panel">
-          <div class="panel-head"><div><span>MEMBER GROWTH</span><h2>최근 14일 가입 추이</h2></div><p data-growth-summary>데이터를 불러오는 중입니다.</p></div>
-          <div class="growth-chart" data-growth-chart></div>
-        </article>
-        <article class="dashboard-panel status-panel">
-          <div class="panel-head"><div><span>ACCOUNT STATUS</span><h2>회원 상태</h2></div></div>
-          <div class="status-overview" data-status-overview></div>
-        </article>
-      </section>
+          <div class="dashboard-grid">
+            <article class="dashboard-panel dashboard-recent">
+              <div class="panel-head"><div><span>RECENT REQUESTS</span><h3>최근 프로젝트 문의</h3></div><button type="button" class="text-button" data-go-view="requests">전체 보기 ↗</button></div>
+              <div class="recent-request-list" data-dashboard-request-list><div class="empty-state compact"><strong>문의 데이터를 확인하고 있습니다.</strong></div></div>
+            </article>
+            <article class="dashboard-panel dashboard-status">
+              <div class="panel-head"><div><span>SYSTEM STATUS</span><h3>공개 시스템</h3></div><button type="button" class="text-button" data-go-view="solutions">솔루션 보기 ↗</button></div>
+              <div class="system-summary">
+                <div><strong>10</strong><span>LIVE SOLUTIONS</span></div>
+                <div><strong>10</strong><span>INTERACTIVE DEMOS</span></div>
+              </div>
+              <p class="panel-note">현재 공개된 솔루션과 데모 링크를 어드민에서 바로 확인할 수 있습니다.</p>
+            </article>
+          </div>
+        </section>
 
-      <section class="admin-section" id="members">
-        <article class="dashboard-panel members-panel">
-          <div class="panel-head member-panel-head">
-            <div><span>MEMBER DIRECTORY</span><h2>가입 회원</h2></div>
-            <div class="member-tools">
-              <input type="search" placeholder="이름 또는 이메일 검색" data-member-search aria-label="회원 검색">
-              <select data-date-filter aria-label="가입 기간 필터">
-                <option value="all">전체 기간</option>
-                <option value="7">최근 7일</option>
-                <option value="30">최근 30일</option>
-                <option value="90">최근 90일</option>
+        <section class="admin-view" id="requests" data-admin-view="requests" hidden>
+          <div class="view-head">
+            <div><span>PROJECT REQUESTS</span><h2>프로젝트 문의</h2></div>
+            <p>aesost.com 문의폼으로 접수된 프로젝트를 상태별로 관리합니다.</p>
+          </div>
+          <article class="request-panel">
+            <div class="request-tools">
+              <input type="search" placeholder="회사명, 이름, 이메일 검색" data-request-search aria-label="프로젝트 문의 검색">
+              <select data-request-status-filter aria-label="문의 상태 필터">
+                <option value="all">전체 상태</option>
+                <option value="new">신규</option>
+                <option value="contacted">연락완료</option>
+                <option value="proposal">제안중</option>
+                <option value="won">계약</option>
+                <option value="closed">종료</option>
               </select>
-              <button type="button" data-export-csv>CSV 내보내기</button>
             </div>
-          </div>
-          <div class="member-table-wrap">
-            <table>
-              <thead><tr><th>회원</th><th>이메일</th><th>가입일</th><th>최근 로그인</th><th>상태</th></tr></thead>
-              <tbody data-member-rows><tr><td class="table-empty" colspan="5">회원 데이터를 불러오고 있습니다.</td></tr></tbody>
-            </table>
-          </div>
-          <div class="table-footer"><span data-filtered-count>0명 표시</span><span>Firestore users 컬렉션 기준</span></div>
-        </article>
-      </section>
+            <div class="request-table-wrap">
+              <table class="request-table">
+                <thead><tr><th>접수일</th><th>회사 / 담당자</th><th>요청 유형</th><th>예산</th><th>상태</th><th></th></tr></thead>
+                <tbody data-request-rows><tr><td colspan="6"><div class="empty-state"><strong>문의 데이터를 불러오는 중입니다.</strong></div></td></tr></tbody>
+              </table>
+            </div>
+            <div class="table-footer"><span data-request-count>0건 표시</span><span>PROJECT REQUESTS</span></div>
+          </article>
+        </section>
 
-      <section class="admin-error" data-admin-error hidden>
-        <strong>회원 데이터를 불러오지 못했습니다.</strong>
-        <p data-admin-error-message></p>
-      </section>
+        <section class="admin-view" id="solutions" data-admin-view="solutions" hidden>
+          <div class="view-head">
+            <div><span>SYSTEM SOLUTIONS</span><h2>공개 솔루션</h2></div>
+            <p>10개 소개 페이지와 인터랙티브 데모를 빠르게 확인합니다.</p>
+          </div>
+          <div class="admin-solution-grid" data-admin-solution-grid></div>
+        </section>
+
+        <section class="admin-view" id="visitors" data-admin-view="visitors" hidden>
+          <div class="view-head">
+            <div><span>VISITOR ANALYTICS</span><h2>방문자</h2></div>
+            <p>익명 방문 기록을 기준으로 최근 사이트 유입 흐름을 확인합니다.</p>
+          </div>
+          <div class="visitor-metric-grid">
+            <article class="visitor-metric"><span>TODAY</span><strong data-visitor-today>—</strong><p>오늘 순 방문자</p></article>
+            <article class="visitor-metric"><span>LAST · 7 DAYS</span><strong data-visitor-week>—</strong><p>최근 7일 순 방문자</p></article>
+            <article class="visitor-metric"><span>THIS MONTH</span><strong data-visitor-month>—</strong><p>이번 달 순 방문자</p></article>
+          </div>
+          <article class="dashboard-panel visitor-panel">
+            <div class="panel-head"><div><span>VISITOR TREND</span><h3>최근 14일 방문 추이</h3></div><p data-visitor-summary>방문 데이터를 불러오는 중입니다.</p></div>
+            <div class="visitor-chart" data-visitor-chart></div>
+            <p class="panel-note">개인정보는 저장하지 않으며 익명 브라우저 ID와 방문 날짜 기준으로 집계합니다.</p>
+          </article>
+        </section>
+
+        <section class="admin-view" id="members" data-admin-view="members" hidden>
+          <div class="view-head">
+            <div><span>MEMBERS</span><h2>회원</h2></div>
+            <p>가입 현황과 최근 로그인, 회원 상태를 확인합니다.</p>
+          </div>
+          <div class="metric-grid">
+            <article class="metric-card metric-main"><span>TOTAL MEMBERS</span><strong data-total-users>—</strong><p>누적 가입 회원</p></article>
+            <article class="metric-card"><span>NEW · 7 DAYS</span><strong data-new-users>—</strong><p>최근 7일 신규 가입</p></article>
+            <article class="metric-card"><span>ACTIVE · 30 DAYS</span><strong data-active-users>—</strong><p>최근 30일 로그인</p></article>
+            <article class="metric-card"><span>TODAY LOGIN</span><strong data-today-users>—</strong><p>오늘 로그인 회원</p></article>
+          </div>
+          <div class="analytics-grid">
+            <article class="dashboard-panel growth-panel">
+              <div class="panel-head"><div><span>MEMBER GROWTH</span><h3>최근 14일 가입 추이</h3></div><p data-growth-summary>데이터를 불러오는 중입니다.</p></div>
+              <div class="growth-chart" data-growth-chart></div>
+            </article>
+            <article class="dashboard-panel status-panel">
+              <div class="panel-head"><div><span>ACCOUNT STATUS</span><h3>회원 상태</h3></div></div>
+              <div class="status-overview" data-status-overview></div>
+            </article>
+          </div>
+          <article class="dashboard-panel members-panel">
+            <div class="panel-head member-panel-head">
+              <div><span>MEMBER DIRECTORY</span><h3>가입 회원</h3></div>
+              <div class="member-tools">
+                <input type="search" placeholder="이름 또는 이메일 검색" data-member-search aria-label="회원 검색">
+                <select data-date-filter aria-label="가입 기간 필터"><option value="all">전체 기간</option><option value="7">최근 7일</option><option value="30">최근 30일</option><option value="90">최근 90일</option></select>
+                <button type="button" data-export-csv>CSV 내보내기</button>
+              </div>
+            </div>
+            <div class="member-table-wrap">
+              <table><thead><tr><th>회원</th><th>이메일</th><th>가입일</th><th>최근 로그인</th><th>상태</th></tr></thead><tbody data-member-rows><tr><td colspan="5"><div class="empty-state"><strong>회원 데이터를 불러오는 중입니다.</strong></div></td></tr></tbody></table>
+            </div>
+            <div class="table-footer"><span data-filtered-count>0명 표시</span><span>MEMBERS</span></div>
+          </article>
+        </section>
+
+        <section class="admin-error" data-admin-error hidden><strong>데이터를 불러오지 못했습니다.</strong><p data-admin-error-message></p></section>
+      </div>
     </main>
   </div>
 
-  <script type="module" src="admin-entry.js?v=20260907-1"></script>
+  <dialog class="admin-dialog" data-request-dialog>
+    <div class="admin-dialog-head"><h3 data-dialog-title>프로젝트 문의</h3><button type="button" data-dialog-close>닫기</button></div>
+    <div class="admin-dialog-body" data-dialog-body></div>
+  </dialog>
+
+  <script type="module" src="admin-entry.js?v=20260907-2"></script>
 </body>
 </html>
