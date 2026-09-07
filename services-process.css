@@ -1,0 +1,139 @@
+/* AESOST Services Process Widgets / 2026-09-07 */
+
+.services-process-grid article{
+  position:relative;
+  overflow:hidden;
+  min-height:220px!important;
+  padding:24px!important;
+}
+
+.services-process-grid .service-process-label{
+  display:block;
+  padding-right:78px;
+  color:var(--purple)!important;
+  font-size:13px!important;
+  font-weight:700!important;
+  letter-spacing:.08em!important;
+}
+
+.services-process-grid .service-process-icon{
+  position:absolute;
+  top:22px;
+  right:22px;
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(157,115,255,.2);
+  border-radius:14px;
+  background:#141118;
+  color:#9d73ff;
+  isolation:isolate;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+}
+
+.services-process-grid .service-process-icon:before{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  z-index:-1;
+  border:1px solid rgba(157,115,255,.14);
+  border-radius:18px;
+  animation:servicesProcessRing 3.4s ease-out infinite;
+}
+
+.services-process-grid .service-process-icon:after{
+  content:"";
+  position:absolute;
+  width:6px;
+  height:6px;
+  left:50%;
+  top:50%;
+  margin:-3px 0 0 -3px;
+  border-radius:999px;
+  background:#9d73ff;
+  box-shadow:0 0 10px rgba(157,115,255,.45);
+  animation:servicesProcessOrbit 5s linear infinite;
+}
+
+.services-process-grid article:nth-child(2) .service-process-icon:before{animation-delay:.7s}
+.services-process-grid article:nth-child(3) .service-process-icon:before{animation-delay:1.4s}
+.services-process-grid article:nth-child(4) .service-process-icon:before{animation-delay:2.1s}
+.services-process-grid article:nth-child(2) .service-process-icon:after{animation-duration:5.6s}
+.services-process-grid article:nth-child(3) .service-process-icon:after{animation-duration:6.2s}
+.services-process-grid article:nth-child(4) .service-process-icon:after{animation-duration:6.8s}
+
+.services-process-grid .service-process-icon svg{
+  width:27px;
+  height:27px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transform-origin:center;
+}
+
+.services-process-grid article:nth-child(1) .service-process-icon svg{animation:servicesProcessFloat 3.4s ease-in-out infinite}
+.services-process-grid article:nth-child(2) .service-process-icon svg{animation:servicesProcessTilt 3.8s ease-in-out infinite}
+.services-process-grid article:nth-child(3) .service-process-icon svg{animation:servicesProcessNudge 3.2s ease-in-out infinite}
+.services-process-grid article:nth-child(4) .service-process-icon svg{animation:servicesProcessLaunch 3.6s ease-in-out infinite}
+
+.services-process-grid article:hover .service-process-icon{
+  transform:translateY(-2px) scale(1.04);
+  border-color:#58457d;
+  background:#181121;
+}
+
+.services-process-grid h3{
+  margin-top:48px!important;
+}
+
+@keyframes servicesProcessRing{
+  0%{transform:scale(.84);opacity:.5}
+  100%{transform:scale(1.35);opacity:0}
+}
+
+@keyframes servicesProcessOrbit{
+  from{transform:rotate(0deg) translateX(27px) rotate(0deg)}
+  to{transform:rotate(360deg) translateX(27px) rotate(-360deg)}
+}
+
+@keyframes servicesProcessFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
+
+@keyframes servicesProcessTilt{
+  0%,100%{transform:rotate(0deg)}
+  50%{transform:rotate(4deg)}
+}
+
+@keyframes servicesProcessNudge{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(3px)}
+}
+
+@keyframes servicesProcessLaunch{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(2px,-3px) rotate(2deg)}
+}
+
+@media(max-width:760px){
+  .services-process-grid .service-process-icon{
+    top:18px;
+    right:18px;
+    width:50px;
+    height:50px;
+  }
+  .services-process-grid .service-process-icon svg{width:23px;height:23px}
+  .services-process-grid h3{margin-top:38px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .services-process-grid .service-process-icon:before,
+  .services-process-grid .service-process-icon:after,
+  .services-process-grid .service-process-icon svg{
+    animation:none!important;
+  }
+}
