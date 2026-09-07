@@ -1,0 +1,11 @@
+/* AESOST solution custom-fit message / 2026-09-07 */
+.solution-fit-section{background:#f7f7f8!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.solution-fit-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px;align-items:start}
+.solution-fit-copy{max-width:840px}
+.solution-fit-copy h2{max-width:760px;margin:0;color:var(--text);font-size:clamp(28px,2.6vw,32px);font-weight:700;line-height:1.32;letter-spacing:-.03em}
+.solution-fit-copy>p{max-width:720px;margin:16px 0 0;color:var(--text-2);font-size:16px;line-height:1.7}
+.solution-fit-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.solution-fit-points span{min-height:32px;display:inline-flex;align-items:center;padding:0 11px;border:1px solid #dfe1e5;border-radius:999px;background:#fff;color:#6f737b;font-size:11px;font-weight:600;letter-spacing:.045em}
+.solution-fit-points span:before{content:"";width:6px;height:6px;margin-right:7px;border-radius:999px;background:var(--purple);box-shadow:0 0 0 3px rgba(139,92,246,.08)}
+@media(max-width:1024px){.solution-fit-grid{grid-template-columns:180px minmax(0,1fr);gap:32px}}
+@media(max-width:767px){.solution-fit-grid{grid-template-columns:1fr;gap:16px}.solution-fit-copy h2{font-size:26px}.solution-fit-copy>p{font-size:15px}}
