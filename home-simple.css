@@ -7,36 +7,39 @@
 .home-simple .hero-visual:after{content:'LIVE SYSTEM UI';position:absolute;left:16px;top:16px;min-height:28px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(10,10,12,.76);color:#d8ccff;font-size:10px;font-weight:700;letter-spacing:.07em}
 
 .home-simple .home-core{padding:64px 0!important}
+.home-simple .home-core .section-head{margin-bottom:30px!important}
+.home-simple .home-core .section-copy p{max-width:700px;margin-top:12px!important;color:#6f737b!important}
 .home-simple .home-core-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.home-simple .home-core-card{position:relative;min-height:260px;padding:28px;border:1px solid var(--line);border-radius:12px;background:#0d0d0f;overflow:hidden;transition:transform .18s ease,border-color .18s ease,background .18s ease}
-.home-simple .home-core-card:hover{transform:translateY(-2px);border-color:#3b3b43;background:#101012}
-.home-simple .home-core-card .home-core-icon{width:44px;height:44px;display:grid;place-items:center;border:1px solid #302848;border-radius:11px;background:#15111f;color:#9d73ff}
+.home-simple .home-core-card{position:relative;min-height:300px;padding:28px;border:1px solid #e0e2e6;border-radius:12px;background:#fff;overflow:hidden;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.home-simple .home-core-card:hover{transform:translateY(-2px);border-color:#c9cbd1;background:#fafafa}
+.home-simple .home-core-card .home-core-icon{width:44px;height:44px;display:grid;place-items:center;border:1px solid #ddd5f3;border-radius:11px;background:#f7f4ff;color:#7c59df}
 .home-simple .home-core-card .home-core-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.home-simple .home-core-card .eyebrow{margin-top:34px;color:#9d73ff}
-.home-simple .home-core-card h2{margin:10px 0 0;font-size:clamp(24px,2vw,30px);line-height:1.3;letter-spacing:-.03em}
-.home-simple .home-core-card p{max-width:520px;margin:14px 0 0;color:#96969e;font-size:15px;line-height:1.65}
-.home-simple .home-core-card a{display:inline-flex;margin-top:24px;color:#ececf0;font-size:13px;font-weight:700}
+.home-simple .home-core-card .eyebrow{margin-top:34px;color:#747880!important}
+.home-simple .home-core-card h2{margin:10px 0 0;color:#17181c!important;font-size:clamp(24px,2vw,30px);line-height:1.3;letter-spacing:-.03em}
+.home-simple .home-core-card p{max-width:560px;margin:14px 0 0;color:#6f737b!important;font-size:15px;line-height:1.65}
+.home-simple .home-core-card a{display:inline-flex;align-items:center;margin-top:26px;color:#6f4bd8!important;font-size:13px;font-weight:700;line-height:1.5;text-decoration:none;opacity:1!important;visibility:visible!important;transition:color .16s ease,transform .16s ease}
+.home-simple .home-core-card a:hover{color:#5534bd!important;transform:translateX(2px)}
 
 .home-simple .home-demo-section{padding:64px 0!important;border-top:1px solid var(--line)}
 .home-simple .home-demo-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:30px}
 .home-simple .home-demo-head>div{max-width:720px}
 .home-simple .home-demo-head h2{margin:10px 0 0;font-size:clamp(28px,2.8vw,36px);line-height:1.25;letter-spacing:-.035em}
-.home-simple .home-demo-head p{max-width:620px;margin:14px 0 0;color:#96969f;font-size:15px;line-height:1.65}
+.home-simple .home-demo-head p{max-width:620px;margin:14px 0 0;color:#6f737b;font-size:15px;line-height:1.65}
 .home-simple .home-demo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.home-simple .home-demo-card{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0d0d0f;transition:transform .18s ease,border-color .18s ease}
-.home-simple .home-demo-card:hover{transform:translateY(-2px);border-color:#3b3b43}
-.home-simple .home-demo-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid var(--line)}
+.home-simple .home-demo-card{display:block;border:1px solid #e0e2e6;border-radius:12px;overflow:hidden;background:#fff;transition:transform .18s ease,border-color .18s ease}
+.home-simple .home-demo-card:hover{transform:translateY(-2px);border-color:#c9cbd1}
+.home-simple .home-demo-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid #e0e2e6}
 .home-simple .home-demo-body{padding:18px 18px 20px}
-.home-simple .home-demo-body span{color:#9d73ff;font-size:10px;font-weight:700;letter-spacing:.07em}
-.home-simple .home-demo-body h3{margin:8px 0 0;font-size:18px;line-height:1.35}
-.home-simple .home-demo-body p{margin:7px 0 0;color:#85858e;font-size:13px;line-height:1.55}
+.home-simple .home-demo-body span{color:#7c59df;font-size:10px;font-weight:700;letter-spacing:.07em}
+.home-simple .home-demo-body h3{margin:8px 0 0;color:#17181c;font-size:18px;line-height:1.35}
+.home-simple .home-demo-body p{margin:7px 0 0;color:#747880;font-size:13px;line-height:1.55}
 
-.home-simple .home-hook{padding:64px 0!important;border-top:1px solid var(--line);background:#0d0d0f}
+.home-simple .home-hook{padding:64px 0!important;border-top:1px solid var(--line);background:#f7f7f8}
 .home-simple .home-hook-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
-.home-simple .home-hook h2{max-width:760px;margin:10px 0 0;font-size:clamp(30px,3vw,40px);line-height:1.25;letter-spacing:-.035em}
-.home-simple .home-hook p{max-width:640px;margin:14px 0 0;color:#9a9aa2;font-size:15px;line-height:1.65}
+.home-simple .home-hook h2{max-width:760px;margin:10px 0 0;color:#17181c;font-size:clamp(30px,3vw,40px);line-height:1.25;letter-spacing:-.035em}
+.home-simple .home-hook p{max-width:640px;margin:14px 0 0;color:#6f737b;font-size:15px;line-height:1.65}
 .home-simple .home-hook-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.home-simple .home-hook-points span{min-height:30px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid var(--line);border-radius:999px;color:#92929a;font-size:11px;font-weight:600}
+.home-simple .home-hook-points span{min-height:30px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid #dfe1e5;border-radius:999px;background:#fff;color:#70747c;font-size:11px;font-weight:600}
 
 @media(max-width:900px){
   .home-simple .home-demo-grid{grid-template-columns:1fr 1fr}
