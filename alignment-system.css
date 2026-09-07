@@ -1,0 +1,94 @@
+/* AESOST alignment system / 2026-09-07
+   One shared editorial rail for page heroes and section headings. */
+
+:root{
+  --aesost-label-column:220px;
+  --aesost-label-gap:48px;
+}
+
+/*
+  All label + content sections share exactly the same horizontal rail.
+  This removes the old 1040px centered page-hero offset that made the
+  hero label/content start further inward than the sections below it.
+*/
+.page-hero-grid,
+.section-head,
+.solution-intro-grid,
+.project-room-page .pr-section-head{
+  grid-template-columns:var(--aesost-label-column) minmax(0,1fr)!important;
+  gap:var(--aesost-label-gap)!important;
+  align-items:start!important;
+}
+
+/* Page hero must use the same full site shell as every following section. */
+.page-hero-grid{
+  width:min(calc(100% - 64px),var(--layout-wide,1280px))!important;
+  max-width:var(--layout-wide,1280px)!important;
+  margin-inline:auto!important;
+}
+
+/* Section grids already live inside .shell; keep their own grid at full width. */
+.section-head,
+.solution-intro-grid,
+.project-room-page .pr-section-head{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+.page-hero-grid>.eyebrow,
+.section-head>.eyebrow,
+.solution-intro-grid>.eyebrow,
+.project-room-page .pr-section-head>.eyebrow{
+  justify-self:start!important;
+  text-align:left!important;
+}
+
+.page-hero-grid>div,
+.section-head>.section-copy,
+.solution-intro-grid>.solution-intro-copy,
+.project-room-page .pr-section-head>.pr-section-copy{
+  justify-self:stretch!important;
+  min-width:0!important;
+  text-align:left!important;
+}
+
+/* Keep headings and lead copy on the same content start line. */
+.page-hero-grid .page-title,
+.page-hero-grid .lead,
+.section-head .section-title,
+.section-head .section-copy>p,
+.solution-intro-copy h2,
+.solution-intro-copy>p,
+.project-room-page .pr-section-copy h2,
+.project-room-page .pr-section-copy p{
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+@media(max-width:1024px){
+  :root{
+    --aesost-label-column:180px;
+    --aesost-label-gap:32px;
+  }
+}
+
+@media(max-width:767px){
+  :root{
+    --aesost-label-gap:16px;
+  }
+
+  .page-hero-grid,
+  .section-head,
+  .solution-intro-grid,
+  .project-room-page .pr-section-head{
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+  }
+
+  .page-hero-grid{
+    width:calc(100% - 32px)!important;
+    max-width:none!important;
+  }
+}
