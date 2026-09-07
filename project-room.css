@@ -1,0 +1,84 @@
+/* AESOST Project Room detail refinement / 2026-09-07 */
+.project-room-page .page-hero{padding:82px 0 90px!important}
+.project-room-page .solution-detail-hero{grid-template-columns:minmax(0,.82fr) minmax(520px,1.18fr);gap:clamp(52px,6vw,88px);align-items:center}
+.project-room-page .solution-detail-copy{max-width:620px}
+.project-room-page .solution-detail-copy .page-title{margin-top:18px;max-width:600px}
+.project-room-page .solution-detail-copy .lead{max-width:590px;margin-top:22px!important;color:#b0b0b7!important}
+.project-room-page .solution-detail-tags{margin-top:22px!important}
+.project-room-page .solution-detail-visual{position:relative;border-radius:16px!important;border-color:#2b2b32!important;background:#0e0e10!important;box-shadow:0 30px 80px rgba(0,0,0,.28)}
+.project-room-page .solution-detail-visual:before{content:"";position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,rgba(139,92,246,.24),transparent 32%,transparent 72%,rgba(139,92,246,.12));opacity:.55;z-index:1}
+.project-room-page .solution-detail-visual img{position:relative;z-index:0;aspect-ratio:16/10;object-fit:cover}
+.project-room-page .pr-visual-badge{position:absolute;z-index:2;left:16px;top:16px;min-height:28px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(10,10,12,.78);backdrop-filter:blur(10px);color:#d8ccff;font-size:10px;font-weight:700;letter-spacing:.08em}
+
+.project-room-page .pr-section-head{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(44px,7vw,112px);align-items:start;margin-bottom:36px}
+.project-room-page .pr-section-head .eyebrow{padding-top:6px}
+.project-room-page .pr-section-copy{max-width:760px}
+.project-room-page .pr-section-copy h2{margin:0;font-size:clamp(28px,2.6vw,34px);line-height:1.28;letter-spacing:-.035em}
+.project-room-page .pr-section-copy p{max-width:620px;margin:14px 0 0;color:#97979f;font-size:15px;line-height:1.7}
+
+.project-room-page .pr-benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.project-room-page .pr-benefit-card{min-height:210px;padding:24px;border:1px solid var(--line);border-radius:12px;background:#0d0d0f;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.project-room-page .pr-benefit-card:hover{transform:translateY(-2px);border-color:#3a3a42;background:#101012}
+.project-room-page .pr-icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #302848;border-radius:11px;background:#15111f;color:#9d73ff}
+.project-room-page .pr-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.project-room-page .pr-benefit-card h3{margin:26px 0 10px!important;font-size:19px!important;line-height:1.35!important}
+.project-room-page .pr-benefit-card p{margin:0;color:#8f8f98;font-size:14px!important;line-height:1.65!important}
+
+.project-room-page .pr-screen-section{border-top:1px solid var(--line)}
+.project-room-page .solution-feature-guide{grid-template-columns:260px minmax(0,1fr);gap:24px}
+.project-room-page .solution-feature-nav{top:112px;border-top:0!important;gap:8px}
+.project-room-page .solution-feature-tab{min-height:66px!important;display:grid!important;grid-template-columns:38px 1fr!important;gap:10px!important;padding:12px!important;border:1px solid var(--line)!important;border-radius:9px!important;background:#0d0d0f!important;color:#7e7e87!important}
+.project-room-page .solution-feature-tab:hover{background:#111113!important;border-color:#36363e!important}
+.project-room-page .solution-feature-tab.is-active{border-color:#5b44c1!important;background:#121018!important;box-shadow:inset 2px 0 0 #8b5cf6}
+.project-room-page .pr-tab-icon{width:34px;height:34px;display:grid!important;place-items:center;border-radius:8px;background:#141419;color:#8b5cf6}
+.project-room-page .pr-tab-icon svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.project-room-page .solution-feature-tab strong{font-size:14px!important;line-height:1.3!important}
+.project-room-page .solution-feature-tab small{margin-top:3px!important;font-size:11px!important;line-height:1.4!important}
+.project-room-page .solution-feature-browser{border-radius:12px!important;box-shadow:0 18px 54px rgba(0,0,0,.18)}
+.project-room-page .solution-feature-caption{padding-top:18px}
+.project-room-page .solution-feature-caption h3{font-size:20px!important}
+.project-room-page .solution-feature-caption p{margin-top:7px!important;font-size:14px!important;line-height:1.65!important}
+
+.project-room-page .pr-workflow-section{border-top:1px solid var(--line)}
+.project-room-page .solution-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px!important;border:0!important;background:transparent!important}
+.project-room-page .solution-flow article{position:relative;min-height:220px;padding:22px!important;border:1px solid var(--line)!important;border-radius:11px!important;background:#0d0d0f!important}
+.project-room-page .solution-flow article:not(:last-child):after{content:"→";position:absolute;right:-10px;top:50%;z-index:2;transform:translateY(-50%);width:20px;height:20px;display:grid;place-items:center;border-radius:999px;background:#09090a;color:#696971;font-size:13px}
+.project-room-page .pr-flow-icon{width:38px;height:38px;display:grid;place-items:center;border:1px solid #302848;border-radius:10px;background:#15111f;color:#9d73ff}
+.project-room-page .pr-flow-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.project-room-page .solution-flow span.pr-flow-label{display:block;margin-top:22px;color:#9d73ff!important;font-size:11px!important;font-weight:700!important;letter-spacing:.08em!important}
+.project-room-page .solution-flow h3{margin:10px 0 8px!important;font-size:18px!important}
+.project-room-page .solution-flow p{font-size:13px!important;line-height:1.6!important}
+
+.project-room-page .pr-demo-section{border-top:1px solid var(--line)}
+.project-room-page .solution-demo-entry{align-items:center}
+.project-room-page .solution-demo-entry h2{margin-top:16px!important;max-width:680px;font-size:clamp(28px,3vw,38px)!important}
+.project-room-page .solution-demo-entry p{margin-top:16px!important;max-width:620px;font-size:15px!important;line-height:1.7!important}
+.project-room-page .pr-demo-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.project-room-page .pr-demo-points span{min-height:30px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid var(--line);border-radius:999px;color:#8d8d96;font-size:11px;font-weight:600;letter-spacing:.03em}
+.project-room-page .solution-demo-note{margin-top:18px!important;padding:14px 16px!important;border-radius:8px!important;background:#0d0d0f}
+
+.project-room-page .pr-cta{border-top:1px solid var(--line)}
+.project-room-page .pr-cta .cta-grid h2{max-width:720px}
+
+@media(max-width:1100px){
+  .project-room-page .solution-detail-hero{grid-template-columns:1fr;gap:38px}
+  .project-room-page .solution-detail-copy{max-width:740px}
+  .project-room-page .solution-detail-visual{max-width:940px}
+  .project-room-page .pr-benefit-grid{grid-template-columns:1fr}
+  .project-room-page .solution-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-room-page .solution-flow article:nth-child(2):after{display:none}
+}
+
+@media(max-width:760px){
+  .project-room-page .page-hero{padding:52px 0 56px!important}
+  .project-room-page .pr-section-head{grid-template-columns:1fr;gap:12px;margin-bottom:26px}
+  .project-room-page .pr-section-head .eyebrow{padding-top:0}
+  .project-room-page .pr-benefit-card{min-height:0;padding:20px}
+  .project-room-page .solution-feature-guide{grid-template-columns:1fr}
+  .project-room-page .solution-feature-nav{display:flex!important;overflow:auto;gap:8px;padding-bottom:4px}
+  .project-room-page .solution-feature-tab{min-width:200px!important}
+  .project-room-page .solution-flow{grid-template-columns:1fr}
+  .project-room-page .solution-flow article:not(:last-child):after{display:none}
+  .project-room-page .solution-flow article{min-height:0}
+  .project-room-page .solution-demo-entry{grid-template-columns:1fr}
+}
