@@ -1,0 +1,251 @@
+/* AESOST Motion Widgets / 2026-09-07
+   Subtle product-motion layer for System Solutions + Project Room.
+   Motion is intentionally restrained and disabled for reduced-motion users. */
+
+:root{
+  --mw-accent:#8b5cf6;
+  --mw-accent-2:#9d73ff;
+  --mw-panel:#15111f;
+  --mw-line:#302848;
+}
+
+/* ---------------------------------------------------------
+   Shared live pulse
+--------------------------------------------------------- */
+@keyframes mwPulse{
+  0%,100%{transform:scale(1);opacity:.9}
+  50%{transform:scale(1.12);opacity:1}
+}
+@keyframes mwFloat{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-4px,0)}
+}
+@keyframes mwOrbit{
+  from{transform:rotate(0deg) translateX(16px) rotate(0deg)}
+  to{transform:rotate(360deg) translateX(16px) rotate(-360deg)}
+}
+@keyframes mwNudge{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(3px)}
+}
+@keyframes mwTilt{
+  0%,100%{transform:rotate(0deg)}
+  50%{transform:rotate(5deg)}
+}
+@keyframes mwArrow{
+  0%,100%{transform:translate(-50%,-50%)}
+  50%{transform:translate(-38%,-50%)}
+}
+@keyframes mwScan{
+  0%{transform:translateX(-120%);opacity:0}
+  18%{opacity:.22}
+  50%{opacity:.06}
+  100%{transform:translateX(220%);opacity:0}
+}
+@keyframes mwRing{
+  0%{transform:scale(.72);opacity:.55}
+  100%{transform:scale(1.45);opacity:0}
+}
+
+/* ---------------------------------------------------------
+   System Solutions — moving stat widgets
+--------------------------------------------------------- */
+.solutions-index-page .solution-index-stats>span{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  transition:border-color .18s ease,background .18s ease,transform .18s ease;
+}
+.solutions-index-page .solution-index-stats>span:hover{
+  transform:translateY(-2px);
+  border-color:#3c334f;
+  background:#0f0d14;
+}
+.solutions-index-page .solution-index-stats>span:after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;
+  width:42%;
+  left:0;
+  background:linear-gradient(90deg,transparent,rgba(157,115,255,.12),transparent);
+  animation:mwScan 6s ease-in-out infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+.solutions-index-page .solution-index-stats>span:nth-child(2):after{animation-delay:1.4s}
+.solutions-index-page .solution-index-stats>span:nth-child(3):after{animation-delay:2.8s}
+
+.solutions-index-page .solution-index-stats i{
+  position:relative;
+  overflow:visible;
+}
+.solutions-index-page .solution-index-stats i:after{
+  content:"";
+  position:absolute;
+  width:5px;height:5px;
+  left:50%;top:50%;
+  margin:-2.5px 0 0 -2.5px;
+  border-radius:999px;
+  background:var(--mw-accent-2);
+  box-shadow:0 0 12px rgba(157,115,255,.5);
+  animation:mwOrbit 4.8s linear infinite;
+}
+.solutions-index-page .solution-index-stats>span:nth-child(2) i:after{animation-duration:5.7s}
+.solutions-index-page .solution-index-stats>span:nth-child(3) i:after{animation-duration:6.4s}
+.solutions-index-page .solution-index-stats>span:nth-child(1) i svg{animation:mwFloat 3.6s ease-in-out infinite}
+.solutions-index-page .solution-index-stats>span:nth-child(2) i svg{animation:mwPulse 2.8s ease-in-out infinite}
+.solutions-index-page .solution-index-stats>span:nth-child(3) i svg{animation:mwNudge 3.2s ease-in-out infinite}
+
+/* live thumbnail badge */
+.solutions-index-page .solution-index-thumb-badge{
+  gap:7px;
+}
+.solutions-index-page .solution-index-thumb-badge:before{
+  content:"";
+  width:6px;height:6px;
+  flex:0 0 6px;
+  border-radius:999px;
+  background:var(--mw-accent-2);
+  box-shadow:0 0 0 0 rgba(157,115,255,.42);
+  animation:mwPulse 1.7s ease-in-out infinite;
+}
+
+/* custom-development animated icon widgets */
+.solutions-index-page .solution-custom-card i{
+  position:relative;
+  overflow:visible;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+}
+.solutions-index-page .solution-custom-card i:before{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border:1px solid rgba(157,115,255,.18);
+  border-radius:14px;
+  animation:mwRing 2.9s ease-out infinite;
+}
+.solutions-index-page .solution-custom-card:nth-child(2) i:before{animation-delay:.8s}
+.solutions-index-page .solution-custom-card:nth-child(3) i:before{animation-delay:1.6s}
+.solutions-index-page .solution-custom-card:nth-child(1) i svg{animation:mwFloat 3.8s ease-in-out infinite}
+.solutions-index-page .solution-custom-card:nth-child(2) i svg{animation:mwTilt 3.4s ease-in-out infinite}
+.solutions-index-page .solution-custom-card:nth-child(3) i svg{animation:mwNudge 3s ease-in-out infinite}
+.solutions-index-page .solution-custom-card:hover i{
+  transform:translateY(-2px) scale(1.04);
+  border-color:#58457d;
+  background:#181121;
+}
+
+/* ---------------------------------------------------------
+   Project Room — hero live widget + cards
+--------------------------------------------------------- */
+.project-room-page .pr-visual-badge{
+  gap:7px;
+}
+.project-room-page .pr-visual-badge:before{
+  content:"";
+  width:6px;height:6px;
+  border-radius:999px;
+  background:var(--mw-accent-2);
+  box-shadow:0 0 0 0 rgba(157,115,255,.4);
+  animation:mwPulse 1.7s ease-in-out infinite;
+}
+.project-room-page .solution-detail-visual:after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  right:18px;
+  bottom:18px;
+  width:44px;height:44px;
+  border:1px solid rgba(157,115,255,.26);
+  border-radius:13px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(157,115,255,.92) 0 3px,transparent 4px),
+    radial-gradient(circle at 28% 50%,rgba(157,115,255,.42) 0 2px,transparent 3px),
+    radial-gradient(circle at 72% 50%,rgba(157,115,255,.42) 0 2px,transparent 3px),
+    rgba(12,10,17,.76);
+  backdrop-filter:blur(10px);
+  box-shadow:0 8px 24px rgba(0,0,0,.24);
+  animation:mwFloat 3.4s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.project-room-page .pr-icon,
+.project-room-page .pr-flow-icon,
+.project-room-page .pr-tab-icon{
+  position:relative;
+  overflow:visible;
+  isolation:isolate;
+}
+.project-room-page .pr-icon:after,
+.project-room-page .pr-flow-icon:after{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  z-index:-1;
+  border:1px solid rgba(157,115,255,.15);
+  border-radius:inherit;
+  animation:mwRing 3.2s ease-out infinite;
+}
+.project-room-page .pr-benefit-card:nth-child(2) .pr-icon:after,
+.project-room-page .solution-flow article:nth-child(2) .pr-flow-icon:after{animation-delay:.7s}
+.project-room-page .pr-benefit-card:nth-child(3) .pr-icon:after,
+.project-room-page .solution-flow article:nth-child(3) .pr-flow-icon:after{animation-delay:1.4s}
+.project-room-page .solution-flow article:nth-child(4) .pr-flow-icon:after{animation-delay:2.1s}
+
+.project-room-page .pr-benefit-card:nth-child(1) .pr-icon svg{animation:mwFloat 3.5s ease-in-out infinite}
+.project-room-page .pr-benefit-card:nth-child(2) .pr-icon svg{animation:mwPulse 2.9s ease-in-out infinite}
+.project-room-page .pr-benefit-card:nth-child(3) .pr-icon svg{animation:mwNudge 3.1s ease-in-out infinite}
+
+.project-room-page .solution-flow article:nth-child(1) .pr-flow-icon svg{animation:mwFloat 3.8s ease-in-out infinite}
+.project-room-page .solution-flow article:nth-child(2) .pr-flow-icon svg{animation:mwTilt 3.2s ease-in-out infinite}
+.project-room-page .solution-flow article:nth-child(3) .pr-flow-icon svg{animation:mwNudge 3s ease-in-out infinite}
+.project-room-page .solution-flow article:nth-child(4) .pr-flow-icon svg{animation:mwPulse 2.6s ease-in-out infinite}
+
+.project-room-page .solution-feature-tab.is-active .pr-tab-icon{
+  border:1px solid #4b3870;
+  background:#1a1325;
+  box-shadow:0 0 0 1px rgba(139,92,246,.06),0 0 22px rgba(139,92,246,.08);
+}
+.project-room-page .solution-feature-tab.is-active .pr-tab-icon svg{
+  animation:mwFloat 2.8s ease-in-out infinite;
+}
+.project-room-page .solution-feature-tab:hover .pr-tab-icon svg{
+  transform:scale(1.08);
+}
+
+.project-room-page .solution-flow article:not(:last-child):after{
+  animation:mwArrow 2.4s ease-in-out infinite;
+}
+
+/* hover response — widgets feel interactive, not decorative */
+.project-room-page .pr-benefit-card:hover .pr-icon,
+.project-room-page .solution-flow article:hover .pr-flow-icon{
+  transform:translateY(-2px) scale(1.04);
+  border-color:#58457d;
+  background:#181121;
+}
+.project-room-page .pr-icon,
+.project-room-page .pr-flow-icon,
+.project-room-page .pr-tab-icon{
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .solutions-index-page .solution-index-stats>span:after,
+  .solutions-index-page .solution-index-stats i:after,
+  .solutions-index-page .solution-index-stats i svg,
+  .solutions-index-page .solution-index-thumb-badge:before,
+  .solutions-index-page .solution-custom-card i:before,
+  .solutions-index-page .solution-custom-card i svg,
+  .project-room-page .pr-visual-badge:before,
+  .project-room-page .solution-detail-visual:after,
+  .project-room-page .pr-icon:after,
+  .project-room-page .pr-flow-icon:after,
+  .project-room-page .pr-icon svg,
+  .project-room-page .pr-flow-icon svg,
+  .project-room-page .solution-feature-tab.is-active .pr-tab-icon svg,
+  .project-room-page .solution-flow article:not(:last-child):after{
+    animation:none!important;
+  }
+}
