@@ -1,0 +1,91 @@
+/* AESOST Light Theme Polish / 2026-09-07
+   Final overrides for components that still inherit dark-theme internals. */
+
+/* System Solutions hero stats: remove nested dark cards */
+.solutions-index-page .solution-index-stats{
+  gap:12px!important;
+}
+.solutions-index-page .solution-index-stats>span{
+  min-height:76px!important;
+  display:grid!important;
+  grid-template-columns:42px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:14px!important;
+  padding:14px 16px!important;
+  border:1px solid #dde0e5!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  color:#17181c!important;
+  box-shadow:0 1px 0 rgba(20,20,24,.015)!important;
+}
+.solutions-index-page .solution-index-stats>span:hover{
+  background:#fafafa!important;
+  border-color:#cfc5ec!important;
+  transform:translateY(-2px)!important;
+}
+.solutions-index-page .solution-index-stats>span>i{
+  width:42px!important;
+  height:42px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid #ddd5f3!important;
+  border-radius:11px!important;
+  background:#f6f2ff!important;
+  color:#7c59df!important;
+}
+.solutions-index-page .solution-index-stats>span>i svg{
+  width:19px!important;
+  height:19px!important;
+}
+.solutions-index-page .solution-index-stats>span>span{
+  min-height:0!important;
+  display:block!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:inherit!important;
+  box-shadow:none!important;
+}
+.solutions-index-page .solution-index-stats>span>span b{
+  display:block!important;
+  margin:0!important;
+  color:#17181c!important;
+  font-size:22px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:-.035em!important;
+}
+.solutions-index-page .solution-index-stats>span>span small{
+  display:block!important;
+  margin-top:6px!important;
+  color:#7a7f88!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  line-height:1.25!important;
+  letter-spacing:.065em!important;
+}
+
+/* Small catalog/category indicators should also read as light-theme UI */
+.solutions-index-page .solution-index-top span:before{
+  border-color:#cdbdf2!important;
+  background:#f6f2ff!important;
+  box-shadow:0 0 0 3px rgba(114,86,232,.06)!important;
+}
+
+/* Avoid dark residual backgrounds in light utility/icon widgets */
+.solutions-index-page .solution-custom-card i,
+.services-process-icon,
+.project-room-page .pr-icon,
+.project-room-page .pr-flow-icon,
+.project-room-page .pr-tab-icon{
+  background:#f6f2ff!important;
+  border-color:#ddd5f3!important;
+  color:#7c59df!important;
+}
+
+@media(max-width:760px){
+  .solutions-index-page .solution-index-stats>span{
+    min-height:68px!important;
+  }
+}
