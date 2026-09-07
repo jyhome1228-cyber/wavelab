@@ -1,0 +1,158 @@
+/* AESOST Light Theme / 2026-09-07
+   Marketing site only. Interactive demos keep their own product UI themes. */
+
+:root{
+  --bg:#ffffff!important;
+  --surface:#f7f7f8!important;
+  --surface-2:#f2f3f5!important;
+  --surface-3:#eceef2!important;
+  --text:#17181c!important;
+  --text-2:#5f636b!important;
+  --muted:#858a93!important;
+  --line:#e5e7eb!important;
+  --line-strong:#d3d6dc!important;
+  --background:#ffffff!important;
+  --surface-default:#f7f7f8!important;
+  --text-primary:#17181c!important;
+  --text-secondary:#5f636b!important;
+  --border-default:#e5e7eb!important;
+}
+
+html,body{background:#fff!important;color:#17181c!important}
+body{color:#17181c!important}
+::selection{background:#e9e2ff;color:#2d1b69}
+
+/* Header / navigation */
+.dev-header{border-bottom-color:#e8e9ed!important;background:rgba(255,255,255,.94)!important;box-shadow:0 1px 0 rgba(20,20,24,.02)}
+.dev-nav a,.dev-nav-dropdown-trigger{color:#45484f!important}
+.dev-nav a:hover,.dev-nav a.is-active,.dev-nav a[aria-current="page"]{color:#111216!important}
+.dev-contact{border-color:#d5d8de!important;background:#fff!important;color:#17181c!important}
+.dev-contact:hover{border-color:var(--purple)!important;background:var(--purple)!important;color:#fff!important}
+.dev-menu span{background:#17181c!important}
+.dev-mobile-nav{border-top-color:#e7e9ed!important;background:#fff!important;color:#17181c!important}
+.dev-mobile-nav a{border-bottom-color:#eceef1!important}
+
+/* Generic typography */
+.display,.page-title,.section-title,h1,h2,h3,h4,h5,h6{color:#17181c!important}
+.lead,.section-copy p,.solution-copy p,.project-info p,.case-body p,.case-card p,.request-intro p,.solution-intro-copy>p,.solution-demo-entry p,.footer-intro{color:#666a72!important}
+.eyebrow,.kicker{color:#858a93!important}
+.display span,.solution-copy .eyebrow,.primary-service .num,.process-step span,.capability>span,.process-compact>article>span{color:var(--purple)!important}
+
+/* Main surfaces */
+.hero,.page-hero,.section,.section.dark{background:#fff!important;color:#17181c!important}
+.section.soft{background:#f7f7f8!important}
+.signal-bar{background:#fafafa!important;border-color:#e7e9ed!important}
+.section,.page-hero,.signal-bar{border-color:#e7e9ed!important}
+
+/* Buttons */
+.btn{border-color:#d4d7dd!important;background:#fff!important;color:#17181c!important}
+.btn:hover{border-color:#9a9da4!important;background:#f7f7f8!important}
+.btn.secondary{background:#fff!important;color:#17181c!important}
+.btn.purple{border-color:var(--purple)!important;background:var(--purple)!important;color:#fff!important}
+.btn.purple:hover{border-color:var(--purple-strong)!important;background:var(--purple-strong)!important;color:#fff!important}
+
+/* Generic cards and panels */
+.work-row,.process-compact article,.capability,.process-step,.definition-card,.about-principle,.metric-card,.panel,.project-card,.finance-summary article,.solution-catalog-card,.case-card,.solution-problems article,.solution-flow article,.solution-custom-card,.home-core-card,.home-demo-card{
+  border-color:#e2e4e8!important;
+  background:#fff!important;
+  color:#17181c!important;
+  box-shadow:none!important;
+}
+.work-row:hover,.case-card:hover,.solution-catalog-card:hover,.solution-index-card:hover,.home-core-card:hover,.home-demo-card:hover{background:#fafafa!important;border-color:#cfd2d8!important}
+.process-compact p,.capability p,.process-step p,.definition-card p,.about-principle p,.solution-problems p,.solution-flow p{color:#737780!important}
+.solution-meta span,.service-tags span,.tech-line span,.case-tags span,.solution-detail-tags span,.solution-status span,.solution-catalog-tags span,.home-demo-tags span{border-color:#dfe1e5!important;background:#fff!important;color:#747880!important}
+
+/* Image / UI preview frames stay dark enough to present product screens */
+.hero-visual img,.solution-visual img,.project-thumb,.case-visual,.solution-detail-visual,.solution-demo-browser,.system-visual{border-color:#dfe1e5!important}
+.solution-detail-visual,.system-visual{background:#f4f5f7!important}
+
+/* Home */
+.home-simple .hero{background:#fff!important}
+.home-simple .home-core{background:#fff!important}
+.home-simple .home-demo-section{background:#f7f7f8!important}
+.home-simple .home-core-card h2,.home-simple .home-demo-card h3{color:#17181c!important}
+.home-simple .home-core-card p,.home-simple .home-demo-card p{color:#6f737b!important}
+.home-simple .home-core-icon{border-color:#ded8ef!important;background:#f7f4ff!important;color:#7c59df!important}
+.home-simple .home-demo-card{overflow:hidden}
+
+/* Works / services */
+.solution-stack,.project-grid,.case-grid{color:#17181c!important}
+.solution-copy h3,.project-info h3,.case-body h2{color:#17181c!important}
+.project-meta,.case-body .case-top{color:#8a8e96!important}
+
+/* System Solutions index */
+.solutions-index-page .solution-index-section,.solutions-index-page .solution-index-custom{background:#fff!important;border-color:#e6e8ec!important}
+.solutions-index-page .solution-index-card{background:#fff!important;border-color:#e1e3e7!important;color:#17181c!important}
+.solutions-index-page .solution-index-card:hover{background:#fafafa!important;border-color:#cfd2d8!important}
+.solutions-index-page .solution-index-body{background:#fff!important}
+.solutions-index-page .solution-index-card h3{color:#17181c!important}
+.solutions-index-page .solution-index-product{color:#696d75!important}
+.solutions-index-page .solution-index-card p{color:#747880!important}
+.solutions-index-page .solution-index-top em{color:#999da5!important}
+.solutions-index-page .solution-index-tags span{border-color:#dfe1e5!important;color:#777b83!important;background:#fff!important}
+.solutions-index-page .solution-index-actions a:last-child{border-color:#d4d7dd!important;background:#fff!important;color:#17181c!important}
+.solutions-index-page .solution-index-actions a:last-child:hover{background:#f4f5f7!important;border-color:#bfc3ca!important;color:#111216!important}
+.solutions-index-page .solution-index-stats>span{border-color:#dedfe4!important;background:#fff!important;color:#777b83!important}
+.solutions-index-page .solution-index-stats b{color:#17181c!important}
+.solutions-index-page .solution-index-stats small{color:#8a8e96!important}
+.solutions-index-page .solution-custom-card i{background:#f7f4ff!important;border-color:#ddd5f3!important;color:#7c59df!important}
+
+/* Solution details */
+.solution-detail-page .page-hero,.solution-detail-page .section,.solution-detail-page .section.dark{background:#fff!important}
+.solution-detail-page .section.soft{background:#f7f7f8!important}
+.solution-feature-tab{background:#fff!important;border-color:#e0e2e6!important;color:#747880!important}
+.solution-feature-tab strong{color:#50545c!important}
+.solution-feature-tab small{color:#8b8f97!important}
+.solution-feature-tab.is-active{background:#f8f5ff!important;border-color:#c8b8f0!important}
+.solution-feature-tab.is-active strong{color:#17181c!important}
+.solution-feature-browser{border-color:#dfe1e5!important;background:#fff!important}
+.solution-feature-browser-bar{border-color:#e6e8ec!important;background:#fafafa!important;color:#858a93!important}
+.solution-feature-browser-bar b{color:#5d6168!important}
+.solution-feature-caption h3{color:#17181c!important}
+.solution-feature-caption p{color:#6d7179!important}
+.solution-demo-note{border-color:#dfe1e5!important;background:#f8f9fa!important;color:#777b83!important}
+
+/* Project Room refinement */
+.project-room-page .pr-benefit-card,.project-room-page .solution-flow article{background:#fff!important;border-color:#e1e3e7!important;color:#17181c!important}
+.project-room-page .pr-benefit-card:hover{background:#fafafa!important;border-color:#cfd2d8!important}
+.project-room-page .pr-icon,.project-room-page .pr-flow-icon,.project-room-page .pr-tab-icon{background:#f7f4ff!important;border-color:#ddd5f3!important;color:#7c59df!important}
+.project-room-page .solution-feature-tab{background:#fff!important;border-color:#e1e3e7!important;color:#737780!important}
+.project-room-page .solution-feature-tab:hover{background:#fafafa!important;border-color:#d4d7dd!important}
+.project-room-page .solution-feature-tab.is-active{background:#f8f5ff!important;border-color:#c6b7ef!important;box-shadow:inset 2px 0 0 #8b5cf6!important}
+.project-room-page .solution-demo-note{background:#f7f7f8!important}
+
+/* Services process icons */
+.services-process-icon{background:#f7f4ff!important;border-color:#ddd5f3!important;color:#7c59df!important}
+.services-process-section .process-compact article{background:#fff!important;border-color:#e1e3e7!important}
+
+/* Forms */
+.field input,.field select,.field textarea{background:#fff!important;border-color:#d8dbe0!important;color:#17181c!important}
+.field input::placeholder,.field textarea::placeholder{color:#a3a6ad!important}
+.choice span{background:#fff!important;border-color:#dfe1e5!important;color:#62666e!important}
+.form-notice{background:#f7f7f8!important;border-color:#e1e3e7!important;color:#6d7179!important}
+
+/* CTA */
+.cta-section{background:#8b5cf6!important;color:#fff!important}
+.cta-section h2{color:#fff!important}
+.cta-section p{color:#eee9ff!important}
+.cta-section .eyebrow{color:#ddd3ff!important}
+.cta-section .btn{background:#fff!important;border-color:#fff!important;color:#5f3dc4!important}
+.cta-section .btn:hover{background:transparent!important;color:#fff!important}
+
+/* Footer */
+.dev-footer{background:#f7f7f8!important;border-top-color:#e4e6ea!important;color:#17181c!important}
+.dev-footer .dev-custom-build{border-color:#dfe1e5!important}
+.dev-footer .dev-custom-build>span,.footer-col h4,.footer-bottom{color:#8a8e96!important}
+.dev-footer .dev-custom-build strong{color:#17181c!important}
+.dev-footer .dev-custom-build p,.footer-intro{color:#70747c!important}
+.footer-col a{color:#565a62!important}
+.footer-col a:hover{color:#111216!important}
+.footer-bottom{border-color:#dfe1e5!important}
+
+/* Motion widgets adapted to light surfaces */
+.solutions-index-page .solution-index-stats>span:hover{background:#fafafa!important;border-color:#d1c5ef!important}
+.solutions-index-page .solution-custom-card:hover i,.project-room-page .pr-benefit-card:hover .pr-icon,.project-room-page .solution-flow article:hover .pr-flow-icon{background:#f1ecff!important;border-color:#cbbbef!important}
+
+@media(max-width:767px){
+  .dev-header{background:rgba(255,255,255,.97)!important}
+}
