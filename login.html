@@ -3,40 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>로그인 — AESOST</title>
-  <meta name="description" content="에이소스트에 로그인하고 저장한 콘텐츠와 커리어 기록을 확인하세요.">
-  <link rel="stylesheet" href="styles.css?v=20260802-5">
-  <link rel="stylesheet" href="aesost-theme.css?v=20260804-3">
-  <link rel="stylesheet" href="auth-aesost.css?v=20260805-1">
-  <style>
-    .auth-panel .auth-form{margin-top:0}
-    .auth-panel .auth-divider{display:flex;align-items:center;gap:16px;margin:24px 0 16px;color:#79747f;font-size:12px;text-align:center}
-    .auth-panel .auth-divider:before,.auth-panel .auth-divider:after{content:"";flex:1;height:1px;background:#3a3640}
-    .auth-panel .social-login{display:block;margin:0}
-    .auth-panel .social-login button{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:52px;padding:0 54px;border:1px solid #45414b;border-radius:12px;background:#242329;color:#f5f4f6;font-size:14px;font-weight:750;letter-spacing:-.015em;cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .2s ease}
-    .auth-panel .social-login button:hover{border-color:#706978;background:#29272e;transform:translateY(-1px)}
-    .auth-panel .social-login button:disabled{cursor:wait;opacity:.72;transform:none}
-    .auth-panel .google-icon{position:absolute;left:19px;top:50%;width:20px;height:20px;transform:translateY(-50%);flex:0 0 auto}
-    .auth-panel .social-login button.is-loading .google-icon{opacity:.45}
-    @media(max-width:560px){.auth-panel .auth-divider{margin:21px 0 14px}.auth-panel .social-login button{height:52px;padding-left:50px;padding-right:50px}.auth-panel .google-icon{left:17px}}
-  </style>
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>로그인 | AESOST</title>
+  <meta name="description" content="AESOST 계정 로그인 페이지입니다.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg?v=20260803-4" type="image/svg+xml">
+  <link rel="stylesheet" href="dev-site.css?v=20260906-2">
+  <link rel="stylesheet" href="dev-visual-refine.css?v=20260906-1">
+  <link rel="stylesheet" href="login-current.css?v=20260907-1">
 </head>
 <body class="auth-page">
-  <header class="site-header" data-header></header>
-  <main class="auth-main shell">
-    <section class="auth-card">
-      <div class="auth-visual" aria-hidden="true"><img src="aesost-symbol-3d.svg?v=20260802-1" alt=""></div>
-      <a class="auth-brand" href="index.html" aria-label="AESOST 홈으로 이동"><img class="brand-logo" src="aesost-logo.svg?v=20260801-2" alt="AESOST"></a>
-      <div class="auth-tabs"><button class="is-active" type="button" data-auth-tab="login">로그인</button><button type="button" data-auth-tab="signup">회원가입</button></div>
+  <header class="dev-header" data-dev-header></header>
+
+  <main class="auth-main">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <div class="auth-head">
+        <a class="auth-brand" href="index.html" aria-label="AESOST 홈으로 이동">
+          <img src="aesost-logo-dark.svg?v=20260907-1" alt="AESOST">
+        </a>
+        <span class="auth-context" data-auth-context>ACCOUNT</span>
+      </div>
+
+      <div class="auth-admin-note" data-admin-note>
+        AESOST 관리자 콘솔 접근을 위한 로그인입니다. 관리자 권한이 있는 계정으로 로그인해 주세요.
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="계정 메뉴">
+        <button class="is-active" type="button" data-auth-tab="login" role="tab" aria-selected="true">로그인</button>
+        <button type="button" data-auth-tab="signup" role="tab" aria-selected="false">회원가입</button>
+      </div>
 
       <div class="auth-panel is-active" data-auth-panel="login">
-        <h1>다시 만나 반가워요.</h1>
-        <p>저장한 콘텐츠와 커리어 기록을 이어서 확인하세요.</p>
+        <h1 id="auth-title" data-login-title>로그인</h1>
+        <p data-login-copy>AESOST 계정으로 로그인해 주세요.</p>
 
         <form class="auth-form" data-login-form>
-          <label><span>이메일</span><input type="email" name="email" placeholder="name@example.com" autocomplete="email" required></label>
-          <label><span>비밀번호</span><input type="password" name="password" placeholder="비밀번호를 입력해 주세요" autocomplete="current-password" required></label>
-          <div class="auth-options"><label><input type="checkbox" name="remember"> 로그인 상태 유지</label><a href="#" data-reset-password>비밀번호 찾기</a></div>
+          <label>
+            <span>이메일</span>
+            <input type="email" name="email" placeholder="name@example.com" autocomplete="email" required>
+          </label>
+          <label>
+            <span>비밀번호</span>
+            <input type="password" name="password" placeholder="비밀번호를 입력해 주세요" autocomplete="current-password" required>
+          </label>
+          <div class="auth-options">
+            <label><input type="checkbox" name="remember"> 로그인 상태 유지</label>
+            <a href="#" data-reset-password>비밀번호 찾기</a>
+          </div>
           <button class="auth-submit" type="submit">로그인</button>
         </form>
 
@@ -55,8 +68,8 @@
       </div>
 
       <div class="auth-panel" data-auth-panel="signup">
-        <h1>에이소스트를 시작해 보세요.</h1>
-        <p>지식을 얻고, 관점을 기록하며, 자신의 커리어 자산을 쌓아보세요.</p>
+        <h1>계정 만들기</h1>
+        <p>AESOST 계정을 생성합니다.</p>
 
         <form class="auth-form" data-signup-form>
           <label><span>이름</span><input type="text" name="name" placeholder="이름을 입력해 주세요" autocomplete="name" required></label>
@@ -83,40 +96,37 @@
       <p class="auth-notice" data-auth-notice>로그인 정보를 입력해 주세요.</p>
     </section>
   </main>
-  <footer class="footer" data-footer></footer>
-  <script src="script.js?v=20260804-6"></script>
+
+  <footer class="dev-footer" data-dev-footer></footer>
+
+  <script src="dev-shell.js?v=20260907-4"></script>
   <script>
-    (() => {
-      const card = document.querySelector('.auth-card');
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
-      if (!card || reducedMotion || coarsePointer) return;
-
-      let frame = 0;
-      let pointerX = 0;
-      let pointerY = 0;
-
-      const renderGlow = () => {
-        const rect = card.getBoundingClientRect();
-        const x = Math.max(0, Math.min(100, ((pointerX - rect.left) / rect.width) * 100));
-        const y = Math.max(0, Math.min(100, ((pointerY - rect.top) / rect.height) * 100));
-        card.style.setProperty('--mouse-x', `${x}%`);
-        card.style.setProperty('--mouse-y', `${y}%`);
-        frame = 0;
+    (()=>{
+      const params=new URLSearchParams(location.search);
+      const next=params.get('next')||'';
+      const adminMode=next==='admin/'||next==='admin'||next.startsWith('admin/');
+      const body=document.body;
+      const activate=name=>{
+        document.querySelectorAll('[data-auth-tab]').forEach(tab=>{
+          const active=tab.dataset.authTab===name;
+          tab.classList.toggle('is-active',active);
+          tab.setAttribute('aria-selected',String(active));
+        });
+        document.querySelectorAll('[data-auth-panel]').forEach(panel=>panel.classList.toggle('is-active',panel.dataset.authPanel===name));
       };
-
-      card.addEventListener('pointerenter', () => card.classList.add('is-pointer-active'));
-      card.addEventListener('pointermove', event => {
-        pointerX = event.clientX;
-        pointerY = event.clientY;
-        if (!frame) frame = requestAnimationFrame(renderGlow);
-      });
-      card.addEventListener('pointerleave', () => {
-        card.classList.remove('is-pointer-active');
-        card.style.setProperty('--mouse-x', '50%');
-        card.style.setProperty('--mouse-y', '18%');
-      });
+      document.querySelectorAll('[data-auth-tab]').forEach(tab=>tab.addEventListener('click',()=>activate(tab.dataset.authTab)));
+      if(adminMode){
+        body.classList.add('is-admin-login');
+        document.querySelector('[data-auth-context]').textContent='ADMIN ACCESS';
+        document.querySelector('[data-login-title]').textContent='관리자 로그인';
+        document.querySelector('[data-login-copy]').textContent='AESOST 운영 콘솔에 접근합니다.';
+        document.title='관리자 로그인 | AESOST';
+        activate('login');
+      }else if(params.get('mode')==='signup'||location.hash==='#signup'){
+        activate('signup');
+      }
     })();
   </script>
+  <script type="module" src="firebase-auth.js?v=20260907-1"></script>
 </body>
 </html>
