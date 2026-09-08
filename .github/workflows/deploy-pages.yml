@@ -22,6 +22,8 @@ jobs:
         run: node scripts/apply-seo.mjs
       - name: Remove legacy academy platform files
         run: node scripts/prune-legacy.mjs
+      - name: Finalize current site runtime
+        run: node scripts/finalize-current-site.mjs
       - name: Validate core site
         run: node scripts/validate-site.mjs
       - uses: actions/configure-pages@v5
