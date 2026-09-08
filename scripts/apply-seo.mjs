@@ -155,6 +155,11 @@ function schemaFor(file,meta){
   if(meta.schema==='Service')return {'@context':'https://schema.org','@type':'Service',name:'AESOST 웹·시스템 개발 서비스',url:canonical,description:meta.description,provider:organization,areaServed:'KR'};
   return {'@context':'https://schema.org','@type':meta.schema||'WebPage',name:meta.title,url:canonical,description:meta.description,inLanguage:'ko-KR',isPartOf:{'@type':'WebSite',name:'AESOST',url:base}};
 }
+function injectInquiryWidget(html){
+  if(!/inquiry-widget\.css/i.test(html))html=html.replace(/<\/head>/i,'  <link rel="stylesheet" href="inquiry-widget.css?v=20260908-1">\n</head>');
+  if(!/inquiry-widget\.js/i.test(html))html=html.replace(/<\/body>/i,'  <script type="module" src="inquiry-widget.js?v=20260908-1"></script>\n</body>');
+  return html;
+}
 function applyMeta(file,meta){
   const full=path.join(root,file);
   if(!fs.existsSync(full))return;
@@ -180,6 +185,7 @@ function applyMeta(file,meta){
   html=removeJsonLd(html,'aesost-seo-schema');
   const schema=JSON.stringify(schemaFor(file,meta));
   html=html.replace(/<\/head>/i,`  <script id="aesost-seo-schema" type="application/ld+json">${schema}</script>\n</head>`);
+  html=injectInquiryWidget(html);
   fs.writeFileSync(full,html);
 }
 
@@ -197,8 +203,8 @@ for(const name of fs.readdirSync(root)){
 const sitemapEntries=Object.entries(pages).map(([file,meta])=>{
   const priority=file==='index.html'?'1.0':file==='services.html'||file==='system-solutions.html'?'0.9':file.startsWith('solution-')?'0.8':'0.7';
   const freq=file==='index.html'?'weekly':'monthly';
-  return `  <url><loc>${base}${meta.path}</loc><lastmod>2026-09-07</lastmod><changefreq>${freq}</changefreq><priority>${priority}</priority></url>`;
+  return `  <url><loc>${base}${meta.path}</loc><lastmod>2026-09-08</lastmod><changefreq>${freq}</changefreq><priority>${priority}</priority></url>`;
 }).join('\n');
 fs.writeFileSync(path.join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries}\n</urlset>\n`);
 
-console.log(`Applied current AESOST SEO metadata to ${Object.keys(pages).length} pages and noindexed legacy platform pages.`);
+console.log(`Applied current AESOST SEO metadata and inquiry widget to ${Object.keys(pages).length} pages.`);
