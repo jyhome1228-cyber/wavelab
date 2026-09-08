@@ -24,9 +24,9 @@
             <div class="aesost-business-row"><dt>상호</dt><dd>에이소스트 (AESOST)</dd></div>
             <div class="aesost-business-row"><dt>대표</dt><dd>박재영</dd></div>
             <div class="aesost-business-row"><dt>사업자등록번호</dt><dd>820-13-02834</dd></div>
-            <div class="aesost-business-row"><dt>업태</dt><dd>부동산업</dd></div>
+            <div class="aesost-business-row"><dt>업태</dt><dd>정보통신업</dd></div>
             <div class="aesost-business-row is-wide"><dt>사업장 소재지</dt><dd>인천광역시 서구 원당대로 1039, 9층 915호 (원당동, 태경타워)</dd></div>
-            <div class="aesost-business-row is-wide"><dt>종목</dt><dd>비주거용 건물 임대업 (공유오피스 임대)</dd></div>
+            <div class="aesost-business-row is-wide"><dt>종목</dt><dd>응용 소프트웨어 개발 및 공급업</dd></div>
           </dl>
         </div>
         <div class="aesost-footer-side">
