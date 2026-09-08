@@ -3,23 +3,7 @@ Allow: /
 
 # Private / non-search pages
 Disallow: /admin/
-Disallow: /login
+Disallow: /login.html
 Disallow: /demo/
-Disallow: /mypage
-Disallow: /ability
-Disallow: /community
-Disallow: /column
-Disallow: /article
-Disallow: /magazine
-Disallow: /overseas-
-Disallow: /reference
-Disallow: /expert-
-Disallow: /career-
-Disallow: /news
-Disallow: /notice
-Disallow: /class
-Disallow: /study-
-Disallow: /my-references
-Disallow: /columnist-
 
 Sitemap: https://aesost.com/sitemap.xml
