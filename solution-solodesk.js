@@ -1,15 +1,15 @@
 document.body.classList.add('solodesk-light');
 
 if(!document.getElementById('solodesk-light-css')){
-  const light=document.createElement('link');
-  light.id='solodesk-light-css';
-  light.rel='stylesheet';
-  light.href='solution-solodesk-light.css?v=20260910-1';
-  document.head.appendChild(light);
+  const solodeskLightStylesheet=document.createElement('link');
+  solodeskLightStylesheet.id='solodesk-light-css';
+  solodeskLightStylesheet.rel='stylesheet';
+  solodeskLightStylesheet.href='solution-solodesk-light.css?v=20260910-1';
+  document.head.appendChild(solodeskLightStylesheet);
 }
 
-const themeMeta=document.querySelector('meta[name="theme-color"]');
-if(themeMeta)themeMeta.setAttribute('content','#ffffff');
+const solodeskThemeMeta=document.querySelector('meta[name="theme-color"]');
+if(solodeskThemeMeta)solodeskThemeMeta.setAttribute('content','#ffffff');
 
 const heroVisual=document.querySelector('.solution-detail-visual img');
 if(heroVisual){
