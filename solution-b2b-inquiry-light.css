@@ -1,0 +1,93 @@
+/* B2B Inquiry Hub detail page — Light Mode / 2026-09-10 */
+body.solution-detail-page.b2b-inquiry-light{
+  --bg:#ffffff;
+  --surface:#f7f8fa;
+  --surface-2:#f2f4f7;
+  --surface-3:#eceff3;
+  --text:#17181c;
+  --text-2:#62666f;
+  --muted:#8a8f98;
+  --line:#e4e7eb;
+  --line-strong:#d4d8df;
+  --purple:#7657f6;
+  --purple-strong:#6748e8;
+  background:#fff!important;
+  color:var(--text)!important;
+}
+
+body.b2b-inquiry-light .dev-header{background:rgba(255,255,255,.94)!important;border-bottom-color:#e8eaee!important;box-shadow:0 1px 0 rgba(17,18,22,.02)!important}
+body.b2b-inquiry-light .dev-nav a{color:#4e525a!important}
+body.b2b-inquiry-light .dev-nav a:hover,
+body.b2b-inquiry-light .dev-nav a.is-active,
+body.b2b-inquiry-light .dev-nav a[aria-current="page"]{color:#17181c!important}
+body.b2b-inquiry-light .dev-contact{background:#fff!important;border-color:#d5d9e0!important;color:#17181c!important}
+body.b2b-inquiry-light .dev-contact:hover{background:var(--purple)!important;border-color:var(--purple)!important;color:#fff!important}
+body.b2b-inquiry-light .dev-menu span{background:#17181c!important}
+body.b2b-inquiry-light .dev-mobile-nav{background:#fff!important;border-color:#e7e9ed!important;color:#17181c!important}
+
+body.b2b-inquiry-light .page-hero,
+body.b2b-inquiry-light .section,
+body.b2b-inquiry-light .section.dark{background:#fff!important;color:#17181c!important;border-color:#e8eaee!important}
+body.b2b-inquiry-light .section.soft{background:#f7f8fa!important}
+body.b2b-inquiry-light .section.dark{background:#f6f7f9!important}
+body.b2b-inquiry-light .page-title,
+body.b2b-inquiry-light .section-title,
+body.b2b-inquiry-light h1,
+body.b2b-inquiry-light h2,
+body.b2b-inquiry-light h3{color:#17181c!important}
+body.b2b-inquiry-light .lead,
+body.b2b-inquiry-light .section-copy p,
+body.b2b-inquiry-light .solution-intro-copy>p,
+body.b2b-inquiry-light .solution-demo-entry p,
+body.b2b-inquiry-light .solution-feature-caption p{color:#666a72!important}
+body.b2b-inquiry-light .eyebrow{color:#858a93!important}
+
+body.b2b-inquiry-light .solution-detail-tags span{background:#fff!important;border-color:#dfe2e7!important;color:#727780!important}
+body.b2b-inquiry-light .solution-detail-visual{background:#f6f7f9!important;border-color:#dfe2e7!important;box-shadow:0 18px 50px rgba(20,24,32,.05)!important}
+
+body.b2b-inquiry-light .btn{background:#fff!important;border-color:#d5d9e0!important;color:#17181c!important}
+body.b2b-inquiry-light .btn:hover{background:#f7f8fa!important;border-color:#aeb3bc!important}
+body.b2b-inquiry-light .btn.secondary{background:#fff!important;color:#17181c!important}
+body.b2b-inquiry-light .btn.purple{background:var(--purple)!important;border-color:var(--purple)!important;color:#fff!important}
+body.b2b-inquiry-light .btn.purple:hover{background:var(--purple-strong)!important;border-color:var(--purple-strong)!important;color:#fff!important}
+
+body.b2b-inquiry-light .solution-problems{border-color:#e2e5e9!important;background:#e2e5e9!important}
+body.b2b-inquiry-light .solution-problems article,
+body.b2b-inquiry-light .solution-flow article{background:#fff!important;border-color:#e2e5e9!important;color:#17181c!important}
+body.b2b-inquiry-light .solution-problems p,
+body.b2b-inquiry-light .solution-flow p{color:#737780!important}
+
+body.b2b-inquiry-light .solution-feature-nav{border-color:#e0e3e8!important}
+body.b2b-inquiry-light .solution-feature-tab{background:#fff!important;border-color:#e0e3e8!important;color:#747880!important}
+body.b2b-inquiry-light .solution-feature-tab:hover{background:#fafafa!important}
+body.b2b-inquiry-light .solution-feature-tab strong{color:#50545c!important}
+body.b2b-inquiry-light .solution-feature-tab small{color:#8b8f97!important}
+body.b2b-inquiry-light .solution-feature-tab.is-active{background:#f8f5ff!important;border-color:#c8b8f0!important;box-shadow:inset 2px 0 0 #7657f6!important}
+body.b2b-inquiry-light .solution-feature-tab.is-active strong{color:#17181c!important}
+body.b2b-inquiry-light .solution-feature-browser{background:#fff!important;border-color:#dfe2e7!important;box-shadow:0 14px 42px rgba(20,24,32,.05)!important}
+body.b2b-inquiry-light .solution-feature-browser-bar{background:#fafafa!important;border-color:#e5e7eb!important;color:#858a93!important}
+body.b2b-inquiry-light .solution-feature-browser-bar b{color:#5d6168!important}
+body.b2b-inquiry-light .solution-feature-browser-bar em{color:#7657f6!important}
+body.b2b-inquiry-light .solution-feature-frame-wrap{background:#f6f7f9!important}
+body.b2b-inquiry-light .solution-feature-caption h3{color:#17181c!important}
+body.b2b-inquiry-light .solution-feature-caption span{color:#888d95!important}
+body.b2b-inquiry-light .solution-demo-note{background:#fff!important;border-color:#dfe2e7!important;color:#777b83!important}
+
+body.b2b-inquiry-light .cta-section{background:#7657f6!important;color:#fff!important}
+body.b2b-inquiry-light .cta-section h2{color:#fff!important}
+body.b2b-inquiry-light .cta-section p{color:#eee9ff!important}
+body.b2b-inquiry-light .cta-section .eyebrow{color:#ddd3ff!important}
+body.b2b-inquiry-light .cta-section .btn{background:#fff!important;border-color:#fff!important;color:#5f3dc4!important}
+body.b2b-inquiry-light .cta-section .btn:hover{background:transparent!important;color:#fff!important}
+
+body.b2b-inquiry-light .dev-footer{background:#f7f8fa!important;border-top-color:#e4e6ea!important;color:#17181c!important}
+body.b2b-inquiry-light .footer-col h4,
+body.b2b-inquiry-light .footer-bottom{color:#8a8e96!important}
+body.b2b-inquiry-light .footer-col a{color:#565a62!important}
+body.b2b-inquiry-light .footer-col a:hover{color:#111216!important}
+body.b2b-inquiry-light .footer-bottom{border-color:#dfe2e7!important}
+
+@media(max-width:760px){
+  body.b2b-inquiry-light .dev-header{background:rgba(255,255,255,.97)!important}
+  body.b2b-inquiry-light .solution-feature-tab.is-active{box-shadow:none!important}
+}
