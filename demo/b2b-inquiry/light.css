@@ -1,0 +1,70 @@
+/* B2B Inquiry Hub demo — Light Mode / 2026-09-10 */
+body.b2b-demo-light{--side:#ffffff;background:#f6f7f9!important;color:#17181c!important}
+body.b2b-demo-light .demo-banner{background:#ffffff!important;color:#737780!important;border-bottom:1px solid #e4e7eb!important}
+body.b2b-demo-light .demo-banner b{color:#17181c!important}
+body.b2b-demo-light .demo-banner a{color:#7657f6!important}
+body.b2b-demo-light .sidebar{background:#ffffff!important;color:#17181c!important;border-right:1px solid #e4e7eb!important}
+body.b2b-demo-light .brand-row strong{color:#17181c!important}
+body.b2b-demo-light .brand-row span{color:#8a8f98!important}
+body.b2b-demo-light .product-mark{background:#7657f6!important;color:#fff!important}
+body.b2b-demo-light .nav-item{color:#70757e!important}
+body.b2b-demo-light .nav-item:hover{background:#f6f7f9!important;color:#17181c!important}
+body.b2b-demo-light .nav-item.is-active{background:#f3f0ff!important;color:#17181c!important;box-shadow:inset 3px 0 0 #7657f6!important}
+body.b2b-demo-light .nav-item em{background:#f0f1f4!important;color:#727780!important}
+body.b2b-demo-light .sidebar-foot{border-top-color:#e7e9ed!important}
+body.b2b-demo-light .user-chip>span{background:#f0f1f4!important;color:#4f545c!important}
+body.b2b-demo-light .user-chip b{color:#17181c!important}
+body.b2b-demo-light .user-chip small,
+body.b2b-demo-light .text-button{color:#8a8f98!important}
+body.b2b-demo-light .text-button:hover{color:#17181c!important}
+body.b2b-demo-light .main-panel{background:#f6f7f9!important}
+body.b2b-demo-light .search-box,
+body.b2b-demo-light .metric-card,
+body.b2b-demo-light .panel,
+body.b2b-demo-light .table-card,
+body.b2b-demo-light .deal-card,
+body.b2b-demo-light .next-button,
+body.b2b-demo-light .modal-card,
+body.b2b-demo-light .modal input,
+body.b2b-demo-light .modal select{background:#fff!important}
+body.b2b-demo-light .metric-card,
+body.b2b-demo-light .panel,
+body.b2b-demo-light .table-card,
+body.b2b-demo-light .pipeline-col,
+body.b2b-demo-light .deal-card,
+body.b2b-demo-light .next-button,
+body.b2b-demo-light .search-box,
+body.b2b-demo-light .modal-card,
+body.b2b-demo-light .modal input,
+body.b2b-demo-light .modal select{border-color:#e2e5e9!important}
+body.b2b-demo-light .pipeline-col{background:#fafbfc!important}
+body.b2b-demo-light .topbar h1,
+body.b2b-demo-light .section-toolbar h2,
+body.b2b-demo-light .panel-head h2,
+body.b2b-demo-light .metric-card strong,
+body.b2b-demo-light .lead-main strong,
+body.b2b-demo-light .company-cell strong,
+body.b2b-demo-light .deal-card strong{color:#17181c!important}
+body.b2b-demo-light .search-box input{color:#17181c!important}
+body.b2b-demo-light .search-box input::placeholder{color:#a2a6ae!important}
+body.b2b-demo-light .secondary-button{background:#fff!important;border-color:#d7dae0!important;color:#17181c!important}
+body.b2b-demo-light .secondary-button:hover{background:#f7f8fa!important}
+body.b2b-demo-light .primary-button{background:#7657f6!important;color:#fff!important}
+body.b2b-demo-light .pipeline-head,
+body.b2b-demo-light .lead-row>span,
+body.b2b-demo-light .company-cell span,
+body.b2b-demo-light .deal-card span{color:#7c818b!important}
+body.b2b-demo-light th{background:#f8f9fb!important;color:#737780!important}
+body.b2b-demo-light th,
+body.b2b-demo-light td,
+body.b2b-demo-light .lead-row,
+body.b2b-demo-light .stage-line,
+body.b2b-demo-light .follow-line{border-color:#e7e9ed!important}
+body.b2b-demo-light .modal{background:rgba(25,28,34,.18)!important}
+body.b2b-demo-light .close-button{background:#f7f8fa!important;border-color:#e2e5e9!important;color:#17181c!important}
+body.b2b-demo-light .toast{background:#17181c!important;color:#fff!important}
+
+@media(max-width:760px){
+  body.b2b-demo-light .sidebar{border-right:0!important;border-bottom:1px solid #e4e7eb!important}
+  body.b2b-demo-light .nav-item.is-active{box-shadow:none!important;border:1px solid #ddd5fb!important}
+}
