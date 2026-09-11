@@ -1,0 +1,28 @@
+/* Project Room demo polish */
+html,body,button,input,select,textarea,a{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important}
+button,.text-link,.nav-item,.filter,.tiny-button{cursor:pointer;touch-action:manipulation}
+:root{--sys-sidebar:214px;--sys-page-gutter:28px;--sys-content-max:1320px}
+html.guide-mode .demo-banner{display:none!important}
+html.guide-mode .app-shell{min-height:100vh!important}
+html.guide-mode .sidebar{height:100vh!important}
+.project-room-demo-light .sidebar{padding:18px 10px!important}
+.project-room-demo-light .product-mark{width:32px!important;height:32px!important;border-radius:5px!important;box-shadow:none!important}
+.project-room-demo-light .nav-item{height:40px!important;border-radius:4px!important;font-size:12px!important}
+.project-room-demo-light .nav-item.is-active{background:#f5f2ff!important;box-shadow:inset 2px 0 0 #7052de!important}
+.project-room-demo-light .main-panel{padding:26px var(--sys-page-gutter) 48px!important}
+.project-room-demo-light .topbar{margin-bottom:24px!important;align-items:center!important}
+.project-room-demo-light .topbar h1{font-size:24px!important;font-weight:650!important}
+.project-room-demo-light .search-box{height:40px!important;border-radius:4px!important}
+.project-room-demo-light .primary-button,.project-room-demo-light .secondary-button{height:40px!important;border-radius:4px!important;font-size:11px!important}
+.project-room-demo-light .metric-grid{gap:8px!important;margin-bottom:8px!important}
+.project-room-demo-light .metric-card,.project-room-demo-light .panel,.project-room-demo-light .table-card,.project-room-demo-light .timeline-card,.project-room-demo-light .deliverable-card,.project-room-demo-light .feedback-item{border-radius:5px!important}
+.project-room-demo-light .dashboard-grid{grid-template-columns:minmax(0,1.6fr) minmax(300px,.74fr)!important;gap:8px!important}
+.project-room-demo-light .panel{padding:18px!important}
+.project-room-demo-light .task-row{grid-template-columns:minmax(0,1fr) 76px 78px!important;min-height:50px!important}
+.project-room-demo-light .milestone-item>div,.project-room-demo-light .approval-item>div{min-width:0!important}
+.project-room-demo-light .milestone-item b,.project-room-demo-light .approval-item b,.project-room-demo-light .milestone-item small,.project-room-demo-light .approval-item small{display:block;word-break:keep-all!important}
+.project-room-demo-light .filter{height:31px!important;border-radius:4px!important;font-size:9px!important}
+.project-room-demo-light .tiny-button{height:27px!important;border-radius:3px!important;font-size:9px!important}
+.project-room-demo-light .feedback-form select,.project-room-demo-light .feedback-form input,.project-room-demo-light .modal input,.project-room-demo-light .modal select{border-radius:4px!important}
+.project-room-demo-light .modal-card,.project-room-demo-light .toast{border-radius:5px!important}
+@media(max-width:1080px){:root{--sys-sidebar:82px}.project-room-demo-light .dashboard-grid{grid-template-columns:1fr!important}}
