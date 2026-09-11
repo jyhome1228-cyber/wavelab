@@ -26,6 +26,8 @@ jobs:
         run: node scripts/finalize-current-site.mjs
       - name: Apply current site QA hardening
         run: node scripts/qa-current-site.mjs
+      - name: Harden interactive demo first paint
+        run: node scripts/qa-demo-first-paint.mjs
       - name: Validate core site
         run: node scripts/validate-site.mjs
       - uses: actions/configure-pages@v5
