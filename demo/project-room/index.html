@@ -1,1 +1,119 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Project Room — AESOST Concept System</title><meta name="theme-color" content="#111216"><link rel="icon" href="../../favicon.svg"><link rel="stylesheet" href="../../system-ui.css?v=20260906-2"><link rel="stylesheet" href="styles.css?v=20260906-1"></head><body><div class="demo-banner"><span><b>AESOST CONCEPT SYSTEM</b> · Demo Project: Object Lab Website Renewal</span><a href="../../solution-project-room.html">제품 소개 ↗</a></div><div class="app-shell"><aside class="sidebar"><div class="brand-row"><div class="product-mark">P</div><div><strong>Project Room</strong><span>Project Collaboration</span></div></div><nav class="side-nav" aria-label="Project Room 메뉴"><button class="nav-item is-active" data-view="dashboard"><span>Dashboard</span></button><button class="nav-item" data-view="tasks"><span>Tasks</span><em data-count="tasks">0</em></button><button class="nav-item" data-view="timeline"><span>Timeline</span></button><button class="nav-item" data-view="deliverables"><span>Deliverables</span><em data-count="approval">0</em></button><button class="nav-item" data-view="feedback"><span>Feedback</span></button></nav><div class="sidebar-foot"><div class="user-chip"><span>OL</span><div><b>Object Lab Website Renewal</b><small>DEMO PROJECT</small></div></div><button class="text-button" data-reset>Reset demo data</button></div></aside><main class="main-panel"><header class="topbar"><div><p class="kicker">PROJECT COLLABORATION</p><h1 data-view-title>프로젝트 현황</h1></div><div class="top-actions"><label class="search-box"><span>⌕</span><input type="search" placeholder="업무 또는 담당자 검색" data-search></label><button class="primary-button" data-open-task>+ 새 업무</button></div></header><section class="view is-active" data-view-panel="dashboard"><div class="metric-grid"><article class="metric-card"><span>진행률</span><strong data-metric="progress">0%</strong><small>완료 업무 기준</small></article><article class="metric-card"><span>진행 중</span><strong data-metric="active">0</strong><small>현재 작업 업무</small></article><article class="metric-card"><span>마감 임박</span><strong data-metric="due">0</strong><small>3일 이내</small></article><article class="metric-card"><span>승인 대기</span><strong data-metric="approval">0</strong><small>산출물 검토 필요</small></article></div><div class="dashboard-grid"><article class="panel large-panel"><div class="panel-head"><div><span>ACTIVE TASKS</span><h2>진행 중인 업무</h2></div><button class="text-link" data-go="tasks">전체 보기 ↗</button></div><div class="task-list" data-dashboard-tasks></div></article><article class="panel"><div class="panel-head"><div><span>MILESTONE</span><h2>다가오는 일정</h2></div></div><div class="milestone-list" data-dashboard-milestones></div></article><article class="panel"><div class="panel-head"><div><span>APPROVAL</span><h2>검토 대기 산출물</h2></div></div><div class="approval-list" data-dashboard-deliverables></div></article></div></section><section class="view" data-view-panel="tasks"><div class="section-toolbar"><div><p>TASK MANAGEMENT</p><h2>Tasks</h2></div><div class="filter-row"><button class="filter is-active" data-filter="all">전체</button><button class="filter" data-filter="Todo">Todo</button><button class="filter" data-filter="In Progress">In Progress</button><button class="filter" data-filter="Review">Review</button><button class="filter" data-filter="Done">Done</button></div></div><div class="table-card"><table><thead><tr><th>Task</th><th>Owner</th><th>Priority</th><th>Due</th><th>Status</th><th>Action</th></tr></thead><tbody data-tasks-table></tbody></table></div></section><section class="view" data-view-panel="timeline"><div class="section-toolbar"><div><p>PROJECT TIMELINE</p><h2>Timeline</h2></div></div><div class="timeline-list" data-timeline></div></section><section class="view" data-view-panel="deliverables"><div class="section-toolbar"><div><p>DELIVERABLE REVIEW</p><h2>Deliverables</h2></div></div><div class="deliverable-grid" data-deliverables></div></section><section class="view" data-view-panel="feedback"><div class="section-toolbar"><div><p>FEEDBACK LOG</p><h2>Feedback</h2></div></div><form class="feedback-form" data-feedback-form><select name="target" data-feedback-target></select><input name="message" required placeholder="수정 요청이나 피드백을 입력하세요"><button class="primary-button" type="submit">피드백 등록</button></form><div class="feedback-list" data-feedback-list></div></section></main></div><div class="modal" data-modal="task" aria-hidden="true"><div class="modal-card"><div class="modal-head"><div><span>NEW TASK</span><h2>새 업무</h2></div><button class="close-button" type="button" data-close aria-label="닫기">×</button></div><form data-task-form><label>업무명<input name="name" required placeholder="예: 모바일 메인 화면 수정"></label><label>담당자<select name="owner" required data-owner-select></select></label><div class="form-two"><label>마감일<input name="due" type="date" required></label><label>우선순위<select name="priority"><option>High</option><option selected>Normal</option><option>Low</option></select></label></div><button class="primary-button full" type="submit">업무 생성</button></form></div></div><div class="toast" data-toast></div><script src="app.js?v=20260906-1"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Project Room — AESOST Concept System</title>
+  <link rel="icon" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../system-ui.css?v=20260906-2">
+  <link rel="stylesheet" href="styles.css?v=20260906-1">
+  <link rel="stylesheet" href="light.css?v=20260911-1">
+</head>
+<body class="project-room-demo-light">
+  <div class="demo-banner">
+    <span><b>AESOST CONCEPT SYSTEM</b> · Demo Project: Object Lab Website Renewal</span>
+    <a href="../../solution-project-room.html">제품 소개 ↗</a>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-row">
+        <div class="product-mark">P</div>
+        <div><strong>Project Room</strong><span>Project Collaboration</span></div>
+      </div>
+      <nav class="side-nav" aria-label="Project Room 메뉴">
+        <button class="nav-item is-active" data-view="dashboard"><span>Dashboard</span></button>
+        <button class="nav-item" data-view="tasks"><span>Tasks</span><em data-count="tasks">0</em></button>
+        <button class="nav-item" data-view="timeline"><span>Timeline</span></button>
+        <button class="nav-item" data-view="deliverables"><span>Deliverables</span><em data-count="approval">0</em></button>
+        <button class="nav-item" data-view="feedback"><span>Feedback</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="user-chip"><span>OL</span><div><b>Object Lab Website Renewal</b><small>DEMO PROJECT</small></div></div>
+        <button class="text-button" data-reset>Reset demo data</button>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div><p class="kicker">PROJECT COLLABORATION</p><h1 data-view-title>프로젝트 현황</h1></div>
+        <div class="top-actions">
+          <label class="search-box"><span>⌕</span><input type="search" placeholder="업무 또는 담당자 검색" data-search></label>
+          <button class="primary-button" data-open-task>+ 새 업무</button>
+        </div>
+      </header>
+
+      <section class="view is-active" data-view-panel="dashboard">
+        <div class="metric-grid">
+          <article class="metric-card"><span>진행률</span><strong data-metric="progress">0%</strong><small>완료 업무 기준</small></article>
+          <article class="metric-card"><span>진행 중</span><strong data-metric="active">0</strong><small>현재 작업 업무</small></article>
+          <article class="metric-card"><span>마감 임박</span><strong data-metric="due">0</strong><small>3일 이내</small></article>
+          <article class="metric-card"><span>승인 대기</span><strong data-metric="approval">0</strong><small>산출물 검토 필요</small></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel large-panel">
+            <div class="panel-head"><div><span>ACTIVE TASKS</span><h2>진행 중인 업무</h2></div><button class="text-link" data-go="tasks">전체 보기 ↗</button></div>
+            <div class="task-list" data-dashboard-tasks></div>
+          </article>
+          <article class="panel"><div class="panel-head"><div><span>MILESTONE</span><h2>다가오는 일정</h2></div></div><div class="milestone-list" data-dashboard-milestones></div></article>
+          <article class="panel"><div class="panel-head"><div><span>APPROVAL</span><h2>검토 대기 산출물</h2></div></div><div class="approval-list" data-dashboard-deliverables></div></article>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="tasks">
+        <div class="section-toolbar">
+          <div><p>TASK MANAGEMENT</p><h2>Tasks</h2></div>
+          <div class="filter-row">
+            <button class="filter is-active" data-filter="all">전체</button>
+            <button class="filter" data-filter="Todo">Todo</button>
+            <button class="filter" data-filter="In Progress">In Progress</button>
+            <button class="filter" data-filter="Review">Review</button>
+            <button class="filter" data-filter="Done">Done</button>
+          </div>
+        </div>
+        <div class="table-card"><table><thead><tr><th>Task</th><th>Owner</th><th>Priority</th><th>Due</th><th>Status</th><th>Action</th></tr></thead><tbody data-tasks-table></tbody></table></div>
+      </section>
+
+      <section class="view" data-view-panel="timeline">
+        <div class="section-toolbar"><div><p>PROJECT TIMELINE</p><h2>Timeline</h2></div></div>
+        <div class="timeline-list" data-timeline></div>
+      </section>
+
+      <section class="view" data-view-panel="deliverables">
+        <div class="section-toolbar"><div><p>DELIVERABLE REVIEW</p><h2>Deliverables</h2></div></div>
+        <div class="deliverable-grid" data-deliverables></div>
+      </section>
+
+      <section class="view" data-view-panel="feedback">
+        <div class="section-toolbar"><div><p>FEEDBACK LOG</p><h2>Feedback</h2></div></div>
+        <form class="feedback-form" data-feedback-form>
+          <select name="target" data-feedback-target></select>
+          <input name="message" required placeholder="수정 요청이나 피드백을 입력하세요">
+          <button class="primary-button" type="submit">피드백 등록</button>
+        </form>
+        <div class="feedback-list" data-feedback-list></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" data-modal="task" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head"><div><span>NEW TASK</span><h2>새 업무</h2></div><button class="close-button" type="button" data-close aria-label="닫기">×</button></div>
+      <form data-task-form>
+        <label>업무명<input name="name" required placeholder="예: 모바일 메인 화면 수정"></label>
+        <label>담당자<select name="owner" required data-owner-select></select></label>
+        <div class="form-two">
+          <label>마감일<input name="due" type="date" required></label>
+          <label>우선순위<select name="priority"><option>High</option><option selected>Normal</option><option>Low</option></select></label>
+        </div>
+        <button class="primary-button full" type="submit">업무 생성</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" data-toast></div>
+  <script src="app.js?v=20260906-1"></script>
+</body>
+</html>
