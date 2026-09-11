@@ -9,22 +9,26 @@ const pages=[
   'solution-project-room.html','solution-quote-flow.html'
 ];
 
-const css='company-polish.css?v=20260911-1';
-const tag=`  <link id="aesost-company-polish-css" rel="stylesheet" href="${css}">`;
+const companyCss='company-polish.css?v=20260911-1';
+const interactionCss='enterprise-interaction.css?v=20260911-1';
 const errors=[];
 
 if(!fs.existsSync(path.join(root,'company-polish.css')))errors.push('company-polish.css is missing');
+if(!fs.existsSync(path.join(root,'enterprise-interaction.css')))errors.push('enterprise-interaction.css is missing');
 if(!fs.existsSync(path.join(root,'technology-professional.css')))errors.push('technology-professional.css is missing');
 
 for(const file of pages){
   const full=path.join(root,file);
   if(!fs.existsSync(full)){errors.push(`missing page: ${file}`);continue}
   let html=fs.readFileSync(full,'utf8');
-  if(/id=["']aesost-company-polish-css["']/.test(html)){
-    html=html.replace(/<link[^>]+id=["']aesost-company-polish-css["'][^>]*>/i,tag.trim());
-  }else{
-    html=html.replace(/<\/head>/i,`${tag}\n</head>`);
-  }
+
+  html=html.replace(/<link[^>]+id=["']aesost-company-polish-css["'][^>]*>\s*/i,'');
+  html=html.replace(/<link[^>]+id=["']aesost-enterprise-interaction-css["'][^>]*>\s*/i,'');
+  const tags=[
+    `  <link id="aesost-company-polish-css" rel="stylesheet" href="${companyCss}">`,
+    `  <link id="aesost-enterprise-interaction-css" rel="stylesheet" href="${interactionCss}">`
+  ].join('\n');
+  html=html.replace(/<\/head>/i,`${tags}\n</head>`);
   fs.writeFileSync(full,html);
 }
 
@@ -63,12 +67,13 @@ for(const file of pages){
   fs.writeFileSync(file,html);
 }
 
-// The professional layer should always be present in the deployed HTML.
 for(const file of pages){
   const full=path.join(root,file);
   if(!fs.existsSync(full))continue;
   const html=fs.readFileSync(full,'utf8');
   if(!html.includes('aesost-company-polish-css'))errors.push(`${file}: professional polish stylesheet missing`);
+  if(!html.includes('aesost-enterprise-interaction-css'))errors.push(`${file}: enterprise interaction stylesheet missing`);
+  if(html.indexOf('aesost-enterprise-interaction-css')<html.indexOf('aesost-company-polish-css'))errors.push(`${file}: interaction polish must load after company polish`);
 }
 
 const technology=fs.readFileSync(path.join(root,'technology.html'),'utf8');
@@ -79,4 +84,4 @@ if(errors.length){
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log(`Applied professional company polish to ${pages.length} deployed pages and refined Technology presentation.`);
+console.log(`Applied professional company + interaction polish to ${pages.length} deployed pages and refined Technology presentation.`);
