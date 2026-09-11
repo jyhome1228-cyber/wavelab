@@ -1,10 +1,11 @@
-/* AESOST concise homepage / 2026-09-07 */
+/* AESOST concise homepage / 2026-09-11 */
 .home-simple .hero{padding:96px 0 84px!important}
 .home-simple .hero-copy{max-width:600px}
 .home-simple .hero-copy .display{max-width:620px}
 .home-simple .hero-description{max-width:560px!important;margin-top:22px!important}
-.home-simple .hero-visual{position:relative}
-.home-simple .hero-visual:after{content:'LIVE SYSTEM UI';position:absolute;left:16px;top:16px;min-height:28px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(10,10,12,.76);color:#d8ccff;font-size:10px;font-weight:700;letter-spacing:.07em}
+.home-simple .hero-visual{position:relative;border-radius:18px;overflow:hidden;background:#f3f4f6;border:1px solid #e1e4e8}
+.home-simple .hero-visual:after{display:none!important}
+.home-simple .hero-visual img{display:block;width:100%;height:auto;background:#f3f4f6}
 
 .home-simple .home-core{padding:64px 0!important}
 .home-simple .home-core .section-head{margin-bottom:30px!important}
@@ -28,7 +29,7 @@
 .home-simple .home-demo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .home-simple .home-demo-card{display:block;border:1px solid #e0e2e6;border-radius:12px;overflow:hidden;background:#fff;transition:transform .18s ease,border-color .18s ease}
 .home-simple .home-demo-card:hover{transform:translateY(-2px);border-color:#c9cbd1}
-.home-simple .home-demo-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid #e0e2e6}
+.home-simple .home-demo-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid #e0e2e6;background:#f3f4f6}
 .home-simple .home-demo-body{padding:18px 18px 20px}
 .home-simple .home-demo-body span{color:#7c59df;font-size:10px;font-weight:700;letter-spacing:.07em}
 .home-simple .home-demo-body h3{margin:8px 0 0;color:#17181c;font-size:18px;line-height:1.35}
@@ -50,4 +51,5 @@
   .home-simple .home-core-grid,.home-simple .home-demo-grid{grid-template-columns:1fr}
   .home-simple .home-demo-head{align-items:start;flex-direction:column}
   .home-simple .home-core-card{min-height:0;padding:22px}
+  .home-simple .hero-visual{border-radius:14px}
 }
