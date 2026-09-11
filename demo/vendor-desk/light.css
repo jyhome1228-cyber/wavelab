@@ -1,0 +1,88 @@
+/* Vendor Desk interactive demo — Light Mode / 2026-09-11 */
+:root{--side:#ffffff!important}
+html,body{background:#f6f7f9!important;color:#17181c!important}
+body.vendor-desk-demo-light{background:#f6f7f9!important;color:#17181c!important}
+
+.vendor-desk-demo-light .demo-banner{background:#fff!important;color:#747982!important;border-bottom:1px solid #e5e7eb!important}
+.vendor-desk-demo-light .demo-banner b{color:#17181c!important}
+.vendor-desk-demo-light .demo-banner a{color:#7657f6!important;font-weight:600}
+
+.vendor-desk-demo-light .sidebar{background:#fff!important;color:#17181c!important;border-right:1px solid #e5e7eb!important}
+.vendor-desk-demo-light .brand-row strong{color:#17181c!important}
+.vendor-desk-demo-light .brand-row span{color:#8a8f98!important}
+.vendor-desk-demo-light .product-mark{background:#7657f6!important;color:#fff!important;box-shadow:0 6px 18px rgba(118,87,246,.16)}
+.vendor-desk-demo-light .nav-item{color:#6f747d!important}
+.vendor-desk-demo-light .nav-item:hover{background:#f5f3ff!important;color:#17181c!important}
+.vendor-desk-demo-light .nav-item.is-active{background:#f2efff!important;color:#5f43c9!important;box-shadow:inset 3px 0 0 #7657f6!important}
+.vendor-desk-demo-light .nav-item em{background:#ece9fb!important;color:#6e56c9!important}
+.vendor-desk-demo-light .sidebar-foot{border-top-color:#e7e9ed!important}
+.vendor-desk-demo-light .user-chip>span{background:#f0f1f4!important;color:#5c6169!important}
+.vendor-desk-demo-light .user-chip b{color:#17181c!important}
+.vendor-desk-demo-light .user-chip small{color:#8b8f97!important}
+.vendor-desk-demo-light .text-button{color:#8a8f98!important}
+.vendor-desk-demo-light .text-button:hover{color:#5f43c9!important}
+
+.vendor-desk-demo-light .main-panel{background:#f6f7f9!important}
+.vendor-desk-demo-light .topbar h1,
+.vendor-desk-demo-light .section-toolbar h2,
+.vendor-desk-demo-light .panel-head h2{color:#17181c!important}
+.vendor-desk-demo-light .kicker,
+.vendor-desk-demo-light .section-toolbar p{color:#8a8f98!important}
+
+.vendor-desk-demo-light .search-box,
+.vendor-desk-demo-light .metric-card,
+.vendor-desk-demo-light .panel,
+.vendor-desk-demo-light .table-card,
+.vendor-desk-demo-light .delivery-card,
+.vendor-desk-demo-light .finance-summary article,
+.vendor-desk-demo-light .modal-card{background:#fff!important;border-color:#e2e5e9!important;box-shadow:0 1px 0 rgba(18,20,28,.015)!important}
+.vendor-desk-demo-light .search-box{color:#8a8f98!important}
+.vendor-desk-demo-light .search-box input{color:#17181c!important}
+.vendor-desk-demo-light .metric-card strong,
+.vendor-desk-demo-light .panel-head b,
+.vendor-desk-demo-light .order-row strong,
+.vendor-desk-demo-light .vendor-name strong,
+.vendor-desk-demo-light .delivery-card h3,
+.vendor-desk-demo-light .finance-summary strong{color:#17181c!important}
+.vendor-desk-demo-light .metric-card span,
+.vendor-desk-demo-light .metric-card small,
+.vendor-desk-demo-light .order-row small,
+.vendor-desk-demo-light .vendor-name span,
+.vendor-desk-demo-light .delivery-card p,
+.vendor-desk-demo-light .delivery-meta span,
+.vendor-desk-demo-light .finance-summary span{color:#8a8f98!important}
+
+.vendor-desk-demo-light .primary-button{background:#7657f6!important;color:#fff!important}
+.vendor-desk-demo-light .primary-button:hover{background:#6748e8!important}
+.vendor-desk-demo-light .secondary-button,
+.vendor-desk-demo-light .close-button{background:#fff!important;border-color:#d9dde3!important;color:#17181c!important}
+.vendor-desk-demo-light .secondary-button:hover,
+.vendor-desk-demo-light .close-button:hover{background:#f7f8fa!important}
+.vendor-desk-demo-light .text-link{color:#7657f6!important}
+
+.vendor-desk-demo-light .order-row,
+.vendor-desk-demo-light .alert-item,
+.vendor-desk-demo-light .payable-item,
+.vendor-desk-demo-light th,
+.vendor-desk-demo-light td{border-color:#e8eaee!important}
+.vendor-desk-demo-light th{background:#f8f9fb!important;color:#727780!important}
+.vendor-desk-demo-light td{color:#17181c!important}
+
+.vendor-desk-demo-light .filter{background:#fff!important;border-color:#d9dde3!important;color:#6f747d!important}
+.vendor-desk-demo-light .filter:hover{background:#f7f8fa!important}
+.vendor-desk-demo-light .filter.is-active{background:#f2efff!important;border-color:#cfc3ef!important;color:#5f43c9!important}
+
+.vendor-desk-demo-light .delivery-meta div{background:#f7f8fa!important}
+.vendor-desk-demo-light .modal input,
+.vendor-desk-demo-light .modal select{background:#fff!important;border-color:#d8dce2!important;color:#17181c!important}
+.vendor-desk-demo-light .modal input:focus,
+.vendor-desk-demo-light .modal select:focus{border-color:#7657f6!important;box-shadow:0 0 0 3px rgba(118,87,246,.09)!important;outline:0}
+.vendor-desk-demo-light .toast{background:#17181c!important;color:#fff!important;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+
+@media(max-width:1080px){
+  .vendor-desk-demo-light .nav-item.is-active{box-shadow:inset 0 0 0 1px #d8cff8!important}
+}
+@media(max-width:760px){
+  .vendor-desk-demo-light .sidebar{border-right:0!important;border-bottom:1px solid #e5e7eb!important;background:rgba(255,255,255,.98)!important}
+  .vendor-desk-demo-light .nav-item.is-active{box-shadow:inset 0 -2px 0 #7657f6!important}
+}
