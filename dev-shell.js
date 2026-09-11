@@ -53,6 +53,7 @@ const headerMarkup=`<div class="shell dev-header-inner">
     <a href="services.html" class="${isActive('services.html')?'is-active':''}"${activeAttr('services.html')}>SERVICES</a>
     <a href="system-solutions.html" class="${solutionsActive?'is-active':''}"${solutionsActive?' aria-current="page"':''}>SYSTEM SOLUTIONS</a>
     <a href="works.html" class="${isActive('works.html')?'is-active':''}"${activeAttr('works.html')}>WORKS</a>
+    <a href="technology.html" class="${isActive('technology.html')?'is-active':''}"${activeAttr('technology.html')}>TECHNOLOGY</a>
   </nav>
   <a class="dev-contact" href="request.html"${activeAttr('request.html')}>CONTACT ↗</a>
   <button class="dev-menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="aesost-mobile-nav" data-dev-menu><span></span><span></span></button>
@@ -62,11 +63,12 @@ const headerMarkup=`<div class="shell dev-header-inner">
   <a href="services.html"${activeAttr('services.html')}><span>SERVICES</span><span aria-hidden="true">↗</span></a>
   <a href="system-solutions.html"${solutionsActive?' aria-current="page"':''}><span>SYSTEM SOLUTIONS</span><span aria-hidden="true">↗</span></a>
   <a href="works.html"${activeAttr('works.html')}><span>WORKS</span><span aria-hidden="true">↗</span></a>
+  <a href="technology.html"${activeAttr('technology.html')}><span>TECHNOLOGY</span><span aria-hidden="true">↗</span></a>
   <a href="request.html"${activeAttr('request.html')}><span>CONTACT</span><span aria-hidden="true">↗</span></a>
 </nav>`;
 
 const footerSystem=items.map(([,title,product,url])=>`<a href="${url}">${title.replace(' 시스템','')} · ${product} ↗</a>`).join('');
-const footerMarkup=`<div class="shell"><div class="dev-custom-build"><span>CUSTOM DEVELOPMENT</span><div><strong>각 기업·브랜드에 맞춰 기능부터 디자인, 레이아웃과 콘텐츠 구조까지 커스터마이징해 개발합니다.</strong><p>AESOST는 정해진 템플릿을 그대로 적용하지 않습니다. 실제 업무 방식, 필요한 기능, 브랜드의 시각 언어와 운영 방식을 확인한 뒤 웹사이트와 시스템 구조를 함께 설계합니다.</p></div></div><div class="footer-top"><div><a class="footer-brand" href="index.html" aria-label="AESOST 홈">${logo}</a><p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p></div><div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="system-solutions.html">System Solutions</a><a href="works.html">Works</a></div><div class="footer-col"><h4>SYSTEM</h4>${footerSystem}</div></div><div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div></div>`;
+const footerMarkup=`<div class="shell"><div class="dev-custom-build"><span>CUSTOM DEVELOPMENT</span><div><strong>각 기업·브랜드에 맞춰 기능부터 디자인, 레이아웃과 콘텐츠 구조까지 커스터마이징해 개발합니다.</strong><p>AESOST는 정해진 템플릿을 그대로 적용하지 않습니다. 실제 업무 방식, 필요한 기능, 브랜드의 시각 언어와 운영 방식을 확인한 뒤 웹사이트와 시스템 구조를 함께 설계합니다.</p></div></div><div class="footer-top"><div><a class="footer-brand" href="index.html" aria-label="AESOST 홈">${logo}</a><p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p></div><div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="system-solutions.html">System Solutions</a><a href="works.html">Works</a><a href="technology.html">Technology</a></div><div class="footer-col"><h4>SYSTEM</h4>${footerSystem}</div></div><div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div></div>`;
 
 document.querySelectorAll('[data-dev-header]').forEach(el=>el.innerHTML=headerMarkup);
 document.querySelectorAll('[data-dev-footer]').forEach(el=>el.innerHTML=footerMarkup);
