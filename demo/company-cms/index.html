@@ -1,1 +1,123 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Company CMS — AESOST Concept System</title><link rel="icon" href="../../favicon.svg"><link rel="stylesheet" href="../../system-ui.css?v=20260906-2"><link rel="stylesheet" href="styles.css?v=20260906-1"></head><body><div class="demo-banner"><span><b>AESOST CONCEPT SYSTEM</b> · Demo Company: 에이소스트 주식회사</span><a href="../../solution-company-cms.html">제품 소개 ↗</a></div><div class="app-shell"><aside class="sidebar"><div class="brand-row"><div class="product-mark">C</div><div><strong>Company CMS</strong><span>Corporate Website Admin</span></div></div><nav class="side-nav"><button class="nav-item is-active" data-view="dashboard">Dashboard</button><button class="nav-item" data-view="content">Site Content</button><button class="nav-item" data-view="portfolio">Portfolio</button><button class="nav-item" data-view="news">News</button><button class="nav-item" data-view="seo">SEO</button></nav><div class="sidebar-foot"><div class="user-chip"><span>AE</span><div><b>에이소스트 주식회사</b><small>DEMO COMPANY</small></div></div><button class="text-button" data-reset>Reset demo data</button></div></aside><main class="main-panel"><header class="topbar"><div><p class="kicker">CORPORATE WEBSITE MANAGEMENT</p><h1 data-view-title>홈페이지 운영 현황</h1></div><div class="top-actions"><span class="publish-state" data-publish-state>Draft saved</span><button class="primary-button" data-publish>Publish changes</button></div></header><section class="view is-active" data-view-panel="dashboard"><div class="metric-grid"><article class="metric-card"><span>Published pages</span><strong>8</strong><small>Website pages</small></article><article class="metric-card"><span>Portfolio</span><strong data-portfolio-count>0</strong><small>Visible projects</small></article><article class="metric-card"><span>News</span><strong data-news-count>0</strong><small>Published posts</small></article><article class="metric-card"><span>SEO health</span><strong>92</strong><small>Metadata score</small></article></div><div class="dashboard-grid"><article class="panel large-panel"><div class="panel-head"><div><span>LIVE WEBSITE</span><h2>Current website preview</h2></div><button class="text-link" data-go="content">Edit content ↗</button></div><div class="mini-site-preview" data-mini-preview></div></article><article class="panel"><div class="panel-head"><div><span>CONTENT STATUS</span><h2>Recent changes</h2></div></div><div class="activity-list"><div><b>Hero title</b><span>Updated today</span></div><div><b>Business section</b><span>Updated yesterday</span></div><div><b>SEO description</b><span>Updated 2 days ago</span></div></div></article><article class="panel"><div class="panel-head"><div><span>LAYOUT</span><h2>Current style</h2></div></div><strong data-layout-label>Corporate / Grid</strong><p class="subtle">브랜드 성격에 맞게 정보 밀도와 레이아웃을 조정할 수 있습니다.</p></article></div></section><section class="view" data-view-panel="content"><div class="section-toolbar"><div><p>SITE CONTENT</p><h2>Content editor</h2></div></div><div class="editor-preview-grid"><div class="editor-card"><label>회사명<input data-field="company" maxlength="40"></label><label>Hero 제목<textarea data-field="hero" rows="3"></textarea></label><label>소개 문장<textarea data-field="intro" rows="4"></textarea></label><label>사업영역<input data-field="services"></label><label>Layout style<select data-field="layout"><option value="corporate">Corporate / Grid</option><option value="editorial">Editorial / Wide</option><option value="minimal">Minimal / Focused</option></select></label><button class="secondary-button" data-save-content>Save draft</button></div><div class="website-shell"><div class="browser-bar"><span>Website Preview</span><em>LIVE</em></div><div class="website-preview" data-website-preview></div></div></div></section><section class="view" data-view-panel="portfolio"><div class="section-toolbar"><div><p>PORTFOLIO</p><h2>Project management</h2></div><button class="secondary-button" data-add-portfolio>+ Add project</button></div><div class="content-list" data-portfolio-list></div></section><section class="view" data-view-panel="news"><div class="section-toolbar"><div><p>NEWS</p><h2>News & updates</h2></div><button class="secondary-button" data-add-news>+ Add news</button></div><div class="content-list" data-news-list></div></section><section class="view" data-view-panel="seo"><div class="section-toolbar"><div><p>SEO</p><h2>Search metadata</h2></div></div><div class="seo-grid"><div class="editor-card"><label>SEO Title<input data-field="seoTitle"></label><label>Meta Description<textarea data-field="seoDescription" rows="5"></textarea></label><button class="secondary-button" data-save-seo>Save metadata</button></div><div class="search-preview"><small>Google Search Preview</small><h3 data-seo-title></h3><p data-seo-desc></p><span>https://example.com/</span></div></div></section></main></div><div class="toast" data-toast></div><script src="app.js?v=20260906-1"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Company CMS — AESOST Concept System</title>
+  <link rel="icon" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../system-ui.css?v=20260906-2">
+  <link rel="stylesheet" href="styles.css?v=20260906-1">
+  <link rel="stylesheet" href="light.css?v=20260911-1">
+</head>
+<body class="company-cms-demo-light">
+  <div class="demo-banner">
+    <span><b>AESOST CONCEPT SYSTEM</b> · Demo Company: 에이소스트 주식회사</span>
+    <a href="../../solution-company-cms.html">제품 소개 ↗</a>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-row">
+        <div class="product-mark">C</div>
+        <div><strong>Company CMS</strong><span>Corporate Website Admin</span></div>
+      </div>
+
+      <nav class="side-nav">
+        <button class="nav-item is-active" data-view="dashboard">Dashboard</button>
+        <button class="nav-item" data-view="content">Site Content</button>
+        <button class="nav-item" data-view="portfolio">Portfolio</button>
+        <button class="nav-item" data-view="news">News</button>
+        <button class="nav-item" data-view="seo">SEO</button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="user-chip"><span>AE</span><div><b>에이소스트 주식회사</b><small>DEMO COMPANY</small></div></div>
+        <button class="text-button" data-reset>Reset demo data</button>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div>
+          <p class="kicker">CORPORATE WEBSITE MANAGEMENT</p>
+          <h1 data-view-title>홈페이지 운영 현황</h1>
+        </div>
+        <div class="top-actions">
+          <span class="publish-state" data-publish-state>Draft saved</span>
+          <button class="primary-button" data-publish>Publish changes</button>
+        </div>
+      </header>
+
+      <section class="view is-active" data-view-panel="dashboard">
+        <div class="metric-grid">
+          <article class="metric-card"><span>Published pages</span><strong>8</strong><small>Website pages</small></article>
+          <article class="metric-card"><span>Portfolio</span><strong data-portfolio-count>0</strong><small>Visible projects</small></article>
+          <article class="metric-card"><span>News</span><strong data-news-count>0</strong><small>Published posts</small></article>
+          <article class="metric-card"><span>SEO health</span><strong>92</strong><small>Metadata score</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel large-panel">
+            <div class="panel-head"><div><span>LIVE WEBSITE</span><h2>Current website preview</h2></div><button class="text-link" data-go="content">Edit content ↗</button></div>
+            <div class="mini-site-preview" data-mini-preview></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><span>CONTENT STATUS</span><h2>Recent changes</h2></div></div>
+            <div class="activity-list"><div><b>Hero title</b><span>Updated today</span></div><div><b>Business section</b><span>Updated yesterday</span></div><div><b>SEO description</b><span>Updated 2 days ago</span></div></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><span>LAYOUT</span><h2>Current style</h2></div></div>
+            <strong data-layout-label>Corporate / Grid</strong>
+            <p class="subtle">브랜드 성격에 맞게 정보 밀도와 레이아웃을 조정할 수 있습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="content">
+        <div class="section-toolbar"><div><p>SITE CONTENT</p><h2>Content editor</h2></div></div>
+        <div class="editor-preview-grid">
+          <div class="editor-card">
+            <label>회사명<input data-field="company" maxlength="40"></label>
+            <label>Hero 제목<textarea data-field="hero" rows="3"></textarea></label>
+            <label>소개 문장<textarea data-field="intro" rows="4"></textarea></label>
+            <label>사업영역<input data-field="services"></label>
+            <label>Layout style<select data-field="layout"><option value="corporate">Corporate / Grid</option><option value="editorial">Editorial / Wide</option><option value="minimal">Minimal / Focused</option></select></label>
+            <button class="secondary-button" data-save-content>Save draft</button>
+          </div>
+          <div class="website-shell">
+            <div class="browser-bar"><span>Website Preview</span><em>LIVE</em></div>
+            <div class="website-preview" data-website-preview></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="portfolio">
+        <div class="section-toolbar"><div><p>PORTFOLIO</p><h2>Project management</h2></div><button class="secondary-button" data-add-portfolio>+ Add project</button></div>
+        <div class="content-list" data-portfolio-list></div>
+      </section>
+
+      <section class="view" data-view-panel="news">
+        <div class="section-toolbar"><div><p>NEWS</p><h2>News & updates</h2></div><button class="secondary-button" data-add-news>+ Add news</button></div>
+        <div class="content-list" data-news-list></div>
+      </section>
+
+      <section class="view" data-view-panel="seo">
+        <div class="section-toolbar"><div><p>SEO</p><h2>Search metadata</h2></div></div>
+        <div class="seo-grid">
+          <div class="editor-card">
+            <label>SEO Title<input data-field="seoTitle"></label>
+            <label>Meta Description<textarea data-field="seoDescription" rows="5"></textarea></label>
+            <button class="secondary-button" data-save-seo>Save metadata</button>
+          </div>
+          <div class="search-preview"><small>Google Search Preview</small><h3 data-seo-title></h3><p data-seo-desc></p><span>https://example.com/</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" data-toast></div>
+  <script src="app.js?v=20260906-1"></script>
+</body>
+</html>
