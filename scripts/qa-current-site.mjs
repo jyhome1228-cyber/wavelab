@@ -8,26 +8,42 @@ const pages=[
   'solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html',
   'solution-project-room.html','solution-quote-flow.html'
 ];
+const lightPaintPages=[...pages,'login.html','404.html'];
 
 const replaceOrInsert=(html,regex,tag,anchor=/<\/head>/i)=>regex.test(html)?html.replace(regex,tag):html.replace(anchor,`${tag}\n</head>`);
 const ensureHeadTag=(html,needle,tag)=>html.includes(needle)?html:html.replace(/<\/head>/i,`  ${tag}\n</head>`);
 const ensureBodyTag=(html,needle,tag)=>html.includes(needle)?html:html.replace(/<\/body>/i,`  ${tag}\n</body>`);
 
-const criticalStyle='<style id="aesost-critical-light">html,body{margin:0;background:#fff!important;color:#17181c!important;color-scheme:light}.dev-header{background:rgba(255,255,255,.96)!important}.hero,.page-hero,.section{background:#fff}</style>';
+const criticalStyle='<style id="aesost-critical-light">html,body{margin:0;background:#fff!important;color:#17181c!important;color-scheme:light}.dev-header{background:rgba(255,255,255,.96)!important}.dev-header:empty{min-height:104px}.hero,.page-hero,.section{background:#fff}@media(max-width:760px){.dev-header:empty{min-height:76px}}</style>';
 const responsiveHeaderStyle='<style id="aesost-header-responsive">@media(max-width:960px){.dev-nav,.dev-contact{display:none!important}.dev-menu{display:block!important}.dev-brand{width:116px}.dev-mobile-nav{padding-inline:16px}}</style>';
+const sharedStyles=[
+  ['aesost-operational-css','dev-operational.css?v=20260906-3'],
+  ['aesost-universal-ui-css','universal-web-system.css?v=20260906-2'],
+  ['aesost-custom-development-css','custom-development.css?v=20260906-1'],
+  ['aesost-site-polish-css','site-polish.css?v=20260907-1'],
+  ['aesost-project-room-fix-css','project-room-fix.css?v=20260907-1'],
+  ['aesost-motion-widgets-css','motion-widgets.css?v=20260907-1'],
+  ['aesost-alignment-system-css','alignment-system.css?v=20260907-2'],
+  ['aesost-light-theme-css','light-theme.css?v=20260911-3'],
+  ['aesost-light-theme-polish-css','light-theme-polish.css?v=20260911-3'],
+  ['aesost-solution-custom-fit-css','solution-custom-fit.css?v=20260907-1']
+];
 
-for(const file of pages){
+for(const file of lightPaintPages){
   const full=path.join(root,file);
-  if(!fs.existsSync(full))throw new Error(`QA: missing public page ${file}`);
+  if(!fs.existsSync(full))throw new Error(`QA: missing site page ${file}`);
   let html=fs.readFileSync(full,'utf8');
 
   html=replaceOrInsert(html,/<meta\s+name=["']theme-color["'][^>]*>/i,'<meta name="theme-color" content="#ffffff">');
   html=replaceOrInsert(html,/<meta\s+name=["']color-scheme["'][^>]*>/i,'<meta name="color-scheme" content="light">');
   html=ensureHeadTag(html,'aesost-critical-light',criticalStyle);
   html=ensureHeadTag(html,'aesost-header-responsive',responsiveHeaderStyle);
-  html=ensureHeadTag(html,'id="aesost-light-theme-css"','<link id="aesost-light-theme-css" rel="stylesheet" href="light-theme.css?v=20260911-3">');
-  html=ensureHeadTag(html,'id="aesost-light-theme-polish-css"','<link id="aesost-light-theme-polish-css" rel="stylesheet" href="light-theme-polish.css?v=20260911-3">');
-  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260911-4');
+  for(const [id,href] of sharedStyles)html=ensureHeadTag(html,`id="${id}"`,`<link id="${id}" rel="stylesheet" href="${href}">`);
+  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260911-5');
+
+  if(file==='404.html'){
+    html=ensureHeadTag(html,'aesost-404-light','<style id="aesost-404-light">.not-found p{color:#6f737b!important}.not-found{background:#fff!important}.not-found .btn.secondary{background:#fff!important;color:#17181c!important;border-color:#d4d7dd!important}</style>');
+  }
   fs.writeFileSync(full,html);
 }
 
@@ -95,17 +111,39 @@ for(const file of pages){
 
 // Deployment-level assertions for regressions found during QA.
 const errors=[];
-for(const file of pages){
+const localRef=/\b(?:href|src)=["']([^"'#?]+)(?:[?#][^"']*)?["']/g;
+function checkLocalRefs(page,html){
+  localRef.lastIndex=0;
+  let match;
+  while((match=localRef.exec(html))){
+    const ref=match[1].trim();
+    if(!ref||/^(?:https?:|mailto:|tel:|data:|javascript:)/i.test(ref))continue;
+    const resolved=path.resolve(root,path.dirname(page),ref);
+    if(!resolved.startsWith(root))continue;
+    if(fs.existsSync(resolved)||fs.existsSync(resolved+'.html')||fs.existsSync(path.join(resolved,'index.html')))continue;
+    errors.push(`${page}: broken local reference -> ${ref}`);
+  }
+}
+
+for(const file of lightPaintPages){
   const html=fs.readFileSync(path.join(root,file),'utf8');
   for(const [label,pattern] of [
     ['white theme color',/<meta\s+name=["']theme-color["'][^>]+content=["']#(?:fff|ffffff)["']/i],
     ['light color scheme',/<meta\s+name=["']color-scheme["'][^>]+content=["']light["']/i],
     ['critical light paint',/aesost-critical-light/],
+    ['responsive header rule',/aesost-header-responsive/],
+    ['operational stylesheet',/id=["']aesost-operational-css["']/],
+    ['universal stylesheet',/id=["']aesost-universal-ui-css["']/],
     ['light theme stylesheet',/id=["']aesost-light-theme-css["']/],
-    ['light polish stylesheet',/id=["']aesost-light-theme-polish-css["']/],
-    ['shared header',/data-dev-header/],
-    ['shared footer',/data-dev-footer/]
+    ['light polish stylesheet',/id=["']aesost-light-theme-polish-css["']/]
   ])if(!pattern.test(html))errors.push(`${file}: missing ${label}`);
+  checkLocalRefs(file,html);
+}
+
+for(const file of pages){
+  const html=fs.readFileSync(path.join(root,file),'utf8');
+  if(!/data-dev-header/.test(html))errors.push(`${file}: missing shared header`);
+  if(!/data-dev-footer/.test(html))errors.push(`${file}: missing shared footer`);
 }
 
 const tech=fs.readFileSync(path.join(root,'technology.html'),'utf8');
@@ -120,9 +158,10 @@ if(!sitemap.includes('<loc>https://aesost.com/technology.html</loc>'))errors.pus
 const shell=fs.readFileSync(path.join(root,'dev-shell.js'),'utf8');
 if(!shell.trimStart().startsWith('(()=>{'))errors.push('dev-shell.js: global scope is not isolated');
 if(!shell.includes('window.innerWidth>960'))errors.push('dev-shell.js: tablet menu breakpoint is not aligned');
+if(fs.existsSync(path.join(root,'editorial-review.html')))errors.push('legacy editorial-review.html is still deployed');
 
 if(errors.length){
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log(`QA hardened ${pages.length} public pages: light first paint, Technology SEO, sitemap, script scope, and tablet navigation.`);
+console.log(`QA hardened ${pages.length} public pages plus login/404: light first paint, preloaded shared styles, Technology SEO, sitemap, script scope, tablet navigation, local refs, and stale-route cleanup.`);
