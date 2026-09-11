@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#F3F4F6"/>
+  <rect x="70" y="70" width="1460" height="860" rx="24" fill="#F7F8FA" stroke="#E2E5E9"/>
+  <rect x="70" y="70" width="250" height="860" rx="24" fill="#FFFFFF"/>
+  <line x1="320" y1="70" x2="320" y2="930" stroke="#E5E7EB"/>
+  <circle cx="120" cy="125" r="18" fill="#7657F6"/>
+  <text x="150" y="132" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#17181C">Support Desk</text>
+  <text x="105" y="170" font-family="Arial,sans-serif" font-size="12" fill="#8A8F98">CUSTOMER SUPPORT OPS</text>
+
+  <g font-family="Arial,sans-serif" font-size="18" fill="#777C85">
+    <text x="105" y="230">Dashboard</text>
+    <text x="105" y="290">Tickets</text>
+    <text x="105" y="350">Customers</text>
+    <text x="105" y="410">Team</text>
+    <text x="105" y="470">Insights</text>
+  </g>
+  <rect x="92" y="196" width="206" height="50" rx="10" fill="#F2EFFF"/>
+  <rect x="92" y="196" width="3" height="50" rx="1.5" fill="#7657F6"/>
+  <text x="105" y="228" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#5F43C9">Dashboard</text>
+
+  <text x="370" y="145" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#8D929B">CUSTOMER SUPPORT</text>
+  <text x="370" y="195" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#17181C">Support overview</text>
+
+  <g>
+    <rect x="370" y="240" width="250" height="140" rx="18" fill="#FFFFFF" stroke="#E1E4E8"/>
+    <rect x="640" y="240" width="250" height="140" rx="18" fill="#FFFFFF" stroke="#E1E4E8"/>
+    <rect x="910" y="240" width="250" height="140" rx="18" fill="#FFFFFF" stroke="#E1E4E8"/>
+    <rect x="1180" y="240" width="250" height="140" rx="18" fill="#FFFFFF" stroke="#E1E4E8"/>
+  </g>
+  <g font-family="Arial,sans-serif">
+    <text x="400" y="280" font-size="18" fill="#8C919A">Open tickets</text><text x="400" y="345" font-size="44" font-weight="700" fill="#17181C">12</text>
+    <text x="670" y="280" font-size="18" fill="#8C919A">Urgent</text><text x="670" y="345" font-size="44" font-weight="700" fill="#B94747">3</text>
+    <text x="940" y="280" font-size="18" fill="#8C919A">SLA due</text><text x="940" y="345" font-size="44" font-weight="700" fill="#A65D16">4</text>
+    <text x="1210" y="280" font-size="18" fill="#8C919A">Resolved</text><text x="1210" y="345" font-size="44" font-weight="700" fill="#16835F">28</text>
+  </g>
+
+  <rect x="370" y="410" width="790" height="440" rx="18" fill="#FFFFFF" stroke="#E1E4E8"/>
+  <text x="400" y="455" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#17181C">Priority tickets</text>
+  <g font-family="Arial,sans-serif">
+    <line x1="400" y1="500" x2="1130" y2="500" stroke="#ECEEF1"/>
+    <text x="400" y="545" font-size="18" font-weight="700" fill="#17181C">Admin login issue</text>
+    <text x="400" y="575" font-size="15" fill="#969AA3">Object Lab · Technical Support</text>
+    <rect x="890" y="520" width="72" height="30" rx="15" fill="#FDEAEA"/><text x="910" y="541" font-size="13" font-weight="700" fill="#B94747">HIGH</text>
+    <rect x="990" y="520" width="110" height="30" rx="15" fill="#FFF2DF"/><text x="1012" y="541" font-size="13" font-weight="700" fill="#A65D16">IN PROGRESS</text>
+
+    <line x1="400" y1="610" x2="1130" y2="610" stroke="#ECEEF1"/>
+    <text x="400" y="655" font-size="18" font-weight="700" fill="#17181C">Payment activation delayed</text>
+    <text x="400" y="685" font-size="15" fill="#969AA3">Arc Health · Service</text>
+    <rect x="890" y="630" width="72" height="30" rx="15" fill="#FDEAEA"/><text x="910" y="651" font-size="13" font-weight="700" fill="#B94747">HIGH</text>
+    <rect x="990" y="630" width="70" height="30" rx="15" fill="#EFECFF"/><text x="1010" y="651" font-size="13" font-weight="700" fill="#5D45BF">NEW</text>
+
+    <line x1="400" y1="720" x2="1130" y2="720" stroke="#ECEEF1"/>
+    <text x="400" y="765" font-size="18" font-weight="700" fill="#17181C">Contract information update</text>
+    <text x="400" y="795" font-size="15" fill="#969AA3">Mori Living · Contract</text>
+    <rect x="890" y="740" width="86" height="30" rx="15" fill="#EFECFF"/><text x="903" y="761" font-size="13" font-weight="700" fill="#5D45BF">NORMAL</text>
+    <rect x="990" y="740" width="90" height="30" rx="15" fill="#FFF2DF"/><text x="1007" y="761" font-size="13" font-weight="700" fill="#A65D16">ASSIGNED</text>
+  </g>
+
+  <rect x="1180" y="410" width="250" height="210" rx="18" fill="#FFFFFF" stroke="#E1E4E8"/>
+  <text x="1210" y="455" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#17181C">By category</text>
+  <g font-family="Arial,sans-serif" font-size="16"><text x="1210" y="505" fill="#6F737C">Technical</text><text x="1380" y="505" fill="#17181C">5</text><text x="1210" y="545" fill="#6F737C">Service</text><text x="1380" y="545" fill="#17181C">4</text><text x="1210" y="585" fill="#6F737C">Billing</text><text x="1380" y="585" fill="#17181C">3</text></g>
+
+  <rect x="1180" y="640" width="250" height="210" rx="18" fill="#FFFFFF" stroke="#E1E4E8"/>
+  <text x="1210" y="685" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#17181C">Team load</text>
+  <g font-family="Arial,sans-serif" font-size="16"><text x="1210" y="735" fill="#6F737C">Doyoon Kim</text><text x="1380" y="735" fill="#17181C">4</text><text x="1210" y="775" fill="#6F737C">Seojin Lee</text><text x="1380" y="775" fill="#17181C">3</text><text x="1210" y="815" fill="#6F737C">Harin Park</text><text x="1380" y="815" fill="#17181C">2</text></g>
+</svg>
