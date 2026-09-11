@@ -1,48 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" fill="none">
-<rect width="1400" height="840" fill="#0C0C0E"/>
-<rect x="1" y="1" width="1398" height="838" stroke="#2A2A2E"/>
-<rect x="34" y="34" width="1332" height="58" rx="2" fill="#121216" stroke="#26262B"/>
-<circle cx="62" cy="63" r="5" fill="#8B5CF6"/><circle cx="82" cy="63" r="5" fill="#3A3A40"/><circle cx="102" cy="63" r="5" fill="#3A3A40"/>
-<text x="126" y="68" fill="#D7D7DC" font-family="Arial,sans-serif" font-size="18" font-weight="600">AESOST / OPERATIONS</text>
-<rect x="34" y="114" width="220" height="692" fill="#101014" stroke="#26262B"/>
-<text x="60" y="157" fill="#7B7B84" font-family="Arial,sans-serif" font-size="14">WORKSPACE</text>
-<rect x="50" y="181" width="188" height="46" fill="#17171C"/>
-<rect x="50" y="181" width="3" height="46" fill="#8B5CF6"/>
-<text x="72" y="210" fill="#F4F4F6" font-family="Arial,sans-serif" font-size="16">Dashboard</text>
-<text x="72" y="263" fill="#9A9AA2" font-family="Arial,sans-serif" font-size="15">Clients</text>
-<text x="72" y="306" fill="#9A9AA2" font-family="Arial,sans-serif" font-size="15">Projects</text>
-<text x="72" y="349" fill="#9A9AA2" font-family="Arial,sans-serif" font-size="15">Contracts</text>
-<text x="72" y="392" fill="#9A9AA2" font-family="Arial,sans-serif" font-size="15">Files</text>
-<text x="72" y="435" fill="#9A9AA2" font-family="Arial,sans-serif" font-size="15">Reports</text>
-<text x="286" y="151" fill="#F5F5F6" font-family="Arial,sans-serif" font-size="28" font-weight="600">Business Overview</text>
-<text x="286" y="181" fill="#777780" font-family="Arial,sans-serif" font-size="14">One system for clients, projects and operations.</text>
-<rect x="286" y="216" width="322" height="120" rx="2" fill="#121216" stroke="#2B2B30"/>
-<text x="310" y="249" fill="#8A8A93" font-family="Arial,sans-serif" font-size="13">ACTIVE PROJECTS</text>
-<text x="310" y="299" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="40" font-weight="600">18</text>
-<text x="546" y="299" fill="#8B5CF6" font-family="Arial,sans-serif" font-size="14">+4 this month</text>
-<rect x="626" y="216" width="322" height="120" rx="2" fill="#121216" stroke="#2B2B30"/>
-<text x="650" y="249" fill="#8A8A93" font-family="Arial,sans-serif" font-size="13">CLIENTS</text>
-<text x="650" y="299" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="40" font-weight="600">42</text>
-<rect x="966" y="216" width="400" height="120" rx="2" fill="#121216" stroke="#2B2B30"/>
-<text x="990" y="249" fill="#8A8A93" font-family="Arial,sans-serif" font-size="13">AUTOMATION STATUS</text>
-<circle cx="1001" cy="291" r="6" fill="#8B5CF6"/><text x="1018" y="297" fill="#F4F4F5" font-family="Arial,sans-serif" font-size="17">All systems operational</text>
-<rect x="286" y="358" width="662" height="408" rx="2" fill="#121216" stroke="#2B2B30"/>
-<text x="310" y="397" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="19" font-weight="600">Project Pipeline</text>
-<text x="826" y="397" fill="#8B5CF6" font-family="Arial,sans-serif" font-size="13">VIEW ALL ↗</text>
-<line x1="310" y1="425" x2="924" y2="425" stroke="#2A2A2F"/>
-<text x="310" y="460" fill="#76767E" font-family="Arial,sans-serif" font-size="12">PROJECT</text><text x="665" y="460" fill="#76767E" font-family="Arial,sans-serif" font-size="12">STATUS</text><text x="838" y="460" fill="#76767E" font-family="Arial,sans-serif" font-size="12">PROGRESS</text>
-<g font-family="Arial,sans-serif" font-size="15"><text x="310" y="505" fill="#E9E9EB">Corporate Website</text><text x="665" y="505" fill="#BEBEC4">Development</text><text x="868" y="505" fill="#8B5CF6">82%</text>
-<text x="310" y="560" fill="#E9E9EB">Client Portal</text><text x="665" y="560" fill="#BEBEC4">QA</text><text x="868" y="560" fill="#8B5CF6">94%</text>
-<text x="310" y="615" fill="#E9E9EB">CRM System</text><text x="665" y="615" fill="#BEBEC4">Planning</text><text x="868" y="615" fill="#8B5CF6">36%</text>
-<text x="310" y="670" fill="#E9E9EB">Automation Flow</text><text x="665" y="670" fill="#BEBEC4">Live</text><text x="868" y="670" fill="#8B5CF6">100%</text></g>
-<g stroke="#29292E"><line x1="310" y1="525" x2="924" y2="525"/><line x1="310" y1="580" x2="924" y2="580"/><line x1="310" y1="635" x2="924" y2="635"/></g>
-<rect x="966" y="358" width="400" height="408" rx="2" fill="#121216" stroke="#2B2B30"/>
-<text x="990" y="397" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="19" font-weight="600">System Modules</text>
-<g font-family="Arial,sans-serif" font-size="14"><rect x="990" y="433" width="160" height="72" fill="#17171C" stroke="#2A2A2F"/><text x="1010" y="466" fill="#FFFFFF">CRM</text><text x="1010" y="488" fill="#777780">Clients · Leads</text>
-<rect x="1170" y="433" width="172" height="72" fill="#17171C" stroke="#2A2A2F"/><text x="1190" y="466" fill="#FFFFFF">ADMIN</text><text x="1190" y="488" fill="#777780">Control · Data</text>
-<rect x="990" y="523" width="160" height="72" fill="#17171C" stroke="#2A2A2F"/><text x="1010" y="556" fill="#FFFFFF">PORTAL</text><text x="1010" y="578" fill="#777780">Client Access</text>
-<rect x="1170" y="523" width="172" height="72" fill="#17171C" stroke="#2A2A2F"/><text x="1190" y="556" fill="#FFFFFF">API</text><text x="1190" y="578" fill="#777780">Integration</text></g>
-<rect x="990" y="622" width="352" height="112" fill="#0F0F12" stroke="#8B5CF6" stroke-opacity=".55"/>
-<text x="1010" y="654" fill="#8B5CF6" font-family="Arial,sans-serif" font-size="12" font-weight="600">AESOST DEVELOPMENT FLOW</text>
-<text x="1010" y="692" fill="#E8E8EB" font-family="Arial,sans-serif" font-size="14">PLAN  →  DESIGN  →  BUILD  →  OPERATE</text>
+<rect width="1400" height="840" fill="#F3F4F6"/>
+<rect x="1" y="1" width="1398" height="838" rx="18" fill="#F8F9FB" stroke="#E1E4E8"/>
+<rect x="34" y="34" width="1332" height="58" rx="10" fill="#FFFFFF" stroke="#E3E6EA"/>
+<circle cx="62" cy="63" r="5" fill="#7657F6"/><circle cx="82" cy="63" r="5" fill="#D8DBE1"/><circle cx="102" cy="63" r="5" fill="#D8DBE1"/>
+<text x="126" y="68" fill="#17181C" font-family="Arial,sans-serif" font-size="18" font-weight="700">AESOST / OPERATIONS</text>
+<text x="1210" y="68" fill="#7657F6" font-family="Arial,sans-serif" font-size="12" font-weight="700">LIVE SYSTEM UI</text>
+<rect x="34" y="114" width="220" height="692" rx="12" fill="#FFFFFF" stroke="#E3E6EA"/>
+<text x="60" y="157" fill="#8A8F98" font-family="Arial,sans-serif" font-size="14">WORKSPACE</text>
+<rect x="50" y="181" width="188" height="46" rx="9" fill="#F2EFFF"/><rect x="50" y="181" width="3" height="46" rx="1.5" fill="#7657F6"/>
+<text x="72" y="210" fill="#5F43C9" font-family="Arial,sans-serif" font-size="16" font-weight="700">Dashboard</text>
+<g fill="#747982" font-family="Arial,sans-serif" font-size="15"><text x="72" y="263">Clients</text><text x="72" y="306">Projects</text><text x="72" y="349">Contracts</text><text x="72" y="392">Files</text><text x="72" y="435">Reports</text></g>
+<text x="286" y="151" fill="#17181C" font-family="Arial,sans-serif" font-size="28" font-weight="700">Business Overview</text>
+<text x="286" y="181" fill="#858A93" font-family="Arial,sans-serif" font-size="14">One system for clients, projects and operations.</text>
+<rect x="286" y="216" width="322" height="120" rx="12" fill="#FFFFFF" stroke="#E3E6EA"/><text x="310" y="249" fill="#8A8F98" font-family="Arial,sans-serif" font-size="13">ACTIVE PROJECTS</text><text x="310" y="299" fill="#17181C" font-family="Arial,sans-serif" font-size="40" font-weight="700">18</text><text x="546" y="299" fill="#7657F6" font-family="Arial,sans-serif" font-size="14">+4 this month</text>
+<rect x="626" y="216" width="322" height="120" rx="12" fill="#FFFFFF" stroke="#E3E6EA"/><text x="650" y="249" fill="#8A8F98" font-family="Arial,sans-serif" font-size="13">CLIENTS</text><text x="650" y="299" fill="#17181C" font-family="Arial,sans-serif" font-size="40" font-weight="700">42</text>
+<rect x="966" y="216" width="400" height="120" rx="12" fill="#FFFFFF" stroke="#E3E6EA"/><text x="990" y="249" fill="#8A8F98" font-family="Arial,sans-serif" font-size="13">AUTOMATION STATUS</text><circle cx="1001" cy="291" r="6" fill="#7657F6"/><text x="1018" y="297" fill="#17181C" font-family="Arial,sans-serif" font-size="17">All systems operational</text>
+<rect x="286" y="358" width="662" height="408" rx="12" fill="#FFFFFF" stroke="#E3E6EA"/><text x="310" y="397" fill="#17181C" font-family="Arial,sans-serif" font-size="19" font-weight="700">Project Pipeline</text><text x="826" y="397" fill="#7657F6" font-family="Arial,sans-serif" font-size="13">VIEW ALL ↗</text><line x1="310" y1="425" x2="924" y2="425" stroke="#ECEEF1"/><text x="310" y="460" fill="#8A8F98" font-family="Arial,sans-serif" font-size="12">PROJECT</text><text x="665" y="460" fill="#8A8F98" font-family="Arial,sans-serif" font-size="12">STATUS</text><text x="838" y="460" fill="#8A8F98" font-family="Arial,sans-serif" font-size="12">PROGRESS</text>
+<g font-family="Arial,sans-serif" font-size="15"><text x="310" y="505" fill="#222328">Corporate Website</text><text x="665" y="505" fill="#6F747D">Development</text><text x="868" y="505" fill="#7657F6">82%</text><text x="310" y="560" fill="#222328">Client Portal</text><text x="665" y="560" fill="#6F747D">QA</text><text x="868" y="560" fill="#7657F6">94%</text><text x="310" y="615" fill="#222328">CRM System</text><text x="665" y="615" fill="#6F747D">Planning</text><text x="868" y="615" fill="#7657F6">36%</text><text x="310" y="670" fill="#222328">Automation Flow</text><text x="665" y="670" fill="#6F747D">Live</text><text x="868" y="670" fill="#7657F6">100%</text></g><g stroke="#ECEEF1"><line x1="310" y1="525" x2="924" y2="525"/><line x1="310" y1="580" x2="924" y2="580"/><line x1="310" y1="635" x2="924" y2="635"/></g>
+<rect x="966" y="358" width="400" height="408" rx="12" fill="#FFFFFF" stroke="#E3E6EA"/><text x="990" y="397" fill="#17181C" font-family="Arial,sans-serif" font-size="19" font-weight="700">System Modules</text>
+<g font-family="Arial,sans-serif" font-size="14"><rect x="990" y="433" width="160" height="72" rx="10" fill="#F7F8FA" stroke="#E6E8EC"/><text x="1010" y="466" fill="#17181C">CRM</text><text x="1010" y="488" fill="#858A93">Clients · Leads</text><rect x="1170" y="433" width="172" height="72" rx="10" fill="#F7F8FA" stroke="#E6E8EC"/><text x="1190" y="466" fill="#17181C">ADMIN</text><text x="1190" y="488" fill="#858A93">Control · Data</text><rect x="990" y="523" width="160" height="72" rx="10" fill="#F7F8FA" stroke="#E6E8EC"/><text x="1010" y="556" fill="#17181C">PORTAL</text><text x="1010" y="578" fill="#858A93">Client Access</text><rect x="1170" y="523" width="172" height="72" rx="10" fill="#F7F8FA" stroke="#E6E8EC"/><text x="1190" y="556" fill="#17181C">API</text><text x="1190" y="578" fill="#858A93">Integration</text></g>
+<rect x="990" y="622" width="352" height="112" rx="10" fill="#F7F4FF" stroke="#D8CFF5"/><text x="1010" y="654" fill="#7657F6" font-family="Arial,sans-serif" font-size="12" font-weight="700">AESOST DEVELOPMENT FLOW</text><text x="1010" y="692" fill="#17181C" font-family="Arial,sans-serif" font-size="14" font-weight="700">PLAN  →  DESIGN  →  BUILD  →  OPERATE</text>
 </svg>
