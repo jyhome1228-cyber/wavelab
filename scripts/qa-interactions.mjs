@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 const root=process.cwd();
 const demoNames=['solodesk','b2b-inquiry','company-cms','client-portal','booking-os','vendor-desk','membership-admin','support-desk','project-room','quote-flow'];
@@ -27,13 +28,21 @@ for(const name of demoNames){
   const html=fs.readFileSync(htmlPath,'utf8');
   let app=fs.readFileSync(appPath,'utf8');
 
-  app=app.replace(/function saveState\(\)\{localStorage\.setItem\(([^;]+)\)\}/g,'function saveState(){try{localStorage.setItem($1)}catch{}}');
-  app=app.replace(/function save\(\)\{localStorage\.setItem\(([^;]+)\)\}/g,'function save(){try{localStorage.setItem($1)}catch{}}');
+  const replacements=[
+    ['function saveState(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}','function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch{}}'],
+    ['function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}','function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch{}}'],
+    ['function save(){localStorage.setItem(K,JSON.stringify(state))}','function save(){try{localStorage.setItem(K,JSON.stringify(state))}catch{}}'],
+    ['function save(){localStorage.setItem(KEY,JSON.stringify(state))}','function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch{}}']
+  ];
+  for(const [from,to] of replacements)app=app.replaceAll(from,to);
   fs.writeFileSync(appPath,app);
 
   if(/function (?:saveState|save)\(\)\{localStorage\.setItem\(/.test(app)){
     errors.push(`${name}: unsafe localStorage write remains`);
   }
+
+  const syntax=spawnSync(process.execPath,['--check',appPath],{encoding:'utf8'});
+  if(syntax.status!==0)errors.push(`${name}: app.js syntax invalid after interaction hardening\n${(syntax.stderr||syntax.stdout||'').trim()}`);
 
   // Every static non-submit button in a demo must expose a data hook referenced by app.js.
   for(const button of buttonTags(html)){
@@ -101,7 +110,7 @@ for(const file of publicPages){
   for(const button of buttonTags(html)){
     if(/\btype\s*=\s*["']submit["']/i.test(button.attrs))continue;
     const hooks=dataAttrs(button.attrs);
-    if(hooks.length===0)continue; // ordinary semantic buttons may be handled by a class in legacy/admin surfaces.
+    if(hooks.length===0)continue;
     const mapped=hooks.some(hook=>scripts.includes(hook)||scripts.includes(camel(hook))||hook==='data-dev-menu');
     if(!mapped)errors.push(`${file}: public button hook not mapped: ${hooks.join(', ')}`);
   }
