@@ -33,7 +33,7 @@
 .solution-feature-browser-bar b{color:#bdbdc3;font-weight:500}
 .solution-feature-browser-bar em{color:#bbaaff;font-style:normal;font-weight:600}
 .solution-feature-frame-wrap{position:relative;aspect-ratio:16/10;background:#f4f5f7}
-.solution-feature-frame-wrap iframe{position:absolute;inset:0;width:125%;height:125%;border:0;transform:scale(.8);transform-origin:0 0;pointer-events:none}
+.solution-feature-frame-wrap iframe{position:absolute;inset:0;width:125%;height:125%;border:0;transform:scale(.8);transform-origin:0 0;pointer-events:auto}
 .solution-feature-caption{display:grid;grid-template-columns:1fr auto;gap:24px;padding-top:22px}
 .solution-feature-caption h3{margin:0;font-size:24px;font-weight:540;line-height:1.35;letter-spacing:-.03em}
 .solution-feature-caption p{max-width:620px;margin:10px 0 0;color:var(--text-2);font-size:16px;line-height:1.7}
@@ -69,7 +69,7 @@
   .solution-feature-tab{min-width:210px;padding:14px;border:1px solid var(--line)}
   .solution-feature-tab.is-active{border-color:#5f48c6;background:#121017}
   .solution-feature-frame-wrap{aspect-ratio:1/1.05}
-  .solution-feature-frame-wrap iframe{width:166.666%;height:166.666%;transform:scale(.6)}
+  .solution-feature-frame-wrap iframe{width:166.666%;height:166.666%;transform:scale(.6);pointer-events:auto}
   .solution-feature-caption{grid-template-columns:1fr}
   .solution-feature-caption span{text-align:left}
   .solution-flow{grid-template-columns:1fr}
