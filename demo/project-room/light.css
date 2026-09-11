@@ -1,0 +1,103 @@
+/* Project Room interactive demo — Light Mode / 2026-09-11 */
+:root{--side:#ffffff!important}
+html,body{background:#f6f7f9!important;color:#17181c!important}
+body.project-room-demo-light{background:#f6f7f9!important;color:#17181c!important}
+
+.project-room-demo-light .demo-banner{background:#fff!important;color:#747982!important;border-bottom:1px solid #e5e7eb!important}
+.project-room-demo-light .demo-banner b{color:#17181c!important}
+.project-room-demo-light .demo-banner a{color:#7657f6!important;font-weight:600}
+
+.project-room-demo-light .sidebar{background:#fff!important;color:#17181c!important;border-right:1px solid #e5e7eb!important}
+.project-room-demo-light .brand-row strong{color:#17181c!important}
+.project-room-demo-light .brand-row span{color:#8a8f98!important}
+.project-room-demo-light .product-mark{background:#7657f6!important;color:#fff!important;box-shadow:0 6px 18px rgba(118,87,246,.16)}
+.project-room-demo-light .nav-item{color:#6f747d!important}
+.project-room-demo-light .nav-item:hover{background:#f5f3ff!important;color:#17181c!important}
+.project-room-demo-light .nav-item.is-active{background:#f2efff!important;color:#5f43c9!important;box-shadow:inset 3px 0 0 #7657f6!important}
+.project-room-demo-light .nav-item em{background:#ece8ff!important;color:#6748e8!important}
+.project-room-demo-light .sidebar-foot{border-top-color:#e7e9ed!important}
+.project-room-demo-light .user-chip>span{background:#f0f1f4!important;color:#5c6169!important}
+.project-room-demo-light .user-chip b{color:#17181c!important}
+.project-room-demo-light .user-chip small{color:#8b8f97!important}
+.project-room-demo-light .text-button{color:#8a8f98!important}
+.project-room-demo-light .text-button:hover{color:#5f43c9!important}
+
+.project-room-demo-light .main-panel{background:#f6f7f9!important}
+.project-room-demo-light .topbar h1,
+.project-room-demo-light .section-toolbar h2,
+.project-room-demo-light .panel-head h2,
+.project-room-demo-light .timeline-card h3,
+.project-room-demo-light .deliverable-card h3{color:#17181c!important}
+.project-room-demo-light .kicker,
+.project-room-demo-light .section-toolbar p{color:#8a8f98!important}
+
+.project-room-demo-light .search-box,
+.project-room-demo-light .metric-card,
+.project-room-demo-light .panel,
+.project-room-demo-light .table-card,
+.project-room-demo-light .timeline-card,
+.project-room-demo-light .deliverable-card,
+.project-room-demo-light .feedback-item,
+.project-room-demo-light .modal-card{background:#fff!important;border-color:#e2e5e9!important;box-shadow:none!important}
+.project-room-demo-light .metric-card strong{color:#17181c!important}
+.project-room-demo-light .metric-card span,
+.project-room-demo-light .metric-card small,
+.project-room-demo-light .task-main small,
+.project-room-demo-light .milestone-item small,
+.project-room-demo-light .approval-item small,
+.project-room-demo-light .timeline-card time,
+.project-room-demo-light .timeline-card p,
+.project-room-demo-light .deliverable-card p,
+.project-room-demo-light .deliverable-meta,
+.project-room-demo-light .feedback-item p,
+.project-room-demo-light .feedback-item small{color:#8a8f98!important}
+
+.project-room-demo-light .primary-button{background:#7657f6!important;color:#fff!important}
+.project-room-demo-light .primary-button:hover{background:#6748e8!important}
+.project-room-demo-light .secondary-button,
+.project-room-demo-light .tiny-button,
+.project-room-demo-light .close-button{background:#fff!important;border-color:#d9dde3!important;color:#17181c!important}
+.project-room-demo-light .secondary-button:hover,
+.project-room-demo-light .tiny-button:hover,
+.project-room-demo-light .close-button:hover{background:#f7f8fa!important}
+.project-room-demo-light .text-link{color:#7657f6!important}
+
+.project-room-demo-light .filter{background:#fff!important;border-color:#d9dde3!important;color:#6f747d!important}
+.project-room-demo-light .filter:hover{background:#f7f8fa!important}
+.project-room-demo-light .filter.is-active{background:#f2efff!important;border-color:#cfc3ef!important;color:#5f43c9!important}
+
+.project-room-demo-light th{background:#f8f9fb!important;color:#747982!important}
+.project-room-demo-light th,
+.project-room-demo-light td,
+.project-room-demo-light .task-row,
+.project-room-demo-light .milestone-item,
+.project-room-demo-light .approval-item{border-color:#e7e9ed!important}
+
+.project-room-demo-light .feedback-form select,
+.project-room-demo-light .feedback-form input,
+.project-room-demo-light .modal input,
+.project-room-demo-light .modal select{background:#fff!important;border-color:#d8dce2!important;color:#17181c!important}
+.project-room-demo-light .feedback-form select:focus,
+.project-room-demo-light .feedback-form input:focus,
+.project-room-demo-light .modal input:focus,
+.project-room-demo-light .modal select:focus{border-color:#7657f6!important;box-shadow:0 0 0 3px rgba(118,87,246,.09)!important;outline:0}
+
+.project-room-demo-light .status.In-Progress{background:#efecff!important;color:#5d45bf!important}
+.project-room-demo-light .status.Review,
+.project-room-demo-light .status.Pending{background:#fff2df!important;color:#a65d16!important}
+.project-room-demo-light .status.Done,
+.project-room-demo-light .status.Approved{background:#e8f7f1!important;color:#16835f!important}
+.project-room-demo-light .status.Todo,
+.project-room-demo-light .priority.Normal{background:#eef0f3!important;color:#6f737c!important}
+.project-room-demo-light .priority.High{background:#fdeaea!important;color:#b94747!important}
+.project-room-demo-light .priority.Low{background:#edf5ff!important;color:#4677a8!important}
+
+.project-room-demo-light .toast{background:#17181c!important;color:#fff!important;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+
+@media(max-width:1080px){
+  .project-room-demo-light .nav-item.is-active{box-shadow:inset 0 0 0 1px #d8cff8!important}
+}
+@media(max-width:760px){
+  .project-room-demo-light .sidebar{border-right:0!important;border-bottom:1px solid #e5e7eb!important;background:rgba(255,255,255,.98)!important}
+  .project-room-demo-light .nav-item.is-active{box-shadow:inset 0 -2px 0 #7657f6!important}
+}
