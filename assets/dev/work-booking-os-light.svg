@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#F3F4F6"/>
+<rect x="70" y="70" width="1460" height="860" rx="26" fill="#F7F8FA" stroke="#E2E5E9"/>
+<rect x="70" y="70" width="250" height="860" rx="26" fill="#FFFFFF"/>
+<line x1="320" y1="70" x2="320" y2="930" stroke="#E5E7EB"/>
+<rect x="96" y="96" width="36" height="36" rx="9" fill="#7657F6"/>
+<text x="148" y="123" fill="#17181C" font-family="Arial,sans-serif" font-size="25" font-weight="700">Booking OS</text>
+<text x="108" y="158" fill="#858B96" font-family="Arial,sans-serif" font-size="13">Reservation Business System</text>
+<g font-family="Arial,sans-serif" font-size="15" fill="#737881">
+  <text x="108" y="230">Dashboard</text><text x="108" y="278">Bookings</text><text x="108" y="326">Clients</text><text x="108" y="374">Passes</text><text x="108" y="422">Staff</text>
+</g>
+<rect x="92" y="196" width="206" height="46" rx="9" fill="#F2EFFF"/>
+<rect x="92" y="196" width="3" height="46" rx="1.5" fill="#7657F6"/>
+<circle cx="112" cy="219" r="4" fill="#7657F6"/>
+<text x="128" y="224" fill="#5F43C9" font-family="Arial,sans-serif" font-size="15" font-weight="700">Dashboard</text>
+
+<text x="365" y="128" fill="#7B8089" font-family="Arial,sans-serif" font-size="14" font-weight="700">TODAY / SEP 06</text>
+<text x="365" y="177" fill="#17181C" font-family="Arial,sans-serif" font-size="34" font-weight="700">Reservation overview</text>
+
+<g>
+  <rect x="365" y="220" width="250" height="126" rx="16" fill="#FFFFFF" stroke="#E4E6EA"/>
+  <rect x="635" y="220" width="250" height="126" rx="16" fill="#FFFFFF" stroke="#E4E6EA"/>
+  <rect x="905" y="220" width="250" height="126" rx="16" fill="#FFFFFF" stroke="#E4E6EA"/>
+  <rect x="1175" y="220" width="285" height="126" rx="16" fill="#FFFFFF" stroke="#E4E6EA"/>
+</g>
+<g font-family="Arial,sans-serif">
+  <text x="390" y="255" font-size="13" fill="#8B909A">TODAY BOOKINGS</text><text x="390" y="310" font-size="30" font-weight="700" fill="#17181C">18</text>
+  <text x="660" y="255" font-size="13" fill="#8B909A">COMPLETED</text><text x="660" y="310" font-size="30" font-weight="700" fill="#17181C">11</text>
+  <text x="930" y="255" font-size="13" fill="#8B909A">NO-SHOW</text><text x="930" y="310" font-size="30" font-weight="700" fill="#17181C">1</text>
+  <text x="1200" y="255" font-size="13" fill="#8B909A">ACTIVE CLIENTS</text><text x="1200" y="310" font-size="30" font-weight="700" fill="#7657F6">126</text>
+</g>
+
+<rect x="365" y="375" width="780" height="485" rx="16" fill="#FFFFFF" stroke="#E4E6EA"/>
+<text x="390" y="420" fill="#17181C" font-family="Arial,sans-serif" font-size="19" font-weight="700">Today schedule</text>
+<g font-family="Arial,sans-serif" font-size="13">
+  <text x="390" y="470" fill="#969BA4">10:00</text><text x="470" y="470" fill="#17181C" font-weight="700">김서윤 · Body Balance</text><rect x="980" y="448" width="122" height="30" rx="15" fill="#EFECFF"/><text x="1008" y="468" fill="#664DC6">Booked</text>
+  <line x1="390" y1="500" x2="1110" y2="500" stroke="#ECEEF1"/>
+  <text x="390" y="545" fill="#969BA4">11:30</text><text x="470" y="545" fill="#17181C" font-weight="700">박민지 · Facial Care</text><rect x="980" y="523" width="122" height="30" rx="15" fill="#E8F7F1"/><text x="1002" y="543" fill="#16835F">Completed</text>
+  <line x1="390" y1="575" x2="1110" y2="575" stroke="#ECEEF1"/>
+  <text x="390" y="620" fill="#969BA4">13:00</text><text x="470" y="620" fill="#17181C" font-weight="700">이하늘 · Posture Care</text><rect x="980" y="598" width="122" height="30" rx="15" fill="#FFF2DF"/><text x="1005" y="618" fill="#A65D16">Waiting</text>
+  <line x1="390" y1="650" x2="1110" y2="650" stroke="#ECEEF1"/>
+  <text x="390" y="695" fill="#969BA4">15:00</text><text x="470" y="695" fill="#17181C" font-weight="700">최유진 · Premium Care</text><rect x="980" y="673" width="122" height="30" rx="15" fill="#EFECFF"/><text x="1008" y="693" fill="#664DC6">Booked</text>
+</g>
+
+<rect x="1170" y="375" width="290" height="230" rx="16" fill="#FFFFFF" stroke="#E4E6EA"/>
+<text x="1195" y="420" fill="#17181C" font-family="Arial,sans-serif" font-size="19" font-weight="700">Pass balance</text>
+<text x="1195" y="470" fill="#8B909A" font-family="Arial,sans-serif" font-size="13">10 SESSION PASS</text>
+<text x="1195" y="525" fill="#17181C" font-family="Arial,sans-serif" font-size="30" font-weight="700">6 / 10</text>
+<rect x="1195" y="550" width="220" height="8" rx="4" fill="#ECEEF1"/>
+<rect x="1195" y="550" width="132" height="8" rx="4" fill="#7657F6"/>
+
+<rect x="1170" y="630" width="290" height="230" rx="16" fill="#FFFFFF" stroke="#E4E6EA"/>
+<text x="1195" y="675" fill="#17181C" font-family="Arial,sans-serif" font-size="19" font-weight="700">Staff status</text>
+<g font-family="Arial,sans-serif" font-size="13"><circle cx="1205" cy="725" r="8" fill="#7657F6"/><text x="1225" y="730" fill="#17181C">Jina · 6 bookings</text><circle cx="1205" cy="770" r="8" fill="#16835F"/><text x="1225" y="775" fill="#17181C">Mina · 5 bookings</text><circle cx="1205" cy="815" r="8" fill="#A65D16"/><text x="1225" y="820" fill="#17181C">Sora · 4 bookings</text></g>
+</svg>
