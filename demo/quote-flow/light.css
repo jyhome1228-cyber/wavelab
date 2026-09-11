@@ -1,0 +1,54 @@
+/* QuoteFlow interactive demo — Light Mode / 2026-09-11 */
+:root{--side:#ffffff!important}
+html,body{background:#f6f7f9!important;color:#17181c!important}
+body.quote-flow-demo-light{background:#f6f7f9!important;color:#17181c!important}
+.quote-flow-demo-light .demo-banner{background:#fff!important;color:#747982!important;border-bottom:1px solid #e5e7eb!important}
+.quote-flow-demo-light .demo-banner b{color:#17181c!important}
+.quote-flow-demo-light .demo-banner a{color:#7657f6!important;font-weight:600}
+.quote-flow-demo-light .sidebar{background:#fff!important;color:#17181c!important;border-right:1px solid #e5e7eb!important}
+.quote-flow-demo-light .brand-row strong{color:#17181c!important}
+.quote-flow-demo-light .brand-row span{color:#8a8f98!important}
+.quote-flow-demo-light .product-mark{background:#7657f6!important;color:#fff!important;box-shadow:0 6px 18px rgba(118,87,246,.16)}
+.quote-flow-demo-light .nav-item{color:#6f747d!important}
+.quote-flow-demo-light .nav-item:hover{background:#f5f3ff!important;color:#17181c!important}
+.quote-flow-demo-light .nav-item.is-active{background:#f2efff!important;color:#5f43c9!important;box-shadow:inset 3px 0 0 #7657f6!important}
+.quote-flow-demo-light .nav-item em{background:#ece8ff!important;color:#5f43c9!important}
+.quote-flow-demo-light .sidebar-foot{border-top-color:#e7e9ed!important}
+.quote-flow-demo-light .user-chip>span{background:#f0f1f4!important;color:#5c6169!important}
+.quote-flow-demo-light .user-chip b{color:#17181c!important}
+.quote-flow-demo-light .user-chip small,.quote-flow-demo-light .text-button{color:#8b8f97!important}
+.quote-flow-demo-light .main-panel{background:#f6f7f9!important}
+.quote-flow-demo-light .topbar h1,.quote-flow-demo-light .section-toolbar h2,.quote-flow-demo-light .panel-head h2{color:#17181c!important}
+.quote-flow-demo-light .kicker,.quote-flow-demo-light .section-toolbar p{color:#8a8f98!important}
+.quote-flow-demo-light .search-box{background:#fff!important;border-color:#d9dde3!important;color:#8d929a!important}
+.quote-flow-demo-light .search-box input{color:#17181c!important}
+.quote-flow-demo-light .primary-button{background:#7657f6!important;color:#fff!important}
+.quote-flow-demo-light .primary-button:hover{background:#6748e8!important}
+.quote-flow-demo-light .secondary-button,.quote-flow-demo-light .tiny-button,.quote-flow-demo-light .card-actions button{background:#fff!important;border-color:#d9dde3!important;color:#17181c!important}
+.quote-flow-demo-light .secondary-button:hover,.quote-flow-demo-light .tiny-button:hover,.quote-flow-demo-light .card-actions button:hover{background:#f7f8fa!important;border-color:#c8ccd3!important}
+.quote-flow-demo-light .text-link{color:#7657f6!important}
+.quote-flow-demo-light .metric-card,.quote-flow-demo-light .panel,.quote-flow-demo-light .table-card,.quote-flow-demo-light .version-card,.quote-flow-demo-light .approval-card,.quote-flow-demo-light .quote-doc{background:#fff!important;border-color:#e2e5e9!important;box-shadow:0 1px 0 rgba(18,20,28,.015)!important}
+.quote-flow-demo-light .metric-card strong,.quote-flow-demo-light .quote-row strong,.quote-flow-demo-light .version-card h3,.quote-flow-demo-light .approval-card h3,.quote-flow-demo-light .quote-doc h2{color:#17181c!important}
+.quote-flow-demo-light .metric-card span,.quote-flow-demo-light .metric-card small,.quote-flow-demo-light .quote-row small,.quote-flow-demo-light .version-card p,.quote-flow-demo-light .approval-card p{color:#8a8f98!important}
+.quote-flow-demo-light .quote-row,.quote-flow-demo-light .mix-row,.quote-flow-demo-light .approval-mini-row{border-color:#e8eaee!important}
+.quote-flow-demo-light .filter{background:#fff!important;border-color:#d9dde3!important;color:#6f747d!important}
+.quote-flow-demo-light .filter:hover{background:#f7f8fa!important}
+.quote-flow-demo-light .filter.is-active{background:#f2efff!important;border-color:#cfc3ef!important;color:#5f43c9!important}
+.quote-flow-demo-light th{background:#f7f8fa!important;color:#70757e!important}
+.quote-flow-demo-light th,.quote-flow-demo-light td{border-color:#e8eaee!important}
+.quote-flow-demo-light .builder-fields input,.quote-flow-demo-light .builder-item input,.quote-flow-demo-light .modal input,.quote-flow-demo-light .modal select{background:#fff!important;border-color:#d8dce2!important;color:#17181c!important}
+.quote-flow-demo-light .builder-fields input:focus,.quote-flow-demo-light .builder-item input:focus,.quote-flow-demo-light .modal input:focus,.quote-flow-demo-light .modal select:focus{border-color:#7657f6!important;box-shadow:0 0 0 3px rgba(118,87,246,.09)!important;outline:0!important}
+.quote-flow-demo-light .item-editor,.quote-flow-demo-light .builder-item,.quote-flow-demo-light .quote-doc-head,.quote-flow-demo-light .quote-doc-row,.quote-flow-demo-light .quote-total .grand{border-color:#e7e9ed!important}
+.quote-flow-demo-light .builder-item button{background:#f4f5f7!important;color:#6f747d!important}
+.quote-flow-demo-light .quote-preview{filter:none!important}
+.quote-flow-demo-light .quote-doc-head span,.quote-flow-demo-light .quote-doc-head small,.quote-flow-demo-light .quote-doc-head p,.quote-flow-demo-light .quote-doc-row.head{color:#8a8f98!important}
+.quote-flow-demo-light .quote-doc-head b,.quote-flow-demo-light .quote-doc-row,.quote-flow-demo-light .quote-total{color:#17181c!important}
+.quote-flow-demo-light .version-meta div,.quote-flow-demo-light .approval-meta div{background:#f6f7f9!important}
+.quote-flow-demo-light .version-meta span,.quote-flow-demo-light .approval-meta span{color:#8a8f98!important}
+.quote-flow-demo-light .modal{background:rgba(30,32,38,.24)!important}
+.quote-flow-demo-light .modal-card{background:#fff!important;border-color:#e2e5e9!important;box-shadow:0 24px 64px rgba(18,20,28,.14)!important}
+.quote-flow-demo-light .modal-head span{color:#8a8f98!important}
+.quote-flow-demo-light .close-button{background:#f7f8fa!important;border-color:#dfe2e7!important;color:#17181c!important}
+.quote-flow-demo-light .toast{background:#17181c!important;color:#fff!important;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+@media(max-width:1080px){.quote-flow-demo-light .nav-item.is-active{box-shadow:inset 0 0 0 1px #d8cff8!important}}
+@media(max-width:760px){.quote-flow-demo-light .sidebar{border-right:0!important;border-bottom:1px solid #e5e7eb!important;background:rgba(255,255,255,.98)!important}.quote-flow-demo-light .nav-item.is-active{box-shadow:inset 0 -2px 0 #7657f6!important}}
