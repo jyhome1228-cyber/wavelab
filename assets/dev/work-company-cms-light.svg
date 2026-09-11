@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#F3F4F6"/>
+  <rect x="70" y="70" width="1460" height="860" rx="20" fill="#F7F8FA" stroke="#E2E5E9"/>
+  <rect x="70" y="70" width="280" height="860" rx="20" fill="#FFFFFF"/>
+  <line x1="350" y1="70" x2="350" y2="930" stroke="#E5E7EB"/>
+
+  <rect x="104" y="103" width="36" height="36" rx="9" fill="#7657F6"/>
+  <text x="157" y="129" fill="#17181C" font-family="Arial,sans-serif" font-size="25" font-weight="700">Company CMS</text>
+  <text x="120" y="174" fill="#8A8F98" font-family="Arial,sans-serif" font-size="14">Corporate Website Admin</text>
+
+  <g fill="#71767F" font-family="Arial,sans-serif" font-size="16">
+    <text x="120" y="250">Dashboard</text>
+    <text x="120" y="308">Site Content</text>
+    <text x="120" y="366">Portfolio</text>
+    <text x="120" y="424">News</text>
+    <text x="120" y="482">SEO</text>
+  </g>
+  <rect x="104" y="276" width="212" height="46" rx="9" fill="#F2EFFF"/>
+  <rect x="104" y="276" width="3" height="46" rx="1.5" fill="#7657F6"/>
+  <text x="120" y="305" fill="#5F43C9" font-family="Arial,sans-serif" font-size="16" font-weight="700">Site Content</text>
+
+  <text x="410" y="135" fill="#17181C" font-family="Arial,sans-serif" font-size="28" font-weight="700">Website Content</text>
+  <text x="410" y="168" fill="#7E838C" font-family="Arial,sans-serif" font-size="14">Edit content and preview the corporate website in real time.</text>
+
+  <rect x="410" y="220" width="430" height="620" rx="14" fill="#FFFFFF" stroke="#E1E4E8"/>
+  <g font-family="Arial,sans-serif">
+    <text x="445" y="270" fill="#7A7F88" font-size="12">COMPANY NAME</text>
+    <rect x="445" y="290" width="360" height="48" rx="8" fill="#FFFFFF" stroke="#D9DDE3"/>
+    <text x="462" y="320" fill="#202126" font-size="15">AESOST COMPANY</text>
+
+    <text x="445" y="382" fill="#7A7F88" font-size="12">HERO TITLE</text>
+    <rect x="445" y="402" width="360" height="90" rx="8" fill="#FFFFFF" stroke="#D9DDE3"/>
+    <text x="462" y="438" fill="#202126" font-size="15">Better systems for</text>
+    <text x="462" y="461" fill="#202126" font-size="15">better business.</text>
+
+    <text x="445" y="538" fill="#7A7F88" font-size="12">LAYOUT STYLE</text>
+    <rect x="445" y="558" width="360" height="48" rx="8" fill="#FFFFFF" stroke="#D9DDE3"/>
+    <text x="462" y="588" fill="#202126" font-size="15">Corporate / Grid</text>
+
+    <rect x="445" y="652" width="180" height="46" rx="9" fill="#7657F6"/>
+    <text x="487" y="681" fill="#FFFFFF" font-size="14" font-weight="700">Save changes</text>
+  </g>
+
+  <rect x="890" y="220" width="570" height="620" rx="14" fill="#FFFFFF" stroke="#E1E4E8"/>
+  <rect x="890" y="220" width="570" height="44" rx="14" fill="#FAFBFC"/>
+  <line x1="890" y1="264" x2="1460" y2="264" stroke="#E7E9ED"/>
+  <text x="915" y="248" fill="#737780" font-family="Arial,sans-serif" font-size="11">Website Preview</text>
+  <text x="1400" y="248" fill="#7657F6" font-family="Arial,sans-serif" font-size="11" font-weight="700">LIVE</text>
+
+  <rect x="915" y="286" width="520" height="529" rx="9" fill="#FFFFFF" stroke="#ECEEF1"/>
+  <text x="945" y="330" fill="#16171B" font-family="Arial,sans-serif" font-size="17" font-weight="700">AESOST COMPANY</text>
+  <g fill="#777C85" font-family="Arial,sans-serif" font-size="12">
+    <text x="1260" y="330">ABOUT</text>
+    <text x="1320" y="330">WORK</text>
+    <text x="1370" y="330">NEWS</text>
+  </g>
+  <line x1="945" y1="358" x2="1405" y2="358" stroke="#ECEEF1"/>
+
+  <text x="945" y="448" fill="#16171B" font-family="Arial,sans-serif" font-size="42" font-weight="700">Better systems for</text>
+  <text x="945" y="500" fill="#16171B" font-family="Arial,sans-serif" font-size="42" font-weight="700">better business.</text>
+  <text x="945" y="553" fill="#777B84" font-family="Arial,sans-serif" font-size="15">Corporate website preview updates as content changes.</text>
+
+  <rect x="945" y="613" width="460" height="1" fill="#E5E7EB"/>
+  <text x="945" y="658" fill="#16171B" font-family="Arial,sans-serif" font-size="18" font-weight="700">Selected Work</text>
+  <rect x="945" y="690" width="216" height="90" rx="8" fill="#F4F5F7"/>
+  <rect x="1189" y="690" width="216" height="90" rx="8" fill="#F4F5F7"/>
+
+  <text x="915" y="875" fill="#7657F6" font-family="Arial,sans-serif" font-size="14" font-weight="700">ADMIN → LIVE PREVIEW → PUBLISH</text>
+</svg>
