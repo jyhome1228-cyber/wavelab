@@ -1,0 +1,230 @@
+/* AESOST enterprise interaction + Project Room refinement / 2026-09-11 */
+
+/* Typography: one family everywhere, including controls and embedded UI labels */
+html,body,button,input,select,textarea,optgroup,a{
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;
+}
+button,input,select,textarea{letter-spacing:inherit}
+button,a,.btn,[role='button']{touch-action:manipulation}
+button,.btn,[role='button']{cursor:pointer}
+button:disabled,[aria-disabled='true']{cursor:not-allowed;opacity:.52}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid #7052de!important;
+  outline-offset:3px!important;
+}
+
+/* Guided previews are real interactive demos, not screenshots. */
+.solution-feature-frame-wrap iframe{
+  pointer-events:auto!important;
+}
+.solution-feature-frame-wrap{
+  isolation:isolate;
+}
+
+/* PROJECT ROOM — remove SaaS card-wall feel and make the flow/readout more technical. */
+.project-room-page .pr-section-head{
+  grid-template-columns:180px minmax(0,1fr)!important;
+  gap:64px!important;
+  margin-bottom:40px!important;
+}
+.project-room-page .pr-section-copy h2{
+  font-weight:620!important;
+  letter-spacing:-.04em!important;
+}
+.project-room-page .pr-section-copy p{
+  color:#69707a!important;
+}
+
+.project-room-page .pr-benefit-grid{
+  gap:0!important;
+  border-top:1px solid #e1e4e8!important;
+  border-left:1px solid #e1e4e8!important;
+}
+.project-room-page .pr-benefit-card{
+  min-height:190px!important;
+  padding:26px!important;
+  border:0!important;
+  border-right:1px solid #e1e4e8!important;
+  border-bottom:1px solid #e1e4e8!important;
+  border-radius:0!important;
+  background:#fff!important;
+  transform:none!important;
+}
+.project-room-page .pr-benefit-card:hover{background:#fafbfc!important}
+.project-room-page .pr-icon{
+  width:36px!important;height:36px!important;
+  border-radius:4px!important;
+  background:#f5f2ff!important;
+}
+.project-room-page .pr-benefit-card h3{margin:30px 0 9px!important;font-size:18px!important}
+.project-room-page .pr-benefit-card p{font-size:13px!important;line-height:1.65!important;color:#6f747d!important}
+
+/* Screen guide: quiet navigation + larger interactive system window. */
+.project-room-page .solution-feature-guide{
+  grid-template-columns:220px minmax(0,1fr)!important;
+  gap:32px!important;
+}
+.project-room-page .solution-feature-nav{
+  top:104px!important;
+  gap:0!important;
+  border-top:1px solid #e1e4e8!important;
+}
+.project-room-page .solution-feature-tab{
+  min-height:64px!important;
+  grid-template-columns:32px 1fr!important;
+  gap:11px!important;
+  padding:13px 10px!important;
+  border:0!important;
+  border-bottom:1px solid #e1e4e8!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#747a83!important;
+  box-shadow:none!important;
+}
+.project-room-page .solution-feature-tab:hover{
+  background:#fafbfc!important;
+  border-color:#e1e4e8!important;
+}
+.project-room-page .solution-feature-tab.is-active{
+  background:#f8f6ff!important;
+  border-color:#e1e4e8!important;
+  box-shadow:inset 2px 0 0 #7052de!important;
+}
+.project-room-page .pr-tab-icon{
+  width:30px!important;height:30px!important;
+  border:0!important;
+  border-radius:4px!important;
+  background:#f2efff!important;
+  color:#7052de!important;
+}
+.project-room-page .pr-tab-icon svg{width:15px!important;height:15px!important}
+.project-room-page .solution-feature-tab strong{font-size:13px!important;font-weight:650!important;color:#40444b!important}
+.project-room-page .solution-feature-tab small{font-size:10px!important;color:#8b9098!important}
+.project-room-page .solution-feature-browser{
+  border-radius:5px!important;
+  border-color:#dfe3e8!important;
+  box-shadow:none!important;
+  background:#fff!important;
+}
+.project-room-page .solution-feature-browser-bar{
+  height:38px!important;
+  padding:0 12px!important;
+  background:#f8f9fa!important;
+  border-color:#e4e7eb!important;
+  font-size:9px!important;
+  letter-spacing:.05em!important;
+}
+.project-room-page .solution-feature-frame-wrap{
+  aspect-ratio:16/9!important;
+  background:#f4f5f7!important;
+}
+.project-room-page .solution-feature-frame-wrap iframe{
+  width:140%!important;
+  height:140%!important;
+  transform:scale(.7142857)!important;
+  transform-origin:0 0!important;
+  pointer-events:auto!important;
+}
+.project-room-page .solution-feature-caption{
+  padding-top:16px!important;
+  gap:18px!important;
+}
+.project-room-page .solution-feature-caption h3{font-size:18px!important;font-weight:650!important}
+.project-room-page .solution-feature-caption p{max-width:680px!important;font-size:13px!important;line-height:1.65!important;color:#69707a!important}
+.project-room-page .solution-feature-caption>span{font-size:9px!important;letter-spacing:.06em!important;color:#8a9098!important}
+
+/* Workflow: no floating black arrow buttons; use a restrained connector line. */
+.project-room-page .solution-flow{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:18px!important;
+  border:0!important;
+  background:transparent!important;
+}
+.project-room-page .solution-flow article{
+  position:relative!important;
+  min-height:196px!important;
+  padding:24px!important;
+  border:1px solid #dfe3e8!important;
+  border-radius:5px!important;
+  background:#fff!important;
+  overflow:visible!important;
+}
+.project-room-page .solution-flow article:not(:last-child):after{
+  content:''!important;
+  position:absolute!important;
+  right:-19px!important;
+  top:41px!important;
+  z-index:2!important;
+  width:18px!important;
+  height:1px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#cfd4da!important;
+  transform:none!important;
+}
+.project-room-page .solution-flow article:not(:last-child):before{
+  content:'';
+  position:absolute;
+  right:-19px;
+  top:38px;
+  z-index:3;
+  width:6px;
+  height:6px;
+  border-top:1px solid #aeb4bd;
+  border-right:1px solid #aeb4bd;
+  transform:rotate(45deg);
+}
+.project-room-page .pr-flow-icon{
+  width:36px!important;height:36px!important;
+  border-radius:4px!important;
+  border-color:#ddd6f4!important;
+  background:#f5f2ff!important;
+  color:#7052de!important;
+}
+.project-room-page .pr-flow-icon svg{width:16px!important;height:16px!important}
+.project-room-page .solution-flow span.pr-flow-label{
+  margin-top:24px!important;
+  color:#7052de!important;
+  font-size:9px!important;
+  font-weight:750!important;
+  letter-spacing:.09em!important;
+}
+.project-room-page .solution-flow h3{
+  margin:8px 0 8px!important;
+  font-size:18px!important;
+  font-weight:650!important;
+}
+.project-room-page .solution-flow p{
+  color:#6f747d!important;
+  font-size:13px!important;
+  line-height:1.62!important;
+  word-break:keep-all!important;
+}
+
+.project-room-page .pr-demo-points span,
+.project-room-page .solution-detail-tags span{
+  border-radius:3px!important;
+}
+.project-room-page .solution-demo-note{
+  border-radius:4px!important;
+  background:#fff!important;
+}
+
+@media(max-width:1100px){
+  .project-room-page .pr-section-head{grid-template-columns:150px minmax(0,1fr)!important;gap:42px!important}
+  .project-room-page .solution-feature-guide{grid-template-columns:200px minmax(0,1fr)!important;gap:22px!important}
+  .project-room-page .solution-flow{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .project-room-page .solution-flow article:after,.project-room-page .solution-flow article:before{display:none!important}
+}
+
+@media(max-width:760px){
+  .project-room-page .pr-section-head{grid-template-columns:1fr!important;gap:14px!important}
+  .project-room-page .solution-feature-guide{grid-template-columns:1fr!important}
+  .project-room-page .solution-feature-nav{display:flex!important;overflow:auto!important;border-top:0!important;gap:8px!important}
+  .project-room-page .solution-feature-tab{min-width:190px!important;border:1px solid #e1e4e8!important;border-radius:4px!important}
+  .project-room-page .solution-feature-tab.is-active{border-color:#cfc4f1!important;box-shadow:inset 0 2px 0 #7052de!important}
+  .project-room-page .solution-feature-frame-wrap{aspect-ratio:1/1.03!important}
+  .project-room-page .solution-feature-frame-wrap iframe{width:178.5%!important;height:178.5%!important;transform:scale(.56)!important}
+  .project-room-page .solution-flow{grid-template-columns:1fr!important;gap:10px!important}
+  .project-room-page .solution-flow article{min-height:0!important}
+}
