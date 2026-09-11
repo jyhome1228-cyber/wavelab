@@ -1,9 +1,9 @@
-/* AESOST Professional Company Polish / 2026-09-11
-   A restrained enterprise/editorial layer: stronger hierarchy, flatter surfaces,
-   tighter navigation, fewer decorative pills, and consistent technical presentation. */
+/* AESOST Structural Design System / 2026-09-11
+   Final visual override: restrained hierarchy, readable widths, consistent spacing,
+   Pretendard typography, controlled radii, and product-oriented interaction density. */
 
 :root{
-  --container:1440px;
+  --container:1280px;
   --purple:#7052de!important;
   --purple-strong:#5f43c8!important;
   --text:#15171b!important;
@@ -11,160 +11,225 @@
   --muted:#858b95!important;
   --line:#e4e7eb!important;
   --line-strong:#cfd4da!important;
-  --header-height:84px!important;
-  --ui-radius-control:4px!important;
-  --ui-radius-card:6px!important;
-  --ui-radius-panel:6px!important;
-  --ui-radius-explain:6px!important;
+
+  --fs-display:clamp(40px,3.6vw,48px)!important;
+  --fs-h1:clamp(32px,3vw,40px)!important;
+  --fs-h2:clamp(24px,2.35vw,32px)!important;
+  --fs-h3:clamp(18px,1.7vw,24px)!important;
+  --fs-body-lg:16px!important;
+  --fs-body:15px!important;
+  --fs-body-sm:14px!important;
+  --fs-label:12px!important;
+  --fs-meta:12px!important;
+
+  --section-xl:96px!important;
+  --section-lg:80px!important;
+  --section-md:64px!important;
+  --header-height:72px!important;
+
+  --ui-radius-control:8px!important;
+  --ui-radius-card:12px!important;
+  --ui-radius-panel:12px!important;
+  --ui-radius-explain:12px!important;
 }
 
 html,body{background:#fff!important;color:#15171b!important}
-body{font-size:16px!important;line-height:1.68!important;letter-spacing:-.018em!important}
-.shell{width:min(calc(100% - 56px),var(--container))!important}
+body{font-size:15px!important;line-height:1.6!important;letter-spacing:-.018em!important}
+.shell{width:min(calc(100% - 64px),var(--container))!important;margin-inline:auto!important}
 
-/* Header — compact, corporate, intentionally quiet */
+/* Header */
 .dev-header{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e6e8ec!important;box-shadow:none!important;backdrop-filter:blur(14px)!important}
-.dev-header-inner{height:84px!important;gap:28px!important}
-.dev-brand{width:116px!important}
-.dev-nav{gap:28px!important}
-.dev-nav>a{height:84px!important;color:#626770!important;font-size:12px!important;font-weight:650!important;letter-spacing:.045em!important}
+.dev-header-inner{height:72px!important;gap:24px!important}
+.dev-brand{width:112px!important}
+.dev-nav{gap:24px!important}
+.dev-nav>a{height:72px!important;color:#626770!important;font-size:12px!important;font-weight:600!important;letter-spacing:.04em!important}
 .dev-nav>a:hover,.dev-nav>a.is-active,.dev-nav>a[aria-current="page"]{color:#15171b!important}
 .dev-nav>a:after{height:2px!important;background:#7052de!important}
-.dev-contact{min-height:40px!important;padding:0 15px!important;border-color:#d6d9de!important;border-radius:4px!important;background:#fff!important;color:#25282e!important;font-size:12px!important;font-weight:650!important;letter-spacing:.03em!important}
+.dev-contact{min-height:40px!important;padding:0 16px!important;border-color:#d6d9de!important;border-radius:8px!important;background:#fff!important;color:#25282e!important;font-size:13px!important;font-weight:600!important;letter-spacing:.02em!important}
 .dev-contact:hover{border-color:#7052de!important;background:#7052de!important;color:#fff!important}
 
-/* Typography — stronger company-level hierarchy */
-.eyebrow,.kicker{font-size:11px!important;font-weight:720!important;letter-spacing:.105em!important;color:#858b95!important}
-.display{font-size:clamp(42px,4vw,58px)!important;font-weight:610!important;line-height:1.08!important;letter-spacing:-.052em!important}
-.page-title{font-size:clamp(38px,3.55vw,52px)!important;font-weight:610!important;line-height:1.12!important;letter-spacing:-.047em!important}
-.section-title{font-size:clamp(29px,2.45vw,38px)!important;font-weight:620!important;line-height:1.24!important;letter-spacing:-.038em!important}
-.lead{font-size:17px!important;line-height:1.72!important;color:#626872!important}
-h2,h3{font-weight:620!important}
+/* Typography */
+.eyebrow,.kicker{font-size:11px!important;font-weight:700!important;line-height:1.4!important;letter-spacing:.1em!important;color:#858b95!important}
+.display{font-size:var(--fs-display)!important;font-weight:650!important;line-height:1.18!important;letter-spacing:-.045em!important;max-width:680px!important}
+.page-title{font-size:var(--fs-h1)!important;font-weight:650!important;line-height:1.22!important;letter-spacing:-.04em!important;max-width:760px!important}
+.section-title{font-size:var(--fs-h2)!important;font-weight:650!important;line-height:1.28!important;letter-spacing:-.032em!important;max-width:760px!important}
+.lead{font-size:16px!important;line-height:1.6!important;color:#626872!important;max-width:680px!important}
+h2,h3{font-weight:650!important}
+p{word-break:keep-all}
 
-/* Rhythm — more whitespace, fewer card-wall impressions */
-.page-hero{padding:88px 0 78px!important;border-bottom:1px solid #e6e8ec!important}
+/* Reading widths + grid */
+.page-hero-grid,.section-head{max-width:1040px!important}
+.page-hero-grid{grid-template-columns:160px minmax(0,1fr)!important;gap:48px!important}
+.section-head{grid-template-columns:160px minmax(0,1fr)!important;gap:48px!important;margin-bottom:40px!important}
+.section-head .section-copy{max-width:760px!important}
+.section-head .section-copy p{max-width:720px!important;margin-top:16px!important;color:#686e77!important;font-size:15px!important;line-height:1.6!important}
+.solution-detail-copy .lead,.solution-intro-copy>p,.request-intro>p:last-child{max-width:680px!important}
+
+/* Rhythm */
+.page-hero{padding:80px 0!important;border-bottom:1px solid #e6e8ec!important}
 .section{padding:88px 0!important;border-bottom:1px solid #e6e8ec!important}
 .section.soft{background:#f7f8fa!important}
-.section-head{grid-template-columns:180px minmax(0,1fr)!important;gap:64px!important;margin-bottom:44px!important}
-.section-head .section-copy p{margin-top:16px!important;color:#686e77!important}
+.hero-actions{gap:8px!important;margin-top:24px!important}
 
 /* Buttons */
-.btn{min-height:46px!important;padding:0 18px!important;border-radius:4px!important;font-size:12px!important;font-weight:700!important;letter-spacing:.025em!important;box-shadow:none!important}
+.btn{min-height:40px!important;padding:0 16px!important;border-radius:8px!important;font-size:14px!important;font-weight:650!important;line-height:1!important;letter-spacing:0!important;box-shadow:none!important}
 .btn.secondary{border-color:#d7dbe0!important;background:#fff!important;color:#25282e!important}
-.btn.purple{background:#7052de!important;border-color:#7052de!important}
+.btn.purple{background:#7052de!important;border-color:#7052de!important;color:#fff!important}
+.btn:active{transform:scale(.99)}
 
 /* Image / UI surfaces */
-.hero-visual,.hero-visual img,.solution-visual img,.project-thumb,.case-visual,.solution-detail-visual,.solution-demo-browser,.solution-feature-browser,.system-visual{border-radius:6px!important;box-shadow:none!important}
+.hero-visual,.hero-visual img,.solution-visual img,.project-thumb,.case-visual,.solution-detail-visual,.solution-demo-browser,.solution-feature-browser,.system-visual{border-radius:12px!important;box-shadow:none!important}
 .hero-visual,.solution-detail-visual,.system-visual{border-color:#dfe3e8!important;background:#f4f6f8!important}
 .project-thumb,.case-visual,.solution-visual{border-color:#e0e3e7!important;background:#f5f6f8!important}
 
-/* Remove overly SaaS-like lift effects */
+/* Remove decorative lift */
 .home-core-card:hover,.home-demo-card:hover,.solution-index-card:hover,.tech-capability-grid>article:hover,.project-card:hover,.case-card:hover,.solution-custom-card:hover{transform:none!important}
 
 /* Homepage */
-.home-simple .hero{padding:92px 0 86px!important}
-.home-simple .hero-grid{grid-template-columns:minmax(0,560px) minmax(0,1fr)!important;gap:72px!important}
-.home-simple .hero-visual{border-radius:6px!important;border-color:#dfe3e8!important}
-.home-simple .home-core-grid{gap:0!important;border-top:1px solid #e0e3e7;border-left:1px solid #e0e3e7}
-.home-simple .home-core-card{min-height:270px!important;padding:30px!important;border:0!important;border-right:1px solid #e0e3e7!important;border-bottom:1px solid #e0e3e7!important;border-radius:0!important;background:#fff!important}
+.home-simple .hero{padding:80px 0!important}
+.home-simple .hero-grid{grid-template-columns:minmax(0,520px) minmax(0,1fr)!important;gap:64px!important}
+.home-simple .hero-visual{border-radius:12px!important;border-color:#dfe3e8!important}
+.home-simple .home-core{padding:80px 0!important}
+.home-simple .home-core-grid{gap:16px!important}
+.home-simple .home-core-card{min-height:256px!important;padding:24px!important;border:1px solid #e0e3e7!important;border-radius:12px!important;background:#fff!important}
 .home-simple .home-core-card:hover{background:#fafbfc!important}
-.home-simple .home-core-card .home-core-icon{width:40px!important;height:40px!important;border-radius:6px!important;background:#f4f1ff!important}
-.home-simple .home-core-card .eyebrow{margin-top:30px!important}
-.home-simple .home-core-card h2{font-size:25px!important;font-weight:620!important}
-.home-simple .home-demo-grid{gap:20px!important}
-.home-simple .home-demo-card{border-radius:6px!important}
+.home-simple .home-core-card .home-core-icon{width:40px!important;height:40px!important;border-radius:8px!important;background:#f4f1ff!important}
+.home-simple .home-core-card .eyebrow{margin-top:24px!important}
+.home-simple .home-core-card h2{font-size:24px!important;font-weight:650!important;line-height:1.3!important}
+.home-simple .home-core-card p{font-size:14px!important;line-height:1.6!important}
+.home-simple .home-demo-section,.home-simple .home-hook{padding:80px 0!important}
+.home-simple .home-demo-grid{gap:16px!important}
+.home-simple .home-demo-card{border-radius:12px!important}
 .home-simple .home-demo-body{padding:20px!important}
-.home-simple .home-hook-points span{border-radius:4px!important;background:transparent!important;font-size:10px!important;letter-spacing:.03em!important}
+.home-simple .home-demo-body h3{font-size:18px!important}
+.home-simple .home-demo-body p{font-size:13px!important;line-height:1.5!important}
+.home-simple .home-hook h2{font-size:clamp(28px,2.5vw,32px)!important;line-height:1.28!important}
+.home-simple .home-hook-points span{border-radius:9999px!important;background:#fff!important;font-size:11px!important;letter-spacing:0!important}
 
-/* About / Services / Works: editorial rather than rounded-card presentation */
-.solution-stack{gap:88px!important}
-.solution-row{gap:72px!important}
-.solution-copy h3{font-size:clamp(27px,2.2vw,34px)!important;font-weight:620!important}
-.solution-meta span,.service-tags span,.tech-line span,.case-tags span{border-radius:3px!important;background:transparent!important}
-.process-compact{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
-.process-compact article{min-height:220px!important;border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;background:#fff!important;padding:28px!important}
-.process-compact h3{margin:36px 0 12px!important;font-size:20px!important}
-.works-page .case-grid{gap:52px 24px!important}
+/* About / Services / Works */
+.solution-stack{gap:80px!important}
+.solution-row{gap:64px!important}
+.solution-copy{max-width:560px!important}
+.solution-copy h3{font-size:clamp(24px,2vw,28px)!important;font-weight:650!important;line-height:1.3!important}
+.solution-copy p{font-size:15px!important;line-height:1.6!important}
+.solution-meta span,.service-tags span,.tech-line span,.case-tags span{border-radius:9999px!important;background:transparent!important}
+.process-compact{gap:16px!important;border:0!important}
+.process-compact article{min-height:200px!important;border:1px solid #e1e4e8!important;border-radius:12px!important;background:#fff!important;padding:24px!important}
+.process-compact h3{margin:32px 0 12px!important;font-size:20px!important}
+.process-compact p{font-size:14px!important;line-height:1.6!important}
+.works-page .case-grid{gap:48px 24px!important}
 .works-page .case-card{border-radius:0!important;background:transparent!important}
-.case-body .case-top{font-size:10px!important;letter-spacing:.08em!important}
-.case-body h2{font-size:24px!important;font-weight:620!important}
+.case-body .case-top{font-size:12px!important;letter-spacing:.06em!important}
+.case-body h2{font-size:22px!important;font-weight:650!important;line-height:1.3!important}
+.case-body p{font-size:14px!important;line-height:1.6!important}
 
-/* System Solutions — sober catalog */
+/* Services */
+.primary-service,.service-detail{gap:32px!important}
+.primary-service h3,.service-detail h2{font-size:24px!important;line-height:1.3!important}
+.primary-service p,.service-detail .desc{font-size:14px!important;line-height:1.6!important}
+
+/* System Solutions */
 .solutions-index-page .solution-index-stats{max-width:720px!important;gap:8px!important}
-.solutions-index-page .solution-index-stats>span{min-height:66px!important;border-radius:6px!important;box-shadow:none!important}
-.solutions-index-page .solution-index-stats>span>i{border-radius:6px!important}
-.solutions-index-page .solution-index-grid{gap:20px!important}
-.solutions-index-page .solution-index-card{border-radius:6px!important;box-shadow:none!important}
+.solutions-index-page .solution-index-stats>span{min-height:64px!important;border-radius:12px!important;box-shadow:none!important}
+.solutions-index-page .solution-index-stats>span>i{border-radius:8px!important}
+.solutions-index-page .solution-index-grid{gap:24px!important}
+.solutions-index-page .solution-index-card{border-radius:12px!important;box-shadow:none!important}
 .solutions-index-page .solution-index-thumb:after{display:none!important}
-.solutions-index-page .solution-index-thumb-badge{left:14px!important;top:14px!important;border-radius:4px!important;border-color:rgba(38,41,47,.12)!important;background:rgba(255,255,255,.92)!important;color:#6650b6!important;backdrop-filter:blur(8px)!important}
+.solutions-index-page .solution-index-thumb-badge{left:16px!important;top:16px!important;border-radius:9999px!important;border-color:rgba(38,41,47,.12)!important;background:rgba(255,255,255,.94)!important;color:#6650b6!important;backdrop-filter:blur(8px)!important}
 .solutions-index-page .solution-index-body{padding:24px!important}
-.solutions-index-page .solution-index-top span:before{width:6px!important;height:6px!important;border-radius:50%!important;box-shadow:none!important}
-.solutions-index-page .solution-index-tags span{border-radius:3px!important;background:transparent!important}
-.solutions-index-page .solution-index-actions a{border-radius:4px!important}
-.solutions-index-page .solution-custom-card{border-radius:6px!important;box-shadow:none!important}
-.solutions-index-page .solution-custom-card i{border-radius:6px!important}
+.solutions-index-page .solution-index-card h3{font-size:22px!important;line-height:1.35!important}
+.solutions-index-page .solution-index-card p{font-size:14px!important;line-height:1.6!important}
+.solutions-index-page .solution-index-tags span{border-radius:9999px!important;background:transparent!important}
+.solutions-index-page .solution-index-actions a{min-height:40px!important;border-radius:8px!important;font-size:14px!important}
+.solutions-index-page .solution-custom-card{border-radius:12px!important;box-shadow:none!important}
+.solutions-index-page .solution-custom-card i{border-radius:8px!important}
 
 /* Solution detail pages */
-.solution-feature-tab{min-height:64px!important;border-radius:0!important}
+.solution-detail-hero{gap:64px!important}
+.solution-detail-copy{max-width:600px!important}
+.solution-feature-tab{min-height:64px!important}
 .solution-feature-tab.is-active{background:#f7f5ff!important;box-shadow:inset 2px 0 0 #7052de!important}
-.solution-problems,.solution-flow{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
-.solution-problems article,.solution-flow article{border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;background:#fff!important}
-.solution-detail-tags span,.solution-status span,.solution-catalog-tags span{border-radius:3px!important}
+.solution-feature-caption h3{font-size:20px!important}
+.solution-feature-caption p{font-size:14px!important;line-height:1.6!important}
+.solution-problems,.solution-flow{gap:16px!important;border:0!important;background:transparent!important}
+.solution-problems article,.solution-flow article{border:1px solid #e1e4e8!important;border-radius:12px!important;background:#fff!important}
+.solution-problems h3,.solution-flow h3{font-size:20px!important}
+.solution-problems p,.solution-flow p{font-size:14px!important;line-height:1.6!important}
+.solution-demo-entry h2{font-size:clamp(24px,2.4vw,32px)!important;line-height:1.28!important}
+.solution-demo-entry p{font-size:15px!important;line-height:1.6!important}
+.solution-detail-tags span,.solution-status span,.solution-catalog-tags span{border-radius:9999px!important}
 
-/* Technology — flatter engineering-document aesthetic */
-.technology-page .technology-hero-tags span{border-radius:3px!important;background:#fff!important}
-.technology-page .architecture-preview{border-radius:6px!important;box-shadow:none!important;background:#f7f8fa!important}
-.technology-page .arch-status{border-radius:4px!important}
-.technology-page .arch-flow>article,.technology-page .arch-split article{border-radius:5px!important;box-shadow:none!important}
-.technology-page .arch-core-tags em,.technology-page .arch-infra-grid span{border-radius:3px!important}
-.technology-page .tech-capability-grid{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
-.technology-page .tech-capability-grid>article{min-height:300px!important;border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;padding:28px!important}
-.technology-page .tech-icon{border-radius:6px!important}
-.technology-page .tech-capability-grid article>div span{border-radius:3px!important;background:transparent!important}
-.technology-page .system-map{border-radius:6px!important;padding:0!important;gap:0!important;overflow:hidden!important}
-.technology-page .system-map>i{height:26px!important;background:#f7f8fa!important}
-.technology-page .system-map-row{border-radius:0!important;border-left:0!important;border-right:0!important;padding:18px 20px!important}
-.technology-page .system-map-row b{border-radius:3px!important;background:#f7f8fa!important}
-.technology-page .implementation-grid article{min-height:200px!important}
-.technology-page .stack-table b{border-radius:3px!important;background:#fff!important}
-.technology-page .principle-grid{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
-.technology-page .principle-grid article{min-height:250px!important;border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;padding:28px!important}
+/* Technology */
+.technology-page .technology-hero-tags span{border-radius:9999px!important;background:#fff!important}
+.technology-page .architecture-preview{border-radius:12px!important;box-shadow:none!important;background:#f7f8fa!important}
+.technology-page .arch-status{border-radius:8px!important}
+.technology-page .arch-flow>article,.technology-page .arch-split article{border-radius:8px!important;box-shadow:none!important}
+.technology-page .arch-core-tags em,.technology-page .arch-infra-grid span{border-radius:6px!important}
+.technology-page .tech-capability-grid{gap:16px!important;border:0!important}
+.technology-page .tech-capability-grid>article{min-height:280px!important;border:1px solid #e1e4e8!important;border-radius:12px!important;padding:24px!important}
+.technology-page .tech-icon{border-radius:8px!important}
+.technology-page .tech-capability-grid h3{font-size:22px!important}
+.technology-page .tech-capability-grid>article>p:not(.eyebrow){font-size:14px!important;line-height:1.6!important}
+.technology-page .tech-capability-grid article>div span{border-radius:9999px!important;background:transparent!important}
+.technology-page .system-map{border-radius:12px!important;padding:0!important;gap:0!important;overflow:hidden!important}
+.technology-page .system-map>i{height:24px!important;background:#f7f8fa!important}
+.technology-page .system-map-row{border-radius:0!important;border-left:0!important;border-right:0!important;padding:16px 20px!important}
+.technology-page .system-map-row b{border-radius:8px!important;background:#f7f8fa!important}
+.technology-page .implementation-grid article{min-height:192px!important;padding:24px!important}
+.technology-page .implementation-grid h3{font-size:18px!important;margin-top:32px!important}
+.technology-page .implementation-grid p{font-size:13px!important;line-height:1.5!important}
+.technology-page .stack-table b{border-radius:8px!important;background:#fff!important}
+.technology-page .principle-grid{gap:16px!important;border:0!important}
+.technology-page .principle-grid article{min-height:224px!important;border:1px solid #e1e4e8!important;border-radius:12px!important;padding:24px!important}
+.technology-page .principle-grid h3{font-size:20px!important;margin-top:32px!important}
+.technology-page .principle-grid p{font-size:14px!important;line-height:1.6!important}
 
-/* CTA — deeper, more corporate purple */
-.cta-section{background:#694bd1!important;padding:76px 0!important}
-.cta-grid h2{font-weight:620!important}
-.cta-section .btn{border-radius:4px!important}
+/* CTA */
+.cta-section{background:#694bd1!important;padding:80px 0!important}
+.cta-grid h2{font-size:clamp(28px,2.6vw,36px)!important;font-weight:650!important;line-height:1.25!important}
+.cta-grid p{font-size:15px!important;line-height:1.6!important}
+.cta-section .btn{min-height:48px!important;border-radius:12px!important;font-size:16px!important;padding-inline:20px!important}
 
 /* Footer */
 .dev-footer{border-top-color:#dfe2e6!important}
-.aesost-footer-main{padding-top:50px!important}
-.aesost-footer-copy{max-width:650px!important}
+.aesost-footer-main{padding-top:48px!important}
+.aesost-footer-copy{max-width:640px!important;font-size:14px!important;line-height:1.6!important}
 .aesost-footer-link{color:#6247c7!important}
 .aesost-footer-menu a{font-weight:600!important}
 
-@media(max-width:1100px){
-  .home-simple .hero-grid{grid-template-columns:1fr!important;gap:46px!important}
-  .section-head{grid-template-columns:150px minmax(0,1fr)!important;gap:42px!important}
+@media(max-width:1279px){
+  .shell{width:min(calc(100% - 48px),1040px)!important}
+  .home-simple .hero-grid{grid-template-columns:1fr!important;gap:48px!important}
+  .page-hero-grid,.section-head{grid-template-columns:144px minmax(0,1fr)!important;gap:40px!important}
 }
 
-@media(max-width:960px){
-  .dev-header-inner{height:76px!important}
-  .dev-brand{width:110px!important}
-  .page-hero{padding:72px 0 64px!important}
-  .section{padding:72px 0!important}
-}
-
-@media(max-width:760px){
+@media(max-width:767px){
+  :root{
+    --fs-display:40px!important;
+    --fs-h1:32px!important;
+    --fs-h2:24px!important;
+    --fs-h3:18px!important;
+  }
   .shell{width:calc(100% - 32px)!important}
-  .section-head{grid-template-columns:1fr!important;gap:16px!important;margin-bottom:30px!important}
-  .page-title{font-size:clamp(34px,10vw,43px)!important}
-  .section-title{font-size:clamp(27px,8vw,34px)!important}
-  .lead{font-size:16px!important}
-  .home-simple .hero{padding:62px 0 56px!important}
-  .home-simple .home-core-grid{grid-template-columns:1fr!important}
-  .home-simple .home-core-card{min-height:0!important;padding:24px!important}
-  .process-compact{grid-template-columns:1fr!important}
-  .solution-row{gap:30px!important}
-  .technology-page .tech-capability-grid,.technology-page .principle-grid{grid-template-columns:1fr!important}
-  .solutions-index-page .solution-index-card{border-radius:5px!important}
+  body{font-size:14px!important;line-height:1.55!important}
+  .dev-header-inner{height:64px!important}
+  .dev-brand{width:104px!important}
+  .page-hero{padding:56px 0!important}
+  .section{padding:56px 0!important}
+  .page-hero-grid,.section-head{grid-template-columns:1fr!important;gap:16px!important;max-width:none!important}
+  .section-head{margin-bottom:32px!important}
+  .page-title{font-size:32px!important;line-height:1.25!important}
+  .section-title{font-size:24px!important;line-height:1.3!important}
+  .lead{font-size:16px!important;line-height:1.6!important}
+  .home-simple .hero{padding:56px 0!important}
+  .home-simple .home-core,.home-simple .home-demo-section,.home-simple .home-hook{padding:56px 0!important}
+  .home-simple .home-core-grid,.home-simple .home-demo-grid{grid-template-columns:1fr!important}
+  .home-simple .home-core-card{min-height:0!important;padding:20px!important}
+  .process-compact{grid-template-columns:1fr!important;gap:12px!important}
+  .solution-row{gap:32px!important}
+  .technology-page .tech-capability-grid,.technology-page .principle-grid{grid-template-columns:1fr!important;gap:12px!important}
+  .solutions-index-page .solution-index-card{border-radius:12px!important}
+  .cta-section{padding:64px 0!important}
+  .cta-grid h2{font-size:28px!important}
+  .cta-section .btn{min-height:48px!important;font-size:16px!important}
 }
