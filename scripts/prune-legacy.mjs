@@ -3,11 +3,11 @@ import path from 'node:path';
 
 const root=process.cwd();
 const keepHtml=new Set([
-  'index.html','about.html','services.html','system-solutions.html','works.html','request.html','login.html','404.html',
+  'index.html','about.html','services.html','system-solutions.html','works.html','technology.html','request.html','login.html','404.html',
   'solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html','solution-project-room.html','solution-quote-flow.html'
 ]);
 const legacyHtmlPatterns=[
-  /^article/i,/^magazine/i,/^column/i,/^overseas-/i,/^reference/i,/^expert-/i,/^career-/i,
+  /^article/i,/^magazine/i,/^column/i,/^overseas-/i,/^reference/i,/^expert-/i,/^career-/i,/^editorial-/i,
   /^news/i,/^notice/i,/^class/i,/^study-/i,/^community/i,/^ability/i,/^mypage/i,/^my-references/i,/^columnist-/i
 ];
 const legacyAssetPatterns=[
