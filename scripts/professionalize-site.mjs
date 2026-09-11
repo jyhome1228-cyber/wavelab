@@ -9,13 +9,23 @@ const pages=[
   'solution-project-room.html','solution-quote-flow.html'
 ];
 
-const companyCss='company-polish.css?v=20260911-1';
-const interactionCss='enterprise-interaction.css?v=20260911-1';
+const companyCss='company-polish.css?v=20260911-2';
+const interactionCss='enterprise-interaction.css?v=20260911-2';
 const errors=[];
 
 if(!fs.existsSync(path.join(root,'company-polish.css')))errors.push('company-polish.css is missing');
 if(!fs.existsSync(path.join(root,'enterprise-interaction.css')))errors.push('enterprise-interaction.css is missing');
 if(!fs.existsSync(path.join(root,'technology-professional.css')))errors.push('technology-professional.css is missing');
+
+const companySource=fs.readFileSync(path.join(root,'company-polish.css'),'utf8');
+for(const [label,pattern] of [
+  ['1280 content container',/--container:1280px/],
+  ['40px page-title ceiling',/--fs-h1:clamp\(32px,3vw,40px\)/],
+  ['32px section-title ceiling',/--fs-h2:clamp\(24px,2\.35vw,32px\)/],
+  ['15px body scale',/--fs-body:15px/],
+  ['8px control radius',/--ui-radius-control:8px/],
+  ['12px card radius',/--ui-radius-card:12px/]
+])if(!pattern.test(companySource))errors.push(`company-polish.css: missing ${label}`);
 
 for(const file of pages){
   const full=path.join(root,file);
@@ -84,4 +94,4 @@ if(errors.length){
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log(`Applied professional company + interaction polish to ${pages.length} deployed pages and refined Technology presentation.`);
+console.log(`Applied structural design system polish to ${pages.length} deployed pages and refined Technology presentation.`);
