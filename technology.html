@@ -13,9 +13,9 @@
   <style id="aesost-critical-light">html,body{margin:0;background:#fff!important;color:#17181c!important;color-scheme:light}.dev-header{background:rgba(255,255,255,.96)!important}.page-hero,.section{background:#fff}</style>
   <link rel="stylesheet" href="dev-site.css?v=20260906-2">
   <link rel="stylesheet" href="dev-visual-refine.css?v=20260906-1">
-  <link id="aesost-light-theme-css" rel="stylesheet" href="light-theme.css?v=20260911-2">
-  <link id="aesost-light-theme-polish-css" rel="stylesheet" href="light-theme-polish.css?v=20260911-2">
-  <link rel="stylesheet" href="technology.css?v=20260911-1">
+  <link id="aesost-light-theme-css" rel="stylesheet" href="light-theme.css?v=20260911-3">
+  <link id="aesost-light-theme-polish-css" rel="stylesheet" href="light-theme-polish.css?v=20260911-3">
+  <link rel="stylesheet" href="technology.css?v=20260911-2">
 </head>
 <body class="technology-page">
 <header class="dev-header" data-dev-header></header>
@@ -32,18 +32,24 @@
       </div>
 
       <div class="architecture-preview" aria-label="AESOST 시스템 아키텍처 예시">
-        <div class="arch-top"><span>AESOST SYSTEM ARCHITECTURE</span><b>LIVE STRUCTURE</b></div>
+        <div class="arch-top">
+          <span class="arch-top-title"><i aria-hidden="true"></i>AESOST / SYSTEM MAP</span>
+          <b>ARCHITECTURE 01</b>
+        </div>
+        <div class="arch-status" aria-hidden="true"><span>5 LAYERS</span><span>8 MODULES</span><span>CONNECTED</span></div>
         <div class="arch-flow">
-          <article><small>01 / EXPERIENCE</small><strong>Web · Mobile UI</strong><span>사용자 화면 · 관리자 화면</span></article>
-          <i aria-hidden="true">↓</i>
-          <article><small>02 / APPLICATION</small><strong>Business Logic</strong><span>권한 · 상태 · 승인 · 업무 흐름</span></article>
-          <i aria-hidden="true">↓</i>
+          <article class="arch-entry"><small>01 / EXPERIENCE</small><strong>Web · Mobile UI</strong><span>Website · Admin · Client Portal</span></article>
+          <i class="arch-arrow" aria-hidden="true">→</i>
+          <article class="arch-core"><small>02 / APPLICATION CORE</small><strong>Business Logic</strong><span>업무 규칙과 상태를 하나의 코어에서 처리합니다.</span><div class="arch-core-tags"><em>AUTH</em><em>ROLE</em><em>STATE</em><em>WORKFLOW</em></div></article>
+          <i class="arch-arrow" aria-hidden="true">→</i>
           <div class="arch-split">
-            <article><small>03 / INTEGRATION</small><strong>API & Automation</strong><span>외부 서비스 · 알림 · AI</span></article>
-            <article><small>04 / DATA</small><strong>Database & Storage</strong><span>데이터 · 파일 · 로그</span></article>
+            <article><small>03 / INTEGRATION</small><strong>API & Automation</strong><span>Payment · Commerce · AI</span></article>
+            <article><small>04 / DATA</small><strong>Database & Storage</strong><span>Data · File · Search · Log</span></article>
           </div>
-          <i aria-hidden="true">↓</i>
-          <article class="arch-bottom"><small>05 / INFRASTRUCTURE</small><strong>Cloud · CDN · Deployment</strong><span>배포 · 캐시 · 모니터링 · 운영</span></article>
+          <article class="arch-bottom">
+            <div><small>05 / INFRASTRUCTURE</small><strong>Operate & Scale</strong></div>
+            <div class="arch-infra-grid"><span>HOSTING<b>Cloud</b></span><span>DELIVERY<b>CDN</b></span><span>RELEASE<b>Deploy</b></span><span>STATUS<b>Monitor</b></span></div>
+          </article>
         </div>
       </div>
     </div>
@@ -55,7 +61,6 @@
         <p class="eyebrow">CORE CAPABILITIES</p>
         <div class="section-copy"><h2 class="section-title">화면부터 데이터와 운영 환경까지 하나의 흐름으로 구축합니다.</h2><p>기능을 따로 붙이는 방식보다 실제 업무가 어떻게 시작되고, 처리되고, 저장되고, 다시 활용되는지 전체 구조를 먼저 봅니다.</p></div>
       </div>
-
       <div class="tech-capability-grid">
         <article><span class="tech-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span><p class="eyebrow">01 / WEB APPLICATION</p><h3>Web Application</h3><p>기업 홈페이지, 관리자 페이지, 대시보드, SaaS형 웹 애플리케이션을 반응형 구조로 구현합니다.</p><div><span>Responsive</span><span>Admin</span><span>Dashboard</span></div></article>
         <article><span class="tech-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h6v6H4zM14 13h6v6h-6z"/><path d="M10 8h4a3 3 0 0 1 3 3v2M14 16h-4a3 3 0 0 1-3-3v-2"/></svg></span><p class="eyebrow">02 / BUSINESS SYSTEM</p><h3>Business System</h3><p>CRM, 고객·협력사 포털, 프로젝트·예약·회원·발주 관리처럼 실제 업무 흐름을 시스템으로 연결합니다.</p><div><span>CRM</span><span>Workflow</span><span>Portal</span></div></article>
@@ -73,7 +78,6 @@
         <p class="eyebrow">SYSTEM ARCHITECTURE</p>
         <div class="section-copy"><h2 class="section-title">기능 하나보다, 기능이 연결되는 구조를 설계합니다.</h2><p>사용자 화면에서 발생한 행동이 인증과 권한을 거쳐 데이터에 저장되고, 필요한 외부 서비스와 연결된 뒤 운영자가 다시 관리할 수 있도록 구조화합니다.</p></div>
       </div>
-
       <div class="system-map">
         <div class="system-map-row system-map-user"><span>USER</span><strong>Customer · Staff · Admin · Partner</strong></div>
         <i aria-hidden="true">↓</i>
@@ -141,6 +145,6 @@
   </section>
 </main>
 <footer class="dev-footer" data-dev-footer></footer>
-<script src="dev-shell.js?v=20260911-3"></script>
+<script src="dev-shell.js?v=20260911-4"></script>
 </body>
 </html>
