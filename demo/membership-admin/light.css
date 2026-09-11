@@ -1,0 +1,40 @@
+/* Membership Admin interactive demo — Light Mode / 2026-09-11 */
+:root{--side:#ffffff!important}
+html,body{background:#f6f7f9!important;color:#17181c!important}
+body.membership-admin-demo-light{background:#f6f7f9!important;color:#17181c!important}
+.membership-admin-demo-light .demo-banner{background:#fff!important;color:#747982!important;border-bottom:1px solid #e5e7eb!important}
+.membership-admin-demo-light .demo-banner b{color:#17181c!important}
+.membership-admin-demo-light .demo-banner a{color:#7657f6!important;font-weight:600}
+.membership-admin-demo-light .sidebar{background:#fff!important;color:#17181c!important;border-right:1px solid #e5e7eb!important}
+.membership-admin-demo-light .brand-row strong{color:#17181c!important}
+.membership-admin-demo-light .brand-row span{color:#8a8f98!important}
+.membership-admin-demo-light .product-mark{background:#7657f6!important;color:#fff!important;box-shadow:0 6px 18px rgba(118,87,246,.16)}
+.membership-admin-demo-light .nav-item{color:#6f747d!important}
+.membership-admin-demo-light .nav-item:hover{background:#f5f3ff!important;color:#17181c!important}
+.membership-admin-demo-light .nav-item.is-active{background:#f2efff!important;color:#5f43c9!important;box-shadow:inset 3px 0 0 #7657f6!important}
+.membership-admin-demo-light .nav-item em{background:#ece8ff!important;color:#6748d0!important}
+.membership-admin-demo-light .sidebar-foot{border-top-color:#e7e9ed!important}
+.membership-admin-demo-light .user-chip>span{background:#f0f1f4!important;color:#5c6169!important}
+.membership-admin-demo-light .user-chip b{color:#17181c!important}
+.membership-admin-demo-light .user-chip small{color:#8b8f97!important}
+.membership-admin-demo-light .text-button{color:#8a8f98!important}
+.membership-admin-demo-light .text-button:hover{color:#5f43c9!important}
+.membership-admin-demo-light .main-panel{background:#f6f7f9!important}
+.membership-admin-demo-light .topbar h1,.membership-admin-demo-light .section-toolbar h2,.membership-admin-demo-light .panel-head h2,.membership-admin-demo-light .plan-card h3,.membership-admin-demo-light .activity-row strong{color:#17181c!important}
+.membership-admin-demo-light .kicker,.membership-admin-demo-light .section-toolbar p{color:#8a8f98!important}
+.membership-admin-demo-light .metric-card,.membership-admin-demo-light .panel,.membership-admin-demo-light .table-card,.membership-admin-demo-light .plan-card,.membership-admin-demo-light .billing-summary article,.membership-admin-demo-light .activity-list,.membership-admin-demo-light .modal-card{background:#fff!important;border-color:#e2e5e9!important;box-shadow:0 1px 0 rgba(18,20,28,.015)!important}
+.membership-admin-demo-light .metric-card span,.membership-admin-demo-light .metric-card small,.membership-admin-demo-light .member-row small,.membership-admin-demo-light .member-row>span,.membership-admin-demo-light .plan-line span,.membership-admin-demo-light .renewal-item small,.membership-admin-demo-light .member-name span,.membership-admin-demo-light .plan-card p,.membership-admin-demo-light .plan-card .price small,.membership-admin-demo-light .benefits,.membership-admin-demo-light .plan-card footer,.membership-admin-demo-light .billing-summary span,.membership-admin-demo-light .activity-row time,.membership-admin-demo-light .activity-row small{color:#858a93!important}
+.membership-admin-demo-light .text-link,.membership-admin-demo-light .activity-row span{color:#7657f6!important}
+.membership-admin-demo-light .search-box,.membership-admin-demo-light .secondary-button,.membership-admin-demo-light .mini-button,.membership-admin-demo-light .modal input,.membership-admin-demo-light .modal select,.membership-admin-demo-light .close-button{background:#fff!important;border-color:#d9dde3!important;color:#17181c!important}
+.membership-admin-demo-light .search-box input{color:#17181c!important}
+.membership-admin-demo-light .primary-button{background:#7657f6!important;color:#fff!important}
+.membership-admin-demo-light .primary-button:hover{background:#6748e8!important}
+.membership-admin-demo-light .filter{background:#fff!important;border-color:#d9dde3!important;color:#6f747d!important}
+.membership-admin-demo-light .filter.is-active{background:#f2efff!important;border-color:#cfc3ef!important;color:#5f43c9!important}
+.membership-admin-demo-light th{background:#f8f9fb!important;color:#737780!important}
+.membership-admin-demo-light td,.membership-admin-demo-light th,.membership-admin-demo-light .member-row,.membership-admin-demo-light .renewal-item,.membership-admin-demo-light .benefits,.membership-admin-demo-light .activity-row{border-color:#e7e9ed!important}
+.membership-admin-demo-light .progress{background:#eceef2!important}
+.membership-admin-demo-light .progress i{background:#7657f6!important}
+.membership-admin-demo-light .toast{background:#17181c!important;color:#fff!important;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+@media(max-width:1080px){.membership-admin-demo-light .nav-item.is-active{box-shadow:inset 0 0 0 1px #d8cff8!important}}
+@media(max-width:760px){.membership-admin-demo-light .sidebar{border-right:0!important;border-bottom:1px solid #e5e7eb!important;background:rgba(255,255,255,.98)!important}.membership-admin-demo-light .nav-item.is-active{box-shadow:inset 0 -2px 0 #7657f6!important}}
