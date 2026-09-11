@@ -13,13 +13,14 @@
   }
 
   function installFooter(){
-    ensureStylesheet('footer-current.css?v=20260908-2','aesost-footer-current-css');
+    ensureStylesheet('footer-current.css?v=20260911-1','aesost-footer-current-css');
+    ensureStylesheet('company-polish.css?v=20260911-1','aesost-company-polish-css');
     const markup=`<div class="shell">
       <div class="aesost-footer-main">
         <div class="aesost-footer-brand">
           <a class="aesost-footer-logo" href="index.html" aria-label="AESOST 홈"><img src="aesost-logo-dark.svg?v=20260907-1" alt="AESOST"></a>
-          <p class="aesost-footer-kicker">WEB & SYSTEM DEVELOPMENT</p>
-          <p class="aesost-footer-copy">기업 홈페이지부터 맞춤형 업무 시스템까지. 에이소스트는 각 기업과 브랜드의 실제 업무 방식을 듣고 필요한 기능, 화면과 운영 구조를 함께 설계하고 개발합니다.</p>
+          <p class="aesost-footer-kicker">WEB · SYSTEM · TECHNOLOGY</p>
+          <p class="aesost-footer-copy">기업 홈페이지부터 맞춤형 업무 시스템까지. 에이소스트는 실제 업무 방식을 기준으로 정보 구조, UI, 데이터와 운영 환경을 함께 설계하고 개발합니다.</p>
           <dl class="aesost-business-info" aria-label="에이소스트 사업자 정보">
             <div class="aesost-business-row"><dt>상호</dt><dd>에이소스트 (AESOST)</dd></div>
             <div class="aesost-business-row"><dt>대표</dt><dd>박재영</dd></div>
@@ -32,14 +33,14 @@
         <div class="aesost-footer-side">
           <div class="aesost-footer-block">
             <span class="aesost-footer-label">PROJECT INQUIRY</span>
-            <strong>홈페이지·업무 시스템 개발 문의</strong>
-            <p>완성된 기획서가 없어도 괜찮습니다. 필요한 범위부터 함께 정리합니다.</p>
+            <strong>웹과 시스템을 한 흐름으로 구축합니다.</strong>
+            <p>완성된 기획서보다 현재 해결해야 하는 문제와 운영 방식을 먼저 확인합니다.</p>
             <a class="aesost-footer-link" href="request.html">프로젝트 문의하기 ↗</a>
           </div>
           <div class="aesost-footer-block">
-            <span class="aesost-footer-label">SERVICES</span>
-            <p>기업 홈페이지 · 기업관리시스템 · 맞춤형 업무시스템 · 발주 및 대응관리시스템</p>
-            <a class="aesost-footer-link" href="services.html">서비스 보기 ↗</a>
+            <span class="aesost-footer-label">CAPABILITY</span>
+            <p>Corporate Website · Business System · Data · API · Automation · Cloud</p>
+            <a class="aesost-footer-link" href="technology.html">기술 역량 보기 ↗</a>
           </div>
           <div class="aesost-footer-block">
             <span class="aesost-footer-label">MENU</span>
@@ -48,11 +49,12 @@
               <a href="services.html">Services <span>↗</span></a>
               <a href="system-solutions.html">System Solutions <span>↗</span></a>
               <a href="works.html">Works <span>↗</span></a>
+              <a href="technology.html">Technology <span>↗</span></a>
             </nav>
           </div>
         </div>
       </div>
-      <div class="aesost-footer-bottom"><span>WEB · SYSTEM · AUTOMATION · OPERATION</span><span>© 2026 AESOST. ALL RIGHTS RESERVED.</span></div>
+      <div class="aesost-footer-bottom"><span>STRATEGY · UI · DEVELOPMENT · OPERATION</span><span>© 2026 AESOST. ALL RIGHTS RESERVED.</span></div>
     </div>`;
     document.querySelectorAll('[data-dev-footer]').forEach(footer=>{footer.innerHTML=markup});
   }
