@@ -1,6 +1,6 @@
 /* Project Room thumbnail cache/style fix */
 .solutions-index-page .solution-index-card:nth-child(9) .solution-index-thumb{
-  background:#111216 url('assets/dev/work-project-room.svg?v=20260907-4') center/cover no-repeat!important;
+  background:#f4f5f7 url('assets/dev/work-project-room-light.svg?v=20260911-2') center/cover no-repeat!important;
 }
 .solutions-index-page .solution-index-card:nth-child(9) .solution-index-thumb img{
   opacity:0!important;
