@@ -1,0 +1,170 @@
+/* AESOST Professional Company Polish / 2026-09-11
+   A restrained enterprise/editorial layer: stronger hierarchy, flatter surfaces,
+   tighter navigation, fewer decorative pills, and consistent technical presentation. */
+
+:root{
+  --container:1440px;
+  --purple:#7052de!important;
+  --purple-strong:#5f43c8!important;
+  --text:#15171b!important;
+  --text-2:#585e67!important;
+  --muted:#858b95!important;
+  --line:#e4e7eb!important;
+  --line-strong:#cfd4da!important;
+  --header-height:84px!important;
+  --ui-radius-control:4px!important;
+  --ui-radius-card:6px!important;
+  --ui-radius-panel:6px!important;
+  --ui-radius-explain:6px!important;
+}
+
+html,body{background:#fff!important;color:#15171b!important}
+body{font-size:16px!important;line-height:1.68!important;letter-spacing:-.018em!important}
+.shell{width:min(calc(100% - 56px),var(--container))!important}
+
+/* Header — compact, corporate, intentionally quiet */
+.dev-header{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e6e8ec!important;box-shadow:none!important;backdrop-filter:blur(14px)!important}
+.dev-header-inner{height:84px!important;gap:28px!important}
+.dev-brand{width:116px!important}
+.dev-nav{gap:28px!important}
+.dev-nav>a{height:84px!important;color:#626770!important;font-size:12px!important;font-weight:650!important;letter-spacing:.045em!important}
+.dev-nav>a:hover,.dev-nav>a.is-active,.dev-nav>a[aria-current="page"]{color:#15171b!important}
+.dev-nav>a:after{height:2px!important;background:#7052de!important}
+.dev-contact{min-height:40px!important;padding:0 15px!important;border-color:#d6d9de!important;border-radius:4px!important;background:#fff!important;color:#25282e!important;font-size:12px!important;font-weight:650!important;letter-spacing:.03em!important}
+.dev-contact:hover{border-color:#7052de!important;background:#7052de!important;color:#fff!important}
+
+/* Typography — stronger company-level hierarchy */
+.eyebrow,.kicker{font-size:11px!important;font-weight:720!important;letter-spacing:.105em!important;color:#858b95!important}
+.display{font-size:clamp(42px,4vw,58px)!important;font-weight:610!important;line-height:1.08!important;letter-spacing:-.052em!important}
+.page-title{font-size:clamp(38px,3.55vw,52px)!important;font-weight:610!important;line-height:1.12!important;letter-spacing:-.047em!important}
+.section-title{font-size:clamp(29px,2.45vw,38px)!important;font-weight:620!important;line-height:1.24!important;letter-spacing:-.038em!important}
+.lead{font-size:17px!important;line-height:1.72!important;color:#626872!important}
+h2,h3{font-weight:620!important}
+
+/* Rhythm — more whitespace, fewer card-wall impressions */
+.page-hero{padding:88px 0 78px!important;border-bottom:1px solid #e6e8ec!important}
+.section{padding:88px 0!important;border-bottom:1px solid #e6e8ec!important}
+.section.soft{background:#f7f8fa!important}
+.section-head{grid-template-columns:180px minmax(0,1fr)!important;gap:64px!important;margin-bottom:44px!important}
+.section-head .section-copy p{margin-top:16px!important;color:#686e77!important}
+
+/* Buttons */
+.btn{min-height:46px!important;padding:0 18px!important;border-radius:4px!important;font-size:12px!important;font-weight:700!important;letter-spacing:.025em!important;box-shadow:none!important}
+.btn.secondary{border-color:#d7dbe0!important;background:#fff!important;color:#25282e!important}
+.btn.purple{background:#7052de!important;border-color:#7052de!important}
+
+/* Image / UI surfaces */
+.hero-visual,.hero-visual img,.solution-visual img,.project-thumb,.case-visual,.solution-detail-visual,.solution-demo-browser,.solution-feature-browser,.system-visual{border-radius:6px!important;box-shadow:none!important}
+.hero-visual,.solution-detail-visual,.system-visual{border-color:#dfe3e8!important;background:#f4f6f8!important}
+.project-thumb,.case-visual,.solution-visual{border-color:#e0e3e7!important;background:#f5f6f8!important}
+
+/* Remove overly SaaS-like lift effects */
+.home-core-card:hover,.home-demo-card:hover,.solution-index-card:hover,.tech-capability-grid>article:hover,.project-card:hover,.case-card:hover,.solution-custom-card:hover{transform:none!important}
+
+/* Homepage */
+.home-simple .hero{padding:92px 0 86px!important}
+.home-simple .hero-grid{grid-template-columns:minmax(0,560px) minmax(0,1fr)!important;gap:72px!important}
+.home-simple .hero-visual{border-radius:6px!important;border-color:#dfe3e8!important}
+.home-simple .home-core-grid{gap:0!important;border-top:1px solid #e0e3e7;border-left:1px solid #e0e3e7}
+.home-simple .home-core-card{min-height:270px!important;padding:30px!important;border:0!important;border-right:1px solid #e0e3e7!important;border-bottom:1px solid #e0e3e7!important;border-radius:0!important;background:#fff!important}
+.home-simple .home-core-card:hover{background:#fafbfc!important}
+.home-simple .home-core-card .home-core-icon{width:40px!important;height:40px!important;border-radius:6px!important;background:#f4f1ff!important}
+.home-simple .home-core-card .eyebrow{margin-top:30px!important}
+.home-simple .home-core-card h2{font-size:25px!important;font-weight:620!important}
+.home-simple .home-demo-grid{gap:20px!important}
+.home-simple .home-demo-card{border-radius:6px!important}
+.home-simple .home-demo-body{padding:20px!important}
+.home-simple .home-hook-points span{border-radius:4px!important;background:transparent!important;font-size:10px!important;letter-spacing:.03em!important}
+
+/* About / Services / Works: editorial rather than rounded-card presentation */
+.solution-stack{gap:88px!important}
+.solution-row{gap:72px!important}
+.solution-copy h3{font-size:clamp(27px,2.2vw,34px)!important;font-weight:620!important}
+.solution-meta span,.service-tags span,.tech-line span,.case-tags span{border-radius:3px!important;background:transparent!important}
+.process-compact{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
+.process-compact article{min-height:220px!important;border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;background:#fff!important;padding:28px!important}
+.process-compact h3{margin:36px 0 12px!important;font-size:20px!important}
+.works-page .case-grid{gap:52px 24px!important}
+.works-page .case-card{border-radius:0!important;background:transparent!important}
+.case-body .case-top{font-size:10px!important;letter-spacing:.08em!important}
+.case-body h2{font-size:24px!important;font-weight:620!important}
+
+/* System Solutions — sober catalog */
+.solutions-index-page .solution-index-stats{max-width:720px!important;gap:8px!important}
+.solutions-index-page .solution-index-stats>span{min-height:66px!important;border-radius:6px!important;box-shadow:none!important}
+.solutions-index-page .solution-index-stats>span>i{border-radius:6px!important}
+.solutions-index-page .solution-index-grid{gap:20px!important}
+.solutions-index-page .solution-index-card{border-radius:6px!important;box-shadow:none!important}
+.solutions-index-page .solution-index-thumb:after{display:none!important}
+.solutions-index-page .solution-index-thumb-badge{left:14px!important;top:14px!important;border-radius:4px!important;border-color:rgba(38,41,47,.12)!important;background:rgba(255,255,255,.92)!important;color:#6650b6!important;backdrop-filter:blur(8px)!important}
+.solutions-index-page .solution-index-body{padding:24px!important}
+.solutions-index-page .solution-index-top span:before{width:6px!important;height:6px!important;border-radius:50%!important;box-shadow:none!important}
+.solutions-index-page .solution-index-tags span{border-radius:3px!important;background:transparent!important}
+.solutions-index-page .solution-index-actions a{border-radius:4px!important}
+.solutions-index-page .solution-custom-card{border-radius:6px!important;box-shadow:none!important}
+.solutions-index-page .solution-custom-card i{border-radius:6px!important}
+
+/* Solution detail pages */
+.solution-feature-tab{min-height:64px!important;border-radius:0!important}
+.solution-feature-tab.is-active{background:#f7f5ff!important;box-shadow:inset 2px 0 0 #7052de!important}
+.solution-problems,.solution-flow{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
+.solution-problems article,.solution-flow article{border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;background:#fff!important}
+.solution-detail-tags span,.solution-status span,.solution-catalog-tags span{border-radius:3px!important}
+
+/* Technology — flatter engineering-document aesthetic */
+.technology-page .technology-hero-tags span{border-radius:3px!important;background:#fff!important}
+.technology-page .architecture-preview{border-radius:6px!important;box-shadow:none!important;background:#f7f8fa!important}
+.technology-page .arch-status{border-radius:4px!important}
+.technology-page .arch-flow>article,.technology-page .arch-split article{border-radius:5px!important;box-shadow:none!important}
+.technology-page .arch-core-tags em,.technology-page .arch-infra-grid span{border-radius:3px!important}
+.technology-page .tech-capability-grid{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
+.technology-page .tech-capability-grid>article{min-height:300px!important;border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;padding:28px!important}
+.technology-page .tech-icon{border-radius:6px!important}
+.technology-page .tech-capability-grid article>div span{border-radius:3px!important;background:transparent!important}
+.technology-page .system-map{border-radius:6px!important;padding:0!important;gap:0!important;overflow:hidden!important}
+.technology-page .system-map>i{height:26px!important;background:#f7f8fa!important}
+.technology-page .system-map-row{border-radius:0!important;border-left:0!important;border-right:0!important;padding:18px 20px!important}
+.technology-page .system-map-row b{border-radius:3px!important;background:#f7f8fa!important}
+.technology-page .implementation-grid article{min-height:200px!important}
+.technology-page .stack-table b{border-radius:3px!important;background:#fff!important}
+.technology-page .principle-grid{gap:0!important;border-top:1px solid #e1e4e8!important;border-left:1px solid #e1e4e8!important}
+.technology-page .principle-grid article{min-height:250px!important;border:0!important;border-right:1px solid #e1e4e8!important;border-bottom:1px solid #e1e4e8!important;border-radius:0!important;padding:28px!important}
+
+/* CTA — deeper, more corporate purple */
+.cta-section{background:#694bd1!important;padding:76px 0!important}
+.cta-grid h2{font-weight:620!important}
+.cta-section .btn{border-radius:4px!important}
+
+/* Footer */
+.dev-footer{border-top-color:#dfe2e6!important}
+.aesost-footer-main{padding-top:50px!important}
+.aesost-footer-copy{max-width:650px!important}
+.aesost-footer-link{color:#6247c7!important}
+.aesost-footer-menu a{font-weight:600!important}
+
+@media(max-width:1100px){
+  .home-simple .hero-grid{grid-template-columns:1fr!important;gap:46px!important}
+  .section-head{grid-template-columns:150px minmax(0,1fr)!important;gap:42px!important}
+}
+
+@media(max-width:960px){
+  .dev-header-inner{height:76px!important}
+  .dev-brand{width:110px!important}
+  .page-hero{padding:72px 0 64px!important}
+  .section{padding:72px 0!important}
+}
+
+@media(max-width:760px){
+  .shell{width:calc(100% - 32px)!important}
+  .section-head{grid-template-columns:1fr!important;gap:16px!important;margin-bottom:30px!important}
+  .page-title{font-size:clamp(34px,10vw,43px)!important}
+  .section-title{font-size:clamp(27px,8vw,34px)!important}
+  .lead{font-size:16px!important}
+  .home-simple .hero{padding:62px 0 56px!important}
+  .home-simple .home-core-grid{grid-template-columns:1fr!important}
+  .home-simple .home-core-card{min-height:0!important;padding:24px!important}
+  .process-compact{grid-template-columns:1fr!important}
+  .solution-row{gap:30px!important}
+  .technology-page .tech-capability-grid,.technology-page .principle-grid{grid-template-columns:1fr!important}
+  .solutions-index-page .solution-index-card{border-radius:5px!important}
+}
