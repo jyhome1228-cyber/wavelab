@@ -1,0 +1,132 @@
+/* Client Portal interactive demo — Light Mode / 2026-09-11 */
+:root{
+  --portal-side:#ffffff!important;
+  --portal-bg:#f6f7f9!important;
+  --portal-card:#ffffff!important;
+  --portal-line:#e3e6ea!important;
+  --portal-text:#17181c!important;
+  --portal-muted:#777c85!important;
+  --portal-accent:#7657f6!important;
+}
+html,body{background:#f6f7f9!important;color:#17181c!important}
+body.client-portal-demo-light{background:#f6f7f9!important;color:#17181c!important}
+
+.client-portal-demo-light .demo-banner{
+  background:#fff!important;
+  color:#747982!important;
+  border-bottom:1px solid #e5e7eb!important;
+}
+.client-portal-demo-light .demo-banner b{color:#17181c!important}
+.client-portal-demo-light .demo-banner a{color:#7657f6!important;font-weight:600}
+
+.client-portal-demo-light .portal-sidebar{
+  background:#fff!important;
+  color:#17181c!important;
+  border-right:1px solid #e5e7eb!important;
+}
+.client-portal-demo-light .portal-mark{background:#7657f6!important;color:#fff!important;box-shadow:0 6px 18px rgba(118,87,246,.16)}
+.client-portal-demo-light .portal-brand strong{color:#17181c!important}
+.client-portal-demo-light .portal-brand span{color:#8a8f98!important}
+.client-portal-demo-light .project-mini{
+  border-color:#e0e3e7!important;
+  background:#f8f9fb!important;
+}
+.client-portal-demo-light .project-mini small{color:#8a8f98!important}
+.client-portal-demo-light .project-mini b{color:#17181c!important}
+.client-portal-demo-light .project-mini span{color:#777c85!important}
+.client-portal-demo-light .portal-nav-item{color:#6f747d!important}
+.client-portal-demo-light .portal-nav-item:hover{background:#f5f3ff!important;color:#17181c!important}
+.client-portal-demo-light .portal-nav-item.is-active{
+  background:#f2efff!important;
+  color:#5f43c9!important;
+  box-shadow:inset 3px 0 0 #7657f6!important;
+}
+.client-portal-demo-light .portal-nav-item em{
+  background:#ebe7fb!important;
+  color:#6548cc!important;
+}
+.client-portal-demo-light .portal-side-foot{border-top-color:#e7e9ed!important}
+.client-portal-demo-light .portal-contact small{color:#8a8f98!important}
+.client-portal-demo-light .portal-contact b{color:#17181c!important}
+.client-portal-demo-light .portal-contact span{color:#7f848d!important}
+.client-portal-demo-light .reset-btn{color:#8a8f98!important}
+.client-portal-demo-light .reset-btn:hover{color:#5f43c9!important}
+
+.client-portal-demo-light .portal-main{background:#f6f7f9!important}
+.client-portal-demo-light .portal-top h1,
+.client-portal-demo-light .section-headline h2,
+.client-portal-demo-light .portal-card-head h2{color:#17181c!important}
+.client-portal-demo-light .portal-kicker,
+.client-portal-demo-light .section-headline p{color:#92969f!important}
+.client-portal-demo-light .portal-sub,
+.client-portal-demo-light .section-headline>span{color:#7c818b!important}
+.client-portal-demo-light .project-status{background:#efebff!important;color:#6149bf!important}
+
+.client-portal-demo-light .summary-grid article,
+.client-portal-demo-light .portal-card,
+.client-portal-demo-light .schedule-list article,
+.client-portal-demo-light .deliverable-row,
+.client-portal-demo-light .feedback-list article,
+.client-portal-demo-light .document-grid article{
+  border-color:#e2e5e9!important;
+  background:#fff!important;
+  box-shadow:0 1px 0 rgba(18,20,28,.015)!important;
+}
+.client-portal-demo-light .summary-grid span,
+.client-portal-demo-light .summary-grid small,
+.client-portal-demo-light .portal-card-head span,
+.client-portal-demo-light .timeline-item span,
+.client-portal-demo-light .timeline-item small,
+.client-portal-demo-light .schedule-list time,
+.client-portal-demo-light .schedule-list p,
+.client-portal-demo-light .deliverable-row p,
+.client-portal-demo-light .feedback-list time,
+.client-portal-demo-light .document-grid span,
+.client-portal-demo-light .document-grid small{color:#8a8f98!important}
+
+.client-portal-demo-light .timeline-item:not(:last-child):after{background:#e0e3e8!important}
+.client-portal-demo-light .timeline-dot{background:#fff!important;border-color:#d8dce2!important}
+.client-portal-demo-light .timeline-item.is-done .timeline-dot,
+.client-portal-demo-light .timeline-item.is-current .timeline-dot{border-color:#7657f6!important}
+.client-portal-demo-light .timeline-item.is-done .timeline-dot{background:#7657f6!important}
+.client-portal-demo-light .latest-card{background:#f7f8fa!important}
+
+.client-portal-demo-light .phase-badge{background:#f0f1f3!important;color:#777c85!important}
+.client-portal-demo-light .phase-badge.done{background:#e8f7f1!important;color:#16835f!important}
+.client-portal-demo-light .phase-badge.current{background:#efebff!important;color:#6149bf!important}
+
+.client-portal-demo-light .portal-primary{border-color:#7657f6!important;background:#7657f6!important;color:#fff!important}
+.client-portal-demo-light .portal-primary:hover{background:#6748e8!important;border-color:#6748e8!important}
+.client-portal-demo-light .portal-secondary{
+  border-color:#d8dce2!important;
+  background:#fff!important;
+  color:#444850!important;
+}
+.client-portal-demo-light .portal-secondary:hover{background:#f7f8fa!important;border-color:#c7cbd2!important}
+
+.client-portal-demo-light .feedback-form textarea{
+  background:#fff!important;
+  color:#17181c!important;
+  border-color:#d8dce2!important;
+}
+.client-portal-demo-light .feedback-form textarea:focus{
+  border-color:#7657f6!important;
+  box-shadow:0 0 0 3px rgba(118,87,246,.09)!important;
+}
+.client-portal-demo-light .feedback-list p{color:#555a63!important}
+.client-portal-demo-light .document-grid button,
+.client-portal-demo-light .portal-card-head button{color:#7657f6!important}
+
+.client-portal-demo-light .portal-toast{background:#17181c!important;color:#fff!important;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+
+@media(max-width:1000px){
+  .client-portal-demo-light .portal-nav-item.is-active{box-shadow:inset 0 0 0 1px #d8cff8!important}
+}
+@media(max-width:700px){
+  .client-portal-demo-light .portal-sidebar{
+    background:rgba(255,255,255,.98)!important;
+    border-right:0!important;
+    border-bottom:1px solid #e5e7eb!important;
+  }
+  .client-portal-demo-light .portal-nav-item.is-active{box-shadow:inset 0 -2px 0 #7657f6!important}
+}
