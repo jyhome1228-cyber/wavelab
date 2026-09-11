@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <rect width="1200" height="750" fill="#F3F4F6"/>
+  <rect x="28" y="28" width="1144" height="694" rx="18" fill="#F7F8FA" stroke="#E2E5E9"/>
+  <rect x="28" y="28" width="220" height="694" rx="18" fill="#FFFFFF"/>
+  <line x1="248" y1="28" x2="248" y2="722" stroke="#E5E7EB"/>
+
+  <rect x="54" y="58" width="34" height="34" rx="9" fill="#7657F6"/>
+  <text x="102" y="82" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#17181C">Vendor Desk</text>
+  <text x="58" y="108" font-family="Arial,sans-serif" font-size="11" fill="#8A8F98">PROCUREMENT OS</text>
+
+  <g font-family="Arial,sans-serif" font-size="13" fill="#71767F">
+    <text x="58" y="158">Dashboard</text>
+    <text x="58" y="202">Vendors</text>
+    <text x="58" y="246">Purchase Orders</text>
+    <text x="58" y="290">Deliveries</text>
+    <text x="58" y="334">Settlements</text>
+  </g>
+  <rect x="48" y="130" width="180" height="42" rx="8" fill="#F2EFFF"/>
+  <rect x="48" y="130" width="3" height="42" rx="1.5" fill="#7657F6"/>
+  <text x="58" y="156" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#5F43C9">Dashboard</text>
+
+  <text x="292" y="76" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#969AA3">PROCUREMENT OVERVIEW</text>
+  <text x="292" y="112" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#17181C">발주·납기 현황</text>
+
+  <g>
+    <rect x="292" y="150" width="190" height="108" rx="12" fill="#FFFFFF" stroke="#E4E7EB"/>
+    <text x="314" y="180" font-family="Arial,sans-serif" font-size="11" fill="#969AA3">OPEN PO</text>
+    <text x="314" y="224" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17181C">12</text>
+
+    <rect x="498" y="150" width="190" height="108" rx="12" fill="#FFFFFF" stroke="#E4E7EB"/>
+    <text x="520" y="180" font-family="Arial,sans-serif" font-size="11" fill="#969AA3">DUE THIS WEEK</text>
+    <text x="520" y="224" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17181C">5</text>
+
+    <rect x="704" y="150" width="190" height="108" rx="12" fill="#FFFFFF" stroke="#E4E7EB"/>
+    <text x="726" y="180" font-family="Arial,sans-serif" font-size="11" fill="#969AA3">DELAYED</text>
+    <text x="726" y="224" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#B94747">2</text>
+
+    <rect x="910" y="150" width="220" height="108" rx="12" fill="#FFFFFF" stroke="#E4E7EB"/>
+    <text x="932" y="180" font-family="Arial,sans-serif" font-size="11" fill="#969AA3">OUTSTANDING</text>
+    <text x="932" y="224" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#17181C">₩18,420,000</text>
+  </g>
+
+  <rect x="292" y="282" width="838" height="300" rx="12" fill="#FFFFFF" stroke="#E4E7EB"/>
+  <text x="314" y="318" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#17181C">Active purchase orders</text>
+  <g font-family="Arial,sans-serif" font-size="11" fill="#6F737C">
+    <text x="314" y="360">PO NUMBER</text><text x="470" y="360">VENDOR</text><text x="660" y="360">ITEM</text><text x="890" y="360">DUE</text><text x="1010" y="360">STATUS</text>
+  </g>
+  <line x1="314" y1="374" x2="1108" y2="374" stroke="#E6E8EC"/>
+  <g font-family="Arial,sans-serif" font-size="12" fill="#17181C">
+    <text x="314" y="410">PO-2609-014</text><text x="470" y="410">Hanul Pack</text><text x="660" y="410">Folding carton</text><text x="890" y="410">SEP 12</text>
+    <text x="314" y="458">PO-2609-013</text><text x="470" y="458">Daejin Materials</text><text x="660" y="458">Ivory board 350g</text><text x="890" y="458">SEP 14</text>
+    <text x="314" y="506">PO-2609-012</text><text x="470" y="506">Seongwoo Print</text><text x="660" y="506">Label printing</text><text x="890" y="506">SEP 16</text>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="10" font-weight="700">
+    <rect x="1000" y="393" width="92" height="26" rx="13" fill="#EFECFF"/><text x="1017" y="410" fill="#5D45BF">IN PRODUCTION</text>
+    <rect x="1000" y="441" width="92" height="26" rx="13" fill="#FFF2DF"/><text x="1021" y="458" fill="#A65D16">DELAYED</text>
+    <rect x="1000" y="489" width="92" height="26" rx="13" fill="#E8F7F1"/><text x="1020" y="506" fill="#16835F">IN TRANSIT</text>
+  </g>
+
+  <rect x="292" y="606" width="838" height="76" rx="12" fill="#F7F4FF" stroke="#DDD5F3"/>
+  <text x="314" y="636" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#7657F6">AESOST CONCEPT SYSTEM</text>
+  <text x="314" y="660" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#17181C">Vendor · Purchase Order · Delivery · Settlement</text>
+</svg>
