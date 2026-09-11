@@ -28,6 +28,8 @@ jobs:
         run: node scripts/qa-current-site.mjs
       - name: Harden interactive demo first paint
         run: node scripts/qa-demo-first-paint.mjs
+      - name: Apply professional company polish
+        run: node scripts/professionalize-site.mjs
       - name: Validate core site
         run: node scripts/validate-site.mjs
       - uses: actions/configure-pages@v5
