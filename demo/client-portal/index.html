@@ -1,1 +1,104 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Client Portal — AESOST Concept System</title><link rel="icon" href="../../favicon.svg"><link rel="stylesheet" href="../../system-ui.css?v=20260906-2"><link rel="stylesheet" href="styles.css?v=20260906-1"></head><body><div class="demo-banner"><span><b>AESOST CONCEPT SYSTEM</b> · Demo Project: 오브젝트랩 Corporate Website</span><a href="../../solution-client-portal.html">제품 소개 ↗</a></div><div class="portal-shell"><aside class="portal-sidebar"><div class="portal-brand"><div class="portal-mark">CP</div><div><strong>Client Portal</strong><span>Project Workspace</span></div></div><div class="project-mini"><small>CLIENT</small><b>오브젝트랩</b><span>Corporate Website Renewal</span></div><nav class="portal-nav"><button class="portal-nav-item is-active" data-view="overview">Overview</button><button class="portal-nav-item" data-view="schedule">Schedule</button><button class="portal-nav-item" data-view="deliverables">Deliverables <em data-pending-count>0</em></button><button class="portal-nav-item" data-view="feedback">Feedback</button><button class="portal-nav-item" data-view="documents">Documents</button></nav><div class="portal-side-foot"><div class="portal-contact"><small>PROJECT MANAGER</small><b>AESOST Project Team</b><span>project@aesost.com</span></div><button class="reset-btn" data-reset>Reset demo data</button></div></aside><main class="portal-main"><header class="portal-top"><div><p class="portal-kicker">CLIENT PROJECT SPACE</p><h1 data-title>Corporate Website Renewal</h1><p class="portal-sub">계약, 일정, 산출물과 승인 요청을 한 곳에서 확인하세요.</p></div><span class="project-status">IN PROGRESS</span></header><section class="portal-view is-active" data-panel="overview"><div class="summary-grid"><article><span>PROGRESS</span><strong>68%</strong><small>Design phase</small></article><article><span>NEXT MILESTONE</span><strong>Sep 12</strong><small>Design Review</small></article><article><span>DELIVERABLES</span><strong data-total-deliverables>0</strong><small>Shared files</small></article><article><span>PENDING APPROVAL</span><strong data-pending-count>0</strong><small>Needs your review</small></article></div><div class="overview-grid"><article class="portal-card"><div class="portal-card-head"><div><span>TIMELINE</span><h2>Project progress</h2></div><button data-go="schedule">전체 일정 보기 ↗</button></div><div class="timeline" data-timeline></div></article><article class="portal-card"><div class="portal-card-head"><div><span>LATEST</span><h2>Latest deliverables</h2></div><button data-go="deliverables">전체 보기 ↗</button></div><div class="latest-list" data-latest></div></article></div></section><section class="portal-view" data-panel="schedule"><div class="section-headline"><div><p>SCHEDULE</p><h2>Project Schedule</h2></div><span>Kickoff → Launch</span></div><div class="schedule-list" data-schedule></div></section><section class="portal-view" data-panel="deliverables"><div class="section-headline"><div><p>DELIVERABLES</p><h2>Files & Approval</h2></div><span>승인 또는 수정 요청을 눌러보세요.</span></div><div class="deliverable-list" data-deliverables></div></section><section class="portal-view" data-panel="feedback"><div class="section-headline"><div><p>FEEDBACK</p><h2>Project Feedback</h2></div><span>브라우저에만 저장되는 데모입니다.</span></div><div class="feedback-layout"><form class="portal-card feedback-form" data-feedback-form><label>피드백 남기기<textarea name="message" required placeholder="예: 메인 비주얼의 텍스트 크기를 조금 줄여주세요."></textarea></label><button class="portal-primary" type="submit">피드백 등록</button></form><div class="feedback-list" data-feedback-list></div></div></section><section class="portal-view" data-panel="documents"><div class="section-headline"><div><p>DOCUMENTS</p><h2>Contract & Documents</h2></div><span>프로젝트 관련 문서를 한 곳에서 확인합니다.</span></div><div class="document-grid" data-documents></div></section></main></div><div class="portal-toast" data-toast></div><script src="app.js?v=20260906-1"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Client Portal — AESOST Concept System</title>
+  <link rel="icon" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../system-ui.css?v=20260906-2">
+  <link rel="stylesheet" href="styles.css?v=20260906-1">
+  <link rel="stylesheet" href="light.css?v=20260911-1">
+</head>
+<body class="client-portal-demo-light">
+  <div class="demo-banner">
+    <span><b>AESOST CONCEPT SYSTEM</b> · Demo Project: 오브젝트랩 Corporate Website</span>
+    <a href="../../solution-client-portal.html">제품 소개 ↗</a>
+  </div>
+
+  <div class="portal-shell">
+    <aside class="portal-sidebar">
+      <div class="portal-brand">
+        <div class="portal-mark">CP</div>
+        <div><strong>Client Portal</strong><span>Project Workspace</span></div>
+      </div>
+
+      <div class="project-mini"><small>CLIENT</small><b>오브젝트랩</b><span>Corporate Website Renewal</span></div>
+
+      <nav class="portal-nav">
+        <button class="portal-nav-item is-active" data-view="overview">Overview</button>
+        <button class="portal-nav-item" data-view="schedule">Schedule</button>
+        <button class="portal-nav-item" data-view="deliverables">Deliverables <em data-pending-count>0</em></button>
+        <button class="portal-nav-item" data-view="feedback">Feedback</button>
+        <button class="portal-nav-item" data-view="documents">Documents</button>
+      </nav>
+
+      <div class="portal-side-foot">
+        <div class="portal-contact"><small>PROJECT MANAGER</small><b>AESOST Project Team</b><span>project@aesost.com</span></div>
+        <button class="reset-btn" data-reset>Reset demo data</button>
+      </div>
+    </aside>
+
+    <main class="portal-main">
+      <header class="portal-top">
+        <div>
+          <p class="portal-kicker">CLIENT PROJECT SPACE</p>
+          <h1 data-title>Corporate Website Renewal</h1>
+          <p class="portal-sub">계약, 일정, 산출물과 승인 요청을 한 곳에서 확인하세요.</p>
+        </div>
+        <span class="project-status">IN PROGRESS</span>
+      </header>
+
+      <section class="portal-view is-active" data-panel="overview">
+        <div class="summary-grid">
+          <article><span>PROGRESS</span><strong>68%</strong><small>Design phase</small></article>
+          <article><span>NEXT MILESTONE</span><strong>Sep 12</strong><small>Design Review</small></article>
+          <article><span>DELIVERABLES</span><strong data-total-deliverables>0</strong><small>Shared files</small></article>
+          <article><span>PENDING APPROVAL</span><strong data-pending-count>0</strong><small>Needs your review</small></article>
+        </div>
+
+        <div class="overview-grid">
+          <article class="portal-card">
+            <div class="portal-card-head"><div><span>TIMELINE</span><h2>Project progress</h2></div><button data-go="schedule">전체 일정 보기 ↗</button></div>
+            <div class="timeline" data-timeline></div>
+          </article>
+          <article class="portal-card">
+            <div class="portal-card-head"><div><span>LATEST</span><h2>Latest deliverables</h2></div><button data-go="deliverables">전체 보기 ↗</button></div>
+            <div class="latest-list" data-latest></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="portal-view" data-panel="schedule">
+        <div class="section-headline"><div><p>SCHEDULE</p><h2>Project Schedule</h2></div><span>Kickoff → Launch</span></div>
+        <div class="schedule-list" data-schedule></div>
+      </section>
+
+      <section class="portal-view" data-panel="deliverables">
+        <div class="section-headline"><div><p>DELIVERABLES</p><h2>Files & Approval</h2></div><span>승인 또는 수정 요청을 눌러보세요.</span></div>
+        <div class="deliverable-list" data-deliverables></div>
+      </section>
+
+      <section class="portal-view" data-panel="feedback">
+        <div class="section-headline"><div><p>FEEDBACK</p><h2>Project Feedback</h2></div><span>브라우저에만 저장되는 데모입니다.</span></div>
+        <div class="feedback-layout">
+          <form class="portal-card feedback-form" data-feedback-form>
+            <label>피드백 남기기<textarea name="message" required placeholder="예: 메인 비주얼의 텍스트 크기를 조금 줄여주세요."></textarea></label>
+            <button class="portal-primary" type="submit">피드백 등록</button>
+          </form>
+          <div class="feedback-list" data-feedback-list></div>
+        </div>
+      </section>
+
+      <section class="portal-view" data-panel="documents">
+        <div class="section-headline"><div><p>DOCUMENTS</p><h2>Contract & Documents</h2></div><span>프로젝트 관련 문서를 한 곳에서 확인합니다.</span></div>
+        <div class="document-grid" data-documents></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="portal-toast" data-toast></div>
+  <script src="app.js?v=20260906-1"></script>
+</body>
+</html>
