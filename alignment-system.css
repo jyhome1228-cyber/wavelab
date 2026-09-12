@@ -1,4 +1,4 @@
-/* AESOST alignment system / 2026-09-07
+/* AESOST alignment system / 2026-09-12
    One shared editorial rail for page heroes and section headings. */
 
 :root{
@@ -17,10 +17,10 @@
   min-width:0!important;
 }
 
-/* Page hero uses the same full site shell as sections below. */
+/* Page hero uses exactly the same site shell as the sections below. */
 .page-hero-grid{
-  width:min(calc(100% - 64px),var(--layout-wide,1280px))!important;
-  max-width:var(--layout-wide,1280px)!important;
+  width:min(calc(100% - 48px),var(--container,1440px))!important;
+  max-width:var(--container,1440px)!important;
   margin-inline:auto!important;
 }
 
@@ -34,7 +34,7 @@
 }
 
 /* IMPORTANT: solution-intro-grid is itself also .shell on every solution detail page.
-   Keep the shell width instead of expanding it to the viewport. */
+   Keep the solution detail width instead of expanding it to the viewport. */
 .shell.solution-intro-grid{
   width:min(calc(100% - 64px),var(--layout-wide,1280px))!important;
   max-width:var(--layout-wide,1280px)!important;
@@ -81,7 +81,6 @@
 }
 
 @media(max-width:1279px){
-  .page-hero-grid,
   .shell.solution-intro-grid{
     width:min(calc(100% - 48px),var(--layout-wide,1280px))!important;
   }
