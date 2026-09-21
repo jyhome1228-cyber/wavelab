@@ -3,7 +3,7 @@ const isDemoPath=location.pathname.includes('/demo/');
 const isActive=(url)=>current===url;
 const solutionPages=['system-solutions.html','solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html','solution-project-room.html','solution-quote-flow.html'];
 const solutionsActive=solutionPages.includes(current)||isDemoPath;
-const logo='<img src="aesost-logo-dark.svg?v=20260921-1" alt="AESOST">';
+const logo='<img src="aesost-logo-dark.svg?v=20260921-2" alt="AESOST TECHNOLOGY">';
 const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
 function ensureStylesheet(href,id){if(document.getElementById(id))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.id=id;document.head.appendChild(link)}
 function ensureScript(src,id){if(document.getElementById(id))return;const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script)}
@@ -17,6 +17,7 @@ ensureStylesheet('alignment-system.css?v=20260907-2','aesost-alignment-system-cs
 ensureStylesheet('light-theme.css?v=20260907-1','aesost-light-theme-css');
 ensureStylesheet('light-theme-polish.css?v=20260907-1','aesost-light-theme-polish-css');
 ensureStylesheet('solution-custom-fit.css?v=20260907-1','aesost-solution-custom-fit-css');
+ensureStylesheet('brand-refresh.css?v=20260921-1','aesost-brand-refresh-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#ffffff');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#ffffff';document.head.appendChild(meta)}
 
@@ -35,7 +36,7 @@ const items=[
 
 const solutionFitCopy={
   'solution-solodesk.html':{title:'1인사업자의 일하는 방식부터 먼저 듣습니다.',body:'고객을 기록하는 방법, 프로젝트를 나누는 기준, 청구와 입금을 확인하는 방식은 사람마다 다릅니다. 현재 쓰고 있는 메신저·엑셀·캘린더 흐름을 먼저 확인한 뒤 SoloDesk의 화면, 기능과 데이터 구조를 실제 업무 습관에 맞춰 다시 설계합니다.',points:['고객 관리 방식','프로젝트 단계','정산 흐름']},
-  'solution-b2b-inquiry.html':{title:'기업마다 영업과 문의를 처리하는 순서가 다릅니다.',body:'문의가 들어오는 채널, 담당자를 배정하는 기준, 상담·견적·협의·계약으로 넘어가는 단계가 회사마다 다릅니다. AESOST는 현재 영업 흐름과 팀 역할을 먼저 듣고 파이프라인, 상태값, 알림과 화면 구성을 그 방식에 맞춰 설계합니다.',points:['문의 유입 채널','영업 단계','담당자·알림']},
+  'solution-b2b-inquiry.html':{title:'기업마다 영업과 문의를 처리하는 순서가 다릅니다.',body:'문의가 들어오는 채널, 담당자를 배정하는 기준, 상담·견적·협의·계약으로 넘어가는 단계가 회사마다 다릅니다. AESOST TECHNOLOGY는 현재 영업 흐름과 팀 역할을 먼저 듣고 파이프라인, 상태값, 알림과 화면 구성을 그 방식에 맞춰 설계합니다.',points:['문의 유입 채널','영업 단계','담당자·알림']},
   'solution-company-cms.html':{title:'브랜드마다 콘텐츠를 운영하는 방식이 다릅니다.',body:'회사소개, 포트폴리오, 뉴스, 제품 정보와 SEO를 누가 작성하고 누가 승인하는지부터 확인합니다. 단순한 관리자 템플릿을 적용하기보다 브랜드의 콘텐츠 구조와 업데이트 빈도, 내부 승인 방식에 맞는 CMS로 설계합니다.',points:['콘텐츠 구조','운영 권한','승인·배포']},
   'solution-client-portal.html':{title:'고객에게 무엇을 어떻게 공유할지도 회사마다 다릅니다.',body:'일정, 파일, 계약서, 진행률, 피드백과 승인 요청 중 어떤 정보를 고객에게 보여줄지 먼저 정합니다. 프로젝트 운영 방식과 고객 커뮤니케이션 기준에 맞춰 공개 범위, 승인 단계와 포털 화면을 커스터마이징합니다.',points:['공유 범위','피드백 방식','승인 단계']},
   'solution-booking-os.html':{title:'예약 규칙은 업종과 브랜드마다 전혀 다릅니다.',body:'예약 단위, 담당자 배정, 이용권 차감, 취소·노쇼 규칙과 재방문 관리 방식까지 실제 운영 기준을 먼저 듣습니다. 병원, 뷰티, PT, 스튜디오, 공간대여 등 각 업종의 흐름에 맞춰 예약 화면과 관리 기능을 다시 설계합니다.',points:['예약 규칙','이용권·상태','담당자 배정']},
@@ -47,7 +48,7 @@ const solutionFitCopy={
 };
 
 const headerMarkup=`<div class="shell dev-header-inner">
-  <a class="dev-brand" href="index.html" aria-label="AESOST 홈">${logo}</a>
+  <a class="dev-brand" href="index.html" aria-label="AESOST TECHNOLOGY 홈">${logo}</a>
   <nav class="dev-nav" aria-label="주요 메뉴">
     <a href="about.html" class="${isActive('about.html')?'is-active':''}"${activeAttr('about.html')}>ABOUT</a>
     <a href="services.html" class="${isActive('services.html')?'is-active':''}"${activeAttr('services.html')}>SERVICES</a>
@@ -68,7 +69,7 @@ const headerMarkup=`<div class="shell dev-header-inner">
 </nav>`;
 
 const footerSystem=items.map(([,title,product,url])=>`<a href="${url}">${title.replace(' 시스템','')} · ${product} ↗</a>`).join('');
-const footerMarkup=`<div class="shell"><div class="dev-custom-build"><span>CUSTOM DEVELOPMENT</span><div><strong>각 기업·브랜드에 맞춰 기능부터 디자인, 레이아웃과 콘텐츠 구조까지 커스터마이징해 개발합니다.</strong><p>AESOST는 정해진 템플릿을 그대로 적용하지 않습니다. 실제 업무 방식, 필요한 기능, 브랜드의 시각 언어와 운영 방식을 확인한 뒤 웹사이트와 시스템 구조를 함께 설계합니다.</p></div></div><div class="footer-top"><div><a class="footer-brand" href="index.html" aria-label="AESOST 홈">${logo}</a><p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p></div><div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="system-solutions.html">System Solutions</a><a href="works.html">Works</a><a href="technology.html">Technology</a></div><div class="footer-col"><h4>SYSTEM</h4>${footerSystem}</div></div><div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST. SEOUL, KOREA.</span></div></div>`;
+const footerMarkup=`<div class="shell"><div class="dev-custom-build"><span>CUSTOM DEVELOPMENT</span><div><strong>각 기업·브랜드에 맞춰 기능부터 디자인, 레이아웃과 콘텐츠 구조까지 커스터마이징해 개발합니다.</strong><p>AESOST TECHNOLOGY는 정해진 템플릿을 그대로 적용하지 않습니다. 실제 업무 방식, 필요한 기능, 브랜드의 시각 언어와 운영 방식을 확인한 뒤 웹사이트와 시스템 구조를 함께 설계합니다.</p></div></div><div class="footer-top"><div><a class="footer-brand" href="index.html" aria-label="AESOST TECHNOLOGY 홈">${logo}</a><p class="footer-intro">회사 홈페이지부터 맞춤형 업무 시스템까지. AESOST TECHNOLOGY는 필요한 디지털 환경을 기획·디자인·개발하고 실제 운영까지 연결합니다.</p></div><div class="footer-col"><h4>MENU</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="system-solutions.html">System Solutions</a><a href="works.html">Works</a><a href="technology.html">Technology</a></div><div class="footer-col"><h4>SYSTEM</h4>${footerSystem}</div></div><div class="footer-bottom"><span>COMPANY WEBSITE · BUSINESS SYSTEM · PLATFORM</span><span>© 2026 AESOST TECHNOLOGY. SEOUL, KOREA.</span></div></div>`;
 
 document.querySelectorAll('[data-dev-header]').forEach(el=>el.innerHTML=headerMarkup);
 document.querySelectorAll('[data-dev-footer]').forEach(el=>el.innerHTML=footerMarkup);
