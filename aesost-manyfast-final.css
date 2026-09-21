@@ -1705,3 +1705,35 @@ a{text-decoration:none}
     grid-template-columns:1fr!important;
   }
 }
+
+
+/* Marketing icon SVG safety net / 2026-09-22 */
+/* Explicitly define SVG paint for UI icon containers.
+   This prevents inline SVGs from falling back to browser-default black fills
+   if a page-specific stylesheet is removed or reordered later. */
+.home-simple .home-core-icon svg,
+.services-page .service-process-icon svg,
+.technology-page .tech-icon svg,
+.solutions-index-page .solution-index-stats i svg,
+.solutions-index-page .solution-custom-card i svg,
+.project-room-page .pr-icon svg,
+.project-room-page .pr-flow-icon svg,
+.project-room-page .pr-tab-icon svg{
+  display:block!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.8!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.home-simple .home-core-icon svg *,
+.services-page .service-process-icon svg *,
+.technology-page .tech-icon svg *,
+.solutions-index-page .solution-index-stats i svg *,
+.solutions-index-page .solution-custom-card i svg *,
+.project-room-page .pr-icon svg *,
+.project-room-page .pr-flow-icon svg *,
+.project-room-page .pr-tab-icon svg *{
+  fill:none!important;
+  stroke:currentColor!important;
+}
