@@ -9,7 +9,7 @@ const pages=[
   'solution-project-room.html','solution-quote-flow.html'
 ];
 
-const companyCss='company-polish.css?v=20260921-4';
+const companyCss='company-polish.css?v=20260921-5';
 const interactionCss='enterprise-interaction.css?v=20260921-4';
 const errors=[];
 
