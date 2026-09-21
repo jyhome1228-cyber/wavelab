@@ -748,3 +748,111 @@ img{max-width:100%;height:auto}
   .request-section{padding:44px 0!important}
   .request-section-head{grid-template-columns:48px minmax(0,1fr)!important;gap:6px 12px!important}
 }
+
+
+/* page-specific legacy rail reset */
+/* Older page-specific files shifted content into a narrow rail.
+   Reset those rules so the 1440px site grid remains consistent. */
+.services-page .page-hero-grid,
+.services-page .section-head,
+.works-page .page-hero-grid,
+.solutions-page .page-hero-grid{
+  grid-template-columns:220px minmax(0,1fr)!important;
+  gap:clamp(48px,7vw,120px)!important;
+}
+
+.services-page .solution-stack,
+.services-page .process-compact,
+.solutions-index-page .solution-index-grid,
+.solutions-index-page .solution-custom-grid,
+.works-page #concept-systems .project-grid,
+.works-page .section:not(.soft) .process-compact,
+.about-page .section .process-compact,
+.about-page .section .solution-stack,
+.technology-page .tech-capability-grid,
+.technology-page .system-map,
+.technology-page .engineering-scope,
+.technology-page .implementation-grid,
+.technology-page .stack-table,
+.technology-page .principle-grid{
+  width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+.services-page .solution-stack{gap:88px!important}
+.services-page .solution-copy{max-width:600px!important}
+.services-page .solution-copy h3{
+  margin:18px 0 16px!important;
+  font-size:var(--fs-h3)!important;
+  font-weight:540!important;
+  line-height:1.35!important;
+  letter-spacing:-.03em!important;
+}
+.services-page .solution-copy p{
+  font-size:17px!important;
+  line-height:1.7!important;
+}
+
+.solutions-index-page .solution-index-stats>span:first-child{
+  padding-left:14px!important;
+}
+.solutions-index-page .solution-index-stats>span:last-child{
+  border-right:1px solid var(--line)!important;
+}
+
+.solutions-index-page .solution-index-head .section-copy p,
+.solutions-index-page .solution-index-custom .section-copy p{
+  max-width:760px!important;
+  margin-top:26px!important;
+  font-size:17px!important;
+  line-height:1.7!important;
+}
+
+.solutions-index-page .solution-custom-card h3{
+  font-size:var(--fs-h3)!important;
+  font-weight:540!important;
+  line-height:1.35!important;
+}
+.solutions-index-page .solution-custom-card p{
+  font-size:16px!important;
+  line-height:1.7!important;
+}
+
+@media(max-width:1100px){
+  .services-page .page-hero-grid,
+  .services-page .section-head,
+  .works-page .page-hero-grid,
+  .solutions-page .page-hero-grid{
+    grid-template-columns:180px minmax(0,1fr)!important;
+    gap:48px!important;
+  }
+}
+
+@media(max-width:760px){
+  .services-page .page-hero-grid,
+  .services-page .section-head,
+  .works-page .page-hero-grid,
+  .solutions-page .page-hero-grid{
+    grid-template-columns:1fr!important;
+    gap:22px!important;
+  }
+
+  .services-page .solution-stack,
+  .services-page .process-compact,
+  .solutions-index-page .solution-index-grid,
+  .solutions-index-page .solution-custom-grid,
+  .works-page #concept-systems .project-grid,
+  .works-page .section:not(.soft) .process-compact,
+  .about-page .section .process-compact,
+  .about-page .section .solution-stack,
+  .technology-page .tech-capability-grid,
+  .technology-page .system-map,
+  .technology-page .engineering-scope,
+  .technology-page .implementation-grid,
+  .technology-page .stack-table,
+  .technology-page .principle-grid{
+    width:100%!important;
+    margin-left:0!important;
+  }
+}
