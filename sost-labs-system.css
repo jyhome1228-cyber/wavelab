@@ -1381,3 +1381,70 @@ img{max-width:100%;height:auto}
     font-size:16px!important;
   }
 }
+
+
+/* Header height correction / 2026-09-21 */
+:root{
+  --header-height:80px!important;
+}
+
+/* Desktop header was visually too tall at 104px. */
+.dev-header{
+  min-height:80px!important;
+}
+.dev-header-inner{
+  height:80px!important;
+}
+.dev-nav>a{
+  height:80px!important;
+}
+.dev-brand{
+  width:124px!important;
+  min-width:124px!important;
+  max-width:124px!important;
+  flex-basis:124px!important;
+}
+.dev-nav{gap:30px!important}
+.dev-nav>a{
+  font-size:13px!important;
+  letter-spacing:.045em!important;
+}
+.dev-contact{
+  min-height:40px!important;
+  padding:0 16px!important;
+  font-size:12px!important;
+}
+
+/* Home hero also had excessive top air because it was tuned for the old 104px header. */
+.hero{
+  min-height:auto!important;
+  padding:96px 0 92px!important;
+}
+.home-simple .hero{
+  padding:96px 0 92px!important;
+}
+.home-simple .hero-grid{
+  align-items:center!important;
+}
+
+/* Inner-page top rhythm follows the shorter header. */
+.page-hero{
+  padding:88px 0 82px!important;
+}
+.solutions-index-page .solution-index-hero{
+  padding:88px 0 82px!important;
+}
+
+@media(max-width:760px){
+  :root{--header-height:70px!important}
+  .dev-header{min-height:70px!important}
+  .dev-header-inner{height:70px!important}
+  .dev-brand{
+    width:112px!important;
+    min-width:112px!important;
+    max-width:112px!important;
+    flex-basis:112px!important;
+  }
+  .hero,.home-simple .hero{padding:72px 0 68px!important}
+  .page-hero,.solutions-index-page .solution-index-hero{padding:64px 0 60px!important}
+}
