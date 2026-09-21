@@ -18,14 +18,14 @@ for(const file of pages){
   const full=path.join(root,file);
   if(!fs.existsSync(full))continue;
   let html=fs.readFileSync(full,'utf8');
-  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260909-1');
+  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260921-5');
   fs.writeFileSync(full,html);
 }
 
 const runtime=fs.readFileSync(path.join(root,'site-runtime.js'),'utf8');
 const footerCss=fs.readFileSync(path.join(root,'footer-current.css'),'utf8');
 const required=[
-  '에이소스트 (AESOST)','박재영','820-13-02834','인천광역시 서구 원당대로 1039, 9층 915호','정보통신업','응용 소프트웨어 개발 및 공급업'
+  '에이소스트 테크놀로지 (AESOST TECHNOLOGY)','박재영','820-13-02834','인천광역시 서구 원당대로 1039, 9층 915호','정보통신업','응용 소프트웨어 개발 및 공급업'
 ];
 for(const value of required){
   if(!runtime.includes(value))throw new Error(`Business footer missing: ${value}`);
