@@ -9,8 +9,8 @@ const pages=[
   'solution-project-room.html','solution-quote-flow.html'
 ];
 
-const companyCss='company-polish.css?v=20260911-2';
-const interactionCss='enterprise-interaction.css?v=20260911-2';
+const companyCss='company-polish.css?v=20260921-4';
+const interactionCss='enterprise-interaction.css?v=20260921-4';
 const errors=[];
 
 if(!fs.existsSync(path.join(root,'company-polish.css')))errors.push('company-polish.css is missing');
@@ -19,9 +19,9 @@ if(!fs.existsSync(path.join(root,'technology-professional.css')))errors.push('te
 
 const companySource=fs.readFileSync(path.join(root,'company-polish.css'),'utf8');
 for(const [label,pattern] of [
-  ['1280 content container',/--container:1280px/],
-  ['40px page-title ceiling',/--fs-h1:clamp\(32px,3vw,40px\)/],
-  ['32px section-title ceiling',/--fs-h2:clamp\(24px,2\.35vw,32px\)/],
+  ['1380 content container',/--container:1380px/],
+  ['54px page-title ceiling',/--fs-h1:clamp\(38px,4vw,54px\)/],
+  ['38px section-title ceiling',/--fs-h2:clamp\(28px,2\.6vw,38px\)/],
   ['15px body scale',/--fs-body:15px/],
   ['8px control radius',/--ui-radius-control:8px/],
   ['12px card radius',/--ui-radius-card:12px/]
@@ -48,7 +48,7 @@ for(const file of pages){
   const file=path.join(root,'technology.html');
   let html=fs.readFileSync(file,'utf8');
   html=html.replace('기술을 나열하지 않고,<br>운영 가능한 시스템으로 연결합니다.','웹, 데이터, 자동화를<br>하나의 시스템으로 설계합니다.');
-  html=html.replace('AESOST는 화면만 구현하지 않습니다. 데이터 구조, 사용자 권한, API, 자동화, 배포와 운영까지 하나의 시스템으로 설계합니다.','AESOST는 인터페이스부터 권한, 데이터, API 연동과 배포 구조까지 실제 운영 기준으로 연결해 구축합니다.');
+  html=html.replace('AESOST TECHNOLOGY는 화면만 구현하지 않습니다. 데이터 구조, 사용자 권한, API, 자동화, 배포와 운영까지 하나의 시스템으로 설계합니다.','AESOST TECHNOLOGY는 인터페이스부터 권한, 데이터, API 연동과 배포 구조까지 실제 운영 기준으로 연결해 구축합니다.');
   html=html.replace('화면부터 데이터와 운영 환경까지 하나의 흐름으로 구축합니다.','설계부터 운영까지, 시스템 전 계층을 다룹니다.');
 
   const scopeSection=`  <section class="section soft technology-structure">
@@ -57,7 +57,7 @@ for(const file of pages){
         <p class="eyebrow">ENGINEERING SCOPE</p>
         <div class="section-copy"><h2 class="section-title">각 계층의 책임을 분리하고, 하나의 운영 구조로 연결합니다.</h2><p>화면, 비즈니스 로직, 데이터와 인프라를 역할별로 나누어 설계해 변경 범위를 명확히 하고 확장과 유지보수에 대응합니다.</p></div>
       </div>
-      <div class="engineering-scope" role="table" aria-label="AESOST 엔지니어링 범위">
+      <div class="engineering-scope" role="table" aria-label="AESOST TECHNOLOGY 엔지니어링 범위">
         <div class="engineering-row" role="row"><span class="engineering-index">01</span><div class="engineering-title"><small>EXPERIENCE LAYER</small><h3>Interface & Design System</h3></div><p>고객, 직원, 관리자 등 사용자별 업무를 화면 구조와 컴포넌트 체계로 정리합니다.</p><div class="engineering-tags"><span>WEB</span><span>ADMIN</span><span>PORTAL</span><span>RESPONSIVE</span></div></div>
         <div class="engineering-row" role="row"><span class="engineering-index">02</span><div class="engineering-title"><small>APPLICATION LAYER</small><h3>Business Logic & Permission</h3></div><p>상태, 승인, 역할과 권한처럼 실제 업무 규칙을 애플리케이션 로직으로 구성합니다.</p><div class="engineering-tags"><span>AUTH</span><span>ROLE</span><span>STATE</span><span>WORKFLOW</span></div></div>
         <div class="engineering-row" role="row"><span class="engineering-index">03</span><div class="engineering-title"><small>DATA & INTEGRATION</small><h3>Data Model & API</h3></div><p>운영 데이터의 관계를 정의하고 결제, 커머스, AI와 외부 서비스를 필요한 범위에서 연결합니다.</p><div class="engineering-tags"><span>DATABASE</span><span>STORAGE</span><span>REST API</span><span>AUTOMATION</span></div></div>
