@@ -261,7 +261,7 @@ p{word-break:keep-all}
 .aesost-footer-logo img{width:190px!important;height:auto!important}
 @media(max-width:1279px){
   .shell{width:min(calc(100% - 56px),1180px)!important}
-  .dev-brand{width:210px!important;flex-basis:210px!important}
+  .dev-brand{width:126px!important;flex-basis:126px!important}
   .page-hero-grid,.section-head{grid-template-columns:144px minmax(0,1fr)!important;gap:40px!important}
   .services-page .solution-stack,
   .services-page .process-compact,
@@ -280,13 +280,13 @@ p{word-break:keep-all}
 @media(max-width:960px){
   .dev-nav,.dev-contact{display:none!important}
   .dev-menu{display:block!important}
-  .dev-brand{width:198px!important;flex-basis:198px!important}
+  .dev-brand{width:124px!important;flex-basis:124px!important}
 }
 @media(max-width:767px){
   :root{--header-height:78px!important}
   .shell{width:calc(100% - 32px)!important}
   .dev-header-inner{height:78px!important}
-  .dev-brand{width:176px!important;flex-basis:176px!important}
+  .dev-brand{width:118px!important;flex-basis:118px!important}
   .page-hero-grid,.section-head{grid-template-columns:1fr!important;gap:16px!important}
   .services-page .solution-stack,
   .services-page .process-compact,
