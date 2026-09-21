@@ -27,7 +27,8 @@ const sharedStyles=[
   ['aesost-light-theme-css','light-theme.css?v=20260911-3'],
   ['aesost-light-theme-polish-css','light-theme-polish.css?v=20260911-3'],
   ['aesost-solution-custom-fit-css','solution-custom-fit.css?v=20260907-1'],
-  ['aesost-brand-refresh-css','brand-refresh.css?v=20260921-4']
+  ['aesost-brand-refresh-css','brand-refresh.css?v=20260921-4'],
+  ['aesost-qa-final-css','qa-final.css?v=20260921-1']
 ];
 
 for(const file of lightPaintPages){
@@ -40,9 +41,10 @@ for(const file of lightPaintPages){
   html=ensureHeadTag(html,'aesost-critical-light',criticalStyle);
   html=ensureHeadTag(html,'aesost-header-responsive',responsiveHeaderStyle);
   for(const [id,href] of sharedStyles)html=ensureHeadTag(html,`id="${id}"`,`<link id="${id}" rel="stylesheet" href="${href}">`);
-  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260921-5');
+  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260921-6');
 
   if(file==='404.html'){
+    html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>Page Not Found | AESOST TECHNOLOGY</title>');
     html=ensureHeadTag(html,'aesost-404-light','<style id="aesost-404-light">.not-found p{color:#6f737b!important}.not-found{background:#fff!important}.not-found .btn.secondary{background:#fff!important;color:#17181c!important;border-color:#d4d7dd!important}</style>');
   }
   fs.writeFileSync(full,html);
