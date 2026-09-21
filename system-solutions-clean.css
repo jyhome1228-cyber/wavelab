@@ -322,3 +322,28 @@
     width:100%!important;
   }
 }
+
+
+/* SVG icon normalization / 2026-09-22 */
+/* The legacy index stylesheet previously supplied SVG stroke defaults.
+   After consolidating the page styles, inline SVG paths fell back to black fill.
+   Normalize icon rendering explicitly so symbols stay outline-based and readable. */
+.solutions-index-page .solution-custom-card i svg,
+.solutions-index-page .solution-index-stats i svg{
+  display:block!important;
+  width:18px!important;
+  height:18px!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.8!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.solutions-index-page .solution-custom-card i svg * ,
+.solutions-index-page .solution-index-stats i svg *{
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.8!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
