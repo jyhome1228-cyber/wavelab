@@ -28,7 +28,7 @@ const sharedStyles=[
   ['aesost-light-theme-polish-css','light-theme-polish.css?v=20260911-3'],
   ['aesost-solution-custom-fit-css','solution-custom-fit.css?v=20260907-1'],
   ['aesost-brand-refresh-css','brand-refresh.css?v=20260921-4'],
-  ['aesost-qa-final-css','qa-final.css?v=20260921-1']
+  ['aesost-qa-final-css','qa-final.css?v=20260921-2']
 ];
 
 for(const file of lightPaintPages){
