@@ -5,7 +5,7 @@
 :root{
   --qa-container:1320px;
   --qa-gutter:32px;
-  --qa-header:86px;
+  --qa-header:80px;
   --qa-label:144px;
   --qa-gap:40px;
   --qa-rail:184px;
@@ -89,10 +89,10 @@ body{
   gap:28px!important;
 }
 .dev-brand{
-  width:168px!important;
-  min-width:168px!important;
-  max-width:168px!important;
-  flex:0 0 168px!important;
+  width:132px!important;
+  min-width:132px!important;
+  max-width:132px!important;
+  flex:0 0 132px!important;
   display:inline-flex!important;
   align-items:center!important;
 }
@@ -313,7 +313,7 @@ body{
 
 /* ---------- footer ---------- */
 .aesost-footer-logo img{
-  width:164px!important;
+  width:148px!important;
   max-width:none!important;
   height:auto!important;
 }
@@ -379,10 +379,10 @@ body{
     max-width:1080px!important;
   }
   .dev-brand{
-    width:156px!important;
-    min-width:156px!important;
-    max-width:156px!important;
-    flex-basis:156px!important;
+    width:126px!important;
+    min-width:126px!important;
+    max-width:126px!important;
+    flex-basis:126px!important;
   }
   .dev-nav{gap:18px!important}
   .dev-nav>a{font-size:11px!important}
@@ -396,15 +396,15 @@ body{
 }
 
 @media(max-width:980px){
-  :root{--qa-header:78px}
+  :root{--qa-header:76px}
   .dev-header-inner{height:78px!important}
   .dev-nav,.dev-contact{display:none!important}
   .dev-menu{display:block!important;margin-left:auto!important}
   .dev-brand{
-    width:154px!important;
-    min-width:154px!important;
-    max-width:154px!important;
-    flex-basis:154px!important;
+    width:124px!important;
+    min-width:124px!important;
+    max-width:124px!important;
+    flex-basis:124px!important;
   }
   .home-simple .hero-grid{
     grid-template-columns:1fr!important;
@@ -421,7 +421,7 @@ body{
 
 @media(max-width:767px){
   :root{
-    --qa-header:72px;
+    --qa-header:70px;
     --qa-label:1fr;
     --qa-gap:16px;
     --qa-rail:0px;
@@ -436,10 +436,10 @@ body{
   }
   .dev-header-inner{height:72px!important}
   .dev-brand{
-    width:142px!important;
-    min-width:142px!important;
-    max-width:142px!important;
-    flex-basis:142px!important;
+    width:118px!important;
+    min-width:118px!important;
+    max-width:118px!important;
+    flex-basis:118px!important;
   }
   .page-hero-grid,
   .section-head,
@@ -482,5 +482,5 @@ body{
   .home-simple .home-core,
   .home-simple .home-demo-section,
   .home-simple .home-hook{padding:56px 0!important}
-  .aesost-footer-logo img{width:148px!important}
+  .aesost-footer-logo img{width:132px!important}
 }
