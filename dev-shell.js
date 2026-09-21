@@ -8,17 +8,13 @@ const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
 function ensureStylesheet(href,id){if(document.getElementById(id))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.id=id;document.head.appendChild(link)}
 function ensureScript(src,id){if(document.getElementById(id))return;const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script)}
 ensureStylesheet('dev-operational.css?v=20260906-3','aesost-operational-css');
-ensureStylesheet('universal-web-system.css?v=20260906-2','aesost-universal-ui-css');
 ensureStylesheet('custom-development.css?v=20260906-1','aesost-custom-development-css');
 ensureStylesheet('site-polish.css?v=20260907-1','aesost-site-polish-css');
 ensureStylesheet('project-room-fix.css?v=20260907-1','aesost-project-room-fix-css');
 ensureStylesheet('motion-widgets.css?v=20260907-1','aesost-motion-widgets-css');
-ensureStylesheet('alignment-system.css?v=20260907-2','aesost-alignment-system-css');
 ensureStylesheet('light-theme.css?v=20260907-1','aesost-light-theme-css');
 ensureStylesheet('light-theme-polish.css?v=20260907-1','aesost-light-theme-polish-css');
 ensureStylesheet('solution-custom-fit.css?v=20260907-1','aesost-solution-custom-fit-css');
-ensureStylesheet('brand-refresh.css?v=20260921-5','aesost-brand-refresh-css');
-ensureStylesheet('qa-final.css?v=20260921-5','aesost-qa-final-css');
 ensureStylesheet('sost-labs-system.css?v=20260921-2','aesost-sost-labs-css');
 
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
