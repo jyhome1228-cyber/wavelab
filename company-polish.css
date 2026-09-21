@@ -307,3 +307,61 @@ p{word-break:keep-all}
   .services-page .solution-row.reverse .solution-copy{order:initial!important}
   .aesost-footer-logo img{width:176px!important}
 }
+
+
+/* FINAL SHELL ALIGNMENT FIX 2026-09-21
+   page-hero-grid is also a .shell element. Keep it on the site shell,
+   while section-head remains full width inside its parent shell. */
+.page-hero-grid.shell{
+  width:min(calc(100% - 96px),var(--container))!important;
+  max-width:var(--container)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.section-head{
+  width:100%!important;
+  max-width:none!important;
+}
+.dev-brand{
+  width:238px!important;
+  min-width:238px!important;
+  max-width:238px!important;
+  flex:0 0 238px!important;
+}
+.dev-brand img{
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+}
+@media(max-width:1279px){
+  .page-hero-grid.shell{
+    width:min(calc(100% - 56px),1180px)!important;
+    max-width:1180px!important;
+  }
+  .dev-brand{
+    width:210px!important;
+    min-width:210px!important;
+    max-width:210px!important;
+    flex-basis:210px!important;
+  }
+}
+@media(max-width:960px){
+  .dev-brand{
+    width:198px!important;
+    min-width:198px!important;
+    max-width:198px!important;
+    flex-basis:198px!important;
+  }
+}
+@media(max-width:767px){
+  .page-hero-grid.shell{
+    width:calc(100% - 32px)!important;
+    max-width:none!important;
+  }
+  .dev-brand{
+    width:176px!important;
+    min-width:176px!important;
+    max-width:176px!important;
+    flex-basis:176px!important;
+  }
+}
