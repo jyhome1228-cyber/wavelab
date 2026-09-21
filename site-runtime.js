@@ -13,16 +13,16 @@
   }
 
   function installFooter(){
-    ensureStylesheet('footer-current.css?v=20260911-1','aesost-footer-current-css');
-    ensureStylesheet('company-polish.css?v=20260911-1','aesost-company-polish-css');
+    ensureStylesheet('footer-current.css?v=20260921-4','aesost-footer-current-css');
+    ensureStylesheet('company-polish.css?v=20260921-4','aesost-company-polish-css');
     const markup=`<div class="shell">
       <div class="aesost-footer-main">
         <div class="aesost-footer-brand">
-          <a class="aesost-footer-logo" href="index.html" aria-label="AESOST 홈"><img src="aesost-logo-dark.svg?v=20260907-1" alt="AESOST"></a>
+          <a class="aesost-footer-logo" href="index.html" aria-label="AESOST TECHNOLOGY 홈"><img src="aesost-logo-dark.svg?v=20260921-4" alt="AESOST TECHNOLOGY"></a>
           <p class="aesost-footer-kicker">WEB · SYSTEM · TECHNOLOGY</p>
-          <p class="aesost-footer-copy">기업 홈페이지부터 맞춤형 업무 시스템까지. 에이소스트는 실제 업무 방식을 기준으로 정보 구조, UI, 데이터와 운영 환경을 함께 설계하고 개발합니다.</p>
-          <dl class="aesost-business-info" aria-label="에이소스트 사업자 정보">
-            <div class="aesost-business-row"><dt>상호</dt><dd>에이소스트 (AESOST)</dd></div>
+          <p class="aesost-footer-copy">기업 홈페이지부터 맞춤형 업무 시스템까지. 에이소스트 테크놀로지는 실제 업무 방식을 기준으로 정보 구조, UI, 데이터와 운영 환경을 함께 설계하고 개발합니다.</p>
+          <dl class="aesost-business-info" aria-label="에이소스트 테크놀로지 사업자 정보">
+            <div class="aesost-business-row"><dt>상호</dt><dd>에이소스트 테크놀로지 (AESOST TECHNOLOGY)</dd></div>
             <div class="aesost-business-row"><dt>대표</dt><dd>박재영</dd></div>
             <div class="aesost-business-row"><dt>사업자등록번호</dt><dd>820-13-02834</dd></div>
             <div class="aesost-business-row"><dt>업태</dt><dd>정보통신업</dd></div>
@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div class="aesost-footer-bottom"><span>STRATEGY · UI · DEVELOPMENT · OPERATION</span><span>© 2026 AESOST. ALL RIGHTS RESERVED.</span></div>
+      <div class="aesost-footer-bottom"><span>STRATEGY · UI · DEVELOPMENT · OPERATION</span><span>© 2026 AESOST TECHNOLOGY. ALL RIGHTS RESERVED.</span></div>
     </div>`;
     document.querySelectorAll('[data-dev-footer]').forEach(footer=>{footer.innerHTML=markup});
   }
