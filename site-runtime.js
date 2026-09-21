@@ -14,7 +14,7 @@
 
   function installFooter(){
     ensureStylesheet('footer-current.css?v=20260921-4','aesost-footer-current-css');
-    ensureStylesheet('company-polish.css?v=20260921-4','aesost-company-polish-css');
+    ensureStylesheet('company-polish.css?v=20260921-6','aesost-company-polish-css');
     const markup=`<div class="shell">
       <div class="aesost-footer-main">
         <div class="aesost-footer-brand">
