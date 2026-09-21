@@ -1111,3 +1111,206 @@ a{text-decoration:none}
   }
   .home-simple .home-core-card{padding:24px!important}
 }
+
+
+/* Hero hierarchy normalization / 2026-09-21 */
+:root{
+  --mf-page-hero-title:clamp(38px,3.1vw,48px);
+  --mf-page-hero-copy:17px;
+}
+
+/* Homepage: remove the accidental split layout and make the product UI the second beat. */
+.home-simple .hero{
+  padding:86px 0 96px!important;
+}
+.home-simple .hero .hero-grid{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:0!important;
+  align-items:start!important;
+  width:min(calc(100% - 48px),var(--mf-page))!important;
+  max-width:var(--mf-page)!important;
+  margin-inline:auto!important;
+}
+.home-simple .hero .hero-copy{
+  width:min(100%,860px)!important;
+  max-width:860px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+}
+.home-simple .hero .hero-copy .eyebrow{
+  max-width:760px!important;
+  margin:0 auto 20px!important;
+  text-align:center!important;
+}
+.home-simple .hero .display{
+  max-width:760px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+  font-size:clamp(36px,2.8vw,44px)!important;
+  font-weight:650!important;
+  line-height:1.18!important;
+  letter-spacing:-.045em!important;
+}
+.home-simple .hero .hero-description{
+  max-width:680px!important;
+  margin:22px auto 0!important;
+  text-align:center!important;
+  font-size:17px!important;
+}
+.home-simple .hero .hero-actions{
+  justify-content:center!important;
+  margin-top:30px!important;
+}
+.home-simple .hero .hero-visual{
+  width:min(100%,1080px)!important;
+  max-width:1080px!important;
+  margin:54px auto 0!important;
+}
+
+/* Menu page heroes: use Works as the reference hierarchy everywhere. */
+.about-page .page-hero,
+.services-page .page-hero,
+.works-page .page-hero,
+.solutions-index-page .solution-index-hero,
+.technology-page .technology-hero{
+  padding:86px 0 88px!important;
+}
+
+.about-page .page-hero-grid,
+.services-page .page-hero-grid,
+.works-page .page-hero-grid,
+.solutions-index-page .page-hero-grid{
+  display:block!important;
+  width:min(calc(100% - 48px),var(--mf-page))!important;
+  max-width:var(--mf-page)!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.about-page .page-hero-grid>.eyebrow,
+.services-page .page-hero-grid>.eyebrow,
+.works-page .page-hero-grid>.eyebrow,
+.solutions-index-page .page-hero-grid>.eyebrow{
+  margin:0 auto 20px!important;
+  text-align:center!important;
+}
+.about-page .page-hero-grid>div,
+.services-page .page-hero-grid>div,
+.works-page .page-hero-grid>div,
+.solutions-index-page .page-hero-grid>div{
+  width:min(100%,920px)!important;
+  max-width:920px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.about-page .page-title,
+.services-page .page-title,
+.works-page .page-title,
+.solutions-index-page .page-title,
+.technology-page .technology-hero-copy .page-title{
+  max-width:900px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+  font-size:var(--mf-page-hero-title)!important;
+  font-weight:650!important;
+  line-height:1.18!important;
+  letter-spacing:-.045em!important;
+}
+.about-page .page-hero .lead,
+.services-page .page-hero .lead,
+.works-page .page-hero .lead,
+.solutions-index-page .page-hero .lead,
+.technology-page .technology-hero-copy .lead{
+  max-width:720px!important;
+  margin:24px auto 0!important;
+  text-align:center!important;
+  font-size:var(--mf-page-hero-copy)!important;
+  line-height:1.72!important;
+}
+
+/* Technology uses the same title hierarchy, then shows the system map below. */
+.technology-page .technology-hero-grid{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:0!important;
+}
+.technology-page .technology-hero-copy{
+  width:min(100%,920px)!important;
+  max-width:920px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.technology-page .technology-hero-copy .eyebrow{
+  margin:0 auto 20px!important;
+  text-align:center!important;
+}
+.technology-page .technology-hero-tags{
+  justify-content:center!important;
+}
+.technology-page .architecture-preview{
+  width:min(100%,1080px)!important;
+  max-width:1080px!important;
+  margin:52px auto 0!important;
+}
+
+/* System solutions metrics stay under the title, centered and balanced. */
+.solutions-index-page .solution-index-stats{
+  max-width:720px!important;
+  margin:32px auto 0!important;
+}
+
+/* Request page intro follows the same hierarchy. */
+.request-intro{
+  width:min(100%,920px)!important;
+  max-width:920px!important;
+  margin:0 auto 72px!important;
+  text-align:center!important;
+}
+.request-intro h1{
+  max-width:900px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+  font-size:var(--mf-page-hero-title)!important;
+  font-weight:650!important;
+  line-height:1.18!important;
+  letter-spacing:-.045em!important;
+}
+.request-intro>p:last-child{
+  max-width:720px!important;
+  margin:24px auto 0!important;
+  text-align:center!important;
+  font-size:17px!important;
+}
+
+/* Solution detail hero: same title scale, product UI below. */
+.solution-detail-page .solution-detail-copy .page-title{
+  max-width:900px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+  font-size:var(--mf-page-hero-title)!important;
+  font-weight:650!important;
+  line-height:1.18!important;
+  letter-spacing:-.045em!important;
+}
+
+@media(max-width:760px){
+  :root{--mf-page-hero-title:clamp(30px,8.6vw,36px)}
+  .home-simple .hero{padding:64px 0 72px!important}
+  .home-simple .hero .hero-grid,
+  .about-page .page-hero-grid,
+  .services-page .page-hero-grid,
+  .works-page .page-hero-grid,
+  .solutions-index-page .page-hero-grid{
+    width:calc(100% - 32px)!important;
+  }
+  .home-simple .hero .display{font-size:clamp(30px,8.6vw,36px)!important}
+  .home-simple .hero .hero-visual,
+  .technology-page .architecture-preview{margin-top:38px!important}
+  .about-page .page-hero,
+  .services-page .page-hero,
+  .works-page .page-hero,
+  .solutions-index-page .solution-index-hero,
+  .technology-page .technology-hero{
+    padding:64px 0 66px!important;
+  }
+}
