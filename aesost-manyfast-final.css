@@ -1560,3 +1560,63 @@ a{text-decoration:none}
     width:calc(100% - 32px)!important;
   }
 }
+
+
+/* System solution hover visibility fix / 2026-09-22 */
+/* Legacy solutions-index.css used a dark hover state.
+   Keep cards light and readable on hover. */
+.solutions-index-page .solution-index-card,
+.solutions-index-page .solution-index-card:hover{
+  background:#fff!important;
+  color:var(--mf-text)!important;
+  border-color:var(--mf-line)!important;
+}
+.solutions-index-page .solution-index-card:hover{
+  border-color:#cfd4dc!important;
+  transform:translateY(-2px)!important;
+  box-shadow:0 12px 34px rgba(23,24,28,.055)!important;
+}
+.solutions-index-page .solution-index-card .solution-index-body,
+.solutions-index-page .solution-index-card:hover .solution-index-body{
+  background:#fff!important;
+  color:var(--mf-text)!important;
+}
+.solutions-index-page .solution-index-card h3,
+.solutions-index-page .solution-index-card:hover h3{
+  color:var(--mf-text)!important;
+}
+.solutions-index-page .solution-index-card .solution-index-product,
+.solutions-index-page .solution-index-card:hover .solution-index-product{
+  color:#7a8089!important;
+}
+.solutions-index-page .solution-index-card p,
+.solutions-index-page .solution-index-card:hover p{
+  color:var(--mf-body)!important;
+}
+.solutions-index-page .solution-index-card:hover .solution-index-top span{
+  color:var(--mf-purple)!important;
+}
+.solutions-index-page .solution-index-card:hover .solution-index-top em{
+  color:var(--mf-muted)!important;
+}
+.solutions-index-page .solution-index-card:hover .solution-index-tags span{
+  border-color:var(--mf-line-strong)!important;
+  background:#fff!important;
+  color:#747a83!important;
+}
+.solutions-index-page .solution-index-card:hover .solution-index-thumb img{
+  opacity:1!important;
+  transform:none!important;
+}
+.solutions-index-page .solution-index-actions a:first-child,
+.solutions-index-page .solution-index-actions a:first-child:hover{
+  border-color:var(--mf-purple)!important;
+  background:var(--mf-purple)!important;
+  color:#fff!important;
+}
+.solutions-index-page .solution-index-actions a:last-child,
+.solutions-index-page .solution-index-actions a:last-child:hover{
+  border-color:var(--mf-line-strong)!important;
+  background:#fff!important;
+  color:var(--mf-text)!important;
+}
