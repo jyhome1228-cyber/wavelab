@@ -1314,3 +1314,175 @@ a{text-decoration:none}
     padding:64px 0 66px!important;
   }
 }
+
+
+/* Header navigation + global alignment refinement / 2026-09-22 */
+/* Header: logo left, five-item navigation mathematically centered, CTA right. */
+.dev-header .dev-header-inner{
+  display:grid!important;
+  grid-template-columns:160px minmax(0,1fr) 160px!important;
+  align-items:center!important;
+  gap:24px!important;
+}
+.dev-header .dev-brand{
+  justify-self:start!important;
+}
+.dev-header .dev-nav{
+  justify-self:center!important;
+  margin:0!important;
+  gap:34px!important;
+}
+.dev-header .dev-nav>a{
+  height:var(--mf-header)!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:-.012em!important;
+}
+.dev-header .dev-contact{
+  justify-self:end!important;
+  min-width:110px!important;
+}
+.dev-header .dev-menu{
+  justify-self:end!important;
+}
+
+/* One visual rail for feature-heavy sections. */
+.home-core-grid,
+.services-page .solution-stack,
+.services-page .process-compact,
+.solutions-index-page .solution-index-grid,
+.solutions-index-page .solution-custom-grid,
+.works-page .case-grid,
+.works-page .project-grid,
+.technology-page .tech-capability-grid,
+.technology-page .system-map,
+.technology-page .implementation-grid,
+.technology-page .stack-table,
+.technology-page .principle-grid,
+.solution-feature-guide,
+.solution-flow,
+.solution-problems{
+  width:min(100%,1120px)!important;
+  max-width:1120px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Technology page: all section intros and content sit on the same center axis. */
+.technology-page .section>.shell{
+  width:min(calc(100% - 48px),var(--mf-page))!important;
+  max-width:var(--mf-page)!important;
+  margin-inline:auto!important;
+}
+.technology-page .section-head{
+  width:min(100%,860px)!important;
+  max-width:860px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.technology-page .section-head>.eyebrow,
+.technology-page .section-head>.section-copy,
+.technology-page .section-head .section-title,
+.technology-page .section-head .section-copy>p{
+  text-align:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Keep card internals left aligned while their grids remain centered. */
+.tech-capability-grid>article,
+.implementation-grid>article,
+.principle-grid>article,
+.process-compact>article,
+.solution-flow>article,
+.solution-problems>article{
+  text-align:left!important;
+}
+
+/* Stack table uses the same 1120px rail as the cards above and below. */
+.technology-page .stack-table{
+  border-top:1px solid var(--mf-line)!important;
+}
+.technology-page .stack-table>div{
+  grid-template-columns:220px minmax(0,1fr)!important;
+  min-height:76px!important;
+  align-items:center!important;
+}
+.technology-page .stack-table>div>span{
+  text-align:left!important;
+}
+.technology-page .stack-table>div>div{
+  justify-content:flex-start!important;
+}
+
+/* Services / works / solutions: align content widths with section headings. */
+.services-page .section>.shell,
+.works-page .section>.shell,
+.solutions-index-page .section>.shell,
+.about-page .section>.shell{
+  width:min(calc(100% - 48px),var(--mf-page))!important;
+  max-width:var(--mf-page)!important;
+  margin-inline:auto!important;
+}
+.services-page .section-head,
+.works-page .section-head,
+.solutions-index-page .section-head,
+.about-page .section-head{
+  width:min(100%,860px)!important;
+  max-width:860px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Prevent legacy left offsets from surviving on centered sections. */
+.services-page .solution-stack,
+.services-page .process-compact,
+.solutions-index-page .solution-index-grid,
+.solutions-index-page .solution-custom-grid,
+.works-page .project-grid,
+.about-page .process-compact,
+.about-page .solution-stack{
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Mobile header returns to the compact hamburger layout. */
+@media(max-width:760px){
+  .dev-header .dev-header-inner{
+    display:flex!important;
+    height:var(--mf-header)!important;
+    gap:16px!important;
+  }
+  .dev-header .dev-brand{justify-self:auto!important}
+  .dev-header .dev-nav,
+  .dev-header .dev-contact{display:none!important}
+  .dev-header .dev-menu{
+    display:block!important;
+    margin-left:auto!important;
+  }
+
+  .home-core-grid,
+  .services-page .solution-stack,
+  .services-page .process-compact,
+  .solutions-index-page .solution-index-grid,
+  .solutions-index-page .solution-custom-grid,
+  .works-page .case-grid,
+  .works-page .project-grid,
+  .technology-page .tech-capability-grid,
+  .technology-page .system-map,
+  .technology-page .implementation-grid,
+  .technology-page .stack-table,
+  .technology-page .principle-grid,
+  .solution-feature-guide,
+  .solution-flow,
+  .solution-problems{
+    width:100%!important;
+    max-width:none!important;
+  }
+
+  .technology-page .stack-table>div{
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+    padding:18px 0!important;
+  }
+}
