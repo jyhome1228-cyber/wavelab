@@ -425,7 +425,7 @@ img{max-width:100%;display:block}
   .page-title,.request-intro h1{font-size:clamp(30px,9vw,38px)}
   .section-title,.service-detail h2{font-size:clamp(24px,7.5vw,30px)}
   .dev-header-inner{height:var(--header-height)}
-  .dev-nav,.dev-contact{display:none}.dev-menu{display:block}.dev-brand{width:116px}
+  .dev-nav,.dev-contact{display:none}.dev-menu{display:block}.dev-brand{width:138px}
   .dev-mobile-nav{padding-inline:16px}
   .hero{padding:92px 0 80px}
   .hero-grid{gap:52px}
