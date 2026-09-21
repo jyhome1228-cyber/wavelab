@@ -19,10 +19,16 @@ const purgeLegacyMarketingStyles=()=>{
   });
 };
 const ensureFinalMarketingStyle=()=>{
-  if(document.querySelector('link[href*="aesost-manyfast-final.css"]'))return;
+  const href='aesost-manyfast-final.css?v=20260922-6';
+  const existing=document.querySelector('link[href*="aesost-manyfast-final.css"]');
+  if(existing){
+    existing.id='aesost-manyfast-final-css';
+    if(existing.getAttribute('href')!==href) existing.setAttribute('href',href);
+    return;
+  }
   const link=document.createElement('link');
   link.rel='stylesheet';
-  link.href='aesost-manyfast-final.css?v=20260922-5';
+  link.href=href;
   link.id='aesost-manyfast-final-css';
   document.head.appendChild(link);
 };
