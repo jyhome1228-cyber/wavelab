@@ -10,7 +10,7 @@ function ensureScript(src,id){if(document.getElementById(id))return;const script
 ensureStylesheet('project-room-fix.css?v=20260907-1','aesost-project-room-fix-css');
 ensureStylesheet('motion-widgets.css?v=20260907-1','aesost-motion-widgets-css');
 ensureStylesheet('solution-custom-fit.css?v=20260907-1','aesost-solution-custom-fit-css');
-ensureStylesheet('aesost-manyfast-final.css?v=20260921-3','aesost-manyfast-final-css');
+ensureStylesheet('aesost-manyfast-final.css?v=20260922-1','aesost-manyfast-final-css');
 
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#ffffff');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#ffffff';document.head.appendChild(meta)}
@@ -44,21 +44,21 @@ const solutionFitCopy={
 const headerMarkup=`<div class="shell dev-header-inner">
   <a class="dev-brand" href="index.html" aria-label="AESOST TECHNOLOGY 홈">${logo}</a>
   <nav class="dev-nav" aria-label="주요 메뉴">
-    <a href="about.html" class="${isActive('about.html')?'is-active':''}"${activeAttr('about.html')}>ABOUT</a>
-    <a href="services.html" class="${isActive('services.html')?'is-active':''}"${activeAttr('services.html')}>SERVICES</a>
-    <a href="system-solutions.html" class="${solutionsActive?'is-active':''}"${solutionsActive?' aria-current="page"':''}>SYSTEM SOLUTIONS</a>
-    <a href="works.html" class="${isActive('works.html')?'is-active':''}"${activeAttr('works.html')}>WORKS</a>
-    <a href="technology.html" class="${isActive('technology.html')?'is-active':''}"${activeAttr('technology.html')}>TECHNOLOGY</a>
+    <a href="about.html" class="${isActive('about.html')?'is-active':''}"${activeAttr('about.html')}>에이소스트</a>
+    <a href="services.html" class="${isActive('services.html')?'is-active':''}"${activeAttr('services.html')}>서비스</a>
+    <a href="system-solutions.html" class="${solutionsActive?'is-active':''}"${solutionsActive?' aria-current="page"':''}>솔루션</a>
+    <a href="works.html" class="${isActive('works.html')?'is-active':''}"${activeAttr('works.html')}>포트폴리오</a>
+    <a href="technology.html" class="${isActive('technology.html')?'is-active':''}"${activeAttr('technology.html')}>기술</a>
   </nav>
   <a class="dev-contact" href="request.html"${activeAttr('request.html')}>CONTACT ↗</a>
   <button class="dev-menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="aesost-mobile-nav" data-dev-menu><span></span><span></span></button>
 </div>
 <nav class="dev-mobile-nav" id="aesost-mobile-nav" data-dev-mobile aria-label="모바일 메뉴">
-  <a href="about.html"${activeAttr('about.html')}><span>ABOUT</span><span aria-hidden="true">↗</span></a>
-  <a href="services.html"${activeAttr('services.html')}><span>SERVICES</span><span aria-hidden="true">↗</span></a>
-  <a href="system-solutions.html"${solutionsActive?' aria-current="page"':''}><span>SYSTEM SOLUTIONS</span><span aria-hidden="true">↗</span></a>
-  <a href="works.html"${activeAttr('works.html')}><span>WORKS</span><span aria-hidden="true">↗</span></a>
-  <a href="technology.html"${activeAttr('technology.html')}><span>TECHNOLOGY</span><span aria-hidden="true">↗</span></a>
+  <a href="about.html"${activeAttr('about.html')}><span>에이소스트</span><span aria-hidden="true">↗</span></a>
+  <a href="services.html"${activeAttr('services.html')}><span>서비스</span><span aria-hidden="true">↗</span></a>
+  <a href="system-solutions.html"${solutionsActive?' aria-current="page"':''}><span>솔루션</span><span aria-hidden="true">↗</span></a>
+  <a href="works.html"${activeAttr('works.html')}><span>포트폴리오</span><span aria-hidden="true">↗</span></a>
+  <a href="technology.html"${activeAttr('technology.html')}><span>기술</span><span aria-hidden="true">↗</span></a>
   <a href="request.html"${activeAttr('request.html')}><span>CONTACT</span><span aria-hidden="true">↗</span></a>
 </nav>`;
 
