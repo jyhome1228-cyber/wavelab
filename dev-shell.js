@@ -5,14 +5,40 @@ const solutionPages=['system-solutions.html','solution-solodesk.html','solution-
 const solutionsActive=solutionPages.includes(current)||isDemoPath;
 const logo='<img src="aesost-logo-dark.svg?v=20260921-4" alt="AESOST TECHNOLOGY">';
 const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
-function ensureStylesheet(href,id){if(document.getElementById(id))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.id=id;document.head.appendChild(link)}
 function ensureScript(src,id){if(document.getElementById(id))return;const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script)}
-ensureStylesheet('project-room-fix.css?v=20260907-1','aesost-project-room-fix-css');
-ensureStylesheet('motion-widgets.css?v=20260907-1','aesost-motion-widgets-css');
-ensureStylesheet('solution-custom-fit.css?v=20260907-1','aesost-solution-custom-fit-css');
-ensureStylesheet('aesost-manyfast-final.css?v=20260922-5','aesost-manyfast-final-css');
 
-ensureScript('site-runtime.js?v=20260922-1','aesost-site-runtime');
+/* Marketing CSS hygiene:
+   - page-specific CSS is declared in each HTML head
+   - aesost-manyfast-final.css is the single final marketing layer
+   - legacy global overrides are blocked so they cannot shift layout after paint */
+const blockedMarketingStyles=['company-polish.css','brand-refresh.css','qa-final.css','sost-labs-system.css','alignment-system.css','universal-web-system.css'];
+const purgeLegacyMarketingStyles=()=>{
+  document.querySelectorAll('link[rel="stylesheet"]').forEach(link=>{
+    const href=link.getAttribute('href')||'';
+    if(blockedMarketingStyles.some(name=>href.includes(name))) link.remove();
+  });
+};
+const ensureFinalMarketingStyle=()=>{
+  if(document.querySelector('link[href*="aesost-manyfast-final.css"]'))return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='aesost-manyfast-final.css?v=20260922-5';
+  link.id='aesost-manyfast-final-css';
+  document.head.appendChild(link);
+};
+purgeLegacyMarketingStyles();
+ensureFinalMarketingStyle();
+new MutationObserver(mutations=>{
+  for(const mutation of mutations){
+    for(const node of mutation.addedNodes){
+      if(!(node instanceof HTMLLinkElement))continue;
+      const href=node.getAttribute('href')||'';
+      if(blockedMarketingStyles.some(name=>href.includes(name))) node.remove();
+    }
+  }
+}).observe(document.head,{childList:true});
+
+ensureScript('site-runtime.js?v=20260922-2','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#ffffff');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#ffffff';document.head.appendChild(meta)}
 
 const items=[
