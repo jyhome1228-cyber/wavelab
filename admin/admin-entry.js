@@ -27,7 +27,7 @@ onAuthStateChanged(auth,async user=>{
 
   booted=true;
   if(gateTitle)gateTitle.textContent='운영 데이터 연결 중';
-  if(gateMessage)gateMessage.textContent='프로젝트 문의, 방문자와 회원 데이터를 불러오고 있습니다.';
+  if(gateMessage)gateMessage.textContent='프로젝트 문의와 방문자 데이터를 불러오고 있습니다.';
   if(gateActions)gateActions.hidden=true;
 
   try{
@@ -37,7 +37,6 @@ onAuthStateChanged(auth,async user=>{
     const account=document.querySelector('[data-admin-account]');if(account)account.textContent=user.email||'관리자';
     await import('./admin-business-dashboard.js?v=20260907-2');
     await import('./admin-visitor-analytics.js?v=20260907-2');
-    await import('./admin-owner-dashboard.js?v=20260907-2');
   }catch(error){
     console.error('Admin bootstrap failed',error);
     if(app)app.hidden=true;
