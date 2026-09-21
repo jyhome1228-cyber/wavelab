@@ -308,3 +308,51 @@
     margin-left:0!important;
   }
 }
+
+
+/* Interior page content rails
+   When a section introduces content with the shared label/content heading,
+   the content below continues from the same right-hand start line. */
+.solutions-index-page .solution-index-grid,
+.solutions-index-page .solution-custom-grid,
+.works-page #concept-systems .project-grid,
+.works-page .section:not(.soft) .process-compact,
+.about-page .section .process-compact,
+.about-page .section .solution-stack,
+.technology-page .tech-capability-grid,
+.technology-page .system-map,
+.technology-page .implementation-grid,
+.technology-page .stack-table,
+.technology-page .principle-grid{
+  width:calc(100% - var(--aesost-label-column) - var(--aesost-label-gap))!important;
+  margin-left:calc(var(--aesost-label-column) + var(--aesost-label-gap))!important;
+  margin-right:0!important;
+}
+
+/* Do not shift About's opening visual row; it has no label-column heading. */
+.about-page > main > .section:first-of-type .solution-row{
+  width:100%!important;
+  margin-left:0!important;
+}
+
+@media(max-width:1100px){
+  .solutions-index-page .solution-index-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:900px){
+  .solutions-index-page .solution-index-grid,
+  .solutions-index-page .solution-custom-grid,
+  .works-page #concept-systems .project-grid,
+  .works-page .section:not(.soft) .process-compact,
+  .about-page .section .process-compact,
+  .about-page .section .solution-stack,
+  .technology-page .tech-capability-grid,
+  .technology-page .system-map,
+  .technology-page .implementation-grid,
+  .technology-page .stack-table,
+  .technology-page .principle-grid{
+    width:100%!important;
+    margin-left:0!important;
+  }
+}
