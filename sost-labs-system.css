@@ -1189,3 +1189,195 @@ img{max-width:100%;height:auto}
     font-size:16px!important;
   }
 }
+
+
+/* Center all section-intro patterns / 2026-09-21 */
+/* Editorial section introductions use one centered hierarchy.
+   Content grids/cards below remain left aligned. */
+.solution-intro-grid,
+.solution-fit-grid,
+.project-room-page .pr-section-head,
+.home-demo-head,
+.home-hook-inner,
+.solution-demo-entry{
+  width:min(100%,1040px)!important;
+  max-width:1040px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Solution intro / custom-fit headings */
+.solution-intro-grid,
+.solution-fit-grid,
+.project-room-page .pr-section-head{
+  display:block!important;
+  text-align:center!important;
+}
+.solution-intro-grid>.eyebrow,
+.solution-fit-grid>.eyebrow,
+.project-room-page .pr-section-head>.eyebrow{
+  display:block!important;
+  margin:0 auto 20px!important;
+  text-align:center!important;
+}
+.solution-intro-copy,
+.solution-fit-copy,
+.project-room-page .pr-section-copy{
+  width:100%!important;
+  max-width:920px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+.solution-intro-copy>h2,
+.solution-fit-copy>h2,
+.project-room-page .pr-section-copy>h2{
+  max-width:820px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+  font-size:var(--fs-h2)!important;
+  font-weight:540!important;
+  line-height:1.32!important;
+  letter-spacing:-.036em!important;
+}
+.solution-intro-copy>p,
+.solution-fit-copy>p,
+.project-room-page .pr-section-copy>p{
+  max-width:700px!important;
+  margin:22px auto 0!important;
+  text-align:center!important;
+  font-size:17px!important;
+  line-height:1.7!important;
+}
+
+/* Cards and detailed content inside centered intros stay readable left-aligned. */
+.solution-problems,
+.solution-fit-points,
+.project-room-page .pr-section-head + *,
+.solution-intro-copy .solution-problems{
+  text-align:left!important;
+}
+.solution-problems article,
+.solution-fit-points>*{
+  text-align:left!important;
+}
+
+/* Home demo section */
+.home-demo-head{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:28px!important;
+  text-align:center!important;
+  margin-bottom:56px!important;
+}
+.home-demo-head>div{
+  max-width:820px!important;
+  text-align:center!important;
+}
+.home-demo-head .eyebrow{
+  text-align:center!important;
+  margin-bottom:20px!important;
+}
+.home-demo-head h2{
+  max-width:760px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+  font-size:var(--fs-h2)!important;
+  font-weight:540!important;
+  line-height:1.32!important;
+}
+.home-demo-head p{
+  max-width:680px!important;
+  margin:22px auto 0!important;
+  text-align:center!important;
+  font-size:17px!important;
+  line-height:1.7!important;
+}
+
+/* Home hook */
+.home-hook-inner{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:30px!important;
+  text-align:center!important;
+}
+.home-hook-inner>div{
+  max-width:820px!important;
+  text-align:center!important;
+}
+.home-hook-inner .eyebrow{margin-bottom:20px!important;text-align:center!important}
+.home-hook-inner h2{
+  margin:0 auto!important;
+  text-align:center!important;
+  font-size:var(--fs-h2)!important;
+  font-weight:540!important;
+  line-height:1.32!important;
+}
+.home-hook-inner>div>p{
+  max-width:680px!important;
+  margin:22px auto 0!important;
+  text-align:center!important;
+}
+
+/* Demo-entry sections */
+.solution-demo-entry{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  gap:30px!important;
+  text-align:center!important;
+}
+.solution-demo-entry>div:first-child{
+  max-width:820px!important;
+  text-align:center!important;
+}
+.solution-demo-entry .eyebrow{margin-bottom:20px!important;text-align:center!important}
+.solution-demo-entry h2{
+  max-width:760px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+  font-size:var(--fs-h2)!important;
+  font-weight:540!important;
+  line-height:1.32!important;
+}
+.solution-demo-entry p{
+  max-width:700px!important;
+  margin:22px auto 0!important;
+  text-align:center!important;
+}
+.solution-demo-entry .hero-actions{
+  justify-content:center!important;
+}
+
+/* Preserve intentional split-layout alignment only for visual + copy rows. */
+.solution-row .solution-copy,
+.services-page .solution-row .solution-copy,
+.technology-page .technology-hero-copy,
+.solution-detail-page .solution-detail-copy{
+  text-align:left!important;
+}
+
+@media(max-width:760px){
+  .solution-intro-grid,
+  .solution-fit-grid,
+  .project-room-page .pr-section-head,
+  .home-demo-head,
+  .home-hook-inner,
+  .solution-demo-entry{
+    width:100%!important;
+    max-width:none!important;
+  }
+  .solution-intro-copy>p,
+  .solution-fit-copy>p,
+  .project-room-page .pr-section-copy>p,
+  .home-demo-head p,
+  .home-hook-inner>div>p,
+  .solution-demo-entry p{
+    font-size:16px!important;
+  }
+}
