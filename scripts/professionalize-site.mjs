@@ -11,22 +11,23 @@ const pages=[
 
 const companyCss='company-polish.css?v=20260921-6';
 const interactionCss='enterprise-interaction.css?v=20260921-4';
-const qaCss='qa-final.css?v=20260921-3';
+const qaCss='qa-final.css?v=20260921-4';
 const errors=[];
 
 if(!fs.existsSync(path.join(root,'company-polish.css')))errors.push('company-polish.css is missing');
 if(!fs.existsSync(path.join(root,'enterprise-interaction.css')))errors.push('enterprise-interaction.css is missing');
 if(!fs.existsSync(path.join(root,'technology-professional.css')))errors.push('technology-professional.css is missing');
 
-const companySource=fs.readFileSync(path.join(root,'company-polish.css'),'utf8');
+const qaSource=fs.readFileSync(path.join(root,'qa-final.css'),'utf8');
 for(const [label,pattern] of [
-  ['1380 content container',/--container:1380px/],
-  ['54px page-title ceiling',/--fs-h1:clamp\(38px,4vw,54px\)/],
-  ['38px section-title ceiling',/--fs-h2:clamp\(28px,2\.6vw,38px\)/],
-  ['15px body scale',/--fs-body:15px/],
-  ['8px control radius',/--ui-radius-control:8px/],
-  ['12px card radius',/--ui-radius-card:12px/]
-])if(!pattern.test(companySource))errors.push(`company-polish.css: missing ${label}`);
+  ['1040 content container',/--ds-content:1040px/],
+  ['1280 wide container',/--ds-wide:1280px/],
+  ['40px page title',/font-size:40px!important/],
+  ['28px section title',/font-size:28px!important/],
+  ['8px control radius',/--radius-control:8px/],
+  ['12px card radius',/--radius-card:12px/],
+  ['mobile 16px gutter',/width:calc\(100% - 32px\)!important/]
+])if(!pattern.test(qaSource))errors.push(`qa-final.css: missing ${label}`);
 
 for(const file of pages){
   const full=path.join(root,file);
