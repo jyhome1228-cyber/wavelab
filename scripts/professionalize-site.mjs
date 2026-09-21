@@ -11,6 +11,7 @@ const pages=[
 
 const companyCss='company-polish.css?v=20260921-5';
 const interactionCss='enterprise-interaction.css?v=20260921-4';
+const qaCss='qa-final.css?v=20260921-1';
 const errors=[];
 
 if(!fs.existsSync(path.join(root,'company-polish.css')))errors.push('company-polish.css is missing');
@@ -34,9 +35,11 @@ for(const file of pages){
 
   html=html.replace(/<link[^>]+id=["']aesost-company-polish-css["'][^>]*>\s*/i,'');
   html=html.replace(/<link[^>]+id=["']aesost-enterprise-interaction-css["'][^>]*>\s*/i,'');
+  html=html.replace(/<link[^>]+id=["']aesost-qa-final-css["'][^>]*>\s*/i,'');
   const tags=[
     `  <link id="aesost-company-polish-css" rel="stylesheet" href="${companyCss}">`,
-    `  <link id="aesost-enterprise-interaction-css" rel="stylesheet" href="${interactionCss}">`
+    `  <link id="aesost-enterprise-interaction-css" rel="stylesheet" href="${interactionCss}">`,
+    `  <link id="aesost-qa-final-css" rel="stylesheet" href="${qaCss}">`
   ].join('\n');
   html=html.replace(/<\/head>/i,`${tags}\n</head>`);
   fs.writeFileSync(full,html);
@@ -83,7 +86,9 @@ for(const file of pages){
   const html=fs.readFileSync(full,'utf8');
   if(!html.includes('aesost-company-polish-css'))errors.push(`${file}: professional polish stylesheet missing`);
   if(!html.includes('aesost-enterprise-interaction-css'))errors.push(`${file}: enterprise interaction stylesheet missing`);
+  if(!html.includes('aesost-qa-final-css'))errors.push(`${file}: final QA stylesheet missing`);
   if(html.indexOf('aesost-enterprise-interaction-css')<html.indexOf('aesost-company-polish-css'))errors.push(`${file}: interaction polish must load after company polish`);
+  if(html.indexOf('aesost-qa-final-css')<html.indexOf('aesost-enterprise-interaction-css'))errors.push(`${file}: final QA stylesheet must load last`);
 }
 
 const technology=fs.readFileSync(path.join(root,'technology.html'),'utf8');
