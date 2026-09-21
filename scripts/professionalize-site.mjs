@@ -77,6 +77,10 @@ for(const file of pages){
   }else{
     html=html.replace(/<\/head>/i,`${techTag}\n</head>`);
   }
+
+  // Technology page gets its page-specific CSS before the final QA layer.
+  html=html.replace(/<link[^>]+id=["']aesost-qa-final-css["'][^>]*>\s*/i,'');
+  html=html.replace(/<\/head>/i,`  <link id="aesost-qa-final-css" rel="stylesheet" href="${qaCss}">\n</head>`);
   fs.writeFileSync(file,html);
 }
 
