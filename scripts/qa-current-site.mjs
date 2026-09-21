@@ -45,6 +45,7 @@ for(const file of lightPaintPages){
 
   if(file==='404.html'){
     html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>Page Not Found | AESOST TECHNOLOGY</title>');
+    html=html.replaceAll('AESOST 홈이나 구축 사례에서 다시 시작해 주세요.','AESOST TECHNOLOGY 홈이나 구축 사례에서 다시 시작해 주세요.');
     html=ensureHeadTag(html,'aesost-404-light','<style id="aesost-404-light">.not-found p{color:#6f737b!important}.not-found{background:#fff!important}.not-found .btn.secondary{background:#fff!important;color:#17181c!important;border-color:#d4d7dd!important}</style>');
   }
   fs.writeFileSync(full,html);
