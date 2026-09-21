@@ -3,9 +3,9 @@
    Pretendard typography, controlled radii, and product-oriented interaction density. */
 
 :root{
-  --container:1280px;
-  --purple:#7052de!important;
-  --purple-strong:#5f43c8!important;
+  --container:1380px;
+  --purple:#6f58ff!important;
+  --purple-strong:#5f47f5!important;
   --text:#15171b!important;
   --text-2:#585e67!important;
   --muted:#858b95!important;
@@ -13,8 +13,8 @@
   --line-strong:#cfd4da!important;
 
   --fs-display:clamp(40px,3.6vw,48px)!important;
-  --fs-h1:clamp(32px,3vw,40px)!important;
-  --fs-h2:clamp(24px,2.35vw,32px)!important;
+  --fs-h1:clamp(38px,4vw,54px)!important;
+  --fs-h2:clamp(28px,2.6vw,38px)!important;
   --fs-h3:clamp(18px,1.7vw,24px)!important;
   --fs-body-lg:16px!important;
   --fs-body:15px!important;
@@ -25,7 +25,7 @@
   --section-xl:96px!important;
   --section-lg:80px!important;
   --section-md:64px!important;
-  --header-height:72px!important;
+  --header-height:100px!important;
 
   --ui-radius-control:8px!important;
   --ui-radius-card:12px!important;
@@ -35,18 +35,18 @@
 
 html,body{background:#fff!important;color:#15171b!important}
 body{font-size:15px!important;line-height:1.6!important;letter-spacing:-.018em!important}
-.shell{width:min(calc(100% - 64px),var(--container))!important;margin-inline:auto!important}
+.shell{width:min(calc(100% - 96px),var(--container))!important;margin-inline:auto!important}
 
 /* Header */
 .dev-header{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e6e8ec!important;box-shadow:none!important;backdrop-filter:blur(14px)!important}
-.dev-header-inner{height:72px!important;gap:24px!important}
-.dev-brand{width:112px!important}
-.dev-nav{gap:24px!important}
-.dev-nav>a{height:72px!important;color:#626770!important;font-size:12px!important;font-weight:600!important;letter-spacing:.04em!important}
+.dev-header-inner{height:100px!important;gap:32px!important}
+.dev-brand{width:238px!important;flex:0 0 238px!important}
+.dev-nav{gap:26px!important}
+.dev-nav>a{height:100px!important;color:#626770!important;font-size:12px!important;font-weight:600!important;letter-spacing:.04em!important}
 .dev-nav>a:hover,.dev-nav>a.is-active,.dev-nav>a[aria-current="page"]{color:#15171b!important}
-.dev-nav>a:after{height:2px!important;background:#7052de!important}
+.dev-nav>a:after{height:2px!important;background:#6f58ff!important}
 .dev-contact{min-height:40px!important;padding:0 16px!important;border-color:#d6d9de!important;border-radius:8px!important;background:#fff!important;color:#25282e!important;font-size:13px!important;font-weight:600!important;letter-spacing:.02em!important}
-.dev-contact:hover{border-color:#7052de!important;background:#7052de!important;color:#fff!important}
+.dev-contact:hover{border-color:#6f58ff!important;background:#7052de!important;color:#fff!important}
 
 /* Typography */
 .eyebrow,.kicker{font-size:11px!important;font-weight:700!important;line-height:1.4!important;letter-spacing:.1em!important;color:#858b95!important}
@@ -58,7 +58,7 @@ h2,h3{font-weight:650!important}
 p{word-break:keep-all}
 
 /* Reading widths + grid */
-.page-hero-grid,.section-head{max-width:1040px!important}
+.page-hero-grid,.section-head{max-width:none!important;width:100%!important}
 .page-hero-grid{grid-template-columns:160px minmax(0,1fr)!important;gap:48px!important}
 .section-head{grid-template-columns:160px minmax(0,1fr)!important;gap:48px!important;margin-bottom:40px!important}
 .section-head .section-copy{max-width:760px!important}
@@ -66,7 +66,7 @@ p{word-break:keep-all}
 .solution-detail-copy .lead,.solution-intro-copy>p,.request-intro>p:last-child{max-width:680px!important}
 
 /* Rhythm */
-.page-hero{padding:80px 0!important;border-bottom:1px solid #e6e8ec!important}
+.page-hero{padding:96px 0 80px!important;border-bottom:1px solid #e6e8ec!important}
 .section{padding:88px 0!important;border-bottom:1px solid #e6e8ec!important}
 .section.soft{background:#f7f8fa!important}
 .hero-actions{gap:8px!important;margin-top:24px!important}
@@ -232,4 +232,78 @@ p{word-break:keep-all}
   .cta-section{padding:64px 0!important}
   .cta-grid h2{font-size:28px!important}
   .cta-section .btn{min-height:48px!important;font-size:16px!important}
+}
+
+/* AESOST TECHNOLOGY rail fixes */
+.services-page .solution-stack,
+.services-page .process-compact,
+.solutions-index-page .solution-index-grid,
+.solutions-index-page .solution-custom-grid,
+.works-page #concept-systems .project-grid,
+.technology-page .tech-capability-grid,
+.technology-page .engineering-scope,
+.technology-page .implementation-grid,
+.technology-page .stack-table,
+.technology-page .principle-grid{
+  width:calc(100% - 208px)!important;
+  margin-left:208px!important;
+  margin-right:0!important;
+}
+.services-page .solution-row,
+.services-page .solution-row.reverse{
+  grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr)!important;
+  gap:clamp(42px,5vw,72px)!important;
+  align-items:center!important;
+}
+.services-page .solution-row.reverse .solution-visual{order:2!important}
+.services-page .solution-row.reverse .solution-copy{order:1!important}
+.services-page .solution-copy{max-width:520px!important}
+.aesost-footer-logo img{width:190px!important;height:auto!important}
+@media(max-width:1279px){
+  .shell{width:min(calc(100% - 56px),1180px)!important}
+  .dev-brand{width:210px!important;flex-basis:210px!important}
+  .page-hero-grid,.section-head{grid-template-columns:144px minmax(0,1fr)!important;gap:40px!important}
+  .services-page .solution-stack,
+  .services-page .process-compact,
+  .solutions-index-page .solution-index-grid,
+  .solutions-index-page .solution-custom-grid,
+  .works-page #concept-systems .project-grid,
+  .technology-page .tech-capability-grid,
+  .technology-page .engineering-scope,
+  .technology-page .implementation-grid,
+  .technology-page .stack-table,
+  .technology-page .principle-grid{
+    width:calc(100% - 184px)!important;
+    margin-left:184px!important;
+  }
+}
+@media(max-width:960px){
+  .dev-nav,.dev-contact{display:none!important}
+  .dev-menu{display:block!important}
+  .dev-brand{width:198px!important;flex-basis:198px!important}
+}
+@media(max-width:767px){
+  :root{--header-height:78px!important}
+  .shell{width:calc(100% - 32px)!important}
+  .dev-header-inner{height:78px!important}
+  .dev-brand{width:176px!important;flex-basis:176px!important}
+  .page-hero-grid,.section-head{grid-template-columns:1fr!important;gap:16px!important}
+  .services-page .solution-stack,
+  .services-page .process-compact,
+  .solutions-index-page .solution-index-grid,
+  .solutions-index-page .solution-custom-grid,
+  .works-page #concept-systems .project-grid,
+  .technology-page .tech-capability-grid,
+  .technology-page .engineering-scope,
+  .technology-page .implementation-grid,
+  .technology-page .stack-table,
+  .technology-page .principle-grid{
+    width:100%!important;
+    margin-left:0!important;
+  }
+  .services-page .solution-row,
+  .services-page .solution-row.reverse{grid-template-columns:1fr!important;gap:28px!important}
+  .services-page .solution-row.reverse .solution-visual,
+  .services-page .solution-row.reverse .solution-copy{order:initial!important}
+  .aesost-footer-logo img{width:176px!important}
 }
