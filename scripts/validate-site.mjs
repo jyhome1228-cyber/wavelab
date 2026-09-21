@@ -49,6 +49,7 @@ const fitPages=['solution-solodesk.html','solution-b2b-inquiry.html','solution-c
 
 const qaFinal=fs.readFileSync(path.join(root,'qa-final.css'),'utf8');
 if(!qaFinal.includes('.dev-brand')||!qaFinal.includes('.page-hero-grid.shell')||!qaFinal.includes('.services-page .solution-stack'))errors.push('qa-final.css: final brand/layout QA contract is incomplete');
+for(const [label,pattern] of [['1040 content container',/--ds-content:1040px/],['1280 wide container',/--ds-wide:1280px/],['40px page title',/font-size:40px!important/],['28px section title',/font-size:28px!important/]])if(!pattern.test(qaFinal))errors.push(`qa-final.css: missing ${label}`);
 const alignment=fs.readFileSync(path.join(root,'alignment-system.css'),'utf8');if(!alignment.includes('.shell.solution-intro-grid'))errors.push('alignment-system.css: solution detail intro grid must preserve shared shell width');if(/\.section-head,\s*\.solution-intro-grid[\s\S]{0,220}width:100%!important/.test(alignment))errors.push('alignment-system.css: solution intro grid must not be expanded to viewport width');
 const solutionsIndex=fs.readFileSync(path.join(root,'system-solutions.html'),'utf8');if(!solutionsIndex.includes('solutions-index.css'))errors.push('system-solutions.html: missing solutions index stylesheet');
 const projectRoom=fs.readFileSync(path.join(root,'solution-project-room.html'),'utf8');if(!projectRoom.includes('project-room.css'))errors.push('solution-project-room.html: missing Project Room refinement stylesheet');
