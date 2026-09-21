@@ -1079,3 +1079,113 @@ img{max-width:100%;height:auto}
   .request-intro>p:last-child{font-size:16px!important}
   .cta-section{padding:72px 0!important}
 }
+
+
+/* Compact title scale + alignment correction / 2026-09-21 */
+:root{
+  --fs-display:clamp(30px,2.35vw,36px)!important;
+  --fs-h1:clamp(29px,2.15vw,34px)!important;
+  --fs-h2:clamp(24px,1.8vw,30px)!important;
+  --fs-h3:clamp(20px,1.4vw,25px)!important;
+}
+
+/* Slightly firmer, but never heavy. */
+.display,
+.home-simple .display,
+.page-title,
+.request-intro h1,
+.technology-page .technology-hero-copy .page-title,
+.solution-detail-page .solution-detail-copy .page-title{
+  font-weight:540!important;
+}
+.section-title,
+.cta-grid h2,
+.solution-intro-copy h2,
+.solution-demo-entry h2,
+.service-detail h2{
+  font-weight:540!important;
+}
+
+/* Split-layout heroes must use one alignment consistently. */
+.technology-hero-copy,
+.solution-detail-copy,
+.hero-copy{
+  text-align:left!important;
+}
+.technology-hero-copy .eyebrow,
+.solution-detail-copy .eyebrow,
+.hero-copy .eyebrow{
+  text-align:left!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+.technology-hero-copy .page-title,
+.solution-detail-copy .page-title,
+.hero-copy .display{
+  text-align:left!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+.technology-page .technology-hero-copy .lead,
+.solution-detail-page .solution-detail-copy .lead,
+.hero-copy .hero-description{
+  text-align:left!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+/* Technology hero specifically stays editorial-left because it is paired with the system map. */
+.technology-page .technology-hero-copy{
+  max-width:600px!important;
+}
+.technology-page .technology-hero-copy .page-title{
+  max-width:580px!important;
+  font-size:var(--fs-h1)!important;
+  line-height:1.22!important;
+}
+.technology-page .technology-hero-copy .lead{
+  max-width:580px!important;
+  margin-top:24px!important;
+  font-size:16px!important;
+  line-height:1.72!important;
+}
+.technology-page .technology-hero-tags{
+  justify-content:flex-start!important;
+}
+
+/* Centered page intros stay fully centered — title and body together. */
+.page-hero-grid,
+.page-hero-grid>div,
+.page-hero-grid>.eyebrow,
+.page-hero-grid .page-title,
+.page-hero-grid .lead,
+.section-head,
+.section-head>.eyebrow,
+.section-head>.section-copy,
+.section-head .section-title,
+.section-head .section-copy>p,
+.request-intro,
+.request-intro .eyebrow,
+.request-intro h1,
+.request-intro>p:last-child{
+  text-align:center!important;
+}
+
+/* Keep paragraph width restrained so smaller titles still feel intentional. */
+.page-hero-grid .lead,
+.section-head .section-copy>p,
+.request-intro>p:last-child{
+  max-width:680px!important;
+}
+
+@media(max-width:760px){
+  :root{
+    --fs-display:clamp(29px,8vw,34px)!important;
+    --fs-h1:clamp(28px,7.5vw,33px)!important;
+    --fs-h2:clamp(23px,6.6vw,28px)!important;
+    --fs-h3:clamp(20px,5.8vw,24px)!important;
+  }
+  .technology-page .technology-hero-copy .lead{
+    font-size:16px!important;
+  }
+}
