@@ -157,7 +157,7 @@ a.dev-dropdown-item:hover{padding-left:10px;background:#151518}
   body{font-size:16px}
   .shell,.dev-header-inner{width:calc(100% - 32px)}
   .dev-header-inner{height:78px}
-  .dev-brand{width:116px}
+  .dev-brand{width:132px}
   .section{padding:78px 0}
   .section-head{grid-template-columns:1fr;gap:18px;margin-bottom:38px}
   .section-head .section-copy p{margin-top:18px;font-size:16px}
