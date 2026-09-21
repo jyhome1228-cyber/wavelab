@@ -1448,3 +1448,379 @@ img{max-width:100%;height:auto}
   .hero,.home-simple .hero{padding:72px 0 68px!important}
   .page-hero,.solutions-index-page .solution-index-hero{padding:64px 0 60px!important}
 }
+
+/* Manyfast-inspired global rhythm / 2026-09-21 */
+:root{
+  --container:1240px!important;
+  --fs-display:clamp(38px,3.4vw,50px)!important;
+  --fs-h1:clamp(32px,2.8vw,42px)!important;
+  --fs-h2:clamp(27px,2.2vw,34px)!important;
+  --fs-h3:clamp(20px,1.5vw,24px)!important;
+  --fs-body-lg:17px!important;
+  --fs-body:16px!important;
+  --fs-body-sm:15px!important;
+  --fs-label:12px!important;
+  --fs-meta:11px!important;
+  --section-xl:120px!important;
+  --section-lg:96px!important;
+  --section-md:72px!important;
+  --header-height:72px!important;
+}
+
+body{
+  font-size:16px!important;
+  line-height:1.72!important;
+  letter-spacing:-.02em!important;
+}
+
+.shell,
+.page-hero-grid.shell,
+.request-wrap,
+.dev-header .shell,
+.home-simple .hero-grid,
+.solutions-index-page .solution-index-section>.shell,
+.solutions-index-page .solution-index-custom>.shell,
+.works-page .section.soft>.shell,
+.works-page #concept-systems>.shell,
+.technology-page .technology-hero-grid,
+.shell.solution-intro-grid{
+  width:min(calc(100% - 48px),var(--container))!important;
+  max-width:var(--container)!important;
+  margin-inline:auto!important;
+}
+
+/* compact shared header */
+.dev-header{
+  min-height:var(--header-height)!important;
+}
+.dev-header-inner{
+  height:var(--header-height)!important;
+  gap:28px!important;
+}
+.dev-nav>a{
+  height:var(--header-height)!important;
+  font-size:13px!important;
+  font-weight:550!important;
+  letter-spacing:.035em!important;
+}
+.dev-nav{gap:28px!important}
+.dev-brand{
+  width:120px!important;
+  min-width:120px!important;
+  max-width:120px!important;
+  flex-basis:120px!important;
+}
+.dev-contact{
+  min-height:38px!important;
+  padding:0 15px!important;
+  font-size:12px!important;
+}
+
+/* restrained, slightly stronger type hierarchy */
+.display,
+.home-simple .display{
+  max-width:720px!important;
+  font-size:var(--fs-display)!important;
+  font-weight:620!important;
+  line-height:1.12!important;
+  letter-spacing:-.045em!important;
+}
+.page-title,
+.request-intro h1,
+.technology-page .technology-hero-copy .page-title,
+.solution-detail-page .solution-detail-copy .page-title{
+  max-width:760px!important;
+  font-size:var(--fs-h1)!important;
+  font-weight:640!important;
+  line-height:1.2!important;
+  letter-spacing:-.038em!important;
+}
+.section-title,
+.cta-grid h2,
+.solution-intro-copy h2,
+.solution-demo-entry h2,
+.service-detail h2,
+.home-hook-inner h2{
+  max-width:780px!important;
+  font-size:var(--fs-h2)!important;
+  font-weight:650!important;
+  line-height:1.32!important;
+  letter-spacing:-.033em!important;
+}
+.solution-copy h3,
+.primary-service h3,
+.process-step h3,
+.capability h3,
+.process-compact h3,
+.work-row h3,
+.case-body h2,
+.case-card h2,
+.project-info h3,
+.solution-index-card h3,
+.solution-catalog-card h3,
+.request-section-head h2,
+.solution-problems h3,
+.solution-flow h3,
+.solution-feature-caption h3,
+.about-principle h3,
+.definition-card h3,
+.technology-page .engineering-title h3{
+  font-size:var(--fs-h3)!important;
+  font-weight:620!important;
+  line-height:1.4!important;
+  letter-spacing:-.028em!important;
+}
+.lead,
+.page-hero .lead,
+.hero-description,
+.request-intro>p:last-child{
+  max-width:720px!important;
+  font-size:var(--fs-body-lg)!important;
+  line-height:1.72!important;
+}
+.section-copy p,
+.solution-copy p,
+.primary-service p,
+.service-detail .desc,
+.solution-intro-copy>p,
+.solution-demo-entry p,
+.cta-grid p{
+  max-width:720px!important;
+  font-size:var(--fs-body)!important;
+  line-height:1.72!important;
+}
+.eyebrow,
+.kicker,
+.primary-service .num,
+.process-step>span,
+.capability>span,
+.about-principle>span,
+.definition-card>span,
+.service-detail .service-no,
+.process-compact>article>span{
+  font-size:var(--fs-label)!important;
+  font-weight:650!important;
+  letter-spacing:.095em!important;
+}
+
+/* Manyfast-like section rhythm: one clear message per section */
+.section{
+  padding:var(--section-xl) 0!important;
+}
+.page-hero{
+  padding:96px 0 88px!important;
+}
+.hero,
+.home-simple .hero{
+  min-height:auto!important;
+  padding:108px 0 102px!important;
+}
+.section-head{
+  width:min(100%,900px)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  gap:14px!important;
+  margin:0 auto 60px!important;
+  text-align:center!important;
+}
+.section-head>.eyebrow{
+  text-align:center!important;
+}
+.section-head>.section-copy{
+  width:100%!important;
+  max-width:820px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+}
+.section-head .section-title{
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.section-head .section-copy p{
+  max-width:700px!important;
+  margin:20px auto 0!important;
+  text-align:center!important;
+}
+
+/* standard inner-page hero uses one centered reading axis */
+.page-hero-grid{
+  width:min(calc(100% - 48px),var(--container))!important;
+  max-width:900px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  gap:16px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.page-hero-grid>.eyebrow{margin-inline:auto!important;text-align:center!important}
+.page-hero-grid .page-title{margin-inline:auto!important;text-align:center!important}
+.page-hero-grid .lead{margin:22px auto 0!important;text-align:center!important}
+
+/* visual + copy rows intentionally stay left-aligned */
+.solution-row .solution-copy,
+.services-page .solution-row .solution-copy,
+.technology-page .technology-hero-copy,
+.solution-detail-page .solution-detail-copy{
+  text-align:left!important;
+}
+.solution-stack{gap:96px!important}
+
+/* homepage rhythm */
+.home-simple .home-core,
+.home-simple .home-demo-section,
+.home-simple .home-hook{
+  padding:112px 0!important;
+}
+.home-simple .home-core .section-head{margin-bottom:48px!important}
+.home-simple .home-core .section-copy p{margin:18px auto 0!important;text-align:center!important}
+.home-simple .home-demo-head{
+  max-width:900px!important;
+  margin:0 auto 48px!important;
+}
+.home-simple .home-demo-head>div{max-width:760px!important}
+.home-simple .home-demo-head h2{
+  font-size:var(--fs-h2)!important;
+  font-weight:650!important;
+  line-height:1.32!important;
+}
+.home-simple .home-hook-inner{gap:34px!important}
+
+/* card/grid spacing stays quiet and consistent */
+.process-compact,
+.capability-grid,
+.process-grid,
+.definition-grid,
+.solution-problems,
+.solution-flow{
+  gap:16px!important;
+}
+.home-simple .home-core-grid,
+.home-simple .home-demo-grid{
+  gap:18px!important;
+}
+.process-compact article,
+.capability,
+.process-step,
+.about-principle,
+.definition-card,
+.solution-problems article,
+.solution-flow article{
+  padding:28px!important;
+}
+
+/* CTA as a single concluding message */
+.cta-section{padding:96px 0!important}
+.cta-grid{
+  grid-template-columns:1fr!important;
+  justify-items:center!important;
+  gap:28px!important;
+  text-align:center!important;
+}
+.cta-grid h2{margin:18px auto 0!important;text-align:center!important}
+.cta-grid p{margin:20px auto 0!important;text-align:center!important}
+.cta-grid .eyebrow{text-align:center!important}
+.cta-grid .btn{justify-self:center!important}
+
+/* text blocks should not drift onto a different alignment axis */
+.home-hook-inner>div,
+.solution-demo-entry>div:first-child{
+  max-width:820px!important;
+}
+.home-hook-inner>div>p,
+.solution-demo-entry p{
+  max-width:700px!important;
+}
+
+@media(max-width:900px){
+  :root{
+    --section-xl:92px!important;
+    --section-lg:80px!important;
+    --section-md:64px!important;
+  }
+  .shell,
+  .page-hero-grid.shell,
+  .request-wrap,
+  .dev-header .shell,
+  .home-simple .hero-grid,
+  .solutions-index-page .solution-index-section>.shell,
+  .solutions-index-page .solution-index-custom>.shell,
+  .works-page .section.soft>.shell,
+  .works-page #concept-systems>.shell,
+  .technology-page .technology-hero-grid,
+  .shell.solution-intro-grid{
+    width:min(calc(100% - 40px),var(--container))!important;
+  }
+  .section-head{margin-bottom:48px!important}
+  .solution-stack{gap:72px!important}
+}
+
+@media(max-width:760px){
+  :root{
+    --header-height:66px!important;
+    --fs-display:clamp(32px,9vw,38px)!important;
+    --fs-h1:clamp(29px,8vw,34px)!important;
+    --fs-h2:clamp(25px,7vw,30px)!important;
+    --fs-h3:20px!important;
+    --section-xl:72px!important;
+    --section-lg:68px!important;
+    --section-md:56px!important;
+  }
+  body{font-size:16px!important}
+  .shell,
+  .page-hero-grid.shell,
+  .request-wrap,
+  .dev-header .shell,
+  .home-simple .hero-grid,
+  .solutions-index-page .solution-index-section>.shell,
+  .solutions-index-page .solution-index-custom>.shell,
+  .works-page .section.soft>.shell,
+  .works-page #concept-systems>.shell,
+  .technology-page .technology-hero-grid,
+  .shell.solution-intro-grid{
+    width:calc(100% - 32px)!important;
+  }
+  .dev-header{min-height:var(--header-height)!important}
+  .dev-header-inner{height:var(--header-height)!important}
+  .dev-brand{
+    width:108px!important;
+    min-width:108px!important;
+    max-width:108px!important;
+    flex-basis:108px!important;
+  }
+  .hero,
+  .home-simple .hero{
+    padding:68px 0 64px!important;
+  }
+  .page-hero,
+  .solutions-index-page .solution-index-hero{
+    padding:60px 0 56px!important;
+  }
+  .section{padding:var(--section-xl) 0!important}
+  .section-head{
+    width:100%!important;
+    gap:12px!important;
+    margin-bottom:38px!important;
+  }
+  .section-head .section-copy p{margin-top:16px!important}
+  .page-hero-grid{
+    width:calc(100% - 32px)!important;
+    max-width:none!important;
+  }
+  .home-simple .home-core,
+  .home-simple .home-demo-section,
+  .home-simple .home-hook{
+    padding:72px 0!important;
+  }
+  .home-simple .home-demo-head{margin-bottom:34px!important}
+  .cta-section{padding:72px 0!important}
+  .process-compact,
+  .capability-grid,
+  .process-grid,
+  .definition-grid,
+  .solution-problems,
+  .solution-flow{
+    gap:10px!important;
+  }
+}
