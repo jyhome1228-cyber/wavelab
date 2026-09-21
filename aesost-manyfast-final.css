@@ -1486,3 +1486,77 @@ a{text-decoration:none}
     padding:18px 0!important;
   }
 }
+
+
+/* Technology hard-centering correction / 2026-09-22 */
+/* Force every Technology section onto the viewport center axis.
+   This removes any surviving legacy left-rail or margin offsets. */
+.technology-page main > .section > .shell{
+  width:min(calc(100% - 48px),var(--mf-page))!important;
+  max-width:var(--mf-page)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+}
+
+.technology-page main > .section .section-head{
+  width:min(100%,860px)!important;
+  max-width:860px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  align-self:center!important;
+}
+
+.technology-page main > .section .tech-capability-grid,
+.technology-page main > .section .system-map,
+.technology-page main > .section .implementation-grid,
+.technology-page main > .section .stack-table,
+.technology-page main > .section .principle-grid{
+  width:min(100%,1080px)!important;
+  max-width:1080px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  align-self:center!important;
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  transform:none!important;
+}
+
+/* Keep all cards/tables internally aligned to the same left edge. */
+.technology-page .tech-capability-grid,
+.technology-page .implementation-grid,
+.technology-page .principle-grid{
+  justify-content:center!important;
+}
+.technology-page .stack-table{
+  box-sizing:border-box!important;
+}
+.technology-page .stack-table>div{
+  width:100%!important;
+  margin:0!important;
+}
+
+/* Tablet/mobile keep the same center axis. */
+@media(max-width:1024px){
+  .technology-page main > .section > .shell{
+    width:calc(100% - 40px)!important;
+  }
+  .technology-page main > .section .tech-capability-grid,
+  .technology-page main > .section .system-map,
+  .technology-page main > .section .implementation-grid,
+  .technology-page main > .section .stack-table,
+  .technology-page main > .section .principle-grid{
+    width:100%!important;
+    max-width:none!important;
+  }
+}
+@media(max-width:760px){
+  .technology-page main > .section > .shell{
+    width:calc(100% - 32px)!important;
+  }
+}
