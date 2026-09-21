@@ -19,7 +19,7 @@ ensureStylesheet('light-theme-polish.css?v=20260907-1','aesost-light-theme-polis
 ensureStylesheet('solution-custom-fit.css?v=20260907-1','aesost-solution-custom-fit-css');
 ensureStylesheet('brand-refresh.css?v=20260921-5','aesost-brand-refresh-css');
 ensureStylesheet('qa-final.css?v=20260921-5','aesost-qa-final-css');
-ensureStylesheet('sost-labs-system.css?v=20260921-1','aesost-sost-labs-css');
+ensureStylesheet('sost-labs-system.css?v=20260921-2','aesost-sost-labs-css');
 
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#ffffff');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#ffffff';document.head.appendChild(meta)}
