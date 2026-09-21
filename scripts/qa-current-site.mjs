@@ -15,7 +15,7 @@ const ensureHeadTag=(html,needle,tag)=>html.includes(needle)?html:html.replace(/
 const ensureBodyTag=(html,needle,tag)=>html.includes(needle)?html:html.replace(/<\/body>/i,`  ${tag}\n</body>`);
 
 const criticalStyle='<style id="aesost-critical-light">html,body{margin:0;background:#fff!important;color:#17181c!important;color-scheme:light}.dev-header{background:rgba(255,255,255,.96)!important}.dev-header:empty{min-height:100px}.hero,.page-hero,.section{background:#fff}@media(max-width:760px){.dev-header:empty{min-height:76px}}</style>';
-const responsiveHeaderStyle='<style id="aesost-header-responsive">@media(max-width:960px){.dev-nav,.dev-contact{display:none!important}.dev-menu{display:block!important}.dev-brand{width:198px!important;flex-basis:198px!important}.dev-mobile-nav{padding-inline:16px}}</style>';
+const responsiveHeaderStyle='<style id="aesost-header-responsive">@media(max-width:960px){.dev-nav,.dev-contact{display:none!important}.dev-menu{display:block!important}.dev-brand{width:124px!important;flex-basis:124px!important}.dev-mobile-nav{padding-inline:16px}}</style>';
 const sharedStyles=[
   ['aesost-operational-css','dev-operational.css?v=20260906-3'],
   ['aesost-universal-ui-css','universal-web-system.css?v=20260906-2'],
@@ -28,7 +28,7 @@ const sharedStyles=[
   ['aesost-light-theme-polish-css','light-theme-polish.css?v=20260911-3'],
   ['aesost-solution-custom-fit-css','solution-custom-fit.css?v=20260907-1'],
   ['aesost-brand-refresh-css','brand-refresh.css?v=20260921-4'],
-  ['aesost-qa-final-css','qa-final.css?v=20260921-2']
+  ['aesost-qa-final-css','qa-final.css?v=20260921-3']
 ];
 
 for(const file of lightPaintPages){
