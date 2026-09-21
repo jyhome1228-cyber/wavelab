@@ -646,3 +646,110 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .section-title{font-size:24px!important}
   .btn,.dev-contact,.request-submit button{width:auto!important}
 }
+
+
+/* AESOST 2026-09-21 — width + typography refinement */
+:root{
+  --ds-content:1280px;
+  --ds-wide:1280px;
+}
+
+/* Marketing content and header now share one 1280px rail. */
+.shell,
+.page-hero-grid.shell,
+.request-wrap,
+.dev-header .shell,
+.home-simple .hero-grid,
+.solutions-index-page .solution-index-section>.shell,
+.solutions-index-page .solution-index-custom>.shell,
+.works-page .section.soft>.shell,
+.works-page #concept-systems>.shell,
+.technology-page .technology-hero-grid{
+  width:min(calc(100% - 64px),var(--ds-wide))!important;
+  max-width:var(--ds-wide)!important;
+  margin-inline:auto!important;
+}
+
+/* Keep reading copy compact while the section geometry stays wide. */
+.page-hero-grid>div,
+.section-head>.section-copy{max-width:880px!important}
+.request-intro{max-width:860px!important}
+.request-intro>p:last-child{max-width:720px!important}
+
+/* Reduce oversized headings and make the hierarchy more consistent. */
+.display,
+.home-simple .display{
+  font-size:42px!important;
+  line-height:1.18!important;
+}
+.page-title,
+.request-intro h1,
+.technology-page .technology-hero-copy .page-title,
+.solution-detail-page .solution-detail-copy .page-title{
+  font-size:38px!important;
+  line-height:1.24!important;
+}
+.section-title{
+  font-size:27px!important;
+  line-height:1.34!important;
+}
+.solution-copy h3,
+.solution-intro-copy h2,
+.solution-demo-entry h2,
+.cta-grid h2{
+  font-size:26px!important;
+  line-height:1.34!important;
+}
+.request-section-head h2{font-size:22px!important}
+.case-body h2{font-size:22px!important}
+
+/* Slightly tighten long editorial sections. */
+.section{padding:72px 0!important}
+.page-hero{padding:60px 0!important}
+.request-page{padding:60px 0 76px!important}
+.request-section{padding:44px 0!important}
+
+@media(max-width:1279px){
+  .shell,
+  .page-hero-grid.shell,
+  .request-wrap,
+  .dev-header .shell,
+  .home-simple .hero-grid,
+  .solutions-index-page .solution-index-section>.shell,
+  .solutions-index-page .solution-index-custom>.shell,
+  .works-page .section.soft>.shell,
+  .works-page #concept-systems>.shell,
+  .technology-page .technology-hero-grid{
+    width:calc(100% - 48px)!important;
+    max-width:none!important;
+  }
+}
+
+@media(max-width:767px){
+  .shell,
+  .page-hero-grid.shell,
+  .request-wrap,
+  .dev-header .shell,
+  .home-simple .hero-grid,
+  .solutions-index-page .solution-index-section>.shell,
+  .solutions-index-page .solution-index-custom>.shell,
+  .works-page .section.soft>.shell,
+  .works-page #concept-systems>.shell,
+  .technology-page .technology-hero-grid{
+    width:calc(100% - 32px)!important;
+  }
+  .display,
+  .home-simple .display{font-size:34px!important}
+  .page-title,
+  .request-intro h1,
+  .technology-page .technology-hero-copy .page-title,
+  .solution-detail-page .solution-detail-copy .page-title{font-size:30px!important}
+  .section-title{font-size:23px!important}
+  .solution-copy h3,
+  .solution-intro-copy h2,
+  .solution-demo-entry h2,
+  .cta-grid h2{font-size:23px!important}
+  .section{padding:52px 0!important}
+  .page-hero{padding:44px 0!important}
+  .request-page{padding:48px 0 64px!important}
+}
