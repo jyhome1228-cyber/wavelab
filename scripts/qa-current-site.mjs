@@ -14,8 +14,8 @@ const replaceOrInsert=(html,regex,tag,anchor=/<\/head>/i)=>regex.test(html)?html
 const ensureHeadTag=(html,needle,tag)=>html.includes(needle)?html:html.replace(/<\/head>/i,`  ${tag}\n</head>`);
 const ensureBodyTag=(html,needle,tag)=>html.includes(needle)?html:html.replace(/<\/body>/i,`  ${tag}\n</body>`);
 
-const criticalStyle='<style id="aesost-critical-light">html,body{margin:0;background:#fff!important;color:#17181c!important;color-scheme:light}.dev-header{background:rgba(255,255,255,.96)!important}.dev-header:empty{min-height:104px}.hero,.page-hero,.section{background:#fff}@media(max-width:760px){.dev-header:empty{min-height:76px}}</style>';
-const responsiveHeaderStyle='<style id="aesost-header-responsive">@media(max-width:960px){.dev-nav,.dev-contact{display:none!important}.dev-menu{display:block!important}.dev-brand{width:116px}.dev-mobile-nav{padding-inline:16px}}</style>';
+const criticalStyle='<style id="aesost-critical-light">html,body{margin:0;background:#fff!important;color:#17181c!important;color-scheme:light}.dev-header{background:rgba(255,255,255,.96)!important}.dev-header:empty{min-height:100px}.hero,.page-hero,.section{background:#fff}@media(max-width:760px){.dev-header:empty{min-height:76px}}</style>';
+const responsiveHeaderStyle='<style id="aesost-header-responsive">@media(max-width:960px){.dev-nav,.dev-contact{display:none!important}.dev-menu{display:block!important}.dev-brand{width:198px!important;flex-basis:198px!important}.dev-mobile-nav{padding-inline:16px}}</style>';
 const sharedStyles=[
   ['aesost-operational-css','dev-operational.css?v=20260906-3'],
   ['aesost-universal-ui-css','universal-web-system.css?v=20260906-2'],
@@ -26,7 +26,8 @@ const sharedStyles=[
   ['aesost-alignment-system-css','alignment-system.css?v=20260907-2'],
   ['aesost-light-theme-css','light-theme.css?v=20260911-3'],
   ['aesost-light-theme-polish-css','light-theme-polish.css?v=20260911-3'],
-  ['aesost-solution-custom-fit-css','solution-custom-fit.css?v=20260907-1']
+  ['aesost-solution-custom-fit-css','solution-custom-fit.css?v=20260907-1'],
+  ['aesost-brand-refresh-css','brand-refresh.css?v=20260921-4']
 ];
 
 for(const file of lightPaintPages){
@@ -39,7 +40,7 @@ for(const file of lightPaintPages){
   html=ensureHeadTag(html,'aesost-critical-light',criticalStyle);
   html=ensureHeadTag(html,'aesost-header-responsive',responsiveHeaderStyle);
   for(const [id,href] of sharedStyles)html=ensureHeadTag(html,`id="${id}"`,`<link id="${id}" rel="stylesheet" href="${href}">`);
-  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260911-5');
+  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260921-5');
 
   if(file==='404.html'){
     html=ensureHeadTag(html,'aesost-404-light','<style id="aesost-404-light">.not-found p{color:#6f737b!important}.not-found{background:#fff!important}.not-found .btn.secondary{background:#fff!important;color:#17181c!important;border-color:#d4d7dd!important}</style>');
@@ -52,11 +53,11 @@ for(const file of lightPaintPages){
   const file='technology.html';
   const full=path.join(root,file);
   let html=fs.readFileSync(full,'utf8');
-  const title='기술 역량 | 웹·시스템 아키텍처·자동화 | AESOST';
-  const description='AESOST의 웹 애플리케이션, 업무 시스템, 데이터베이스, API 연동, 자동화, 클라우드 배포 기술 역량과 시스템 아키텍처를 소개합니다.';
+  const title='기술 역량 | 웹·시스템 아키텍처·자동화 | AESOST TECHNOLOGY';
+  const description='AESOST TECHNOLOGY의 웹 애플리케이션, 업무 시스템, 데이터베이스, API 연동, 자동화, 클라우드 배포 기술 역량과 시스템 아키텍처를 소개합니다.';
   const canonical='https://aesost.com/technology.html';
   const ogImage='https://aesost.com/assets/dev/hero-system.svg';
-  const keywords='AESOST, 에이소스트, 웹개발, 시스템 개발, 웹 애플리케이션, 시스템 아키텍처, API 연동, 업무 자동화, 데이터베이스, 클라우드 배포';
+  const keywords='AESOST TECHNOLOGY, 에이소스트 테크놀로지, 웹개발, 시스템 개발, 웹 애플리케이션, 시스템 아키텍처, API 연동, 업무 자동화, 데이터베이스, 클라우드 배포';
 
   html=html.replace(/<title>[\s\S]*?<\/title>/i,`<title>${title}</title>`);
   html=replaceOrInsert(html,/<meta\s+name=["']description["'][^>]*>/i,`<meta name="description" content="${description}">`);
@@ -64,7 +65,7 @@ for(const file of lightPaintPages){
   html=replaceOrInsert(html,/<meta\s+name=["']robots["'][^>]*>/i,'<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">');
   html=replaceOrInsert(html,/<link\s+rel=["']canonical["'][^>]*>/i,`<link rel="canonical" href="${canonical}">`);
   html=ensureHeadTag(html,'property="og:type"','<meta property="og:type" content="website">');
-  html=ensureHeadTag(html,'property="og:site_name"','<meta property="og:site_name" content="AESOST">');
+  html=ensureHeadTag(html,'property="og:site_name"','<meta property="og:site_name" content="AESOST TECHNOLOGY">');
   html=ensureHeadTag(html,'property="og:locale"','<meta property="og:locale" content="ko_KR">');
   html=replaceOrInsert(html,/<meta\s+property=["']og:title["'][^>]*>/i,`<meta property="og:title" content="${title}">`);
   html=replaceOrInsert(html,/<meta\s+property=["']og:description["'][^>]*>/i,`<meta property="og:description" content="${description}">`);
@@ -77,7 +78,7 @@ for(const file of lightPaintPages){
 
   const schema={
     '@context':'https://schema.org','@type':'WebPage',name:title,url:canonical,description,inLanguage:'ko-KR',
-    isPartOf:{'@type':'WebSite',name:'AESOST',url:'https://aesost.com'}
+    isPartOf:{'@type':'WebSite',name:'AESOST TECHNOLOGY',url:'https://aesost.com'}
   };
   const schemaTag=`<script id="aesost-seo-schema" type="application/ld+json">${JSON.stringify(schema)}</script>`;
   if(/<script[^>]+id=["']aesost-seo-schema["'][^>]*>[\s\S]*?<\/script>/i.test(html))html=html.replace(/<script[^>]+id=["']aesost-seo-schema["'][^>]*>[\s\S]*?<\/script>/i,schemaTag);
