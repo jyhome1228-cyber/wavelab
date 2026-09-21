@@ -3,7 +3,7 @@ const isDemoPath=location.pathname.includes('/demo/');
 const isActive=(url)=>current===url;
 const solutionPages=['system-solutions.html','solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html','solution-project-room.html','solution-quote-flow.html'];
 const solutionsActive=solutionPages.includes(current)||isDemoPath;
-const logo='<img src="aesost-logo-dark.svg?v=20260921-2" alt="AESOST TECHNOLOGY">';
+const logo='<img src="aesost-logo-dark.svg?v=20260921-3" alt="AESOST TECHNOLOGY">';
 const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
 function ensureStylesheet(href,id){if(document.getElementById(id))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.id=id;document.head.appendChild(link)}
 function ensureScript(src,id){if(document.getElementById(id))return;const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script)}
@@ -17,7 +17,7 @@ ensureStylesheet('alignment-system.css?v=20260907-2','aesost-alignment-system-cs
 ensureStylesheet('light-theme.css?v=20260907-1','aesost-light-theme-css');
 ensureStylesheet('light-theme-polish.css?v=20260907-1','aesost-light-theme-polish-css');
 ensureStylesheet('solution-custom-fit.css?v=20260907-1','aesost-solution-custom-fit-css');
-ensureStylesheet('brand-refresh.css?v=20260921-1','aesost-brand-refresh-css');
+ensureStylesheet('brand-refresh.css?v=20260921-2','aesost-brand-refresh-css');
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#ffffff');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#ffffff';document.head.appendChild(meta)}
 
