@@ -28,7 +28,7 @@ const sharedStyles=[
   ['aesost-light-theme-polish-css','light-theme-polish.css?v=20260911-3'],
   ['aesost-solution-custom-fit-css','solution-custom-fit.css?v=20260907-1'],
   ['aesost-brand-refresh-css','brand-refresh.css?v=20260921-4'],
-  ['aesost-qa-final-css','qa-final.css?v=20260921-3']
+  ['aesost-qa-final-css','qa-final.css?v=20260921-4']
 ];
 
 for(const file of lightPaintPages){
@@ -41,7 +41,7 @@ for(const file of lightPaintPages){
   html=ensureHeadTag(html,'aesost-critical-light',criticalStyle);
   html=ensureHeadTag(html,'aesost-header-responsive',responsiveHeaderStyle);
   for(const [id,href] of sharedStyles)html=ensureHeadTag(html,`id="${id}"`,`<link id="${id}" rel="stylesheet" href="${href}">`);
-  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260921-6');
+  html=html.replace(/dev-shell\.js\?v=[^'"\s<]+/g,'dev-shell.js?v=20260921-7');
 
   if(file==='404.html'){
     html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>Page Not Found | AESOST TECHNOLOGY</title>');
