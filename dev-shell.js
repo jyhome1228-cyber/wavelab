@@ -15,7 +15,7 @@ ensureStylesheet('motion-widgets.css?v=20260907-1','aesost-motion-widgets-css');
 ensureStylesheet('light-theme.css?v=20260907-1','aesost-light-theme-css');
 ensureStylesheet('light-theme-polish.css?v=20260907-1','aesost-light-theme-polish-css');
 ensureStylesheet('solution-custom-fit.css?v=20260907-1','aesost-solution-custom-fit-css');
-ensureStylesheet('sost-labs-system.css?v=20260921-4','aesost-sost-labs-css');
+ensureStylesheet('sost-labs-system.css?v=20260921-5','aesost-sost-labs-css');
 
 ensureScript('site-runtime.js?v=20260906-1','aesost-site-runtime');
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.setAttribute('content','#ffffff');else{const meta=document.createElement('meta');meta.name='theme-color';meta.content='#ffffff';document.head.appendChild(meta)}
