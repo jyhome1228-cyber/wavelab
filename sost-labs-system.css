@@ -856,3 +856,226 @@ img{max-width:100%;height:auto}
     margin-left:0!important;
   }
 }
+
+
+/* LOUD-inspired centered editorial hierarchy / 2026-09-21 */
+/* Keep page hierarchy restrained: one centered editorial rail instead of
+   label-left/title-right split layouts. */
+:root{
+  --fs-display:clamp(34px,2.9vw,42px)!important;
+  --fs-h1:clamp(32px,2.6vw,40px)!important;
+  --fs-h2:clamp(26px,2.1vw,34px)!important;
+  --fs-h3:clamp(22px,1.65vw,27px)!important;
+}
+
+/* Page heroes */
+.page-hero{
+  padding:104px 0 96px!important;
+}
+.page-hero-grid,
+.services-page .page-hero-grid,
+.works-page .page-hero-grid,
+.solutions-page .page-hero-grid{
+  display:block!important;
+  width:min(calc(100% - 48px),1440px)!important;
+  max-width:1440px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.page-hero-grid>.eyebrow{
+  width:auto!important;
+  max-width:none!important;
+  margin:0 auto 22px!important;
+  text-align:center!important;
+}
+.page-hero-grid>div{
+  width:min(100%,920px)!important;
+  max-width:920px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.page-title,
+.page-hero-grid .page-title{
+  max-width:820px!important;
+  margin-inline:auto!important;
+  font-size:var(--fs-h1)!important;
+  font-weight:500!important;
+  line-height:1.2!important;
+  letter-spacing:-.042em!important;
+}
+.page-hero .lead,
+.page-hero-grid .lead{
+  max-width:760px!important;
+  margin:24px auto 0!important;
+  text-align:center!important;
+  font-size:17px!important;
+  line-height:1.72!important;
+}
+
+/* Shared section introductions */
+.section-head,
+.services-page .section-head{
+  display:block!important;
+  width:min(100%,920px)!important;
+  max-width:920px!important;
+  margin:0 auto 64px!important;
+  text-align:center!important;
+}
+.section-head>.eyebrow{
+  width:auto!important;
+  max-width:none!important;
+  margin:0 auto 20px!important;
+  text-align:center!important;
+}
+.section-head>.section-copy{
+  width:100%!important;
+  max-width:920px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+.section-title,
+.section-head .section-title{
+  max-width:820px!important;
+  margin-inline:auto!important;
+  font-size:var(--fs-h2)!important;
+  font-weight:510!important;
+  line-height:1.32!important;
+  letter-spacing:-.036em!important;
+}
+.section-head .section-copy>p{
+  max-width:720px!important;
+  margin:22px auto 0!important;
+  text-align:center!important;
+  font-size:17px!important;
+  line-height:1.7!important;
+}
+
+/* Hero/section hierarchy should never jump to oversized bold display styles. */
+.display,
+.home-simple .display{
+  max-width:760px!important;
+  font-size:var(--fs-display)!important;
+  font-weight:500!important;
+  line-height:1.18!important;
+  letter-spacing:-.044em!important;
+}
+.solution-copy h3,
+.primary-service h3,
+.process-step h3,
+.capability h3,
+.process-compact h3,
+.work-row h3,
+.case-body h2,
+.case-card h2,
+.project-info h3,
+.solution-index-card h3,
+.solution-catalog-card h3,
+.request-section-head h2{
+  font-size:var(--fs-h3)!important;
+  font-weight:540!important;
+}
+
+/* Center the System Solutions hero metrics without disturbing their inner layout. */
+.solutions-index-page .solution-index-stats{
+  margin:32px auto 0!important;
+}
+.solutions-index-page .solution-index-head{
+  margin-bottom:56px!important;
+}
+
+/* Request intro follows the same centered page rhythm; form stays left-aligned. */
+.request-intro{
+  max-width:860px!important;
+  margin:0 auto 80px!important;
+  text-align:center!important;
+}
+.request-intro .eyebrow{margin-bottom:22px!important}
+.request-intro h1{
+  max-width:820px!important;
+  margin-inline:auto!important;
+  font-size:var(--fs-h1)!important;
+  font-weight:500!important;
+  line-height:1.2!important;
+}
+.request-intro>p:last-child{
+  max-width:720px!important;
+  margin:24px auto 0!important;
+  font-size:17px!important;
+  line-height:1.72!important;
+}
+.request-page form{
+  max-width:1040px!important;
+  margin-inline:auto!important;
+}
+
+/* Keep the section content itself full-width after the centered intro. */
+.services-page .solution-stack,
+.services-page .process-compact,
+.solutions-index-page .solution-index-grid,
+.solutions-index-page .solution-custom-grid,
+.works-page #concept-systems .project-grid,
+.works-page .section:not(.soft) .process-compact,
+.about-page .section .process-compact,
+.about-page .section .solution-stack,
+.technology-page .tech-capability-grid,
+.technology-page .system-map,
+.technology-page .engineering-scope,
+.technology-page .implementation-grid,
+.technology-page .stack-table,
+.technology-page .principle-grid{
+  width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+/* Spacing creates hierarchy instead of type size. */
+.section{padding:108px 0!important}
+.section.soft{padding:108px 0!important}
+.cta-section{padding:88px 0!important}
+.cta-grid{
+  max-width:980px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+  grid-template-columns:1fr!important;
+  justify-items:center!important;
+  gap:32px!important;
+}
+.cta-grid h2{
+  max-width:760px!important;
+  margin-inline:auto!important;
+  font-size:var(--fs-h2)!important;
+}
+.cta-grid p{
+  max-width:680px!important;
+  margin-inline:auto!important;
+}
+
+@media(max-width:760px){
+  :root{
+    --fs-display:clamp(30px,8.5vw,36px)!important;
+    --fs-h1:clamp(29px,8vw,35px)!important;
+    --fs-h2:clamp(24px,7vw,29px)!important;
+    --fs-h3:clamp(21px,6.2vw,25px)!important;
+  }
+  .page-hero{padding:76px 0 68px!important}
+  .page-hero-grid,
+  .services-page .page-hero-grid,
+  .works-page .page-hero-grid,
+  .solutions-page .page-hero-grid{
+    width:calc(100% - 32px)!important;
+  }
+  .page-hero-grid>.eyebrow{margin-bottom:16px!important}
+  .page-hero .lead,.page-hero-grid .lead{margin-top:20px!important;font-size:16px!important}
+  .section{padding:76px 0!important}
+  .section.soft{padding:76px 0!important}
+  .section-head,
+  .services-page .section-head{
+    width:100%!important;
+    margin-bottom:42px!important;
+  }
+  .section-head>.eyebrow{margin-bottom:16px!important}
+  .section-head .section-copy>p{margin-top:18px!important;font-size:16px!important}
+  .request-intro{margin-bottom:56px!important}
+  .request-intro>p:last-child{font-size:16px!important}
+  .cta-section{padding:72px 0!important}
+}
