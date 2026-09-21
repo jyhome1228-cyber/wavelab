@@ -6,17 +6,17 @@
   --purple-strong:#5f47f5!important;
   --brand:#6f58ff!important;
   --brand-soft:#f2efff!important;
-  --site-container:1360px;
+  --site-container:1380px;
   --site-gutter:40px;
-  --header-height:96px!important;
-  --aesost-label-column:180px!important;
+  --header-height:100px!important;
+  --aesost-label-column:160px!important;
   --aesost-label-gap:48px!important;
 }
 
 /* One rail everywhere */
 .shell,
 .page-hero-grid{
-  width:min(calc(100% - 80px),var(--site-container))!important;
+  width:min(calc(100% - 96px),var(--site-container))!important;
   max-width:var(--site-container)!important;
   margin-left:auto!important;
   margin-right:auto!important;
@@ -68,8 +68,8 @@
   gap:32px!important;
 }
 .dev-brand{
-  width:190px!important;
-  flex:0 0 190px!important;
+  width:238px!important;
+  flex:0 0 238px!important;
 }
 .dev-brand img{
   width:100%!important;
@@ -113,7 +113,7 @@
 
 /* Footer logo uses the same master mark, but with stronger presence */
 .footer-brand{
-  width:210px!important;
+  width:230px!important;
 }
 .footer-brand img{
   width:100%!important;
@@ -180,8 +180,8 @@
     width:min(calc(100% - 56px),var(--site-container))!important;
   }
   .dev-brand{
-    width:170px!important;
-    flex-basis:170px!important;
+    width:210px!important;
+    flex-basis:210px!important;
   }
   .dev-nav{gap:18px!important}
   .dev-nav a{font-size:11px!important}
@@ -192,8 +192,8 @@
   .dev-nav,.dev-contact{display:none!important}
   .dev-menu{display:block!important}
   .dev-brand{
-    width:175px!important;
-    flex-basis:175px!important;
+    width:198px!important;
+    flex-basis:198px!important;
   }
   .dev-nav a:after{display:none!important}
 }
@@ -213,8 +213,8 @@
   }
   .dev-header-inner{height:78px!important}
   .dev-brand{
-    width:158px!important;
-    flex-basis:158px!important;
+    width:176px!important;
+    flex-basis:176px!important;
   }
   .page-hero{
     padding:76px 0 58px!important;
@@ -231,5 +231,80 @@
   .section-title{
     font-size:clamp(27px,7.6vw,34px)!important;
   }
-  .footer-brand{width:178px!important}
+  .footer-brand{width:190px!important}
+}
+
+
+/* Hard alignment guards */
+.page-hero-grid,
+.section-head{
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.page-hero-grid>.eyebrow,
+.section-head>.eyebrow{
+  margin-left:0!important;
+  padding-left:0!important;
+}
+.page-hero-grid>div,
+.section-head>.section-copy{
+  margin-left:0!important;
+  padding-left:0!important;
+}
+
+/* Services page rail correction */
+.services-page .page-hero-grid,
+.services-page .section-head{
+  grid-template-columns:var(--aesost-label-column) minmax(0,1fr)!important;
+  gap:var(--aesost-label-gap)!important;
+}
+.services-page .solution-stack,
+.services-page .process-compact{
+  width:calc(100% - var(--aesost-label-column) - var(--aesost-label-gap))!important;
+  margin-left:calc(var(--aesost-label-column) + var(--aesost-label-gap))!important;
+  margin-right:0!important;
+}
+.services-page .solution-row,
+.services-page .solution-row.reverse{
+  grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr)!important;
+  gap:clamp(42px,5vw,72px)!important;
+  align-items:center!important;
+}
+.services-page .solution-row.reverse .solution-visual{order:2!important}
+.services-page .solution-row.reverse .solution-copy{order:1!important}
+.services-page .solution-copy{
+  max-width:520px!important;
+}
+.services-page .solution-copy h3{
+  margin-top:14px!important;
+}
+.services-page .section-head + .solution-stack{
+  margin-top:4px!important;
+}
+
+/* Keep shared marketing sections on the same visual start line */
+.about-principles,
+.definition-grid,
+.project-grid,
+.case-grid{
+  min-width:0!important;
+}
+
+@media(max-width:1100px){
+  .services-page .solution-row,
+  .services-page .solution-row.reverse{
+    grid-template-columns:1fr!important;
+    gap:30px!important;
+  }
+  .services-page .solution-row.reverse .solution-visual,
+  .services-page .solution-row.reverse .solution-copy{
+    order:initial!important;
+  }
+}
+@media(max-width:900px){
+  .services-page .solution-stack,
+  .services-page .process-compact{
+    width:100%!important;
+    margin-left:0!important;
+  }
 }
