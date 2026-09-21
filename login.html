@@ -21,7 +21,7 @@
         <a class="auth-brand" href="index.html" aria-label="AESOST TECHNOLOGY 홈으로 이동">
           <img src="aesost-logo-dark.svg?v=20260921-2" alt="AESOST TECHNOLOGY">
         </a>
-        <span class="auth-context" data-auth-context>ACCOUNT</span>
+        <span class="auth-context" data-auth-context>ADMIN ACCESS</span>
       </div>
 
       <div class="auth-admin-note" data-admin-note>
@@ -29,8 +29,8 @@
       </div>
 
       <div class="auth-panel is-active" data-auth-panel="login">
-        <h1 id="auth-title" data-login-title>로그인</h1>
-        <p data-login-copy>AESOST TECHNOLOGY 계정으로 로그인해 주세요.</p>
+        <h1 id="auth-title" data-login-title>관리자 로그인</h1>
+        <p data-login-copy>AESOST TECHNOLOGY 운영 콘솔에 접근합니다.</p>
 
         <form class="auth-form" data-login-form>
           <label>
@@ -70,20 +70,15 @@
 
   <script src="dev-shell.js?v=20260921-2"></script>
   <script>
-    (()=>{
-      const params=new URLSearchParams(location.search);
-      const next=params.get('next')||'';
-      const adminMode=next==='admin/'||next==='admin'||next.startsWith('admin/');
-      const body=document.body;
-      const activate=name=>{
-      if(adminMode){
-        body.classList.add('is-admin-login');
-        document.querySelector('[data-auth-context]').textContent='ADMIN ACCESS';
-        document.querySelector('[data-login-title]').textContent='관리자 로그인';
-        document.querySelector('[data-login-copy]').textContent='AESOST TECHNOLOGY 운영 콘솔에 접근합니다.';
-        document.title='관리자 로그인 | AESOST TECHNOLOGY';
-        activate('login');
-      }
+    (() => {
+      document.body.classList.add('is-admin-login');
+      const context=document.querySelector('[data-auth-context]');
+      const title=document.querySelector('[data-login-title]');
+      const copy=document.querySelector('[data-login-copy]');
+      if(context)context.textContent='ADMIN ACCESS';
+      if(title)title.textContent='관리자 로그인';
+      if(copy)copy.textContent='AESOST TECHNOLOGY 운영 콘솔에 접근합니다.';
+      document.title='관리자 로그인 | AESOST TECHNOLOGY';
     })();
   </script>
   <script type="module" src="firebase-auth.js?v=20260907-1"></script>
