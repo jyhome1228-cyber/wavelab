@@ -3,7 +3,7 @@ const isDemoPath=location.pathname.includes('/demo/');
 const isActive=(url)=>current===url;
 const solutionPages=['system-solutions.html','solution-solodesk.html','solution-b2b-inquiry.html','solution-company-cms.html','solution-client-portal.html','solution-booking-os.html','solution-vendor-desk.html','solution-membership-admin.html','solution-support-desk.html','solution-project-room.html','solution-quote-flow.html'];
 const solutionsActive=solutionPages.includes(current)||isDemoPath;
-const logo='<img src="aesost-logo-dark.svg?v=20260907-1" alt="AESOST">';
+const logo='<img src="aesost-logo-dark.svg?v=20260921-1" alt="AESOST">';
 const activeAttr=(url)=>isActive(url)?' aria-current="page"':'';
 function ensureStylesheet(href,id){if(document.getElementById(id))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.id=id;document.head.appendChild(link)}
 function ensureScript(src,id){if(document.getElementById(id))return;const script=document.createElement('script');script.src=src;script.defer=true;script.id=id;document.head.appendChild(script)}
