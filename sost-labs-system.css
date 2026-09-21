@@ -862,10 +862,10 @@ img{max-width:100%;height:auto}
 /* Keep page hierarchy restrained: one centered editorial rail instead of
    label-left/title-right split layouts. */
 :root{
-  --fs-display:clamp(34px,2.9vw,42px)!important;
-  --fs-h1:clamp(32px,2.6vw,40px)!important;
-  --fs-h2:clamp(26px,2.1vw,34px)!important;
-  --fs-h3:clamp(22px,1.65vw,27px)!important;
+  --fs-display:clamp(32px,2.6vw,38px)!important;
+  --fs-h1:clamp(30px,2.3vw,36px)!important;
+  --fs-h2:clamp(25px,1.9vw,32px)!important;
+  --fs-h3:clamp(21px,1.5vw,26px)!important;
 }
 
 /* Page heroes */
