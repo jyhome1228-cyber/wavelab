@@ -23,7 +23,9 @@ for(const slug of demos){
   html=replaceOrInsert(html,/<meta\s+name=["']theme-color["'][^>]*>/i,'<meta name="theme-color" content="#ffffff">');
   html=replaceOrInsert(html,/<meta\s+name=["']color-scheme["'][^>]*>/i,'<meta name="color-scheme" content="light">');
   html=html.replace(/<title>([\s\S]*?)\s+—\s+AESOST\s+Concept System<\/title>/i,'<title>$1 — AESOST TECHNOLOGY Concept System</title>');
-  html=html.replace(/>AESOST</g,'>AESOST TECHNOLOGY<');
+  html=html.replaceAll('AESOST CONCEPT SYSTEM','AESOST TECHNOLOGY CONCEPT SYSTEM');
+  html=html.replaceAll('AESOST Project Team','AESOST TECHNOLOGY Project Team');
+  html=html.replaceAll('에이소스트 주식회사','에이소스트 테크놀로지');
   html=ensureHeadTag(html,'aesost-demo-critical-light',critical);
 
   const fix=directFix[slug];
