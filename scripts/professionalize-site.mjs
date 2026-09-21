@@ -11,7 +11,7 @@ const pages=[
 
 const companyCss='company-polish.css?v=20260921-5';
 const interactionCss='enterprise-interaction.css?v=20260921-4';
-const qaCss='qa-final.css?v=20260921-1';
+const qaCss='qa-final.css?v=20260921-2';
 const errors=[];
 
 if(!fs.existsSync(path.join(root,'company-polish.css')))errors.push('company-polish.css is missing');
