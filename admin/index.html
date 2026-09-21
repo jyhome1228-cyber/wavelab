@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#f6f7f9">
-  <title>AESOST Admin</title>
+  <title>AESOST TECHNOLOGY Admin</title>
   <link rel="icon" href="../favicon.svg?v=20260803-4" type="image/svg+xml">
-  <link rel="stylesheet" href="admin-current.css?v=20260921-1">
+  <link rel="stylesheet" href="admin-current.css?v=20260921-2">
 </head>
 <body>
   <section class="admin-gate" data-admin-gate>
     <div class="gate-grid" aria-hidden="true"></div>
     <div class="gate-card">
       <a class="gate-brand" href="../index.html" aria-label="AESOST TECHNOLOGY 홈으로 이동">
-        <img src="../aesost-logo-dark.svg?v=20260921-1" alt="AESOST TECHNOLOGY">
+        <img src="../aesost-logo-dark.svg?v=20260921-2" alt="AESOST TECHNOLOGY">
       </a>
-      <p class="gate-kicker">AESOST BUSINESS CONSOLE</p>
+      <p class="gate-kicker">AESOST TECHNOLOGY BUSINESS CONSOLE</p>
       <h1 data-admin-gate-title>관리자 계정 확인 중</h1>
       <p class="gate-copy" data-admin-gate-message>관리자 권한과 운영 데이터를 확인하고 있습니다.</p>
       <div class="gate-actions" data-admin-gate-actions hidden>
@@ -31,7 +31,7 @@
     <aside class="admin-sidebar">
       <div>
         <a class="sidebar-brand" href="../index.html" aria-label="AESOST TECHNOLOGY 홈">
-          <img src="../aesost-logo-dark.svg?v=20260921-1" alt="AESOST TECHNOLOGY">
+          <img src="../aesost-logo-dark.svg?v=20260921-2" alt="AESOST TECHNOLOGY">
         </a>
         <p class="sidebar-caption">BUSINESS CONSOLE</p>
         <nav class="sidebar-nav" aria-label="관리자 메뉴">
@@ -39,7 +39,7 @@
           <a href="#requests" data-admin-nav="requests"><span>02</span>프로젝트 문의</a>
           <a href="#solutions" data-admin-nav="solutions"><span>03</span>솔루션</a>
           <a href="#visitors" data-admin-nav="visitors"><span>04</span>방문자</a>
-          <a href="#members" data-admin-nav="members"><span>05</span>회원</a>
+          
         </nav>
       </div>
       <div class="sidebar-foot">
@@ -65,13 +65,13 @@
         <section class="admin-view is-active" id="dashboard" data-admin-view="dashboard">
           <div class="view-head">
             <div><span>BUSINESS OVERVIEW</span><h2>오늘 확인할 운영 상태</h2></div>
-            <p>문의, 방문자, 회원과 공개 솔루션을 한 화면에서 요약합니다.</p>
+            <p>문의, 방문자와 공개 솔루션 상태를 한 화면에서 요약합니다.</p>
           </div>
           <div class="business-metrics">
             <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4z"/><path d="M8 9h8M8 13h5"/></svg></i><span>NEW REQUESTS</span><strong data-admin-new-requests>—</strong><p>확인하지 않은 신규 문의</p></article>
             <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M4 19V5h16v14z"/><path d="M8 15V9M12 15v-3M16 15V7"/></svg></i><span>ACTIVE PIPELINE</span><strong data-admin-active-requests>—</strong><p>연락·제안 진행 중</p></article>
             <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg></i><span>TODAY VISITORS</span><strong data-dashboard-visitors>—</strong><p>오늘 순 방문자</p></article>
-            <article class="business-metric"><i><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></i><span>TOTAL MEMBERS</span><strong data-dashboard-members>—</strong><p>누적 가입 회원</p></article>
+            <article class="business-metric"><i><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></i><span>LIVE SYSTEMS</span><strong>10</strong><p>공개 솔루션 및 데모</p></article>
           </div>
 
           <div class="dashboard-grid">
@@ -139,43 +139,6 @@
             <div class="panel-head"><div><span>VISITOR TREND</span><h3>최근 14일 방문 추이</h3></div><p data-visitor-summary>방문 데이터를 불러오는 중입니다.</p></div>
             <div class="visitor-chart" data-visitor-chart></div>
             <p class="panel-note">개인정보는 저장하지 않으며 익명 브라우저 ID와 방문 날짜 기준으로 집계합니다.</p>
-          </article>
-        </section>
-
-        <section class="admin-view" id="members" data-admin-view="members" hidden>
-          <div class="view-head">
-            <div><span>MEMBERS</span><h2>회원</h2></div>
-            <p>가입 현황과 최근 로그인, 회원 상태를 확인합니다.</p>
-          </div>
-          <div class="metric-grid">
-            <article class="metric-card metric-main"><span>TOTAL MEMBERS</span><strong data-total-users>—</strong><p>누적 가입 회원</p></article>
-            <article class="metric-card"><span>NEW · 7 DAYS</span><strong data-new-users>—</strong><p>최근 7일 신규 가입</p></article>
-            <article class="metric-card"><span>ACTIVE · 30 DAYS</span><strong data-active-users>—</strong><p>최근 30일 로그인</p></article>
-            <article class="metric-card"><span>TODAY LOGIN</span><strong data-today-users>—</strong><p>오늘 로그인 회원</p></article>
-          </div>
-          <div class="analytics-grid">
-            <article class="dashboard-panel growth-panel">
-              <div class="panel-head"><div><span>MEMBER GROWTH</span><h3>최근 14일 가입 추이</h3></div><p data-growth-summary>데이터를 불러오는 중입니다.</p></div>
-              <div class="growth-chart" data-growth-chart></div>
-            </article>
-            <article class="dashboard-panel status-panel">
-              <div class="panel-head"><div><span>ACCOUNT STATUS</span><h3>회원 상태</h3></div></div>
-              <div class="status-overview" data-status-overview></div>
-            </article>
-          </div>
-          <article class="dashboard-panel members-panel">
-            <div class="panel-head member-panel-head">
-              <div><span>MEMBER DIRECTORY</span><h3>가입 회원</h3></div>
-              <div class="member-tools">
-                <input type="search" placeholder="이름 또는 이메일 검색" data-member-search aria-label="회원 검색">
-                <select data-date-filter aria-label="가입 기간 필터"><option value="all">전체 기간</option><option value="7">최근 7일</option><option value="30">최근 30일</option><option value="90">최근 90일</option></select>
-                <button type="button" data-export-csv>CSV 내보내기</button>
-              </div>
-            </div>
-            <div class="member-table-wrap">
-              <table><thead><tr><th>회원</th><th>이메일</th><th>가입일</th><th>최근 로그인</th><th>상태</th></tr></thead><tbody data-member-rows><tr><td colspan="5"><div class="empty-state"><strong>회원 데이터를 불러오는 중입니다.</strong></div></td></tr></tbody></table>
-            </div>
-            <div class="table-footer"><span data-filtered-count>0명 표시</span><span>MEMBERS</span></div>
           </article>
         </section>
 
